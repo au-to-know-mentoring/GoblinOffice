@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e1af85ad47d44444eb922a697999813c
+guid: 5227ce3212095ed4f9c87f8592ee3a4a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,12 +105,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trollspritesheettest_0
+      name: trollspritetestphotoshop_0
       rect:
         serializedVersion: 2
         x: 0
         y: 768
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -119,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dd7d3c043b35ef498940baeb2f83a76
-      internalID: 1529310926
+      spriteID: 84d108b1b209eda43bc2641aeb92856a
+      internalID: -1495711430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_1
+      name: trollspritetestphotoshop_1
       rect:
         serializedVersion: 2
-        x: 255
+        x: 256
         y: 768
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -140,19 +140,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eab348c2bebb18046a5ce484309b3f1d
-      internalID: 1459643568
+      spriteID: e83a41272a71c254ca1b521c7120fc49
+      internalID: -304180193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_2
+      name: trollspritetestphotoshop_2
       rect:
         serializedVersion: 2
-        x: 510
+        x: 512
         y: 768
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -161,19 +161,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22a121de81fdb6341916382a85a7e355
-      internalID: 1796213879
+      spriteID: c496fc20760e66b449c8a1ec1c2a4602
+      internalID: -901674450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_3
+      name: trollspritetestphotoshop_3
       rect:
         serializedVersion: 2
-        x: 765
+        x: 768
         y: 768
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -182,19 +182,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd5daaca99151ff4f841d8e3d55775dc
-      internalID: -820302540
+      spriteID: 0c26980cd8891654db134a4e7aa5aab0
+      internalID: -369739421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_4
+      name: trollspritetestphotoshop_4
       rect:
         serializedVersion: 2
-        x: 1020
+        x: 1024
         y: 768
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -203,19 +203,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cc74867f7f75064f836c9e486f6df0d
-      internalID: -1414715544
+      spriteID: 180dded97a9402149bf68d795611733b
+      internalID: 488843706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_5
+      name: trollspritetestphotoshop_5
       rect:
         serializedVersion: 2
-        x: 1275
+        x: 1280
         y: 768
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,19 +224,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a672560437c02794aa94f1d0626c60e4
-      internalID: 475574573
+      spriteID: 7e48e0f31f245bb4bafe969a9cfa2595
+      internalID: -1352367972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_6
+      name: trollspritetestphotoshop_6
       rect:
         serializedVersion: 2
-        x: 1530
+        x: 1536
         y: 768
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -245,19 +245,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c3f703f89c9af34c9d9d372f8e9087d
-      internalID: -1865172890
+      spriteID: 61e811a941bd246428e9337c377ab2ea
+      internalID: 448933747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_7
+      name: trollspritetestphotoshop_7
       rect:
         serializedVersion: 2
-        x: 1785
+        x: 1792
         y: 768
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -266,19 +266,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57016dfc0eeb7144da028056cb33ab4b
-      internalID: -615279860
+      spriteID: 74127f3b67753754cbd5bdd3b4efbff8
+      internalID: 597257978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_8
+      name: trollspritetestphotoshop_8
       rect:
         serializedVersion: 2
         x: 0
         y: 512
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -287,19 +287,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bdb5c85e984a2341abf60edf9d2ec3d
-      internalID: 2095547304
+      spriteID: b9f029c302dc6a84da708d69a4749e7f
+      internalID: 976461196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_9
+      name: trollspritetestphotoshop_9
       rect:
         serializedVersion: 2
-        x: 255
+        x: 256
         y: 512
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -308,19 +308,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 883a25677ed37df459651cb351d4234b
-      internalID: 472951243
+      spriteID: 5928c09e67a90cd4bb2cb0c12eb62abf
+      internalID: -1330059294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_10
+      name: trollspritetestphotoshop_10
       rect:
         serializedVersion: 2
-        x: 510
+        x: 512
         y: 512
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -329,19 +329,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3fd808eec6db98498ea7a3858c1e0a0
-      internalID: -2143252075
+      spriteID: ed2a07a94228be04e80c805f49e3a3d2
+      internalID: -801795984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_11
+      name: trollspritetestphotoshop_11
       rect:
         serializedVersion: 2
-        x: 765
+        x: 768
         y: 512
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -350,19 +350,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76a9944ad8a54a1468a4a00276a4897b
-      internalID: 1924969663
+      spriteID: 627e8d6c0fb1b784c8aa9747d16fc3b2
+      internalID: -968338529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_12
+      name: trollspritetestphotoshop_12
       rect:
         serializedVersion: 2
-        x: 1020
+        x: 1024
         y: 512
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -371,19 +371,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 560d0317426fdb24cbf0142f4d8fe617
-      internalID: -792210547
+      spriteID: 7652a8d97d5cef9449db78c7f4293562
+      internalID: -31135097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_13
+      name: trollspritetestphotoshop_13
       rect:
         serializedVersion: 2
-        x: 1275
+        x: 1280
         y: 512
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -392,19 +392,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b999cba7dc1e4f14890481cc00259cfb
-      internalID: -1427605686
+      spriteID: 38af8bc5c02a9c4439f4aa6f0a321219
+      internalID: -2089169748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_14
+      name: trollspritetestphotoshop_14
       rect:
         serializedVersion: 2
-        x: 1530
+        x: 1536
         y: 512
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -413,19 +413,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c6ebe4da4472a24582887346a03442f
-      internalID: -1537183784
+      spriteID: b38349b4e5111e042b6c0445d0ee33f6
+      internalID: 1866615710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_15
+      name: trollspritetestphotoshop_15
       rect:
         serializedVersion: 2
-        x: 1785
+        x: 1792
         y: 512
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -434,19 +434,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e880cc8413cf9c541bcbcceaf653b95d
-      internalID: 177135373
+      spriteID: 4b79c1904a8940e44a414107844f6574
+      internalID: 946038684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_16
+      name: trollspritetestphotoshop_16
       rect:
         serializedVersion: 2
         x: 0
         y: 256
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -455,19 +455,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba585a324ea90a94a8e23b0e7844780b
-      internalID: -653870202
+      spriteID: 0d1cc83498b9e4a48ab4ef9ca773b816
+      internalID: -536534669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_17
+      name: trollspritetestphotoshop_17
       rect:
         serializedVersion: 2
-        x: 255
+        x: 256
         y: 256
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -476,19 +476,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d5f3cd85d1caed4ab30eef12e44107c
-      internalID: 1401203284
+      spriteID: 709679751f4ea7444bb7b7c6be1ecd40
+      internalID: -1501100427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_18
+      name: trollspritetestphotoshop_18
       rect:
         serializedVersion: 2
-        x: 510
+        x: 512
         y: 256
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -497,19 +497,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f98ee8a6fad1bf479b277365b11f728
-      internalID: 801275448
+      spriteID: 02aef63d63594e24685697bd56d7acfa
+      internalID: 844898653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_19
+      name: trollspritetestphotoshop_19
       rect:
         serializedVersion: 2
-        x: 765
+        x: 768
         y: 256
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -518,19 +518,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe1155df421b23c4fbd61d0503f92f72
-      internalID: 1591307428
+      spriteID: 23372131bc2226b4baf2bfb4b6198647
+      internalID: 1493042757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_20
+      name: trollspritetestphotoshop_20
       rect:
         serializedVersion: 2
-        x: 1020
+        x: 1024
         y: 256
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -539,19 +539,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e73074296795a54da36214ca3827434
-      internalID: 1126016606
+      spriteID: a9e39107343102b45810a9638952f4fb
+      internalID: 701030368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_21
+      name: trollspritetestphotoshop_21
       rect:
         serializedVersion: 2
-        x: 1275
+        x: 1280
         y: 256
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -560,19 +560,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db1686bf1ba12454bbea0a17bb3a0475
-      internalID: -1792931156
+      spriteID: d4407deb836db2b468114d6caac7b4dd
+      internalID: 1571108981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_22
+      name: trollspritetestphotoshop_22
       rect:
         serializedVersion: 2
-        x: 1530
+        x: 1536
         y: 256
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -581,19 +581,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cf47367f1beaf049a011e8466486e46
-      internalID: -136269463
+      spriteID: 805ba390cfe9da047bd9176da3fcdf76
+      internalID: 1308885805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_23
+      name: trollspritetestphotoshop_23
       rect:
         serializedVersion: 2
-        x: 1785
+        x: 1792
         y: 256
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -602,19 +602,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99ffa9fa55ae4af48a4fb5354c71b666
-      internalID: 1774438364
+      spriteID: 65268a6ff53e2744596b88dc94904831
+      internalID: -788509327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_24
+      name: trollspritetestphotoshop_24
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -623,19 +623,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 792c83c76759fa146aa33d247f493d25
-      internalID: 891827556
+      spriteID: 24ee92c557419e74d9556dbc81efb016
+      internalID: 1217903230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_25
+      name: trollspritetestphotoshop_25
       rect:
         serializedVersion: 2
-        x: 255
+        x: 256
         y: 0
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -644,19 +644,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a208201db2460646b0af44625dd8faf
-      internalID: 1090067850
+      spriteID: c8a218a4062a1c54bb09dcdbdbffa3bf
+      internalID: -2009092170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_26
+      name: trollspritetestphotoshop_26
       rect:
         serializedVersion: 2
-        x: 510
+        x: 512
         y: 0
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -665,19 +665,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11638017971760c43a435a383dccd220
-      internalID: 922819672
+      spriteID: 50f389d9928c56c41b79a760d120db41
+      internalID: -1878316104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollspritesheettest_27
+      name: trollspritetestphotoshop_27
       rect:
         serializedVersion: 2
-        x: 765
+        x: 768
         y: 0
-        width: 255.875
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -686,8 +686,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13a962de26d244744839dd0935e05980
-      internalID: 611326712
+      spriteID: 0c54664c06b9b8d42962fd5d068de38a
+      internalID: 651826026
       vertices: []
       indices: 
       edges: []
@@ -703,34 +703,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      trollspritesheettest_14: -1537183784
-      trollspritesheettest_1: 1459643568
-      trollspritesheettest_17: 1401203284
-      trollspritesheettest_12: -792210547
-      trollspritesheettest_27: 611326712
-      trollspritesheettest_18: 801275448
-      trollspritesheettest_4: -1414715544
-      trollspritesheettest_0: 1529310926
-      trollspritesheettest_21: -1792931156
-      trollspritesheettest_5: 475574573
-      trollspritesheettest_19: 1591307428
-      trollspritesheettest_25: 1090067850
-      trollspritesheettest_23: 1774438364
-      trollspritesheettest_20: 1126016606
-      trollspritesheettest_10: -2143252075
-      trollspritesheettest_7: -615279860
-      trollspritesheettest_2: 1796213879
-      trollspritesheettest_24: 891827556
-      trollspritesheettest_22: -136269463
-      trollspritesheettest_3: -820302540
-      trollspritesheettest_11: 1924969663
-      trollspritesheettest_15: 177135373
-      trollspritesheettest_9: 472951243
-      trollspritesheettest_6: -1865172890
-      trollspritesheettest_26: 922819672
-      trollspritesheettest_8: 2095547304
-      trollspritesheettest_13: -1427605686
-      trollspritesheettest_16: -653870202
+      trollspritetestphotoshop_22: 1308885805
+      trollspritetestphotoshop_14: 1866615710
+      trollspritetestphotoshop_23: -788509327
+      trollspritetestphotoshop_10: -801795984
+      trollspritetestphotoshop_4: 488843706
+      trollspritetestphotoshop_17: -1501100427
+      trollspritetestphotoshop_25: -2009092170
+      trollspritetestphotoshop_3: -369739421
+      trollspritetestphotoshop_16: -536534669
+      trollspritetestphotoshop_13: -2089169748
+      trollspritetestphotoshop_20: 701030368
+      trollspritetestphotoshop_24: 1217903230
+      trollspritetestphotoshop_27: 651826026
+      trollspritetestphotoshop_5: -1352367972
+      trollspritetestphotoshop_8: 976461196
+      trollspritetestphotoshop_12: -31135097
+      trollspritetestphotoshop_18: 844898653
+      trollspritetestphotoshop_7: 597257978
+      trollspritetestphotoshop_6: 448933747
+      trollspritetestphotoshop_15: 946038684
+      trollspritetestphotoshop_21: 1571108981
+      trollspritetestphotoshop_9: -1330059294
+      trollspritetestphotoshop_11: -968338529
+      trollspritetestphotoshop_2: -901674450
+      trollspritetestphotoshop_0: -1495711430
+      trollspritetestphotoshop_1: -304180193
+      trollspritetestphotoshop_26: -1878316104
+      trollspritetestphotoshop_19: 1493042757
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
