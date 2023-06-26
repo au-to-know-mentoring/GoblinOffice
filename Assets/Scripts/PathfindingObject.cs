@@ -29,7 +29,6 @@ public class PathfindingObject : MonoBehaviour
 
         // Initialize the grid
         InitializeGrid();
-        DrawDebugLines();
     }
 
     private void StartMovement()
@@ -45,45 +44,6 @@ public class PathfindingObject : MonoBehaviour
     }
 
     private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartMovement();
-        }
-
-        // Check if there is a path to follow
-        if (currentPath == null)
-            return;
-
-        // Calculate the current time ratio based on the arrival time
-        float timeRatio = (Time.time - startTime) / arrivalTime;
-
-        // Calculate the target position based on the current time ratio
-        Vector3 targetPosition;
-        if (timeRatio >= 1f)
-        {
-            // Reached the destination
-            Debug.Log("Desitination reached " + transform.position);
-            targetPosition = obstacleTilemap.CellToWorld(currentPath[currentPath.Count - 1].position) + offset;
-            Debug.Log("Target Position is: " + targetPosition.y);
-            if (transform.position == targetPosition)
-            {
-                currentPath = null;
-            }
-        }
-        else
-        {
-            // Calculate the index of the current target node in the path
-            int targetIndex = Mathf.Clamp(Mathf.FloorToInt(timeRatio * (currentPath.Count - 1)), 0, currentPath.Count - 1);
-            Node targetNode = currentPath[targetIndex];
-            targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
-        }
-
-        // Move the object towards the target position
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-    }
-
-    public void UpdatePath()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -223,6 +183,8 @@ public class PathfindingObject : MonoBehaviour
                 Vector3 startPoint = obstacleTilemap.CellToWorld(path[i].position) + obstacleTilemap.cellSize * 0.5f;
                 Vector3 endPoint = obstacleTilemap.CellToWorld(path[i + 1].position) + obstacleTilemap.cellSize * 0.5f;
                 Debug.DrawLine(startPoint, endPoint, Color.blue, 10000f);
+                path[i].isWalkable = false;
+
             }
         }
 

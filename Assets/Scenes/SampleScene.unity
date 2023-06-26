@@ -594,7 +594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &662012728
 GameObject:
@@ -690,13 +690,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 662012728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1ea80b88d37f844a7d6e22d02e939f, type: 3}
+  m_Script: {fileID: 11500000, guid: 625bc63ff2cd52e4ba0fc00c13f9687a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleTilemap: {fileID: 1403044099}
   start: {x: 1, y: 4, z: 0}
   target: {x: 1, y: -1, z: 0}
-  speed: 5
+  speed: 20
   arrivalTime: 5
 --- !u!1 &678398353
 GameObject:
@@ -3100,11 +3100,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1ea80b88d37f844a7d6e22d02e939f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleTilemap: {fileID: 1403044099}
+  obstacleTilemap: {fileID: 0}
   start: {x: 0, y: 0, z: 0}
   target: {x: 0, y: 0, z: 0}
   speed: 5
   arrivalTime: 5
+  obstacleTiles: []
+  startTime: 0
+  journeyLength: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!212 &1024393549
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3535,7 +3539,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1661228405
 GameObject:
@@ -3740,7 +3744,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1747842396}
   - component: {fileID: 1747842395}
-  - component: {fileID: 1747842394}
+  - component: {fileID: 1747842397}
   m_Layer: 0
   m_Name: Enemy (2)
   m_TagString: Untagged
@@ -3748,23 +3752,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1747842394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747842393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1ea80b88d37f844a7d6e22d02e939f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacleTilemap: {fileID: 1403044099}
-  start: {x: -3, y: 4, z: 0}
-  target: {x: -1, y: -1, z: 0}
-  speed: 5
-  arrivalTime: 5
 --- !u!212 &1747842395
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3830,8 +3817,25 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1747842397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747842393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625bc63ff2cd52e4ba0fc00c13f9687a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleTilemap: {fileID: 1403044099}
+  start: {x: -3, y: 4, z: 0}
+  target: {x: -1, y: -1, z: 0}
+  speed: 5
+  arrivalTime: 5
 --- !u!1 &1839897378
 GameObject:
   m_ObjectHideFlags: 0
@@ -3862,11 +3866,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1ea80b88d37f844a7d6e22d02e939f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleTilemap: {fileID: 1403044099}
+  obstacleTilemap: {fileID: 0}
   start: {x: 0, y: 0, z: 0}
   target: {x: 0, y: 0, z: 0}
   speed: 5
   arrivalTime: 5
+  obstacleTiles: []
+  startTime: 0
+  journeyLength: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!212 &1839897380
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3990,7 +3998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1967857129}
   - component: {fileID: 1967857128}
-  - component: {fileID: 1967857127}
+  - component: {fileID: 1967857130}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Untagged
@@ -3998,23 +4006,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1967857127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967857126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1ea80b88d37f844a7d6e22d02e939f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacleTilemap: {fileID: 1403044099}
-  start: {x: -1, y: 4, z: 0}
-  target: {x: 0, y: 0, z: 0}
-  speed: 5
-  arrivalTime: 5
 --- !u!212 &1967857128
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4082,6 +4073,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1967857130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967857126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625bc63ff2cd52e4ba0fc00c13f9687a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleTilemap: {fileID: 1403044099}
+  start: {x: -1, y: 4, z: 0}
+  target: {x: 0, y: 0, z: 0}
+  speed: 5
+  arrivalTime: 5
 --- !u!1 &2084591412
 GameObject:
   m_ObjectHideFlags: 0

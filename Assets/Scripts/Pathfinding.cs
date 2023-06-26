@@ -29,7 +29,6 @@
 
 //        // Initialize the grid
 //        InitializeGrid();
-//        DrawDebugLines();
 //    }
 
 //    private void StartMovement()
@@ -184,6 +183,8 @@
 //                Vector3 startPoint = obstacleTilemap.CellToWorld(path[i].position) + obstacleTilemap.cellSize * 0.5f;
 //                Vector3 endPoint = obstacleTilemap.CellToWorld(path[i + 1].position) + obstacleTilemap.cellSize * 0.5f;
 //                Debug.DrawLine(startPoint, endPoint, Color.blue, 10000f);
+//                path[i].isWalkable = false;
+                
 //            }
 //        }
 
