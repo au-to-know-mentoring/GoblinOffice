@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
-
 public class PathfindingObject : MonoBehaviour
 {
     public Tilemap obstacleTilemap;
@@ -293,23 +292,4 @@ public class PathfindingObject : MonoBehaviour
         return dstX + dstY;
     }
 
-    private class Node
-    {
-        public Vector3Int position;
-        public bool isWalkable;
-        public int gCost;
-        public int hCost;
-        public Node parent;
-
-        public int fCost => gCost + hCost;
-
-        public Node(Vector3Int pos)
-        {
-            position = pos;
-            isWalkable = true;
-            gCost = int.MaxValue;
-            hCost = 0;
-            parent = null;
-        }
-    }
 }
