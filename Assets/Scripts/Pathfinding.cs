@@ -5,8 +5,8 @@
 //public class Pathfinding : MonoBehaviour
 //{
 //    public Tilemap obstacleTilemap;
-//    public Vector3Int start;
-//    public Vector3Int target;
+//    public Vector3Int startPos;
+//    public Vector3Int targetPos;
 //    public float speed = 5f;
 //    public float arrivalTime = 5f;
 
@@ -34,12 +34,12 @@
 //    private void StartMovement()
 //    {
 //        // Find the path
-//        currentPath = FindPath(start, target);
+//        currentPath = FindPath(startPos, targetPos);
 //        if (currentPath != null)
 //        {
 //            // Start the movement
 //            startTime = Time.time;
-//            journeyLength = Vector3.Distance(start, target);
+//            journeyLength = Vector3.Distance(startPos, targetPos);
 //        }
 //    }
 
@@ -57,7 +57,7 @@
 //        // Calculate the current time ratio based on the arrival time
 //        float timeRatio = (Time.time - startTime) / arrivalTime;
 
-//        // Calculate the target position based on the current time ratio
+//        // Calculate the targetPos position based on the current time ratio
 //        Vector3 targetPosition;
 //        if (timeRatio >= 1f)
 //        {
@@ -72,13 +72,13 @@
 //        }
 //        else
 //        {
-//            // Calculate the index of the current target node in the path
+//            // Calculate the index of the current targetPos node in the path
 //            int targetIndex = Mathf.Clamp(Mathf.FloorToInt(timeRatio * (currentPath.Count - 1)), 0, currentPath.Count - 1);
 //            Node targetNode = currentPath[targetIndex];
 //            targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
 //        }
 
-//        // Move the object towards the target position
+//        // Move the object towards the targetPos position
 //        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 //    }
 
@@ -165,7 +165,7 @@
 
 //        if (!nodeDictionary.ContainsKey(startCell) || !nodeDictionary.ContainsKey(targetCell))
 //        {
-//            Debug.LogWarning("Invalid start or target position!");
+//            Debug.LogWarning("Invalid startPos or targetPos position!");
 //            return null;
 //        }
 

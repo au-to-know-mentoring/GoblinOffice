@@ -15,10 +15,10 @@ public class GridMovement : MonoBehaviour
     {
         if (isMoving)
         {
-            // Move towards the target position
+            // Move towards the targetPos position
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * moveSpeed);
 
-            // Check if the object has reached the target position
+            // Check if the object has reached the targetPos position
             if (transform.position == targetPosition)
             {
                 isMoving = false;
@@ -36,10 +36,10 @@ public class GridMovement : MonoBehaviour
             // Check if the next cell is valid (e.g., not an obstacle)
             if (IsCellValid(nextCell))
             {
-                // Calculate the target position in world coordinates
+                // Calculate the targetPos position in world coordinates
                 targetPosition = tilemap.GetCellCenterWorld(nextCell);
 
-                // Start moving towards the target position
+                // Start moving towards the targetPos position
                 isMoving = true;
             }
         }

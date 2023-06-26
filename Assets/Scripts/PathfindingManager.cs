@@ -8,7 +8,7 @@ public class PathfindingManager : MonoBehaviour
     public Tilemap obstacleTilemap;
     private TileBase[] obstacleTiles;
     private Vector3 offset;
-    private Dictionary<Vector3Int, Node> nodeDictionary = new Dictionary<Vector3Int, Node>();
+    public Dictionary<Vector3Int, Node> nodeDictionary = new Dictionary<Vector3Int, Node>();
     private void Start()
     {
         // Register all pathfinding objects in the scene
@@ -24,9 +24,21 @@ public class PathfindingManager : MonoBehaviour
         DrawDebugLines();
     }
 
+    public Dictionary<Vector3Int, Node> GetNodeDictionary()
+    {
+        return nodeDictionary;
+    }
     private void Update()
     {
         // Update the paths for all pathfinding objects
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            foreach(var pathFindingObject in pathfindingObjects) 
+            {
+               pathFindingObject.SetCurrentPath( FindPath(pathFindingObject.startPos, pathFindingObject.targetPos));
+               pathFindingObject.StartMovement();
+            }
+        }
         //UpdatePaths();
     }
 
@@ -35,6 +47,10 @@ public class PathfindingManager : MonoBehaviour
         // Find all pathfinding objects in the scene and add them to the list
         PathfindingObject[] objects = FindObjectsOfType<PathfindingObject>();
         pathfindingObjects.AddRange(objects);
+        foreach (var pathFindingObject in pathfindingObjects)
+        {
+            pathFindingObject.pathfindingManager= this;
+        }
     }
 
     //private void UpdatePaths()
@@ -143,7 +159,8 @@ public class PathfindingManager : MonoBehaviour
                 Vector3 startPoint = obstacleTilemap.CellToWorld(path[i].position) + obstacleTilemap.cellSize * 0.5f;
                 Vector3 endPoint = obstacleTilemap.CellToWorld(path[i + 1].position) + obstacleTilemap.cellSize * 0.5f;
                 Debug.DrawLine(startPoint, endPoint, Color.blue, 10000f);
-                path[i].isWalkable = false;
+                //Disable Path?
+                //path[i].isWalkable = false;
 
             }
         }

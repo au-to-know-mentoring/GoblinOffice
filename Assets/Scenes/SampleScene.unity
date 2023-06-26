@@ -3599,6 +3599,7 @@ MonoBehaviour:
   BlueBtn3: {fileID: 912590437}
   YellowBtn4: {fileID: 949336418}
   test: 0
+  GlobalSettingsObject: {fileID: 0}
 --- !u!1 &1732069529
 GameObject:
   m_ObjectHideFlags: 0

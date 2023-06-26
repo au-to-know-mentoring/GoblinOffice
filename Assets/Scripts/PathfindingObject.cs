@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+
 public class PathfindingObject : MonoBehaviour
 {
     public Tilemap obstacleTilemap;
-    public Vector3Int start;
-    public Vector3Int target;
+    public Vector3Int startPos;
+    public Vector3Int targetPos;
     public float speed = 5f;
     public float arrivalTime = 5f;
-
+    public PathfindingManager pathfindingManager;
     private TileBase[] obstacleTiles;
-    private Dictionary<Vector3Int, Node> nodeDictionary = new Dictionary<Vector3Int, Node>();
+    private Dictionary<Vector3Int, PathfindingManager.Node> nodeDictionary;
 
-    private List<Node> currentPath;
+    private List<PathfindingManager.Node> currentPath;
     private float startTime;
     private float journeyLength;
 
@@ -27,27 +28,30 @@ public class PathfindingObject : MonoBehaviour
         offset = new Vector3(0.5f, 0.5f, 0f);
 
         // Initialize the grid
-        InitializeGrid();
-    }
 
-    private void StartMovement()
+    }
+    public void SetCurrentPath(List<PathfindingManager.Node> FoundPath)
+    {
+        currentPath = FoundPath;
+    }
+    public void StartMovement()
     {
         // Find the path
-        currentPath = FindPath(start, target);
+
         if (currentPath != null)
         {
             // Start the movement
             startTime = Time.time;
-            journeyLength = Vector3.Distance(start, target);
+            journeyLength = Vector3.Distance(startPos, targetPos);
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartMovement();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    StartMovement();
+        //}
 
         // Check if there is a path to follow
         if (currentPath == null)
@@ -56,13 +60,13 @@ public class PathfindingObject : MonoBehaviour
         // Calculate the current time ratio based on the arrival time
         float timeRatio = (Time.time - startTime) / arrivalTime;
 
-        // Calculate the target position based on the current time ratio
+        // Calculate the targetPos position based on the current time ratio
         Vector3 targetPosition;
         if (timeRatio >= 1f)
         {
             // Reached the destination
             Debug.Log("Desitination reached " + transform.position);
-            targetPosition = obstacleTilemap.CellToWorld(currentPath[currentPath.Count - 1].position) + offset;
+            targetPosition = pathfindingManager.obstacleTilemap.CellToWorld(currentPath[currentPath.Count - 1].position) + offset;
             Debug.Log("Target Position is: " + targetPosition.y);
             if (transform.position == targetPosition)
             {
@@ -71,135 +75,26 @@ public class PathfindingObject : MonoBehaviour
         }
         else
         {
-            // Calculate the index of the current target node in the path
+            // Calculate the index of the current targetPos node in the path
             int targetIndex = Mathf.Clamp(Mathf.FloorToInt(timeRatio * (currentPath.Count - 1)), 0, currentPath.Count - 1);
-            Node targetNode = currentPath[targetIndex];
+            PathfindingManager.Node targetNode = currentPath[targetIndex];
             targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
         }
 
-        // Move the object towards the target position
+        // Move the object towards the targetPos position
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
     }
 
-
-
-    private void InitializeGrid()
+    private List<PathfindingManager.Node > AStar(PathfindingManager.Node  startNode, PathfindingManager.Node  targetNode)
     {
-        // Loop through each cell in the tilemap
-        foreach (var position in obstacleTilemap.cellBounds.allPositionsWithin)
-        {
-            Vector3Int cellPosition = new Vector3Int(position.x, position.y, position.z);
-
-            // Create a new node for the cell
-            Node node = new Node(cellPosition);
-
-            // Check if the cell contains an obstacle tile
-            if (obstacleTiles != null && obstacleTilemap.HasTile(cellPosition))
-            {
-                node.isWalkable = false;
-            }
-
-            // Add the node to the dictionary
-            nodeDictionary.Add(cellPosition, node);
-        }
-    }
-
-    private void DrawDebugLines()
-    {
-        // Draw debug lines for the grid
-        foreach (var node in nodeDictionary.Values)
-        {
-            Vector3Int cellPosition = node.position;
-            Vector3 worldPosition = obstacleTilemap.CellToWorld(cellPosition);
-            Vector3 cellSize = obstacleTilemap.cellSize;
-            Vector3 nodeCenter = worldPosition + new Vector3(cellSize.x / 2f, cellSize.y / 2f, 0f);
-            float radius = Mathf.Min(cellSize.x, cellSize.y) * 0.1f;
-
-            Debug.DrawRay(nodeCenter, Vector3.forward, Color.yellow, 9999f);
-            Debug.DrawRay(nodeCenter, Vector3.up * radius, Color.yellow, 9999f);
-            Debug.DrawRay(nodeCenter, Vector3.down * radius, Color.yellow, 9999f);
-            Debug.DrawRay(nodeCenter, Vector3.left * radius, Color.yellow, 9999f);
-            Debug.DrawRay(nodeCenter, Vector3.right * radius, Color.yellow, 9999f);
-
-
-
-            Vector3 topLeft = worldPosition + new Vector3(-cellSize.x / 2f + .5f, -cellSize.y / 2f + .5f);
-            Vector3 topRight = worldPosition + new Vector3(cellSize.x / 2f + .5f, -cellSize.y / 2f + .5f);
-            Vector3 bottomLeft = worldPosition + new Vector3(-cellSize.x / 2f + .5f, cellSize.y / 2f + .5f);
-            Vector3 bottomRight = worldPosition + new Vector3(cellSize.x / 2f + .5f, cellSize.y / 2f + .5f);
-
-            Debug.DrawLine(topLeft, topRight, Color.green, 100000f);
-            Debug.DrawLine(topRight, bottomRight, Color.green, 100000f);
-            Debug.DrawLine(bottomRight, bottomLeft, Color.green, 100000f);
-            Debug.DrawLine(bottomLeft, topLeft, Color.green, 100000f);
-        }
-
-        // Draw debug lines for obstacles
-        foreach (var position in obstacleTilemap.cellBounds.allPositionsWithin)
-        {
-            Vector3Int cellPosition = new Vector3Int(position.x, position.y, position.z);
-
-            if (obstacleTilemap.HasTile(cellPosition))
-            {
-                Vector3 worldPosition = obstacleTilemap.CellToWorld(cellPosition);
-                Vector3 cellSize = obstacleTilemap.cellSize;
-
-                Vector3 topLeft = worldPosition + new Vector3(-cellSize.x / 2f, -cellSize.y / 2f);
-                Vector3 topRight = worldPosition + new Vector3(cellSize.x / 2f, -cellSize.y / 2f);
-                Vector3 bottomLeft = worldPosition + new Vector3(-cellSize.x / 2f, cellSize.y / 2f);
-                Vector3 bottomRight = worldPosition + new Vector3(cellSize.x / 2f, cellSize.y / 2f);
-
-                Debug.DrawLine(topLeft, topRight, Color.red, 10000f);
-                Debug.DrawLine(topRight, bottomRight, Color.red, 10000f);
-                Debug.DrawLine(bottomRight, bottomLeft, Color.red, 10000f);
-                Debug.DrawLine(bottomLeft, topLeft, Color.red, 10000f);
-            }
-        }
-    }
-
-    private List<Node> FindPath(Vector3 startPos, Vector3 targetPos)
-    {
-        Vector3Int startCell = obstacleTilemap.WorldToCell(startPos);
-        Vector3Int targetCell = obstacleTilemap.WorldToCell(targetPos);
-
-        if (!nodeDictionary.ContainsKey(startCell) || !nodeDictionary.ContainsKey(targetCell))
-        {
-            Debug.LogWarning("Invalid start or target position!");
-            return null;
-        }
-
-        Node startNode = nodeDictionary[startCell];
-        Node targetNode = nodeDictionary[targetCell];
-
-        // Run the A* algorithm to find the path
-        List<Node> path = AStar(startNode, targetNode);
-
-        // Draw the debug line
-        if (path != null)
-        {
-            for (int i = 0; i < path.Count - 1; i++)
-            {
-                Vector3 startPoint = obstacleTilemap.CellToWorld(path[i].position) + obstacleTilemap.cellSize * 0.5f;
-                Vector3 endPoint = obstacleTilemap.CellToWorld(path[i + 1].position) + obstacleTilemap.cellSize * 0.5f;
-                Debug.DrawLine(startPoint, endPoint, Color.blue, 10000f);
-                path[i].isWalkable = false;
-
-            }
-        }
-
-        return path;
-    }
-
-    private List<Node> AStar(Node startNode, Node targetNode)
-    {
-        List<Node> openSet = new List<Node>();
-        HashSet<Node> closedSet = new HashSet<Node>();
+        List<PathfindingManager.Node > openSet = new List<PathfindingManager.Node >();
+        HashSet<PathfindingManager.Node > closedSet = new HashSet<PathfindingManager.Node >();
 
         openSet.Add(startNode);
 
         while (openSet.Count > 0)
         {
-            Node currentNode = openSet[0];
+            PathfindingManager.Node  currentNode = openSet[0];
 
             for (int i = 1; i < openSet.Count; i++)
             {
@@ -217,7 +112,7 @@ public class PathfindingObject : MonoBehaviour
                 return RetracePath(startNode, targetNode);
             }
 
-            foreach (Node neighbor in GetNeighbors(currentNode))
+            foreach (PathfindingManager.Node  neighbor in GetNeighbors(currentNode))
             {
                 if (!neighbor.isWalkable || closedSet.Contains(neighbor))
                 {
@@ -244,10 +139,10 @@ public class PathfindingObject : MonoBehaviour
         return null;
     }
 
-    private List<Node> RetracePath(Node startNode, Node endNode)
+    private List<PathfindingManager.Node > RetracePath(PathfindingManager.Node  startNode, PathfindingManager.Node  endNode)
     {
-        List<Node> path = new List<Node>();
-        Node currentNode = endNode;
+        List<PathfindingManager.Node > path = new List<PathfindingManager.Node >();
+        PathfindingManager.Node  currentNode = endNode;
 
         while (currentNode != startNode)
         {
@@ -259,9 +154,9 @@ public class PathfindingObject : MonoBehaviour
         return path;
     }
 
-    private List<Node> GetNeighbors(Node node)
+    private List<PathfindingManager.Node > GetNeighbors(PathfindingManager.Node  node)
     {
-        List<Node> neighbors = new List<Node>();
+        List<PathfindingManager.Node > neighbors = new List<PathfindingManager.Node >();
 
         Vector3Int[] neighborOffsets =
         {
@@ -275,7 +170,7 @@ public class PathfindingObject : MonoBehaviour
         {
             Vector3Int neighborPos = node.position + offset;
 
-            if (nodeDictionary.TryGetValue(neighborPos, out Node neighborNode))
+            if (nodeDictionary.TryGetValue(neighborPos, out PathfindingManager.Node  neighborNode))
             {
                 neighbors.Add(neighborNode);
             }
@@ -284,7 +179,7 @@ public class PathfindingObject : MonoBehaviour
         return neighbors;
     }
 
-    private int GetDistance(Node nodeA, Node nodeB)
+    private int GetDistance(PathfindingManager.Node  nodeA, PathfindingManager.Node  nodeB)
     {
         int dstX = Mathf.Abs(nodeA.position.x - nodeB.position.x);
         int dstY = Mathf.Abs(nodeA.position.y - nodeB.position.y);
