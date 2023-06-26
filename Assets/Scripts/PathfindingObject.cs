@@ -12,7 +12,7 @@ public class PathfindingObject : MonoBehaviour
     public PathfindingManager pathfindingManager;
     private TileBase[] obstacleTiles;
     private Dictionary<Vector3Int, PathfindingManager.Node> nodeDictionary;
-
+    public bool UpdateStartingPosition = true;
     private List<PathfindingManager.Node> currentPath;
     private float startTime;
     private float journeyLength;
@@ -71,6 +71,8 @@ public class PathfindingObject : MonoBehaviour
             if (transform.position == targetPosition)
             {
                 currentPath = null;
+                if (UpdateStartingPosition == true)
+                    startPos = Vector3Int.FloorToInt(transform.position);
             }
         }
         else
