@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
+using Unity.VisualScripting;
 
 public class PathfindingObject : MonoBehaviour
 {
@@ -21,6 +24,8 @@ public class PathfindingObject : MonoBehaviour
 
     private void Start()
     {
+        if (UpdateStartingPosition)
+            startPos = Vector3Int.FloorToInt(transform.position);
         // Get the obstacle tiles from the tilemap
         obstacleTiles = obstacleTilemap.GetTilesBlock(obstacleTilemap.cellBounds);
 
@@ -41,9 +46,13 @@ public class PathfindingObject : MonoBehaviour
         if (currentPath != null)
         {
             // Start the movement
-            startTime = Time.time;
-            journeyLength = Vector3.Distance(startPos, targetPos);
+            startTime = arrivalTime - speed * journeyLength;
         }
+    }
+
+    public void UpdatePathDistance(int Distance)
+    {
+        journeyLength = Distance;
     }
 
     private void Update()
@@ -57,32 +66,37 @@ public class PathfindingObject : MonoBehaviour
         if (currentPath == null)
             return;
 
+        if (targetPos == startPos)
+        {
+            Debug.Log("Start and Target Pos can't be the same. Object: " + this.name);
+            return;
+        }
         // Calculate the current time ratio based on the arrival time
         float timeRatio = (Time.time - startTime) / arrivalTime;
-
-        // Calculate the targetPos position based on the current time ratio
-        Vector3 targetPosition;
-        if (timeRatio >= 1f)
-        {
-            // Reached the destination
-            Debug.Log("Desitination reached " + transform.position);
-            targetPosition = pathfindingManager.obstacleTilemap.CellToWorld(currentPath[currentPath.Count - 1].position) + offset;
-            Debug.Log("Target Position is: " + targetPosition.y);
-            if (transform.position == targetPosition)
+       
+        
+            // Calculate the targetPos position based on the current time ratio
+            Vector3 targetPosition;
+            if (timeRatio >= 1f)
             {
-                currentPath = null;
-                if (UpdateStartingPosition == true)
-                    startPos = Vector3Int.FloorToInt(transform.position);
+                // Reached the destination
+                targetPosition = pathfindingManager.obstacleTilemap.CellToWorld(currentPath[currentPath.Count - 1].position) + offset;
+                if (transform.position == targetPosition)
+                {
+                    Debug.Log("Desitination reached " + transform.position);
+                    currentPath = null;
+                    if (UpdateStartingPosition == true)
+                        startPos = Vector3Int.FloorToInt(transform.position);
+                }
             }
-        }
-        else
-        {
-            // Calculate the index of the current targetPos node in the path
-            int targetIndex = Mathf.Clamp(Mathf.FloorToInt(timeRatio * (currentPath.Count - 1)), 0, currentPath.Count - 1);
-            PathfindingManager.Node targetNode = currentPath[targetIndex];
-            targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
-        }
-
+            else
+            {
+                // Calculate the index of the current targetPos node in the path
+                int targetIndex = Mathf.Clamp(Mathf.FloorToInt(timeRatio * (currentPath.Count - 1)), 0, currentPath.Count - 1);
+                PathfindingManager.Node targetNode = currentPath[targetIndex];
+                targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
+            }
+        
         // Move the object towards the targetPos position
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
     }
@@ -177,10 +191,10 @@ public class PathfindingObject : MonoBehaviour
                 neighbors.Add(neighborNode);
             }
         }
-
+        
         return neighbors;
     }
-
+   
     private int GetDistance(PathfindingManager.Node  nodeA, PathfindingManager.Node  nodeB)
     {
         int dstX = Mathf.Abs(nodeA.position.x - nodeB.position.x);

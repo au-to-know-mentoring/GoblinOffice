@@ -1,18 +1,29 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 public class PathfindingManager : MonoBehaviour
 {
     public List<PathfindingObject> pathfindingObjects = new List<PathfindingObject>();
+    public GameObject Player;
     public Tilemap obstacleTilemap;
     private TileBase[] obstacleTiles;
     private Vector3 offset;
     public Dictionary<Vector3Int, Node> nodeDictionary = new Dictionary<Vector3Int, Node>();
+    
+    public float Timer;
+    public Vector3Int LeftOfPlayerPosition;
+    public Vector3Int RightOfPlayerPosition;
+    public Vector3Int TopOfPlayerPosition;
     private void Start()
     {
+        // Set Positions adjacent to player.
+        SetPositionsAroundPlayer();
         // Register all pathfinding objects in the scene
         RegisterPathfindingObjects();
+
         // Get the obstacle tiles from the tilemap
         obstacleTiles = obstacleTilemap.GetTilesBlock(obstacleTilemap.cellBounds);
 
@@ -24,22 +35,98 @@ public class PathfindingManager : MonoBehaviour
         DrawDebugLines();
     }
 
+
     public Dictionary<Vector3Int, Node> GetNodeDictionary()
     {
         return nodeDictionary;
     }
     private void Update()
     {
+        Timer += Time.deltaTime;
+        // Set Paths to surround Player.
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            AssignPathsToSurroundPlayer();
+        }
+
         // Update the paths for all pathfinding objects
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             foreach(var pathFindingObject in pathfindingObjects) 
             {
-               pathFindingObject.SetCurrentPath( FindPath(pathFindingObject.startPos, pathFindingObject.targetPos));
+               pathFindingObject.SetCurrentPath(FindPath(pathFindingObject.startPos, pathFindingObject.targetPos));
                pathFindingObject.StartMovement();
             }
         }
         //UpdatePaths();
+    }
+
+    private void AssignPathsToSurroundPlayer()
+    {
+        //**[Optimize] Could be optimized by placing all pathFindingObjects into a list, and taking objects out after assigning them.
+        //**[Improvement] Current priority order is (Left, Right, Top). Could be changed to help equal out the arrival times.
+        //**[Limitations] Cannot Assign more then 3 enemies atm. Cannot Assign more then 1 enemy to 1 spot.
+
+        PathfindingObject EnemyForLeftPosition = null;
+        PathfindingObject EnemyForRightPosition = null;
+        PathfindingObject EnemyForTopPosition = null;
+
+        int DistanceToLeftPos = 999;
+        int DistanceToRightPos = 999;
+        int DistanceToTopPos = 999;
+        //LEFT
+        foreach (var pathFindingObject in pathfindingObjects)
+        {
+            Debug.Log(GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(LeftOfPlayerPosition)]));
+
+            if (GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(LeftOfPlayerPosition)]) < DistanceToLeftPos)
+            {
+                EnemyForLeftPosition = pathFindingObject;
+                DistanceToLeftPos = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(LeftOfPlayerPosition)]);
+            }
+        }
+        Debug.Log("The closest Enemy to the position left of the player is: " + EnemyForLeftPosition.name);
+        EnemyForLeftPosition.targetPos = Vector3Int.FloorToInt(LeftOfPlayerPosition);
+        //RIGHT
+        foreach (var pathFindingObject in pathfindingObjects)
+        {
+            Debug.Log(GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]));
+
+            if (GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]) < DistanceToRightPos)
+            {
+                if (pathFindingObject != EnemyForLeftPosition)
+                {
+                    EnemyForRightPosition = pathFindingObject;
+                    DistanceToRightPos = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]);
+                }
+            }
+        }
+        Debug.Log("The closest Enemy to the position Right of the player is: " + EnemyForRightPosition.name);
+        EnemyForLeftPosition.targetPos = Vector3Int.FloorToInt(RightOfPlayerPosition);
+        //TOP
+        foreach (var pathFindingObject in pathfindingObjects)
+        {
+            Debug.Log(GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]));
+
+            if (GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]) < DistanceToTopPos)
+            {
+                if (pathFindingObject != EnemyForLeftPosition & pathFindingObject != EnemyForRightPosition)
+                {
+                    EnemyForTopPosition = pathFindingObject;
+                    DistanceToTopPos = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]);
+                }
+            }
+        }
+        Debug.Log("The closest Enemy to the position Top of the player is: " + EnemyForTopPosition.name);
+        EnemyForLeftPosition.targetPos = LeftOfPlayerPosition;
+        if (EnemyForRightPosition != null)
+        {
+            EnemyForRightPosition.targetPos = RightOfPlayerPosition;
+            if (EnemyForTopPosition != null)
+            {
+                EnemyForTopPosition.targetPos = TopOfPlayerPosition;
+            }
+        }
     }
 
     private void RegisterPathfindingObjects()
@@ -52,6 +139,13 @@ public class PathfindingManager : MonoBehaviour
             pathFindingObject.pathfindingManager= this;
         }
     }
+    private void SetPositionsAroundPlayer()
+    {
+        LeftOfPlayerPosition = Vector3Int.FloorToInt(Player.transform.position + Vector3.left);
+        RightOfPlayerPosition = Vector3Int.FloorToInt(Player.transform.position + Vector3.right);
+        TopOfPlayerPosition = Vector3Int.FloorToInt(Player.transform.position + Vector3.up);
+    }
+
 
     //private void UpdatePaths()
     //{
@@ -138,7 +232,11 @@ public class PathfindingManager : MonoBehaviour
     {
         Vector3Int startCell = obstacleTilemap.WorldToCell(startPos);
         Vector3Int targetCell = obstacleTilemap.WorldToCell(targetPos);
-
+        if(startCell == targetCell)
+        {
+            Debug.Log("Can't find path when Start and target cell are the same Object: " + this.name);
+            return null;
+        }    
         if (!nodeDictionary.ContainsKey(startCell) || !nodeDictionary.ContainsKey(targetCell))
         {
             Debug.LogWarning("Invalid start or target position!");
@@ -150,7 +248,7 @@ public class PathfindingManager : MonoBehaviour
 
         // Run the A* algorithm to find the path
         List<Node> path = AStar(startNode, targetNode);
-
+        
         // Draw the debug line
         if (path != null)
         {
