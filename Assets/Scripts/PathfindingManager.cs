@@ -13,7 +13,7 @@ public class PathfindingManager : MonoBehaviour
     private Vector3 offset;
     public Dictionary<Vector3Int, Node> nodeDictionary = new Dictionary<Vector3Int, Node>();
     
-    public float Timer;
+    public float myTimer;
     public Vector3Int LeftOfPlayerPosition;
     public Vector3Int RightOfPlayerPosition;
     public Vector3Int TopOfPlayerPosition;
@@ -42,7 +42,7 @@ public class PathfindingManager : MonoBehaviour
     }
     private void Update()
     {
-        Timer += Time.deltaTime;
+        myTimer += Time.deltaTime;
         // Set Paths to surround Player.
         if(Input.GetKeyDown(KeyCode.Q))
         {
@@ -54,7 +54,7 @@ public class PathfindingManager : MonoBehaviour
         {
             foreach(var pathFindingObject in pathfindingObjects) 
             {
-               pathFindingObject.SetCurrentPath(FindPath(pathFindingObject.startPos, pathFindingObject.targetPos));
+               pathFindingObject.SetCurrentPath(FindPath(pathFindingObject.startPos, pathFindingObject.endPos));
                pathFindingObject.StartMovement();
             }
         }
@@ -86,7 +86,7 @@ public class PathfindingManager : MonoBehaviour
             }
         }
         Debug.Log("The closest Enemy to the position left of the player is: " + EnemyForLeftPosition.name);
-        EnemyForLeftPosition.targetPos = Vector3Int.FloorToInt(LeftOfPlayerPosition);
+        EnemyForLeftPosition.endPos = Vector3Int.FloorToInt(LeftOfPlayerPosition);
         //RIGHT
         foreach (var pathFindingObject in pathfindingObjects)
         {
@@ -102,7 +102,7 @@ public class PathfindingManager : MonoBehaviour
             }
         }
         Debug.Log("The closest Enemy to the position Right of the player is: " + EnemyForRightPosition.name);
-        EnemyForLeftPosition.targetPos = Vector3Int.FloorToInt(RightOfPlayerPosition);
+        EnemyForLeftPosition.endPos = Vector3Int.FloorToInt(RightOfPlayerPosition);
         //TOP
         foreach (var pathFindingObject in pathfindingObjects)
         {
@@ -118,13 +118,13 @@ public class PathfindingManager : MonoBehaviour
             }
         }
         Debug.Log("The closest Enemy to the position Top of the player is: " + EnemyForTopPosition.name);
-        EnemyForLeftPosition.targetPos = LeftOfPlayerPosition;
+        EnemyForLeftPosition.endPos = LeftOfPlayerPosition;
         if (EnemyForRightPosition != null)
         {
-            EnemyForRightPosition.targetPos = RightOfPlayerPosition;
+            EnemyForRightPosition.endPos = RightOfPlayerPosition;
             if (EnemyForTopPosition != null)
             {
-                EnemyForTopPosition.targetPos = TopOfPlayerPosition;
+                EnemyForTopPosition.endPos = TopOfPlayerPosition;
             }
         }
     }
@@ -262,7 +262,7 @@ public class PathfindingManager : MonoBehaviour
 
             }
         }
-
+        
         return path;
     }
 

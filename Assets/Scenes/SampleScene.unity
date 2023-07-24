@@ -359,6 +359,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63130524}
   m_CullTransparentMesh: 1
+--- !u!1 &106681350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 106681351}
+  - component: {fileID: 106681352}
+  m_Layer: 0
+  m_Name: Circle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &106681351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106681350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 662012730}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &106681352
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106681350}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0, g: 0.1359539, b: 1, a: 0.20392157}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &359623435
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +678,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &662012728
 GameObject:
@@ -677,7 +761,8 @@ Transform:
   m_LocalPosition: {x: 1, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 106681351}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -695,11 +780,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleTilemap: {fileID: 1403044099}
   startPos: {x: 1, y: 4, z: 0}
-  targetPos: {x: -5, y: 5, z: 0}
-  speed: 5
-  arrivalTime: 5
+  endPos: {x: 0, y: 0, z: 0}
+  speed: 0
+  TimeBetweenTiles: 1
+  arrivalTime: 7.5
   pathfindingManager: {fileID: 0}
   UpdateStartingPosition: 1
+  targetIndex: 0
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &678398353
 GameObject:
   m_ObjectHideFlags: 0
@@ -3435,7 +3523,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1661228405
 GameObject:
@@ -3729,11 +3817,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleTilemap: {fileID: 1403044099}
   startPos: {x: 0, y: 0, z: 0}
-  targetPos: {x: -5, y: 5, z: 0}
-  speed: 5
-  arrivalTime: 5
+  endPos: {x: 0, y: 0, z: 0}
+  speed: 1
+  TimeBetweenTiles: 0.5
+  arrivalTime: 15
   pathfindingManager: {fileID: 0}
   UpdateStartingPosition: 1
+  targetIndex: 0
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1887254889
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,11 +3970,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleTilemap: {fileID: 1403044099}
   startPos: {x: 0, y: 0, z: 0}
-  targetPos: {x: -5, y: 5, z: 0}
-  speed: 5
-  arrivalTime: 5
+  endPos: {x: 0, y: 0, z: 0}
+  speed: 1
+  TimeBetweenTiles: 2
+  arrivalTime: 10
   pathfindingManager: {fileID: 0}
   UpdateStartingPosition: 1
+  targetIndex: 0
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2049886046
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,7 +4010,7 @@ MonoBehaviour:
   pathfindingObjects: []
   Player: {fileID: 2084591412}
   obstacleTilemap: {fileID: 1403044099}
-  Timer: 0
+  myTimer: 0
   LeftOfPlayerPosition: {x: 0, y: 0, z: 0}
   RightOfPlayerPosition: {x: 0, y: 0, z: 0}
   TopOfPlayerPosition: {x: 0, y: 0, z: 0}
@@ -3933,7 +4027,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2084591412
 GameObject:

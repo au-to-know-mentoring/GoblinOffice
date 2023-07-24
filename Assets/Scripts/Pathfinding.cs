@@ -6,7 +6,7 @@
 //{
 //    public Tilemap obstacleTilemap;
 //    public Vector3Int startPos;
-//    public Vector3Int targetPos;
+//    public Vector3Int endPos;
 //    public float speed = 5f;
 //    public float arrivalTime = 5f;
 
@@ -34,12 +34,12 @@
 //    private void StartMovement()
 //    {
 //        // Find the path
-//        currentPath = FindPath(startPos, targetPos);
+//        currentPath = FindPath(startPos, endPos);
 //        if (currentPath != null)
 //        {
 //            // Start the movement
 //            startTime = Time.time;
-//            journeyLength = Vector3.Distance(startPos, targetPos);
+//            journeyLength = Vector3.Distance(startPos, endPos);
 //        }
 //    }
 
@@ -57,7 +57,7 @@
 //        // Calculate the current time ratio based on the arrival time
 //        float timeRatio = (Time.time - startTime) / arrivalTime;
 
-//        // Calculate the targetPos position based on the current time ratio
+//        // Calculate the endPos position based on the current time ratio
 //        Vector3 targetPosition;
 //        if (timeRatio >= 1f)
 //        {
@@ -72,13 +72,13 @@
 //        }
 //        else
 //        {
-//            // Calculate the index of the current targetPos node in the path
+//            // Calculate the index of the current endPos node in the path
 //            int targetIndex = Mathf.Clamp(Mathf.FloorToInt(timeRatio * (currentPath.Count - 1)), 0, currentPath.Count - 1);
 //            Node targetNode = currentPath[targetIndex];
 //            targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
 //        }
 
-//        // Move the object towards the targetPos position
+//        // Move the object towards the endPos position
 //        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 //    }
 
@@ -158,14 +158,14 @@
 //        }
 //    }
 
-//    private List<Node> FindPath(Vector3 startPos, Vector3 targetPos)
+//    private List<Node> FindPath(Vector3 startPos, Vector3 endPos)
 //    {
 //        Vector3Int startCell = obstacleTilemap.WorldToCell(startPos);
-//        Vector3Int targetCell = obstacleTilemap.WorldToCell(targetPos);
+//        Vector3Int targetCell = obstacleTilemap.WorldToCell(endPos);
 
 //        if (!nodeDictionary.ContainsKey(startCell) || !nodeDictionary.ContainsKey(targetCell))
 //        {
-//            Debug.LogWarning("Invalid startPos or targetPos position!");
+//            Debug.LogWarning("Invalid startPos or endPos position!");
 //            return null;
 //        }
 

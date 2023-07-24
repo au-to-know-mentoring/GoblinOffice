@@ -9,21 +9,26 @@ public class PathfindingObject : MonoBehaviour
 {
     public Tilemap obstacleTilemap;
     public Vector3Int startPos;
-    public Vector3Int targetPos;
-    public float speed = 5f;
-    public float arrivalTime = 5f;
+    public Vector3Int endPos;
+    [SerializeField]
+    private float speed = 5f;
+    public float TimeBetweenTiles = 1f;
+    public float arrivalTime = 5f; // dont use in movement logic besides start time
     public PathfindingManager pathfindingManager;
     private TileBase[] obstacleTiles;
     private Dictionary<Vector3Int, PathfindingManager.Node> nodeDictionary;
     public bool UpdateStartingPosition = true;
     private List<PathfindingManager.Node> currentPath;
-    private float startTime;
+    private float TimeToStart;
     private float journeyLength;
-
+    public int targetIndex = 0;
     private Vector3 offset;
-
+    [SerializeField]
+    private Vector3 targetPosition;
     private void Start()
     {
+        speed = 1 / TimeBetweenTiles;
+
         if (UpdateStartingPosition)
             startPos = Vector3Int.FloorToInt(transform.position);
         // Get the obstacle tiles from the tilemap
@@ -38,6 +43,8 @@ public class PathfindingObject : MonoBehaviour
     public void SetCurrentPath(List<PathfindingManager.Node> FoundPath)
     {
         currentPath = FoundPath;
+        journeyLength = FoundPath.Count;
+
     }
     public void StartMovement()
     {
@@ -46,7 +53,10 @@ public class PathfindingObject : MonoBehaviour
         if (currentPath != null)
         {
             // Start the movement
-            startTime = arrivalTime - speed * journeyLength;
+            //TODO FIX THIS CALCULATION (Seems right, need to know timer for update.)
+            TimeToStart = arrivalTime - (journeyLength / speed);
+            PathfindingManager.Node targetNode = currentPath[targetIndex];
+            targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
         }
     }
 
@@ -66,24 +76,23 @@ public class PathfindingObject : MonoBehaviour
         if (currentPath == null)
             return;
 
-        if (targetPos == startPos)
+        if (endPos == startPos)
         {
             Debug.Log("Start and Target Pos can't be the same. Object: " + this.name);
             return;
         }
-        // Calculate the current time ratio based on the arrival time
-        float timeRatio = (Time.time - startTime) / arrivalTime;
-       
-        
-            // Calculate the targetPos position based on the current time ratio
-            Vector3 targetPosition;
-            if (timeRatio >= 1f)
+        if (TimeToStart <= pathfindingManager.myTimer)
+        {     
+            
+
+            // Calculate the endPos position based on the current time ratio
+            if (targetIndex == currentPath.Count)
             {
                 // Reached the destination
                 targetPosition = pathfindingManager.obstacleTilemap.CellToWorld(currentPath[currentPath.Count - 1].position) + offset;
                 if (transform.position == targetPosition)
                 {
-                    Debug.Log("Desitination reached " + transform.position);
+                    Debug.Log("Destination reached at: " + Time.time + transform.position);
                     currentPath = null;
                     if (UpdateStartingPosition == true)
                         startPos = Vector3Int.FloorToInt(transform.position);
@@ -91,16 +100,24 @@ public class PathfindingObject : MonoBehaviour
             }
             else
             {
-                // Calculate the index of the current targetPos node in the path
-                int targetIndex = Mathf.Clamp(Mathf.FloorToInt(timeRatio * (currentPath.Count - 1)), 0, currentPath.Count - 1);
-                PathfindingManager.Node targetNode = currentPath[targetIndex];
-                targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
+                // Calculate the index of the current endPos node in the path // Travel between each tile 1 at a time, don't use timeratio
+                float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
+                if(distanceToTarget <= 0.01f)
+                {
+                    targetIndex += 1;
+                    if(targetIndex != currentPath.Count)
+                    {
+                        PathfindingManager.Node targetNode = currentPath[targetIndex];
+                        targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
+                    }
+                }
+                
             }
-        
-        // Move the object towards the targetPos position
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-    }
 
+            // Move the object towards the endPos position
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        }
+    }
     private List<PathfindingManager.Node > AStar(PathfindingManager.Node  startNode, PathfindingManager.Node  targetNode)
     {
         List<PathfindingManager.Node > openSet = new List<PathfindingManager.Node >();
@@ -150,7 +167,7 @@ public class PathfindingObject : MonoBehaviour
                 }
             }
         }
-
+        
         Debug.LogWarning("No valid path found!");
         return null;
     }

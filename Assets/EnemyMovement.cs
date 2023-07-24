@@ -19,10 +19,10 @@
 //    {
 //        if (isMoving)
 //        {
-//            // Move towards the targetPos position
+//            // Move towards the endPos position
 //            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * moveSpeed);
 
-//            // Check if the enemy has reached the targetPos position
+//            // Check if the enemy has reached the endPos position
 //            if (transform.position == targetPosition)
 //            {
 //                isMoving = false;
@@ -38,19 +38,19 @@
 //        // Calculate the current cell position of the enemy
 //        Vector3Int currentCell = tilemap.WorldToCell(transform.position);
 
-//        // Calculate the targetPos cell position towards the player
+//        // Calculate the endPos cell position towards the player
 //        Vector3Int targetCell = tilemap.WorldToCell(player.position);
 
-//        // Calculate the path between the current cell and the targetPos cell
+//        // Calculate the path between the current cell and the endPos cell
 //        Vector3Int[] path = tilemap.GetPath(currentCell, targetCell);
 
 //        // Check if a valid path exists
 //        if (path != null && path.Length > 0)
 //        {
-//            // Set the targetPos position to the center of the next cell in the path
+//            // Set the endPos position to the center of the next cell in the path
 //            targetPosition = tilemap.GetCellCenterWorld(path[0]);
 
-//            // Start moving towards the targetPos position
+//            // Start moving towards the endPos position
 //            isMoving = true;
 //        }
 //    }
