@@ -1,28 +1,34 @@
+using System.ComponentModel;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.U2D;
 
 public class SpriteSynchronizer : MonoBehaviour
 {
-    public GameObject sourceGameObject;
+    public SpriteRenderer sourceSpriteRenderer;
     public SpriteRenderer targetSpriteRenderer;
 
-    private SpriteRenderer sourceSpriteRenderer;
+    [SerializeField]
+    [Tooltip("Can be set manually, otherwise It will look for the Sprite sheets name + Atlas")]
     private SpriteAtlas spriteAtlas;
 
     private void Start()
     {
-        if (sourceGameObject == null || targetSpriteRenderer == null)
+        if (sourceSpriteRenderer == null || targetSpriteRenderer == null)
         {
             Debug.LogError("Source GameObject or Target SpriteRenderer is not set in the SpriteSynchronizer script on " + gameObject.name);
             return;
         }
 
-        sourceSpriteRenderer = sourceGameObject.GetComponent<SpriteRenderer>();
-        spriteAtlas = Resources.Load<SpriteAtlas>("gunParticleSpriteAtlas");
-
-        if (sourceSpriteRenderer == null || spriteAtlas == null)
+        if (spriteAtlas == null)
         {
-            Debug.LogError("Source GameObject or Sprite Atlas is not found on " + gameObject.name);
+            string SourceTitle = Regex.Replace(sourceSpriteRenderer.sprite.name, "[0-9_]", "") + "Atlas";
+            spriteAtlas = Resources.Load<SpriteAtlas>(SourceTitle); // (NameOfSprite + Atlas.) = (TrollNinjaAtlas)
+        }
+
+        if (spriteAtlas == null)
+        {
+            Debug.LogError("Source sprite Atlas is not found on " + gameObject.name);
             return;
         }
 

@@ -1113,12 +1113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6daf73b0eb216f949b42555ff596bc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteSheet: {fileID: 2800000, guid: 86e1001c93b4f574eb05df29e1e6ac9c, type: 3}
-  rows: 10
-  columns: 2
-  padding: 0
-  spriteArray: []
-  spriteNameHolder: {fileID: 1621066639}
 --- !u!1 &623219637
 GameObject:
   m_ObjectHideFlags: 0
@@ -4528,6 +4522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sourceGameObject: {fileID: 1228449483}
   targetSpriteRenderer: {fileID: 1487889860}
+  spriteAtlas: {fileID: 0}
 --- !u!1 &1495593370
 GameObject:
   m_ObjectHideFlags: 0
