@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TrollNinjaAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: -1134281319, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 1366871361, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 1257320059, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -999156756, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -1265839295, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 1283091796, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -585872512, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -519444828, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 2061608379, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -578200224, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 1536099331, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -496982747, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 832430388, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -2002836325, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 723970787, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -2021818965, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -1438609250, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -1645621746, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -1144653134, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 1676642312, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 559619602, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -462370863, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -1049287491, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 1454915059, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -518413885, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -290609595, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -1413937846, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 969590576, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -1549270491, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -2078317551, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: 1227789242, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    - {fileID: -1161423014, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1161423014, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 1227789242, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -1645621746, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -1438609250, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -2021818965, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 723970787, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -2002836325, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 832430388, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -1549270491, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -496982747, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -2078317551, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 1536099331, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -1049287491, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 1454915059, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 559619602, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 1676642312, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -462370863, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -1144653134, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -1413937846, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 969590576, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -518413885, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -290609595, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 2061608379, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -578200224, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -1265839295, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 1283091796, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -585872512, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -519444828, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -1134281319, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 1366871361, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: 1257320059, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  - {fileID: -999156756, guid: 86a7ff463767dbf489183154751e99ed, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - particle effect troll_31
+  - particle effect troll_30
+  - particle effect troll_17
+  - particle effect troll_16
+  - particle effect troll_15
+  - particle effect troll_14
+  - particle effect troll_13
+  - particle effect troll_12
+  - particle effect troll_28
+  - particle effect troll_11
+  - particle effect troll_29
+  - particle effect troll_10
+  - particle effect troll_22
+  - particle effect troll_23
+  - particle effect troll_20
+  - particle effect troll_19
+  - particle effect troll_21
+  - particle effect troll_18
+  - particle effect troll_26
+  - particle effect troll_27
+  - particle effect troll_24
+  - particle effect troll_25
+  - particle effect troll_8
+  - particle effect troll_9
+  - particle effect troll_4
+  - particle effect troll_5
+  - particle effect troll_6
+  - particle effect troll_7
+  - particle effect troll_0
+  - particle effect troll_1
+  - particle effect troll_2
+  - particle effect troll_3
+  m_RenderDataMap: {}
+  m_Tag: trollninjapartle
+  m_IsVariant: 0
