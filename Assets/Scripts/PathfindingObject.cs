@@ -7,26 +7,37 @@ using Unity.VisualScripting;
 
 public class PathfindingObject : MonoBehaviour
 {
-    public Tilemap obstacleTilemap;
+    
     public Vector3Int startPos;
     public Vector3Int endPos;
-    [SerializeField]
-    private float speed = 5f;
     public float TimeBetweenTiles = 1f;
-    public float arrivalTime = 5f; // dont use in movement logic besides start time
-    public PathfindingManager pathfindingManager;
+    public float arrivalTime = 5f; // dont use in movement logic besides start time (DONE)
     private TileBase[] obstacleTiles;
     private Dictionary<Vector3Int, PathfindingManager.Node> nodeDictionary;
     public bool UpdateStartingPosition = true;
     private List<PathfindingManager.Node> currentPath;
     private float TimeToStart;
     private float journeyLength;
-    public int targetIndex = 0;
     private Vector3 offset;
+    [Header("View only Variables")]
     [SerializeField]
     private Vector3 targetPosition;
+    [SerializeField]
+    [Tooltip("Speed is set by 1 / TimeBetweenTiles")]
+    private float speed = 5f;
+    [SerializeField]
+    private int targetIndex = 0;
+    [SerializeField]
+    private Tilemap obstacleTilemap;
+
+    public void setObstacleTilemap(Tilemap obstacleTilemap)
+    {
+        this.obstacleTilemap = obstacleTilemap;
+    }
+
     private void Start()
     {
+
         speed = 1 / TimeBetweenTiles;
 
         if (UpdateStartingPosition)
@@ -81,7 +92,7 @@ public class PathfindingObject : MonoBehaviour
             Debug.Log("Start and Target Pos can't be the same. Object: " + this.name);
             return;
         }
-        if (TimeToStart <= pathfindingManager.myTimer)
+        if (TimeToStart <= Time.timeSinceLevelLoad)
         {     
             
 
@@ -89,13 +100,13 @@ public class PathfindingObject : MonoBehaviour
             if (targetIndex == currentPath.Count)
             {
                 // Reached the destination
-                targetPosition = pathfindingManager.obstacleTilemap.CellToWorld(currentPath[currentPath.Count - 1].position) + offset;
+                targetPosition = obstacleTilemap.CellToWorld(currentPath[currentPath.Count - 1].position) + offset;
                 if (transform.position == targetPosition)
                 {
-                    Debug.Log("Destination reached at: " + Time.time + transform.position);
+                    Debug.Log("Destination reached at: " + Time.timeSinceLevelLoad + transform.position);
                     currentPath = null;
                     if (UpdateStartingPosition == true)
-                        startPos = Vector3Int.FloorToInt(transform.position);
+                    startPos = Vector3Int.FloorToInt(transform.position);
                 }
             }
             else

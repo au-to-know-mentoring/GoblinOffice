@@ -14,16 +14,18 @@ public class PathfindingManager : MonoBehaviour
     public Dictionary<Vector3Int, Node> nodeDictionary = new Dictionary<Vector3Int, Node>();
     
     public float myTimer;
+    
     public Vector3Int LeftOfPlayerPosition;
     public Vector3Int RightOfPlayerPosition;
     public Vector3Int TopOfPlayerPosition;
     private void Start()
     {
+        
         // Set Positions adjacent to player.
         SetPositionsAroundPlayer();
         // Register all pathfinding objects in the scene
         RegisterPathfindingObjects();
-
+        
         // Get the obstacle tiles from the tilemap
         obstacleTiles = obstacleTilemap.GetTilesBlock(obstacleTilemap.cellBounds);
 
@@ -36,6 +38,8 @@ public class PathfindingManager : MonoBehaviour
     }
 
 
+        
+
     public Dictionary<Vector3Int, Node> GetNodeDictionary()
     {
         return nodeDictionary;
@@ -46,6 +50,7 @@ public class PathfindingManager : MonoBehaviour
         // Set Paths to surround Player.
         if(Input.GetKeyDown(KeyCode.Q))
         {
+            Debug.Log("Q is pressed");
             AssignPathsToSurroundPlayer();
         }
 
@@ -136,7 +141,7 @@ public class PathfindingManager : MonoBehaviour
         pathfindingObjects.AddRange(objects);
         foreach (var pathFindingObject in pathfindingObjects)
         {
-            pathFindingObject.pathfindingManager= this;
+            pathFindingObject.setObstacleTilemap(obstacleTilemap);
         }
     }
     private void SetPositionsAroundPlayer()
