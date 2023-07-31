@@ -8,9 +8,15 @@ public class SpriteSynchronizer : MonoBehaviour
     public SpriteRenderer sourceSpriteRenderer;
     public SpriteRenderer targetSpriteRenderer;
 
+
     [SerializeField]
     [Tooltip("Can be set manually, otherwise It will look for the Sprite sheets name + Atlas")]
     private SpriteAtlas spriteAtlas;
+    [Header("View Only")]
+    [SerializeField]
+    private string SourceTitle;
+    [SerializeField]
+    private string TargetTitle;
 
     private void Start()
     {
@@ -19,11 +25,11 @@ public class SpriteSynchronizer : MonoBehaviour
             Debug.LogError("Source GameObject or Target SpriteRenderer is not set in the SpriteSynchronizer script on " + gameObject.name);
             return;
         }
-
+        SourceTitle = Regex.Replace(sourceSpriteRenderer.sprite.name, "[0-9_]", "");
+        TargetTitle = Regex.Replace(targetSpriteRenderer.sprite.name, "[0-9_]", "");
         if (spriteAtlas == null)
         {
-            string SourceTitle = Regex.Replace(sourceSpriteRenderer.sprite.name, "[0-9_]", "") + "Atlas";
-            spriteAtlas = Resources.Load<SpriteAtlas>(SourceTitle); // (NameOfSprite + Atlas.) = (TrollNinjaAtlas)
+            spriteAtlas = Resources.Load<SpriteAtlas>(SourceTitle + "Atlas"); // (NameOfSprite + Atlas.) = (TrollNinjaAtlas)
         }
 
         if (spriteAtlas == null)
@@ -31,6 +37,7 @@ public class SpriteSynchronizer : MonoBehaviour
             Debug.LogError("Source sprite Atlas is not found on " + gameObject.name);
             return;
         }
+
 
         // Synchronize the sprite initially
         SyncSprites();
@@ -79,8 +86,9 @@ public class SpriteSynchronizer : MonoBehaviour
         }
 
         // Assuming the sprite sheet has been sliced evenly
-        string targetSpriteName = "gunparticleSprite_" + number.ToString();
-        Sprite targetSprite = spriteAtlas.GetSprite(targetSpriteName);
+        string targetSpriteName = TargetTitle + "_" + number.ToString();
+
+        Sprite targetSprite = spriteAtlas.GetSprite(targetSpriteName);  // spriteAtlas.GetSprite(targetSpriteName);
 
         if (targetSprite != null)
         {
