@@ -12,9 +12,11 @@ public class PathfindingManager : MonoBehaviour
     private TileBase[] obstacleTiles;
     private Vector3 offset;
     public Dictionary<Vector3Int, Node> nodeDictionary = new Dictionary<Vector3Int, Node>();
-    
     public float myTimer;
-    
+   
+
+
+
     public Vector3Int LeftOfPlayerPosition;
     public Vector3Int RightOfPlayerPosition;
     public Vector3Int TopOfPlayerPosition;
@@ -72,6 +74,10 @@ public class PathfindingManager : MonoBehaviour
         //**[Improvement] Current priority order is (Left, Right, Top). Could be changed to help equal out the arrival times.
         //**[Limitations] Cannot Assign more then 3 enemies atm. Cannot Assign more then 1 enemy to 1 spot.
 
+        //Funtionalise each portion.
+        //Location as an argument.
+        //Beatmanager assign event WITHOUT choice of enemy.
+
         PathfindingObject EnemyForLeftPosition = null;
         PathfindingObject EnemyForRightPosition = null;
         PathfindingObject EnemyForTopPosition = null;
@@ -82,16 +88,17 @@ public class PathfindingManager : MonoBehaviour
         //LEFT
         foreach (var pathFindingObject in pathfindingObjects)
         {
-            Debug.Log(GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(LeftOfPlayerPosition)]));
-
-            if (GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(LeftOfPlayerPosition)]) < DistanceToLeftPos)
-            {
-                EnemyForLeftPosition = pathFindingObject;
-                DistanceToLeftPos = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(LeftOfPlayerPosition)]);
-            }
+            AssignMeleePosition(ref EnemyForLeftPosition, ref DistanceToLeftPos, LeftOfPlayerPosition);
         }
-        Debug.Log("The closest Enemy to the position left of the player is: " + EnemyForLeftPosition.name);
-        EnemyForLeftPosition.endPos = Vector3Int.FloorToInt(LeftOfPlayerPosition);
+
+        //foreach (var pathFindingObject in pathfindingObjects)
+        //{
+        //    AssignMeleePosition(ref EnemyForRightPosition, ref DistanceToRightPos, RightOfPlayerPosition);
+        //}
+        //foreach (var pathFindingObject in pathfindingObjects)
+        //{
+        //    AssignMeleePosition(ref EnemyForTopPosition, ref DistanceToTopPos, TopOfPlayerPosition);
+        //}
         //RIGHT
         foreach (var pathFindingObject in pathfindingObjects)
         {
@@ -107,7 +114,7 @@ public class PathfindingManager : MonoBehaviour
             }
         }
         Debug.Log("The closest Enemy to the position Right of the player is: " + EnemyForRightPosition.name);
-        EnemyForLeftPosition.endPos = Vector3Int.FloorToInt(RightOfPlayerPosition);
+        EnemyForRightPosition.endPos = Vector3Int.FloorToInt(RightOfPlayerPosition);
         //TOP
         foreach (var pathFindingObject in pathfindingObjects)
         {
@@ -132,6 +139,22 @@ public class PathfindingManager : MonoBehaviour
                 EnemyForTopPosition.endPos = TopOfPlayerPosition;
             }
         }
+    }
+
+    private void AssignMeleePosition(ref PathfindingObject EnemyForPosition, ref int DistanceToLeftPos, Vector3Int Position)
+    {
+        foreach (var pathFindingObject in pathfindingObjects)
+        {
+            Debug.Log(GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(Position)]));
+
+            if (GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(Position)]) < DistanceToLeftPos)
+            {
+                EnemyForPosition = pathFindingObject;
+                DistanceToLeftPos = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(Position)]);
+            }
+        }
+
+        EnemyForPosition.endPos = Vector3Int.FloorToInt(Position);
     }
 
     private void RegisterPathfindingObjects()

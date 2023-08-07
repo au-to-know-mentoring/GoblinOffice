@@ -29,6 +29,7 @@ public class PathfindingObject : MonoBehaviour
     private int targetIndex = 0;
     [SerializeField]
     private Tilemap obstacleTilemap;
+    public float RangedAttackAnimation; // TODO
 
     public void setObstacleTilemap(Tilemap obstacleTilemap)
     {
@@ -198,9 +199,9 @@ public class PathfindingObject : MonoBehaviour
         return path;
     }
 
-    private List<PathfindingManager.Node > GetNeighbors(PathfindingManager.Node  node)
+    private List<PathfindingManager.Node> GetNeighbors(PathfindingManager.Node node)
     {
-        List<PathfindingManager.Node > neighbors = new List<PathfindingManager.Node >();
+        List<PathfindingManager.Node> neighbors = new List<PathfindingManager.Node>();
 
         Vector3Int[] neighborOffsets =
         {
@@ -214,21 +215,37 @@ public class PathfindingObject : MonoBehaviour
         {
             Vector3Int neighborPos = node.position + offset;
 
-            if (nodeDictionary.TryGetValue(neighborPos, out PathfindingManager.Node  neighborNode))
+            if (nodeDictionary.TryGetValue(neighborPos, out PathfindingManager.Node neighborNode))
             {
                 neighbors.Add(neighborNode);
             }
         }
-        
+
         return neighbors;
     }
-   
+
     private int GetDistance(PathfindingManager.Node  nodeA, PathfindingManager.Node  nodeB)
     {
         int dstX = Mathf.Abs(nodeA.position.x - nodeB.position.x);
         int dstY = Mathf.Abs(nodeA.position.y - nodeB.position.y);
 
         return dstX + dstY;
+    }
+
+    public bool SetRangedAttack(int BeatToArrive,float TravelTime, float AnimationTime, Vector3Int PlayerPosition)
+    {
+        // forumla is Enemy Animation + travel speed / distance
+        float TimeToComplete = Time.time + TravelTime + AnimationTime;
+        if (TimeToComplete > arrivalTime)
+        {
+            Debug.Log("This Ranged Attack is unable to arrive on time.");
+            return false;
+            
+        }
+        // Do attack
+        TimeToStart = arrivalTime - TimeToComplete;
+        return true;
+
     }
 
 }

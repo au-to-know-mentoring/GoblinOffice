@@ -780,9 +780,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {x: 1, y: 4, z: 0}
   endPos: {x: 0, y: 0, z: 0}
-  TimeBetweenTiles: 0.5
+  TimeBetweenTiles: 1
   arrivalTime: 7.5
-  pathfindingManager: {fileID: 0}
   UpdateStartingPosition: 1
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0
@@ -3819,7 +3818,6 @@ MonoBehaviour:
   endPos: {x: 0, y: 0, z: 0}
   TimeBetweenTiles: 0.5
   arrivalTime: 15
-  pathfindingManager: {fileID: 0}
   UpdateStartingPosition: 1
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0
@@ -3970,9 +3968,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0, z: 0}
   endPos: {x: 0, y: 0, z: 0}
-  TimeBetweenTiles: 2
+  TimeBetweenTiles: 1
   arrivalTime: 10
-  pathfindingManager: {fileID: 0}
   UpdateStartingPosition: 1
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0
