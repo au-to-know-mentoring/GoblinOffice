@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using Unity.VisualScripting;
+using UnityEditor;
+using System.Reflection;
 
 public class PathfindingObject : MonoBehaviour
 {
@@ -15,7 +17,17 @@ public class PathfindingObject : MonoBehaviour
     private TileBase[] obstacleTiles;
     private Dictionary<Vector3Int, PathfindingManager.Node> nodeDictionary;
     public bool UpdateStartingPosition = true;
+    [Header("Ranged Attack Variables")]
+    public GameObject rangedAttack;
+    public int rangedAttackQuantity;
+    public float delayBetweenRangedAttacks; // Change to beat manager eventually
+    public float RangedAttackAnimationTime; // TODO
+    private float rangedAttackDelayTimer = 0;
+    private RangedProjectile rangedAttackedScript;
+    public float projectileSpeed;
+
     private List<PathfindingManager.Node> currentPath;
+    [SerializeField]
     private float TimeToStart;
     private float journeyLength;
     private Vector3 offset;
@@ -29,8 +41,11 @@ public class PathfindingObject : MonoBehaviour
     private int targetIndex = 0;
     [SerializeField]
     private Tilemap obstacleTilemap;
-    public float RangedAttackAnimation; // TODO
+    private Animator myAnimator;
 
+    private bool Assigned;
+    /// </summary>
+    /// <param name="obstacleTilemap"></param>
     public void setObstacleTilemap(Tilemap obstacleTilemap)
     {
         this.obstacleTilemap = obstacleTilemap;
@@ -38,7 +53,29 @@ public class PathfindingObject : MonoBehaviour
 
     private void Start()
     {
+        if (rangedAttack != null)
+        {
+            // Get the script type attached to the prefab
+            System.Type scriptType = typeof(RangedProjectile);
 
+            // Get the field info of the member variable you want to access
+            FieldInfo fieldInfo = scriptType.GetField("moveSpeed", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+            if (fieldInfo != null)
+            {
+                // Access the member variable value from the prefab script
+                object prefabScriptInstance = rangedAttack.GetComponent(scriptType);
+                object fieldValue = fieldInfo.GetValue(prefabScriptInstance);
+                projectileSpeed = (float)fieldValue;
+                Debug.Log("Member variable value: " + fieldValue.ToString());
+            }
+            else
+            {
+                Debug.Log("Member variable not found in the script attached to the prefab.");
+            }
+        }
+        myAnimator = GetComponent<Animator>();
+        TimeToStart = arrivalTime;
         speed = 1 / TimeBetweenTiles;
 
         if (UpdateStartingPosition)
@@ -54,9 +91,11 @@ public class PathfindingObject : MonoBehaviour
     }
     public void SetCurrentPath(List<PathfindingManager.Node> FoundPath)
     {
-        currentPath = FoundPath;
-        journeyLength = FoundPath.Count;
-
+        if (FoundPath != null)
+        {
+            currentPath = FoundPath;
+            journeyLength = FoundPath.Count;
+        }
     }
     public void StartMovement()
     {
@@ -70,6 +109,7 @@ public class PathfindingObject : MonoBehaviour
             PathfindingManager.Node targetNode = currentPath[targetIndex];
             targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
         }
+
     }
 
     public void UpdatePathDistance(int Distance)
@@ -77,6 +117,10 @@ public class PathfindingObject : MonoBehaviour
         journeyLength = Distance;
     }
 
+    public void RangedAttackAnimationComplete()
+    {
+        Instantiate(rangedAttack, transform.position, Quaternion.identity);
+    }
     private void Update()
     {
         //if (Input.GetKeyDown(KeyCode.Space))
@@ -85,18 +129,26 @@ public class PathfindingObject : MonoBehaviour
         //}
 
         // Check if there is a path to follow
-        if (currentPath == null)
-            return;
 
-        if (endPos == startPos)
-        {
-            Debug.Log("Start and Target Pos can't be the same. Object: " + this.name);
-            return;
-        }
+        
+
         if (TimeToStart <= Time.timeSinceLevelLoad)
-        {     
-            
+        {
 
+            if (rangedAttackQuantity >= 1) 
+            {
+                rangedAttackQuantity--;
+                if(rangedAttackDelayTimer <= 0) // Replace with beat events.
+                {
+                    myAnimator.SetTrigger("RangedAttack");
+                    
+                    
+                }
+
+            }
+
+            if (currentPath == null)
+                return;
             // Calculate the endPos position based on the current time ratio
             if (targetIndex == currentPath.Count)
             {
@@ -125,7 +177,7 @@ public class PathfindingObject : MonoBehaviour
                 }
                 
             }
-
+            
             // Move the object towards the endPos position
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         }
@@ -232,11 +284,20 @@ public class PathfindingObject : MonoBehaviour
         return dstX + dstY;
     }
 
-    public bool SetRangedAttack(int BeatToArrive,float TravelTime, float AnimationTime, Vector3Int PlayerPosition)
+    public bool SetRangedAttack(int BeatToArrive,float Distance)
     {
-        // forumla is Enemy Animation + travel speed / distance
-        float TimeToComplete = Time.time + TravelTime + AnimationTime;
-        if (TimeToComplete > arrivalTime)
+        rangedAttackedScript = rangedAttack.GetComponent<RangedProjectile>();
+        if (BeatToArrive == 0)
+        {
+            BeatToArrive = (int)arrivalTime;
+        }
+        if(Distance == 0)
+        {
+            //GetDistance(startPos, endPos);
+        }
+        // forumla is Enemy Animation + travel moveSpeed / distance
+        float TimeToComplete = ((Distance + 1) / projectileSpeed) + RangedAttackAnimationTime; // Used to check if there is enough time to perform
+        if (TimeToComplete + Time.time > arrivalTime)
         {
             Debug.Log("This Ranged Attack is unable to arrive on time.");
             return false;
@@ -244,6 +305,8 @@ public class PathfindingObject : MonoBehaviour
         }
         // Do attack
         TimeToStart = arrivalTime - TimeToComplete;
+        
+
         return true;
 
     }

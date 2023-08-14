@@ -7,7 +7,7 @@
 //    public Tilemap obstacleTilemap;
 //    public Vector3Int startPos;
 //    public Vector3Int endPos;
-//    public float speed = 5f;
+//    public float moveSpeed = 5f;
 //    public float arrivalTime = 5f;
 
 //    private TileBase[] obstacleTiles;
@@ -79,7 +79,7 @@
 //        }
 
 //        // Move the object towards the endPos position
-//        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+//        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 //    }
 
 

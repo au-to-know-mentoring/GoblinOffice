@@ -4,22 +4,27 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
+
 public class PathfindingManager : MonoBehaviour
 {
     public List<PathfindingObject> pathfindingObjects = new List<PathfindingObject>();
+    private List<PathfindingObject> UnassignedPathfindingObjects; // needs updating each time a new assignment is set
+    // List of beat events, excluding movement;
     public GameObject Player;
     public Tilemap obstacleTilemap;
     private TileBase[] obstacleTiles;
     private Vector3 offset;
     public Dictionary<Vector3Int, Node> nodeDictionary = new Dictionary<Vector3Int, Node>();
     public float myTimer;
-   
 
+    public int BeatToLoop;
 
 
     public Vector3Int LeftOfPlayerPosition;
     public Vector3Int RightOfPlayerPosition;
     public Vector3Int TopOfPlayerPosition;
+    public Vector3Int PlayerPosition;
     private void Start()
     {
         
@@ -56,6 +61,12 @@ public class PathfindingManager : MonoBehaviour
             AssignPathsToSurroundPlayer();
         }
 
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("R is pressed");
+            AssignRangedAttacks();
+        }
+
         // Update the paths for all pathfinding objects
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -68,6 +79,18 @@ public class PathfindingManager : MonoBehaviour
         //UpdatePaths();
     }
 
+    private void AssignRangedAttacks()
+    {
+        foreach(var pathFindingObject in pathfindingObjects)
+        {
+            if (pathFindingObject.rangedAttackQuantity > 0)
+            {
+                
+                int distance =  GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]);
+                pathFindingObject.SetRangedAttack(0, distance);
+            }
+        }
+    }
     private void AssignPathsToSurroundPlayer()
     {
         //**[Optimize] Could be optimized by placing all pathFindingObjects into a list, and taking objects out after assigning them.
