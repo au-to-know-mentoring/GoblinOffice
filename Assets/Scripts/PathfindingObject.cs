@@ -25,6 +25,8 @@ public class PathfindingObject : MonoBehaviour
     private float rangedAttackDelayTimer = 0;
     private RangedProjectile rangedAttackedScript;
     public float projectileSpeed;
+    //public List<string> searchTerms = new List<string> { "Ranged", "Melee", "Death" };
+
 
     private List<PathfindingManager.Node> currentPath;
     [SerializeField]
@@ -44,6 +46,15 @@ public class PathfindingObject : MonoBehaviour
     private Animator myAnimator;
 
     private bool Assigned;
+    
+    //private float attackTime;
+    //private float damageTime;
+    //private float deathTime;
+    //private float idleTime;
+    public AnimationSettings myAnimationSettings;
+
+    private AnimationClip clip;
+    
     /// </summary>
     /// <param name="obstacleTilemap"></param>
     public void setObstacleTilemap(Tilemap obstacleTilemap)
@@ -53,6 +64,18 @@ public class PathfindingObject : MonoBehaviour
 
     private void Start()
     {
+        RangedAttackAnimationTime = myAnimationSettings.NinjaAnimationLengths[0];
+        myAnimator = GetComponent<Animator>();
+        if (myAnimator == null)
+        {
+            Debug.Log("Error: Did not find anim!");
+        }
+        else
+        {
+            //Debug.Log("Got anim");
+        }
+        //UpdateAnimClipTimes();
+
         if (rangedAttack != null)
         {
             // Get the script type attached to the prefab
@@ -74,7 +97,6 @@ public class PathfindingObject : MonoBehaviour
                 Debug.Log("Member variable not found in the script attached to the prefab.");
             }
         }
-        myAnimator = GetComponent<Animator>();
         TimeToStart = arrivalTime;
         speed = 1 / TimeBetweenTiles;
 
@@ -89,6 +111,36 @@ public class PathfindingObject : MonoBehaviour
         // Initialize the grid
 
     }
+
+
+
+    
+    //public void UpdateAnimClipTimes()
+    //{
+    //    AnimationClip[] clips = anim.runtimeAnimatorController.animationClips;
+    //    foreach (AnimationClip clip in clips)
+    //    {
+           
+    //        switch (clip.name)
+    //        {
+    //            case "Attacking":
+    //                attackTime = clip.length;
+    //                break;
+    //            case "Damage":
+    //                damageTime = clip.length;
+    //                break;
+    //            case "Dead":
+    //                deathTime = clip.length;
+    //                break;
+    //            case "Idle":
+    //                idleTime = clip.length;
+    //                break;
+    //        }
+    //    }
+    //}
+
+
+
     public void SetCurrentPath(List<PathfindingManager.Node> FoundPath)
     {
         if (FoundPath != null)
@@ -296,7 +348,7 @@ public class PathfindingObject : MonoBehaviour
             //GetDistance(startPos, endPos);
         }
         // forumla is Enemy Animation + travel moveSpeed / distance
-        float TimeToComplete = ((Distance + 1) / projectileSpeed) + RangedAttackAnimationTime; // Used to check if there is enough time to perform
+        float TimeToComplete = ((Distance) / projectileSpeed) + RangedAttackAnimationTime; // Used to check if there is enough time to perform
         if (TimeToComplete + Time.time > arrivalTime)
         {
             Debug.Log("This Ranged Attack is unable to arrive on time.");

@@ -19,8 +19,7 @@ public class PathfindingManager : MonoBehaviour
     public float myTimer;
 
     public int BeatToLoop;
-
-
+    public AnimationSettings myAnimationSettings;
     public Vector3Int LeftOfPlayerPosition;
     public Vector3Int RightOfPlayerPosition;
     public Vector3Int TopOfPlayerPosition;
@@ -86,7 +85,7 @@ public class PathfindingManager : MonoBehaviour
             if (pathFindingObject.rangedAttackQuantity > 0)
             {
                 
-                int distance =  GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]);
+                int distance =  GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
                 pathFindingObject.SetRangedAttack(0, distance);
             }
         }
