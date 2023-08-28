@@ -1,18 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class RangedProjectile : MonoBehaviour
 {
     public float moveSpeed = 1;
     public Transform playerTransform;
+    public Color myColour;
+    public SpriteRenderer spriteRenderer;
+    public enum Color
+    {
+        Green1,
+        Red2,
+        Blue3,
+        Yellow4
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>(); 
+        myColour = (Color)Random.Range(0, 4);
+        SetSpriteRendererColor();
         playerTransform = FindObjectOfType<GridMovement>().transform;
     }
 
+    private void SetSpriteRendererColor()
+    {
+        //switch (myColour)
+        //{
+        //    case Color.Green1:
+        //        spriteRenderer.color = ;
+        //        break;
+        //    case Color.Red2:
+        //        spriteRenderer.color = Color.Red2;
+        //        break;
+        //    case Color.Blue3:
+        //        spriteRenderer.color = Color.Blue3;
+        //        break;
+        //    case Color.Yellow4:
+        //        spriteRenderer.color = Color.Yellow4;
+        //        break;
+        //    default:
+        //        Debug.LogWarning("Unknown color selected.");
+        //        break;
+        //}
+    }
     // Update is called once per frame
     void Update()
     { 

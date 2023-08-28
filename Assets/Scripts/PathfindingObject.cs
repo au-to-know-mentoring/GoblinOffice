@@ -339,7 +339,7 @@ public class PathfindingObject : MonoBehaviour
     public bool SetRangedAttack(int BeatToArrive,float Distance)
     {
         rangedAttackedScript = rangedAttack.GetComponent<RangedProjectile>();
-        if (BeatToArrive == 0)
+        if (BeatToArrive == -1)
         {
             BeatToArrive = (int)arrivalTime;
         }
