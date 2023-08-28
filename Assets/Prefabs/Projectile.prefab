@@ -100,6 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   playerTransform: {fileID: 0}
+  myColour: 0
+  spriteRenderer: {fileID: 0}
+  GlobalSettingsObject: {fileID: 11400000, guid: affd884bcd0ad3c4999b88aaa4db9b0d, type: 2}
 --- !u!95 &1442588498
 Animator:
   serializedVersion: 4

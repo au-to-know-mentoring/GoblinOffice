@@ -19,7 +19,7 @@ public class UIImageScroll : MonoBehaviour
 
         if (rectTransform.anchoredPosition.y <= -despawnThreshold)
         {
-            Debug.Log("beat event despawned at:" + Time.time);
+          //  Debug.Log("beat event despawned at:" + Time.time);
             Destroy(gameObject);
         }
     }
