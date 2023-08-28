@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TrollGunAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1087379364, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -1200877492, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: 1258929510, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: 1601896768, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -63146278, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -698284241, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -1659819396, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: 1671872696, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -2015363983, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: 1279820305, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -1903990546, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -251608340, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -1259791964, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -300425868, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -1530445279, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: 1985892277, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -491422456, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: 56295874, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: -2071369210, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  - {fileID: 1407442711, guid: b463dbd1f8d6eed4385b4b6590187aea, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - gunparticleSprite_18
+  - gunparticleSprite_19
+  - gunparticleSprite_16
+  - gunparticleSprite_17
+  - gunparticleSprite_14
+  - gunparticleSprite_15
+  - gunparticleSprite_12
+  - gunparticleSprite_13
+  - gunparticleSprite_10
+  - gunparticleSprite_11
+  - gunparticleSprite_9
+  - gunparticleSprite_8
+  - gunparticleSprite_3
+  - gunparticleSprite_2
+  - gunparticleSprite_1
+  - gunparticleSprite_0
+  - gunparticleSprite_7
+  - gunparticleSprite_6
+  - gunparticleSprite_5
+  - gunparticleSprite_4
+  m_RenderDataMap: {}
+  m_Tag: TrollGunAtlas
+  m_IsVariant: 0

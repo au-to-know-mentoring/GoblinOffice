@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Sprites/troll run0002.png.meta
-guid: 4b346d002c17ac94c82e8f3199f3ea89
-========
-guid: 8ca6e3d6ba048cb4f81f9d5885fbaf90
->>>>>>>> SpriteSheetController:Assets/Sprites/projectiles/trollbulletsprite.png.meta
+guid: cc94b9e3b1227c349b800565eafe2cdb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -109,7 +105,112 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trollbulletsprite_0
+      name: shurikan spin sprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156ab9d77ad271b44bd481d214d27e43
+      internalID: 1145611215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shurikan spin sprite_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57685ade67862ac41ac8377ee2ed4ed3
+      internalID: -987205604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shurikan spin sprite_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668deb4767bcc9e4b8655cfa3332b0a7
+      internalID: 1912635620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shurikan spin sprite_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ecffe86afc434148aed2b8c27d63b02
+      internalID: 699741397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shurikan spin sprite_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5608c73d7616d0847b14fafec8919892
+      internalID: -1129341335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shurikan spin sprite_5
       rect:
         serializedVersion: 2
         x: 0
@@ -123,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1e48243dbeceb443bdad15645501b0b
-      internalID: -1724479224
+      spriteID: f1851004f3a38ee4b91dfdddd302dc53
+      internalID: -812329530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollbulletsprite_1
+      name: shurikan spin sprite_6
       rect:
         serializedVersion: 2
         x: 256
@@ -144,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b87334b59cc912b4d9a3c5340426bf15
-      internalID: 1102726967
+      spriteID: e0d9da4b9b6310e42a543ded2ca50dee
+      internalID: 1446192175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollbulletsprite_2
+      name: shurikan spin sprite_7
       rect:
         serializedVersion: 2
         x: 512
@@ -165,14 +266,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44d743e5d58cca24390bca2cf93e1bdb
-      internalID: 1881679313
+      spriteID: fecd349c72302564e9250425287712b9
+      internalID: -1993368672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollbulletsprite_3
+      name: shurikan spin sprite_8
       rect:
         serializedVersion: 2
         x: 768
@@ -186,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 385246d54beabc740a5a6bcfa22abcf8
-      internalID: -1750868799
+      spriteID: 79effe168ae1a1f46a5b8ca970ce2862
+      internalID: -2115977206
       vertices: []
       indices: 
       edges: []
@@ -203,10 +304,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      trollbulletsprite_2: 1881679313
-      trollbulletsprite_0: -1724479224
-      trollbulletsprite_3: -1750868799
-      trollbulletsprite_1: 1102726967
+      shurikan spin sprite_0: 1145611215
+      shurikan spin sprite_3: 699741397
+      shurikan spin sprite_4: -1129341335
+      shurikan spin sprite_1: -987205604
+      shurikan spin sprite_7: -1993368672
+      shurikan spin sprite_2: 1912635620
+      shurikan spin sprite_8: -2115977206
+      shurikan spin sprite_5: -812329530
+      shurikan spin sprite_6: 1446192175
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
