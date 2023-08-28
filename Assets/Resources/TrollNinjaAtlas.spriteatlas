@@ -135,5 +135,5 @@ SpriteAtlas:
   - particle effect troll_2
   - particle effect troll_3
   m_RenderDataMap: {}
-  m_Tag: trollninjapartle
+  m_Tag: TrollNinjaAtlas
   m_IsVariant: 0
