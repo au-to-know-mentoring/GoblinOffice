@@ -31,6 +31,7 @@ public class PathfindingManager : MonoBehaviour
         MeleeAttack
     }
     public List<BeatEvent?> beatEvents = new List<BeatEvent?>(new BeatEvent?[20]);
+    public List<BeatEventWithEnemy?> beatEventWithEnemies= new List<BeatEventWithEnemy?>(new BeatEventWithEnemy?[20]);
     private void Start()
     {
   
@@ -89,22 +90,29 @@ public class PathfindingManager : MonoBehaviour
     {
         foreach(var pathFindingObject in pathfindingObjects)
         {
-            if (pathFindingObject.rangedAttackQuantity > 0)
+            if (pathFindingObject.rangedAttackQuantity > 1)
             {
-                
-                int distance =  GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
-                bool EventChosen = false;
-                int RandomNumber = 0;
-                while (EventChosen == false)
+                int distance = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
+                while (pathFindingObject.rangedAttackQuantity > 0)
                 {
-                    RandomNumber = UnityEngine.Random.Range(5, 15); // change later.
-                    if (beatEvents[RandomNumber] == null)
+
+
+                    bool EventChosen = false;
+                    int RandomNumber = 0;
+                    while (EventChosen == false)
                     {
-                        beatEvents[RandomNumber] = BeatEvent.RangedAttack;
-                        EventChosen = true;
+                        RandomNumber = UnityEngine.Random.Range(5, 15); // change later.
+                        if (beatEvents[RandomNumber] == null)
+                        {
+                            beatEvents[RandomNumber] = BeatEvent.RangedAttack;
+                            beatEventWithEnemies[RandomNumber] = new BeatEventWithEnemy(BeatEvent.RangedAttack, pathFindingObject);
+                            EventChosen = true;
+                            pathFindingObject.rangedAttackQuantity--;
+                        }
                     }
+
+                    pathFindingObject.SetRangedAttack(RandomNumber, distance);
                 }
-                pathFindingObject.SetRangedAttack(RandomNumber, distance);
             }
         }
     }
@@ -453,6 +461,18 @@ public class PathfindingManager : MonoBehaviour
             gCost = int.MaxValue;
             hCost = 0;
             parent = null;
+        }
+    }
+
+    public struct BeatEventWithEnemy
+    {
+        BeatEvent BeatEventType;
+        PathfindingObject Enemy;
+
+        public BeatEventWithEnemy(BeatEvent beateventType, PathfindingObject pathfindingObject)
+        {
+            BeatEventType= beateventType;
+            Enemy= pathfindingObject;
         }
     }
 }

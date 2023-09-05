@@ -3817,7 +3817,7 @@ MonoBehaviour:
   arrivalTime: 5
   UpdateStartingPosition: 1
   rangedAttack: {fileID: 7891159223147854986, guid: ce2c771595496bc40b2ba1f00bd3304c, type: 3}
-  rangedAttackQuantity: 1
+  rangedAttackQuantity: 4
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
@@ -5010,6 +5010,8 @@ GameObject:
   - component: {fileID: 2084591415}
   - component: {fileID: 2084591414}
   - component: {fileID: 2084591413}
+  - component: {fileID: 2084591416}
+  - component: {fileID: 2084591417}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5058,8 +5060,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.03058815, a: 0.70980394}
+  m_Sprite: {fileID: 286870516, guid: 3e8aff00f9a1e564da3929c60b851fe0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.70980394}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5099,3 +5101,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2084591416
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084591412}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea10d8d0d22c94a4eb5366c02b396fda, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2084591417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084591412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41bb740017747e4baa1847b1c279e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 3
+  MaxHealth: 3
+  myAnimator: {fileID: 0}

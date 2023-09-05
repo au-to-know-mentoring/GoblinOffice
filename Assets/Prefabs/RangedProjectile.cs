@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class RangedProjectile : MonoBehaviour
 {
+    public int damage = 1;
     public float moveSpeed = 1;
+    public Player myPlayer;
     public Transform playerTransform;
     public Color myColour;
     public SpriteRenderer spriteRenderer;
@@ -28,7 +30,8 @@ public class RangedProjectile : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>(); 
         myColour = (Color)Random.Range(1, 5);
         SetSpriteRendererColor();
-        playerTransform = FindObjectOfType<GridMovement>().transform;
+        myPlayer = FindObjectOfType<Player>();
+        playerTransform = myPlayer.GetComponent<Transform>();
     }
 
     private void SetSpriteRendererColor()
@@ -81,10 +84,12 @@ public class RangedProjectile : MonoBehaviour
                 {
                     Debug.Log("Destroyed");
                     this.gameObject.transform.position = new Vector3(5, 5, 0);
+                    myPlayer.SetReflect();
                 }
                 else
                 {
-                    
+                    myPlayer.ReduceHealthBy(damage);
+                    this.gameObject.transform.position = new Vector3(-5, 5, 0);
                 }
             }
             }
