@@ -82,6 +82,10 @@ public class RangedProjectile : MonoBehaviour
                     Debug.Log("Destroyed");
                     this.gameObject.transform.position = new Vector3(5, 5, 0);
                 }
+                else
+                {
+                    
+                }
             }
             }
     }

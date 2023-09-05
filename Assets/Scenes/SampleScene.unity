@@ -4476,6 +4476,7 @@ MonoBehaviour:
   YellowBtn4: {fileID: 949336418}
   test: 0
   GlobalSettingsObject: {fileID: 11400000, guid: affd884bcd0ad3c4999b88aaa4db9b0d, type: 2}
+  WASDControls: 0
   UIButtonPressed: {fileID: 1372243171}
   ButtonCurrentlyPressed: 0
 --- !u!114 &1661228408
@@ -4993,7 +4994,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049886046}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d2e38dbb57efa549a8a2adcde6c37b4, type: 3}
   m_Name: 

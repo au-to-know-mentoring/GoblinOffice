@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -24,9 +25,15 @@ public class PathfindingManager : MonoBehaviour
     public Vector3Int RightOfPlayerPosition;
     public Vector3Int TopOfPlayerPosition;
     public Vector3Int PlayerPosition;
+    public enum BeatEvent
+    {
+        RangedAttack,
+        MeleeAttack
+    }
+    public List<BeatEvent?> beatEvents = new List<BeatEvent?>(new BeatEvent?[20]);
     private void Start()
     {
-        
+  
         // Set Positions adjacent to player.
         SetPositionsAroundPlayer();
         // Register all pathfinding objects in the scene
@@ -86,7 +93,18 @@ public class PathfindingManager : MonoBehaviour
             {
                 
                 int distance =  GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
-                pathFindingObject.SetRangedAttack(0, distance);
+                bool EventChosen = false;
+                int RandomNumber = 0;
+                while (EventChosen == false)
+                {
+                    RandomNumber = UnityEngine.Random.Range(5, 15); // change later.
+                    if (beatEvents[RandomNumber] == null)
+                    {
+                        beatEvents[RandomNumber] = BeatEvent.RangedAttack;
+                        EventChosen = true;
+                    }
+                }
+                pathFindingObject.SetRangedAttack(RandomNumber, distance);
             }
         }
     }

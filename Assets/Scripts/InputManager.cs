@@ -14,7 +14,7 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     public UnityEngine.UI.Button YellowBtn4;
     public int test;
     public SettingsData GlobalSettingsObject;
-
+    public bool WASDControls;
 
     public Text UIButtonPressed;
     public int ButtonCurrentlyPressed = 0;
@@ -40,25 +40,52 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     // Update is called once per frame
     void Update()
     {
-        switch (ButtonCurrentlyPressed)
+        if (!WASDControls)
+            return;
+        if (Input.GetKey(KeyCode.W))
         {
-            case 1:
-                // Do something for GreenBtn1 being held down.
-                break;
-
-            case 2:
-                // Do something for RedBtn2 being held down.
-                break;
-
-            case 3:
-                // Do something for BlueBtn3 being held down.
-                break;
-
-            case 4:
-                // Do something for YellowBtn4 being held down.
-                break;
+            ButtonCurrentlyPressed = 4;
         }
-        UIButtonPressed.text = ButtonCurrentlyPressed.ToString();
+        // Check if A key is pressed
+        else if (Input.GetKey(KeyCode.A))
+        {
+            ButtonCurrentlyPressed = 3;
+        }
+        // Check if S key is pressed
+        else if (Input.GetKey(KeyCode.S))
+        {
+            ButtonCurrentlyPressed = 1;
+        }
+        // Check if D key is pressed
+        else if (Input.GetKey(KeyCode.D))
+        {
+            ButtonCurrentlyPressed = 2;
+        }
+
+        else
+        {
+            // No key is pressed, set to None
+            ButtonCurrentlyPressed = 0;
+        }
+        //switch (ButtonCurrentlyPressed)
+        //{
+        //    case 1:
+        //        // Do something for GreenBtn1 being held down.
+        //        break;
+
+        //    case 2:
+        //        // Do something for RedBtn2 being held down.
+        //        break;
+
+        //    case 3:
+        //        // Do something for BlueBtn3 being held down.
+        //        break;
+
+        //    case 4:
+        //        // Do something for YellowBtn4 being held down.
+        //        break;
+        //}
+        
     }
 
     public void ButtonPressed()
@@ -127,7 +154,7 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
     {
         if (eventData.selectedObject == GreenBtn1.gameObject)
-            ButtonCurrentlyPressed= 1;
+            ButtonCurrentlyPressed = 1;
         else if (eventData.selectedObject == RedBtn2.gameObject)
             ButtonCurrentlyPressed = 2;
         else if (eventData.selectedObject == BlueBtn3.gameObject)
@@ -140,7 +167,26 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
     {
-
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            ButtonCurrentlyPressed = 4;
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ButtonCurrentlyPressed = 3;
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            ButtonCurrentlyPressed = 1;
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            ButtonCurrentlyPressed = 2;
+            return;
+        }
         ButtonCurrentlyPressed = 0;
     }
 }

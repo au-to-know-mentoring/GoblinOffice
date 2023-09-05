@@ -356,7 +356,7 @@ public class PathfindingObject : MonoBehaviour
             
         }
         // Do attack
-        TimeToStart = arrivalTime - TimeToComplete;
+        TimeToStart = BeatToArrive - TimeToComplete; // should be BeatToArrive.
         
 
         return true;
