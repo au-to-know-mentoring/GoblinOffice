@@ -58,7 +58,7 @@ public class BeatEventManager : MonoBehaviour
             }
         }
 
-        // Remove the flagged events after the loop
+        // Done the flagged events after the loop
         foreach (var eventToRemove in eventsToRemove)
         {
             beatEvents.Remove(eventToRemove);

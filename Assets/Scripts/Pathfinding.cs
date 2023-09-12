@@ -210,7 +210,7 @@
 //                }
 //            }
 
-//            openSet.Remove(currentNode);
+//            openSet.Done(currentNode);
 //            closedSet.Add(currentNode);
 
 //            if (currentNode == targetNode)

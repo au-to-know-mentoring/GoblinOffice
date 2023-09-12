@@ -9,8 +9,10 @@ using UnityEngine.UIElements;
 
 public class PathfindingManager : MonoBehaviour
 {
-    public List<PathfindingObject> pathfindingObjects = new List<PathfindingObject>();
-    private List<PathfindingObject> UnassignedPathfindingObjects; // needs updating each time a new assignment is set
+    public List<PathfindingObject> UnassignedEnemyList = new List<PathfindingObject>();
+    public List<PathfindingObject> AssignedEnemyList = new List<PathfindingObject>(); // TODO
+    
+
     // List of beat events, excluding movement;
     public GameObject Player;
     public Tilemap obstacleTilemap;
@@ -62,13 +64,13 @@ public class PathfindingManager : MonoBehaviour
     {
         myTimer += Time.deltaTime;
         // Set Paths to surround Player.
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("Q is pressed");
             AssignPathsToSurroundPlayer();
         }
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("R is pressed");
             AssignRangedAttacks();
@@ -77,45 +79,94 @@ public class PathfindingManager : MonoBehaviour
         // Update the paths for all pathfinding objects
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            foreach(var pathFindingObject in pathfindingObjects) 
+            foreach (var pathFindingObject in UnassignedEnemyList)
             {
-               pathFindingObject.SetCurrentPath(FindPath(pathFindingObject.startPos, pathFindingObject.endPos));
-               pathFindingObject.StartMovement();
+                pathFindingObject.SetCurrentPath(FindPath(pathFindingObject.startPos, pathFindingObject.endPos));
+                pathFindingObject.StartMovement();
             }
         }
         //UpdatePaths();
+        LoopBeat();
     }
 
-    private void AssignRangedAttacks()
+    private void LoopBeat()
     {
-        foreach(var pathFindingObject in pathfindingObjects)
+        if (myTimer >= BeatToLoop)
         {
-            if (pathFindingObject.rangedAttackQuantity > 1)
+            myTimer -= BeatToLoop;
+            foreach (var pathFindingObject in AssignedEnemyList)
+            {
+                UnassignedEnemyList.Add(pathFindingObject);
+            }
+            AssignedEnemyList.Clear();
+            AssignRangedAttacks();
+        }
+    }
+
+    private void AssignRangedAttacks() // CHANGE TO BEAT EVENTS><
+    {
+        foreach(var pathFindingObject in UnassignedEnemyList)
+        {
+            if (pathFindingObject.rangedAttackQuantity >= 1)
             {
                 int distance = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
                 while (pathFindingObject.rangedAttackQuantity > 0)
                 {
-
-
                     bool EventChosen = false;
                     int RandomNumber = 0;
                     while (EventChosen == false)
                     {
-                        RandomNumber = UnityEngine.Random.Range(5, 15); // change later.
+                        RandomNumber = UnityEngine.Random.Range(5, 15); // change to enemys not random beats.
                         if (beatEvents[RandomNumber] == null)
                         {
                             beatEvents[RandomNumber] = BeatEvent.RangedAttack;
-                            beatEventWithEnemies[RandomNumber] = new BeatEventWithEnemy(BeatEvent.RangedAttack, pathFindingObject);
+                            float BeatEventTimeToStart = pathFindingObject.SetRangedAttack(RandomNumber, distance);
+                            beatEventWithEnemies[RandomNumber] = new BeatEventWithEnemy(BeatEvent.RangedAttack, pathFindingObject, BeatEventTimeToStart);
                             EventChosen = true;
                             pathFindingObject.rangedAttackQuantity--;
+                            
                         }
                     }
-
-                    pathFindingObject.SetRangedAttack(RandomNumber, distance);
                 }
+                AssignedEnemyList.Add(pathFindingObject);
+                pathFindingObject.Active = true;
             }
         }
+        foreach (var pathFindingObject in AssignedEnemyList)
+        {
+            UnassignedEnemyList.Remove(pathFindingObject);
+        }
     }
+    //private void AssignRangedAttacksByRandomBeat()
+    //{
+    //    foreach (var pathFindingObject in UnassignedEnemyList)
+    //    {
+    //        if (pathFindingObject.rangedAttackQuantity >= 1)
+    //        {
+    //            int distance = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
+    //            while (pathFindingObject.rangedAttackQuantity > 0)
+    //            {
+    //                bool EventChosen = false;
+    //                int RandomNumber = 0;
+    //                while (EventChosen == false)
+    //                {
+    //                    RandomNumber = UnityEngine.Random.Range(5, 15); // change to enemys not random beats.
+    //                    if (beatEvents[RandomNumber] == null)
+    //                    {
+    //                        beatEvents[RandomNumber] = BeatEvent.RangedAttack;
+    //                        float BeatEventTimeToStart = pathFindingObject.SetRangedAttack(RandomNumber, distance);
+    //                        beatEventWithEnemies[RandomNumber] = new BeatEventWithEnemy(BeatEvent.RangedAttack, pathFindingObject, BeatEventTimeToStart);
+    //                        EventChosen = true;
+    //                        pathFindingObject.rangedAttackQuantity--;
+
+    //                    }
+    //                }
+    //            }
+    //            AssignedEnemyList.Add(pathFindingObject);
+    //            pathFindingObject.Active = true;
+    //        }
+    //    }
+    //}
     private void AssignPathsToSurroundPlayer()
     {
         //**[Optimize] Could be optimized by placing all pathFindingObjects into a list, and taking objects out after assigning them.
@@ -134,21 +185,21 @@ public class PathfindingManager : MonoBehaviour
         int DistanceToRightPos = 999;
         int DistanceToTopPos = 999;
         //LEFT
-        foreach (var pathFindingObject in pathfindingObjects)
+        foreach (var pathFindingObject in UnassignedEnemyList)
         {
             AssignMeleePosition(ref EnemyForLeftPosition, ref DistanceToLeftPos, LeftOfPlayerPosition);
         }
 
-        //foreach (var pathFindingObject in pathfindingObjects)
+        //foreach (var pathFindingObject in UnassignedEnemyList)
         //{
         //    AssignMeleePosition(ref EnemyForRightPosition, ref DistanceToRightPos, RightOfPlayerPosition);
         //}
-        //foreach (var pathFindingObject in pathfindingObjects)
+        //foreach (var pathFindingObject in UnassignedEnemyList)
         //{
         //    AssignMeleePosition(ref EnemyForTopPosition, ref DistanceToTopPos, TopOfPlayerPosition);
         //}
         //RIGHT
-        foreach (var pathFindingObject in pathfindingObjects)
+        foreach (var pathFindingObject in UnassignedEnemyList)
         {
             Debug.Log(GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]));
 
@@ -164,7 +215,7 @@ public class PathfindingManager : MonoBehaviour
         Debug.Log("The closest Enemy to the position Right of the player is: " + EnemyForRightPosition.name);
         EnemyForRightPosition.endPos = Vector3Int.FloorToInt(RightOfPlayerPosition);
         //TOP
-        foreach (var pathFindingObject in pathfindingObjects)
+        foreach (var pathFindingObject in UnassignedEnemyList)
         {
             Debug.Log(GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]));
 
@@ -191,7 +242,7 @@ public class PathfindingManager : MonoBehaviour
 
     private void AssignMeleePosition(ref PathfindingObject EnemyForPosition, ref int DistanceToLeftPos, Vector3Int Position)
     {
-        foreach (var pathFindingObject in pathfindingObjects)
+        foreach (var pathFindingObject in UnassignedEnemyList)
         {
             Debug.Log(GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(Position)]));
 
@@ -209,8 +260,8 @@ public class PathfindingManager : MonoBehaviour
     {
         // Find all pathfinding objects in the scene and add them to the list
         PathfindingObject[] objects = FindObjectsOfType<PathfindingObject>();
-        pathfindingObjects.AddRange(objects);
-        foreach (var pathFindingObject in pathfindingObjects)
+        UnassignedEnemyList.AddRange(objects);
+        foreach (var pathFindingObject in UnassignedEnemyList)
         {
             pathFindingObject.setObstacleTilemap(obstacleTilemap);
         }
@@ -226,7 +277,7 @@ public class PathfindingManager : MonoBehaviour
     //private void UpdatePaths()
     //{
     //    // Update the paths for each pathfinding object
-    //    foreach (PathfindingObject pathfindingObject in pathfindingObjects)
+    //    foreach (PathfindingObject pathfindingObject in UnassignedEnemyList)
     //    {
     //        pathfindingObject.UpdatePath();
     //    }
@@ -468,11 +519,12 @@ public class PathfindingManager : MonoBehaviour
     {
         BeatEvent BeatEventType;
         PathfindingObject Enemy;
-
-        public BeatEventWithEnemy(BeatEvent beateventType, PathfindingObject pathfindingObject)
+        float TimeToStart;
+        public BeatEventWithEnemy(BeatEvent beateventType, PathfindingObject pathfindingObject, float timeToStart)
         {
             BeatEventType= beateventType;
             Enemy= pathfindingObject;
+            TimeToStart= timeToStart;
         }
     }
 }

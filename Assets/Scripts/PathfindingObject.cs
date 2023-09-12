@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using Unity.VisualScripting;
 using UnityEditor;
 using System.Reflection;
+using System.Collections;
 
 public class PathfindingObject : MonoBehaviour
 {
@@ -26,7 +27,9 @@ public class PathfindingObject : MonoBehaviour
     private RangedProjectile rangedAttackedScript;
     public float projectileSpeed;
     //public List<string> searchTerms = new List<string> { "Ranged", "Melee", "Death" };
-
+    public List<RangedBeat> rangedAttacksList = new List<RangedBeat>();
+    public List<RangedBeat> ItemsToRemove = new List<RangedBeat>();
+    public bool Active = false;
 
     private List<PathfindingManager.Node> currentPath;
     [SerializeField]
@@ -183,22 +186,13 @@ public class PathfindingObject : MonoBehaviour
         // Check if there is a path to follow
 
         
-
+        if(Active == true)
+        {
+            ResolveRangeAttacks();
+        }
         if (TimeToStart <= Time.timeSinceLevelLoad)
         {
-
-            if (rangedAttackQuantity >= 1) 
-            {
-                rangedAttackQuantity--;
-                if(rangedAttackDelayTimer <= 0) // Replace with beat events.
-                {
-                    myAnimator.SetTrigger("RangedAttack");
-                    
-                    
-                }
-
-            }
-
+            
             if (currentPath == null)
                 return;
             // Calculate the endPos position based on the current time ratio
@@ -211,29 +205,58 @@ public class PathfindingObject : MonoBehaviour
                     Debug.Log("Destination reached at: " + Time.timeSinceLevelLoad + transform.position);
                     currentPath = null;
                     if (UpdateStartingPosition == true)
-                    startPos = Vector3Int.FloorToInt(transform.position);
+                        startPos = Vector3Int.FloorToInt(transform.position);
                 }
             }
             else
             {
                 // Calculate the index of the current endPos node in the path // Travel between each tile 1 at a time, don't use timeratio
                 float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
-                if(distanceToTarget <= 0.01f)
+                if (distanceToTarget <= 0.01f)
                 {
                     targetIndex += 1;
-                    if(targetIndex != currentPath.Count)
+                    if (targetIndex != currentPath.Count)
                     {
                         PathfindingManager.Node targetNode = currentPath[targetIndex];
                         targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
                     }
                 }
-                
+
             }
-            
+
             // Move the object towards the endPos position
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         }
     }
+
+    private void ResolveRangeAttacks()
+    {
+        // Create a list to store attacks to be removed
+        List<RangedBeat> attacksToRemove = new List<RangedBeat>();
+
+        for (int i = rangedAttacksList.Count - 1; i >= 0; i--)
+        {
+            if (rangedAttacksList[i].TimeToStart <= Time.timeSinceLevelLoad)
+            {
+                if (rangedAttacksList[i].Done == false)
+                {
+                    myAnimator.SetTrigger("RangedAttack");
+                    rangedAttacksList[i].Done = true;
+
+                }
+            }
+        }
+
+        for (int i = rangedAttacksList.Count - 1; i >= 0; i--)
+        {
+            if (rangedAttacksList[i].Done == true)
+            {
+                rangedAttacksList.RemoveAt(i);
+            }
+        }
+    }
+
+
     private List<PathfindingManager.Node > AStar(PathfindingManager.Node  startNode, PathfindingManager.Node  targetNode)
     {
         List<PathfindingManager.Node > openSet = new List<PathfindingManager.Node >();
@@ -336,7 +359,7 @@ public class PathfindingObject : MonoBehaviour
         return dstX + dstY;
     }
 
-    public bool SetRangedAttack(int BeatToArrive,float Distance)
+    public float SetRangedAttack(int BeatToArrive,float Distance)
     {
         rangedAttackedScript = rangedAttack.GetComponent<RangedProjectile>();
         if (BeatToArrive == -1)
@@ -352,15 +375,27 @@ public class PathfindingObject : MonoBehaviour
         if (TimeToComplete + Time.time > arrivalTime)
         {
             Debug.Log("This Ranged Attack is unable to arrive on time.");
-            return false;
+            return -1;
             
         }
         // Do attack
         TimeToStart = BeatToArrive - TimeToComplete; // should be BeatToArrive.
-        
+        RangedBeat BeatToAdd = new RangedBeat(false, TimeToStart);
+        rangedAttacksList.Add(BeatToAdd);
 
-        return true;
+        return TimeToStart;
 
     }
+    public class RangedBeat
+    {
+        public bool Done;
+        public float TimeToStart;
+        public RangedBeat(bool remove, float timeToStart)
+        {
+            Done = remove;
+            TimeToStart = timeToStart;
+        }
+    }
+
 
 }

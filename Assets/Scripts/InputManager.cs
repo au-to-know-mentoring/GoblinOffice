@@ -12,7 +12,6 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     public UnityEngine.UI.Button RedBtn2;
     public UnityEngine.UI.Button BlueBtn3;
     public UnityEngine.UI.Button YellowBtn4;
-    public int test;
     public SettingsData GlobalSettingsObject;
     public bool WASDControls;
 
@@ -67,6 +66,7 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
             // No key is pressed, set to None
             ButtonCurrentlyPressed = 0;
         }
+        UIButtonPressed.text = ButtonCurrentlyPressed.ToString();
         //switch (ButtonCurrentlyPressed)
         //{
         //    case 1:
@@ -95,35 +95,43 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public void NoButtonPressed()
     {
+
         ButtonCurrentlyPressed = 0;
+        UIButtonPressed.text = ButtonCurrentlyPressed.ToString();
     }
     public void GreenBtn1Pressed(BaseEventData eventData)
     {
         Debug.Log("Green button pressed and held.");
         ButtonCurrentlyPressed = 1;
+        UIButtonPressed.text = ButtonCurrentlyPressed.ToString();
     }
 
     public void RedBtn2Pressed(BaseEventData eventData)
     {
         Debug.Log("Red button pressed and held.");
         ButtonCurrentlyPressed = 2;
+        UIButtonPressed.text = ButtonCurrentlyPressed.ToString();
     }
 
     public void BlueBtn3Pressed(BaseEventData eventData)
     {
         Debug.Log("Blue button pressed and held.");
         ButtonCurrentlyPressed = 3;
+        UIButtonPressed.text = ButtonCurrentlyPressed.ToString();
     }
 
     public void YellowBtn4Pressed(BaseEventData eventData)
     {
         Debug.Log("Yellow button pressed and held.");
         ButtonCurrentlyPressed = 4;
+        UIButtonPressed.text = ButtonCurrentlyPressed.ToString();
     }
     public void ButtonReleased(BaseEventData eventData)
     {
         Debug.Log("Green button released.");
         ButtonCurrentlyPressed = 0; // Reset the button state
+        UIButtonPressed.text = ButtonCurrentlyPressed.ToString();
+
     }
 
 
@@ -162,6 +170,7 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         else if (eventData.selectedObject == YellowBtn4.gameObject)
             ButtonCurrentlyPressed = 4;
 
+        UIButtonPressed.text = ButtonCurrentlyPressed.ToString();
         Debug.Log("OnPointerDown called");
     }
 
@@ -188,5 +197,6 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
             return;
         }
         ButtonCurrentlyPressed = 0;
+        UIButtonPressed.text = ButtonCurrentlyPressed.ToString();
     }
 }
