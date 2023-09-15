@@ -744,6 +744,7 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0
@@ -1018,6 +1019,7 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0
@@ -3693,6 +3695,7 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0
@@ -3903,6 +3906,7 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0
@@ -4913,6 +4917,7 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0
@@ -5072,6 +5077,7 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0
@@ -5114,7 +5120,7 @@ MonoBehaviour:
   Player: {fileID: 2084591412}
   obstacleTilemap: {fileID: 1403044099}
   myTimer: 0
-  BeatToLoop: 0
+  BeatToLoop: 15
   myAnimationSettings: {fileID: 0}
   LeftOfPlayerPosition: {x: 0, y: 0, z: 0}
   RightOfPlayerPosition: {x: 0, y: 0, z: 0}

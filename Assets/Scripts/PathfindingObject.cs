@@ -46,6 +46,9 @@ public class PathfindingObject : MonoBehaviour
     private int targetIndex = 0;
     [SerializeField]
     private Tilemap obstacleTilemap;
+
+    private float myTimer { get; set; }
+
     private Animator myAnimator;
 
     private bool Assigned;
@@ -57,12 +60,15 @@ public class PathfindingObject : MonoBehaviour
     public AnimationSettings myAnimationSettings;
 
     private AnimationClip clip;
-    
+
+    public List<RangedBeat> OriginalAttackList;
+
     /// </summary>
     /// <param name="obstacleTilemap"></param>
     public void setObstacleTilemap(Tilemap obstacleTilemap)
     {
         this.obstacleTilemap = obstacleTilemap;
+
     }
 
     private void Start()
@@ -185,7 +191,7 @@ public class PathfindingObject : MonoBehaviour
 
         // Check if there is a path to follow
 
-        
+        myTimer += Time.deltaTime;
         if(Active == true)
         {
             ResolveRangeAttacks();
@@ -242,7 +248,6 @@ public class PathfindingObject : MonoBehaviour
                 {
                     myAnimator.SetTrigger("RangedAttack");
                     rangedAttacksList[i].Done = true;
-
                 }
             }
         }
@@ -386,6 +391,17 @@ public class PathfindingObject : MonoBehaviour
         return TimeToStart;
 
     }
+
+    public void CloneAttackList()
+    {
+        OriginalAttackList = new List<RangedBeat>(rangedAttacksList);
+    }
+    public void ResetAttackList(float Timer)
+    {
+        rangedAttacksList = new List<RangedBeat>(OriginalAttackList);
+        myTimer = Timer;
+    }
+
     public class RangedBeat
     {
         public bool Done;

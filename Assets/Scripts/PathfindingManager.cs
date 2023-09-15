@@ -22,6 +22,7 @@ public class PathfindingManager : MonoBehaviour
     public float myTimer;
 
     public int BeatToLoop;
+    private bool HasLoopedBefore = false;
     public AnimationSettings myAnimationSettings;
     public Vector3Int LeftOfPlayerPosition;
     public Vector3Int RightOfPlayerPosition;
@@ -86,7 +87,9 @@ public class PathfindingManager : MonoBehaviour
             }
         }
         //UpdatePaths();
-        LoopBeat();
+            LoopBeat();
+        
+       
     }
 
     private void LoopBeat()
@@ -96,10 +99,12 @@ public class PathfindingManager : MonoBehaviour
             myTimer -= BeatToLoop;
             foreach (var pathFindingObject in AssignedEnemyList)
             {
-                UnassignedEnemyList.Add(pathFindingObject);
+                pathFindingObject.ResetAttackList(myTimer);
+                //UnassignedEnemyList.Add(pathFindingObject);
             }
-            AssignedEnemyList.Clear();
-            AssignRangedAttacks();
+            //AssignedEnemyList.Clear();
+            
+            //AssignRangedAttacks();
         }
     }
 
@@ -130,6 +135,7 @@ public class PathfindingManager : MonoBehaviour
                 }
                 AssignedEnemyList.Add(pathFindingObject);
                 pathFindingObject.Active = true;
+                pathFindingObject.CloneAttackList();
             }
         }
         foreach (var pathFindingObject in AssignedEnemyList)
