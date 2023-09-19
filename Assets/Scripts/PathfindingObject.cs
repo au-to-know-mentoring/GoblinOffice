@@ -21,6 +21,7 @@ public class PathfindingObject : MonoBehaviour
     [Header("Ranged Attack Variables")]
     public GameObject rangedAttack;
     public int rangedAttackQuantity;
+    public int rangedAttackQuantityOriginal;
     public float delayBetweenRangedAttacks; // Change to beat manager eventually
     public float RangedAttackAnimationTime; // TODO
     private float rangedAttackDelayTimer = 0;
@@ -47,7 +48,9 @@ public class PathfindingObject : MonoBehaviour
     [SerializeField]
     private Tilemap obstacleTilemap;
 
-    private float myTimer { get; set; }
+    [SerializeField]
+    private float myTimer;
+
 
     private Animator myAnimator;
 
@@ -61,7 +64,7 @@ public class PathfindingObject : MonoBehaviour
 
     private AnimationClip clip;
 
-    public List<RangedBeat> OriginalAttackList;
+    public List<RangedBeat> OriginalAttackList = new List<RangedBeat>();
 
     /// </summary>
     /// <param name="obstacleTilemap"></param>
@@ -73,6 +76,7 @@ public class PathfindingObject : MonoBehaviour
 
     private void Start()
     {
+        rangedAttackQuantityOriginal = rangedAttackQuantity;
         RangedAttackAnimationTime = myAnimationSettings.NinjaAnimationLengths[0];
         myAnimator = GetComponent<Animator>();
         if (myAnimator == null)
@@ -242,7 +246,7 @@ public class PathfindingObject : MonoBehaviour
 
         for (int i = rangedAttacksList.Count - 1; i >= 0; i--)
         {
-            if (rangedAttacksList[i].TimeToStart <= Time.timeSinceLevelLoad)
+            if (rangedAttacksList[i].TimeToStart <= myTimer)
             {
                 if (rangedAttacksList[i].Done == false)
                 {
@@ -257,6 +261,10 @@ public class PathfindingObject : MonoBehaviour
             if (rangedAttacksList[i].Done == true)
             {
                 rangedAttacksList.RemoveAt(i);
+                if (rangedAttacksList.Count == 0)
+                {
+                    //Play vulnerable animation here.
+                }
             }
         }
     }
@@ -394,11 +402,22 @@ public class PathfindingObject : MonoBehaviour
 
     public void CloneAttackList()
     {
-        OriginalAttackList = new List<RangedBeat>(rangedAttacksList);
+        foreach(var RangedAttack in rangedAttacksList)
+        {
+            RangedBeat copy = new RangedBeat(RangedAttack.Done, RangedAttack.TimeToStart); // This is necessary else both references edit the same value!
+            OriginalAttackList.Add(copy);
+        }
+        rangedAttackQuantity = rangedAttackQuantityOriginal;
     }
     public void ResetAttackList(float Timer)
     {
-        rangedAttacksList = new List<RangedBeat>(OriginalAttackList);
+        foreach (var RangedAttack in OriginalAttackList)
+        {
+            RangedBeat copy = new RangedBeat(RangedAttack.Done, RangedAttack.TimeToStart);
+            rangedAttacksList.Add(copy);
+        }
+        Debug.Log("Enemy: " + this.name + " Has this many attacks: " + rangedAttacksList.Count + " First attack is at: " + rangedAttacksList[0].TimeToStart);
+        
         myTimer = Timer;
     }
 

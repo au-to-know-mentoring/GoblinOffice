@@ -10,7 +10,9 @@ public class UIImageSpawner : MonoBehaviour
     public float spawnInterval = 1.0f;
     public float ScrollSpeed = 1.0f;
     int beat = 1;
+    int beatLoop;
     private float timer;
+
     Vector3 spawnHeight;
 
     private void Start()
@@ -27,6 +29,10 @@ public class UIImageSpawner : MonoBehaviour
         {
             SpawnImage();
             beat++;
+            if(beat > beatLoop)
+            {
+                beat = 1;
+            }
             timer = timer - spawnInterval;
         }
     }
@@ -47,5 +53,10 @@ public class UIImageSpawner : MonoBehaviour
         Text newImageText = newImageObj.GetComponentInChildren<Text>();
         newImageText.text = beat.ToString();
 
+    }
+
+    public void setBeatLoop(int BeatToLoop)
+    {
+        beatLoop= BeatToLoop;
     }
 }

@@ -11,7 +11,8 @@ public class PathfindingManager : MonoBehaviour
 {
     public List<PathfindingObject> UnassignedEnemyList = new List<PathfindingObject>();
     public List<PathfindingObject> AssignedEnemyList = new List<PathfindingObject>(); // TODO
-    
+    public UIImageSpawner myUIImageSpawner;
+
 
     // List of beat events, excluding movement;
     public GameObject Player;
@@ -37,7 +38,9 @@ public class PathfindingManager : MonoBehaviour
     public List<BeatEventWithEnemy?> beatEventWithEnemies= new List<BeatEventWithEnemy?>(new BeatEventWithEnemy?[20]);
     private void Start()
     {
-  
+
+        myUIImageSpawner = FindObjectOfType<UIImageSpawner>();
+        myUIImageSpawner.setBeatLoop(BeatToLoop);
         // Set Positions adjacent to player.
         SetPositionsAroundPlayer();
         // Register all pathfinding objects in the scene
@@ -145,10 +148,11 @@ public class PathfindingManager : MonoBehaviour
     }
     //private void AssignRangedAttacksByRandomBeat()
     //{
-    //    foreach (var pathFindingObject in UnassignedEnemyList)
+    //    foreach (var beatEvent in beatEvents)
     //    {
-    //        if (pathFindingObject.rangedAttackQuantity >= 1)
+    //        if (beatEvent == BeatEvent.RangedAttack)
     //        {
+    //            int RandomEnemy = UnityEngine.Random.Range(0, UnassignedEnemyList.Count);
     //            int distance = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
     //            while (pathFindingObject.rangedAttackQuantity > 0)
     //            {

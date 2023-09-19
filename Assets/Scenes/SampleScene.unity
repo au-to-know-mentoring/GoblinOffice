@@ -741,6 +741,7 @@ MonoBehaviour:
   UpdateStartingPosition: 1
   rangedAttack: {fileID: 7891159223147854986, guid: ce2c771595496bc40b2ba1f00bd3304c, type: 3}
   rangedAttackQuantity: 1
+  rangedAttackQuantityOriginal: 0
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
@@ -750,6 +751,7 @@ MonoBehaviour:
   speed: 0
   targetIndex: 0
   obstacleTilemap: {fileID: 1403044099}
+  myTimer: 0
   myAnimationSettings: {fileID: 2049886049}
 --- !u!212 &662012732
 SpriteRenderer:
@@ -1016,6 +1018,7 @@ MonoBehaviour:
   UpdateStartingPosition: 1
   rangedAttack: {fileID: 7891159223147854986, guid: ce2c771595496bc40b2ba1f00bd3304c, type: 3}
   rangedAttackQuantity: 1
+  rangedAttackQuantityOriginal: 0
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
@@ -1025,6 +1028,7 @@ MonoBehaviour:
   speed: 0
   targetIndex: 0
   obstacleTilemap: {fileID: 1403044099}
+  myTimer: 0
   myAnimationSettings: {fileID: 2049886049}
 --- !u!212 &729106394
 SpriteRenderer:
@@ -3692,6 +3696,7 @@ MonoBehaviour:
   UpdateStartingPosition: 1
   rangedAttack: {fileID: 7891159223147854986, guid: ce2c771595496bc40b2ba1f00bd3304c, type: 3}
   rangedAttackQuantity: 1
+  rangedAttackQuantityOriginal: 0
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
@@ -3701,6 +3706,7 @@ MonoBehaviour:
   speed: 0
   targetIndex: 0
   obstacleTilemap: {fileID: 1403044099}
+  myTimer: 0
   myAnimationSettings: {fileID: 2049886049}
 --- !u!212 &1267413929
 SpriteRenderer:
@@ -3903,6 +3909,7 @@ MonoBehaviour:
   UpdateStartingPosition: 1
   rangedAttack: {fileID: 7891159223147854986, guid: ce2c771595496bc40b2ba1f00bd3304c, type: 3}
   rangedAttackQuantity: 4
+  rangedAttackQuantityOriginal: 0
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
@@ -3912,6 +3919,7 @@ MonoBehaviour:
   speed: 0
   targetIndex: 0
   obstacleTilemap: {fileID: 1403044099}
+  myTimer: 0
   myAnimationSettings: {fileID: 2049886049}
 --- !u!212 &1295112134
 SpriteRenderer:
@@ -4914,6 +4922,7 @@ MonoBehaviour:
   UpdateStartingPosition: 1
   rangedAttack: {fileID: 0}
   rangedAttackQuantity: 0
+  rangedAttackQuantityOriginal: 0
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
@@ -4923,6 +4932,7 @@ MonoBehaviour:
   speed: 0
   targetIndex: 0
   obstacleTilemap: {fileID: 1403044099}
+  myTimer: 0
   myAnimationSettings: {fileID: 0}
 --- !u!1 &1887254889
 GameObject:
@@ -5074,6 +5084,7 @@ MonoBehaviour:
   UpdateStartingPosition: 1
   rangedAttack: {fileID: 0}
   rangedAttackQuantity: 0
+  rangedAttackQuantityOriginal: 0
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
@@ -5083,6 +5094,7 @@ MonoBehaviour:
   speed: 0
   targetIndex: 0
   obstacleTilemap: {fileID: 1403044099}
+  myTimer: 0
   myAnimationSettings: {fileID: 0}
 --- !u!1 &2049886046
 GameObject:
@@ -5117,6 +5129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnassignedEnemyList: []
   AssignedEnemyList: []
+  myUIImageSpawner: {fileID: 0}
   Player: {fileID: 2084591412}
   obstacleTilemap: {fileID: 1403044099}
   myTimer: 0
@@ -5304,8 +5317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41bb740017747e4baa1847b1c279e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 3
-  MaxHealth: 3
+  Health: 99
+  MaxHealth: 525
   myAnimator: {fileID: 0}
 --- !u!58 &2084591418
 CircleCollider2D:
