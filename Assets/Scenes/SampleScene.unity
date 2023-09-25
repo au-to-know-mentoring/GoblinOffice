@@ -5317,8 +5317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41bb740017747e4baa1847b1c279e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 99
-  MaxHealth: 525
+  Health: 3
+  MaxHealth: 3
   myAnimator: {fileID: 0}
 --- !u!58 &2084591418
 CircleCollider2D:
