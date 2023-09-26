@@ -114,6 +114,7 @@ public class PathfindingManager : MonoBehaviour
             foreach (var pathFindingObject in AssignedEnemyList)
             {
                 pathFindingObject.ResetAttackList(myTimer);
+                pathFindingObject.isVulnerable = false;
                 //Add lost attacks to current alive enemies?
                 //[TODO]Set a vulnerable enemy.
 
