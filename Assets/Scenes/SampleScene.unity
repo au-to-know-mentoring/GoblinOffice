@@ -745,6 +745,8 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  VulnerableBeat: 999
+  isVulnerable: 0
   Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
@@ -978,7 +980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &729106392
 Animator:
   serializedVersion: 4
@@ -1022,6 +1024,8 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  VulnerableBeat: -1
+  isVulnerable: 0
   Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
@@ -3700,6 +3704,8 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  VulnerableBeat: 999
+  isVulnerable: 0
   Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
@@ -3869,7 +3875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1295112132
 Animator:
   serializedVersion: 4
@@ -3913,6 +3919,8 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  VulnerableBeat: -1
+  isVulnerable: 0
   Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
@@ -4926,6 +4934,8 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  VulnerableBeat: -1
+  isVulnerable: 0
   Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
@@ -5088,6 +5098,8 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  VulnerableBeat: -1
+  isVulnerable: 0
   Active: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
@@ -5133,8 +5145,8 @@ MonoBehaviour:
   Player: {fileID: 2084591412}
   obstacleTilemap: {fileID: 1403044099}
   myTimer: 0
-  RangedBeats: 6
-  BeatToLoop: 15
+  RangedBeats: 2
+  BeatToLoop: 8
   myAnimationSettings: {fileID: 0}
   LeftOfPlayerPosition: {x: 0, y: 0, z: 0}
   RightOfPlayerPosition: {x: 0, y: 0, z: 0}

@@ -108,6 +108,9 @@ public class PathfindingManager : MonoBehaviour
         if (myTimer >= BeatToLoop)
         {
             myTimer -= BeatToLoop;
+            int RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
+            AssignedEnemyList[RandomEnemy].VulnerableBeat = BeatToLoop - 2;
+            
             foreach (var pathFindingObject in AssignedEnemyList)
             {
                 pathFindingObject.ResetAttackList(myTimer);
@@ -212,6 +215,7 @@ public class PathfindingManager : MonoBehaviour
         }
 
         int randomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
+        AssignedEnemyList[randomEnemy].VulnerableBeat = BeatToLoop - 2;
         foreach(var Enemy in AssignedEnemyList) 
         {
             Enemy.CloneAttackList();

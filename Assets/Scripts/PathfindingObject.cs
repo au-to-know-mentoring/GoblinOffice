@@ -30,7 +30,10 @@ public class PathfindingObject : MonoBehaviour
     //public List<string> searchTerms = new List<string> { "Ranged", "Melee", "Death" };
     public List<RangedBeat> rangedAttacksList = new List<RangedBeat>();
     public List<RangedBeat> ItemsToRemove = new List<RangedBeat>();
+    public int VulnerableBeat = 999;
+    public bool isVulnerable = false;
     public bool Active = false;
+
 
     private List<PathfindingManager.Node> currentPath;
     [SerializeField]
@@ -177,6 +180,7 @@ public class PathfindingObject : MonoBehaviour
 
     }
 
+
     public void UpdatePathDistance(int Distance)
     {
         journeyLength = Distance;
@@ -199,6 +203,22 @@ public class PathfindingObject : MonoBehaviour
         if(Active == true)
         {
             ResolveRangeAttacks();
+            if(myTimer >= VulnerableBeat)
+            {
+                myAnimator.SetTrigger("Vulnerable");
+                // Code the part where the enemy can die.
+                VulnerableBeat = 999;
+                isVulnerable= true;
+            }
+
+            // Code below could work but seems overally complicated.//////////
+                //AnimatorClipInfo[] a = myAnimator.GetCurrentAnimatorClipInfo(0);
+                //string animationClipName = a[0].clip.name;
+                //if(animationClipName == "VulnerableAnim")
+                //{
+                //    Debug.Log("Vulnerable");
+                //}/////////
+
         }
         if (TimeToStart <= Time.timeSinceLevelLoad)
         {
@@ -268,6 +288,7 @@ public class PathfindingObject : MonoBehaviour
             }
         }
     }
+
 
 
     private List<PathfindingManager.Node > AStar(PathfindingManager.Node  startNode, PathfindingManager.Node  targetNode)
