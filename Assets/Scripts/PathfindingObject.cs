@@ -263,7 +263,7 @@ public class PathfindingObject : MonoBehaviour
                 rangedAttacksList.RemoveAt(i);
                 if (rangedAttacksList.Count == 0)
                 {
-                    //Play vulnerable animation here.
+                    //Play vulnerable animation here? could overlap with other attacks, is this ok? the duration could be long.
                 }
             }
         }
@@ -400,8 +400,14 @@ public class PathfindingObject : MonoBehaviour
 
     }
 
+    public void SetVulnerable(int BeatToStart, float Duration)
+    {
+
+    }
+
     public void CloneAttackList()
     {
+        OriginalAttackList.Clear();
         foreach(var RangedAttack in rangedAttacksList)
         {
             RangedBeat copy = new RangedBeat(RangedAttack.Done, RangedAttack.TimeToStart); // This is necessary else both references edit the same value!

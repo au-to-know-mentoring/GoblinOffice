@@ -84,6 +84,12 @@ public class PathfindingManager : MonoBehaviour
             AssignRangedAttacks();
         }
 
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log("C is pressed");
+            AssignRangedAttacksByRandomBeat();
+        }
+
         // Update the paths for all pathfinding objects
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -105,6 +111,9 @@ public class PathfindingManager : MonoBehaviour
             foreach (var pathFindingObject in AssignedEnemyList)
             {
                 pathFindingObject.ResetAttackList(myTimer);
+                //Add lost attacks to current alive enemies?
+                //[TODO]Set a vulnerable enemy.
+
                 //UnassignedEnemyList.Add(pathFindingObject);
             }
             //AssignedEnemyList.Clear();
@@ -115,6 +124,7 @@ public class PathfindingManager : MonoBehaviour
 
     private void AssignRangedAttacks() // CHANGE TO BEAT EVENTS><
     {
+        beatEvents = new List<BeatEvent?>(new BeatEvent?[BeatToLoop]); // creating the list here prevents both methods from doubling up
         foreach (var pathFindingObject in UnassignedEnemyList)
         {
             if (pathFindingObject.rangedAttackQuantity >= 1)
@@ -150,22 +160,48 @@ public class PathfindingManager : MonoBehaviour
     }
     private void AssignRangedAttacksByRandomBeat()
     {
-       beatEvents = new List<BeatEvent?>(new BeatEvent?[BeatToLoop]);
+        beatEvents = new List<BeatEvent?>(new BeatEvent?[BeatToLoop]);// creating the list here prevents both methods from doubling up
         for (int i = 0; i < RangedBeats; i++)
         {
             int x = 0;
             bool BeatSet = false;
             while (BeatSet == false)
             {
-                
+
                 int randomBeat = UnityEngine.Random.Range(3, BeatToLoop - 2);
                 if (beatEvents[randomBeat] == null)
                 {
                     beatEvents[randomBeat] = BeatEvent.RangedAttack;
                     BeatSet = true;
+                    int RandomEnemy;
+                    int distance;
+                    float BeatEventTimeToStart;
+                    if (UnassignedEnemyList.Count > 0)
+                    {
+                        RandomEnemy = UnityEngine.Random.Range(0, UnassignedEnemyList.Count);
+                        distance = GetDistance(nodeDictionary[UnassignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
+                        BeatEventTimeToStart = UnassignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance);
+                        beatEventWithEnemies[RandomEnemy] = new BeatEventWithEnemy(BeatEvent.RangedAttack, UnassignedEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        //Assign Random enemy for the event here. Add to beateventsWithEnenmys list
+                        if (!AssignedEnemyList.Contains(UnassignedEnemyList[RandomEnemy]))
+                        {
+                            //Add enemy to assigned list and activate it.
+                            AssignedEnemyList.Add(UnassignedEnemyList[RandomEnemy]);
+                            UnassignedEnemyList[RandomEnemy].Active = true;
+                        }
+                        UnassignedEnemyList[RandomEnemy].CloneAttackList();
+                        UnassignedEnemyList.RemoveAt(RandomEnemy);
+                    }
+                    else
+                    {
+                        RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
+                        distance = GetDistance(nodeDictionary[AssignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
+                        BeatEventTimeToStart = AssignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance);
+                        beatEventWithEnemies[RandomEnemy] = new BeatEventWithEnemy(BeatEvent.RangedAttack, AssignedEnemyList[RandomEnemy], BeatEventTimeToStart);
+                    }   
                 }
                 //debug stuff
-                if(x == 30)
+                else if (x == 30)
                 {
                     Debug.Log("beat couldn't be set");
                     break;
@@ -174,19 +210,14 @@ public class PathfindingManager : MonoBehaviour
 
             }
         }
-        foreach (var beatEvent in beatEvents)
-        {
-            if (beatEvent == BeatEvent.RangedAttack)
-            {
-                int RandomEnemy = UnityEngine.Random.Range(0, UnassignedEnemyList.Count);
-                //Give the beat a random unoccupied time to arrive
-                {
-                    //Assign Random enemy for the event here. Add to beateventsWithEnenmys list
-                }
 
-            }
+        int randomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
+        foreach(var Enemy in AssignedEnemyList) 
+        {
+            Enemy.CloneAttackList();
         }
     }
+
     private void AssignPathsToSurroundPlayer()
     {
         //**[Optimize] Could be optimized by placing all pathFindingObjects into a list, and taking objects out after assigning them.

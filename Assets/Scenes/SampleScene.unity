@@ -5133,6 +5133,7 @@ MonoBehaviour:
   Player: {fileID: 2084591412}
   obstacleTilemap: {fileID: 1403044099}
   myTimer: 0
+  RangedBeats: 6
   BeatToLoop: 15
   myAnimationSettings: {fileID: 0}
   LeftOfPlayerPosition: {x: 0, y: 0, z: 0}
