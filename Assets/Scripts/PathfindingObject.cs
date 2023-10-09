@@ -208,7 +208,7 @@ public class PathfindingObject : MonoBehaviour
                 myAnimator.SetTrigger("Vulnerable");
                 // Code the part where the enemy can die.
                 VulnerableBeat = 999;
-                isVulnerable= true;
+                isVulnerable= true; //Is set back to false in LoopBeat()
             }
 
             // Code below could work but seems overally complicated.//////////

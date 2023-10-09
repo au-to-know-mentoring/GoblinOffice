@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TrollGunAtlas
+  m_Name: TrollGunAtlas 1
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -80,5 +80,5 @@ SpriteAtlas:
   - gunparticleSprite_5
   - gunparticleSprite_4
   m_RenderDataMap: {}
-  m_Tag: TrollGunAtlas
+  m_Tag: TrollGunAtlas 1
   m_IsVariant: 0

@@ -6,7 +6,7 @@ using UnityEngine.U2D;
 public class SpriteSynchronizer : MonoBehaviour
 {
     public SpriteRenderer sourceSpriteRenderer;
-    public SpriteRenderer targetSpriteRenderer;
+    public SpriteRenderer CopySpriteRenderer;
 
 
     [SerializeField]
@@ -20,13 +20,13 @@ public class SpriteSynchronizer : MonoBehaviour
 
     private void Start()
     {
-        if (sourceSpriteRenderer == null || targetSpriteRenderer == null)
+        if (sourceSpriteRenderer == null || CopySpriteRenderer == null)
         {
             Debug.LogError("Source GameObject or Target SpriteRenderer is not set in the SpriteSynchronizer script on " + gameObject.name);
             return;
         }
         SourceTitle = Regex.Replace(sourceSpriteRenderer.sprite.name, "[0-9_]", "");
-        TargetTitle = Regex.Replace(targetSpriteRenderer.sprite.name, "[0-9_]", "");
+        TargetTitle = Regex.Replace(CopySpriteRenderer.sprite.name, "[0-9_]", "");
         if (spriteAtlas == null)
         {
             spriteAtlas = Resources.Load<SpriteAtlas>(SourceTitle + "Atlas"); // (NameOfSprite + Atlas.) = (TrollNinjaAtlas)
@@ -92,7 +92,7 @@ public class SpriteSynchronizer : MonoBehaviour
 
         if (targetSprite != null)
         {
-            targetSpriteRenderer.sprite = targetSprite;
+            CopySpriteRenderer.sprite = targetSprite;
         }
     }
 }
