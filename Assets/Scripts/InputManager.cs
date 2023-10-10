@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public Text UIButtonPressed;
     public int ButtonCurrentlyPressed = 0;
+    public float inputBufferWindow = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,15 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         SetButtonColors();
     }
 
+    public bool CheckIfButtonIsPressed(int ButtonID)
+    {
+        if(ButtonID == ButtonCurrentlyPressed)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
     void SetButtonColors()
     {
         GreenBtn1.image.color = GlobalSettingsObject.Green1;

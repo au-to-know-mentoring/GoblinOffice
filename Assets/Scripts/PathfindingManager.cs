@@ -42,13 +42,13 @@ public class PathfindingManager : MonoBehaviour
     public List<BeatEventWithEnemy?> beatEventWithEnemies = new List<BeatEventWithEnemy?>(new BeatEventWithEnemy?[20]);
     private void Start()
     {
-
+        // Register all pathfinding objects in the scene
+        RegisterPathfindingObjects();
         myUIImageSpawner = FindObjectOfType<UIImageSpawner>();
         myUIImageSpawner.setBeatLoop(BeatToLoop);
         // Set Positions adjacent to player.
         SetPositionsAroundPlayer();
-        // Register all pathfinding objects in the scene
-        RegisterPathfindingObjects();
+        
 
         // Get the obstacle tiles from the tilemap
         obstacleTiles = obstacleTilemap.GetTilesBlock(obstacleTilemap.cellBounds);
@@ -113,16 +113,19 @@ public class PathfindingManager : MonoBehaviour
             
             foreach (var pathFindingObject in AssignedEnemyList)
             {
+                if(pathFindingObject.Dead == true)
+                {
+                    return;
+                }
                 pathFindingObject.ResetAttackList(myTimer);
                 pathFindingObject.isVulnerable = false;
-                //Add lost attacks to current alive enemies?
-                //[TODO]Set a vulnerable enemy.
+                //[TODO]Add lost attacks to current alive enemies?
 
-                //UnassignedEnemyList.Add(pathFindingObject);
+                UnassignedEnemyList.Add(pathFindingObject);
             }
             //AssignedEnemyList.Clear();
 
-            //AssignRangedAttacks();
+            AssignRangedAttacksByRandomBeat();
         }
     }
 

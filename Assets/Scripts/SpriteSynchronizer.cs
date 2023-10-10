@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -7,8 +8,10 @@ public class SpriteSynchronizer : MonoBehaviour
 {
     public SpriteRenderer sourceSpriteRenderer;
     public SpriteRenderer CopySpriteRenderer;
+    public SettingsData GlobalSettingsObject;
 
-
+    int myColour = 0;
+    public PathfindingObject myPathFindingObject;
     [SerializeField]
     [Tooltip("Can be set manually, otherwise It will look for the Sprite sheets name + Atlas")]
     private SpriteAtlas spriteAtlas;
@@ -20,10 +23,15 @@ public class SpriteSynchronizer : MonoBehaviour
 
     private void Start()
     {
+        GlobalSettingsObject = Resources.Load<SettingsData>("SettingsData");
         if (sourceSpriteRenderer == null || CopySpriteRenderer == null)
         {
             Debug.LogError("Source GameObject or Target SpriteRenderer is not set in the SpriteSynchronizer script on " + gameObject.name);
             return;
+        }
+        if (sourceSpriteRenderer.gameObject.GetComponent<PathfindingObject>() != null)
+        {
+            myPathFindingObject = sourceSpriteRenderer.gameObject.GetComponent<PathfindingObject>();
         }
         SourceTitle = Regex.Replace(sourceSpriteRenderer.sprite.name, "[0-9_]", "");
         TargetTitle = Regex.Replace(CopySpriteRenderer.sprite.name, "[0-9_]", "");
@@ -61,6 +69,35 @@ public class SpriteSynchronizer : MonoBehaviour
 
         // Set the sprite on the target GameObject using the numerical value
         SetSpriteByNumber(spriteNumber);
+        if (myPathFindingObject != null)
+            myColour = (int)myPathFindingObject.myColour;
+
+        switch (myColour)
+        {
+            case 0:
+                
+                CopySpriteRenderer.color = Color.white;
+                break;
+            case 1:
+                
+                CopySpriteRenderer.color = GlobalSettingsObject.Green1;
+                break;
+            case 2:
+                
+                CopySpriteRenderer.color = GlobalSettingsObject.Red2;
+                break;
+            case 3:
+                
+                CopySpriteRenderer.color = GlobalSettingsObject.Blue3;
+                break;
+            case 4:
+                
+                CopySpriteRenderer.color = GlobalSettingsObject.Yellow4;
+                break;
+            default:
+                Console.WriteLine("Unknown Color Code");
+                break;
+        }
     }
 
     private int ExtractNumberFromSpriteName(string spriteName)

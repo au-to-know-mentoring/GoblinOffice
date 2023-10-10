@@ -120,6 +120,7 @@ MonoBehaviour:
   obstacleTilemap: {fileID: 0}
   myTimer: 0
   myAnimationSettings: {fileID: 0}
+  myInputManager: {fileID: 0}
 --- !u!95 &4946812721976323586
 Animator:
   serializedVersion: 4
@@ -230,7 +231,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 50500365, guid: 6281227e0e67272438baac190a625862, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -10,12 +10,12 @@ using System.Collections;
 
 public class PathfindingObject : MonoBehaviour
 {
-    
+
     public Vector3Int startPos;
     public Vector3Int endPos;
     public float TimeBetweenTiles = 1f;
     public float arrivalTime = 5f; // dont use in movement logic besides start time (DONE)
-    private TileBase[] obstacleTiles;
+    //private TileBase[] obstacleTiles; // this isn't currently used.
     private Dictionary<Vector3Int, PathfindingManager.Node> nodeDictionary;
     public bool UpdateStartingPosition = true;
     [Header("Ranged Attack Variables")]
@@ -33,7 +33,7 @@ public class PathfindingObject : MonoBehaviour
     public int VulnerableBeat = 999;
     public bool isVulnerable = false;
     public bool Active = false;
-
+    public bool Dead = false;
 
     private List<PathfindingManager.Node> currentPath;
     [SerializeField]
@@ -58,27 +58,45 @@ public class PathfindingObject : MonoBehaviour
     private Animator myAnimator;
 
     private bool Assigned;
-    
+
     //private float attackTime;
     //private float damageTime;
     //private float deathTime;
     //private float idleTime;
     public AnimationSettings myAnimationSettings;
 
-    private AnimationClip clip;
+    //private AnimationClip clip;
 
     public List<RangedBeat> OriginalAttackList = new List<RangedBeat>();
-
+    public InputManager myInputManager;
     /// </summary>
     /// <param name="obstacleTilemap"></param>
+    public Color myColour = Color.Debug0;
+    public enum Color
+    {
+        Debug0,
+        Green1,
+        Red2,
+        Blue3,
+        Yellow4
+    }
     public void setObstacleTilemap(Tilemap obstacleTilemap)
     {
         this.obstacleTilemap = obstacleTilemap;
 
     }
 
+    public void ResetVulnerableBeat()
+    {
+        VulnerableBeat = 999;
+    }
     private void Start()
     {
+        if(myInputManager == null)
+            myInputManager = FindObjectOfType<InputManager>();
+        if(myAnimationSettings== null)
+            myAnimationSettings = FindObjectOfType<AnimationSettings>();
+        
         rangedAttackQuantityOriginal = rangedAttackQuantity;
         RangedAttackAnimationTime = myAnimationSettings.NinjaAnimationLengths[0];
         myAnimator = GetComponent<Animator>();
@@ -118,16 +136,15 @@ public class PathfindingObject : MonoBehaviour
 
         if (UpdateStartingPosition)
             startPos = Vector3Int.FloorToInt(transform.position);
-        // Get the obstacle tiles from the tilemap
-        obstacleTiles = obstacleTilemap.GetTilesBlock(obstacleTilemap.cellBounds);
+
 
         // Calculate the offset based on the tilemap's anchor
         offset = new Vector3(0.5f, 0.5f, 0f);
 
         // Initialize the grid
-
+        // [use obstacleTilemap Instead currently.] obstacleTiles = obstacleTilemap.GetTilesBlock(obstacleTilemap.cellBounds);
     }
-
+    
 
 
     
@@ -203,21 +220,15 @@ public class PathfindingObject : MonoBehaviour
         if(Active == true)
         {
             ResolveRangeAttacks();
-            if(myTimer >= VulnerableBeat)
-            {
-                myAnimator.SetTrigger("Vulnerable");
-                // Code the part where the enemy can die.
-                VulnerableBeat = 999;
-                isVulnerable= true; //Is set back to false in LoopBeat()
-            }
+            ResolveVulnerableState();
 
             // Code below could work but seems overally complicated.//////////
-                //AnimatorClipInfo[] a = myAnimator.GetCurrentAnimatorClipInfo(0);
-                //string animationClipName = a[0].clip.name;
-                //if(animationClipName == "VulnerableAnim")
-                //{
-                //    Debug.Log("Vulnerable");
-                //}/////////
+            //AnimatorClipInfo[] a = myAnimator.GetCurrentAnimatorClipInfo(0);
+            //string animationClipName = a[0].clip.name;
+            //if(animationClipName == "VulnerableAnim")
+            //{
+            //    Debug.Log("Vulnerable");
+            //}/////////
 
         }
         if (TimeToStart <= Time.timeSinceLevelLoad)
@@ -256,6 +267,30 @@ public class PathfindingObject : MonoBehaviour
 
             // Move the object towards the endPos position
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        }
+    }
+
+    private void ResolveVulnerableState()
+    {
+        if (isVulnerable)
+        {
+            if (myTimer > VulnerableBeat + 1 - myInputManager.inputBufferWindow && myTimer < VulnerableBeat + 1 + myInputManager.inputBufferWindow) // within buffer window
+            {
+                if (myInputManager.CheckIfButtonIsPressed((int)myColour))
+                {
+                    myAnimator.SetTrigger("Dead");
+                    Dead = true;
+                    Debug.Log("Enemy: " + this.name + " Died at: " + Time.time);
+                }
+            }
+        }
+        else if (myTimer >= VulnerableBeat)
+        {
+            myAnimator.SetTrigger("Vulnerable");
+            // Code the part where the enemy can die.
+            Invoke("ResetVulnerableBeat", 2f);
+            isVulnerable = true; //Is set back to false in LoopBeat()
+            myColour = (Color)Random.Range(1, 5);
         }
     }
 
