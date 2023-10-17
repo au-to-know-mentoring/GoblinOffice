@@ -11,6 +11,7 @@ public class PathfindingManager : MonoBehaviour
 {
     public List<PathfindingObject> UnassignedEnemyList = new List<PathfindingObject>();
     public List<PathfindingObject> AssignedEnemyList = new List<PathfindingObject>(); // TODO
+    public List<PathfindingObject> DeadEnemyList = new List<PathfindingObject>();
     public UIImageSpawner myUIImageSpawner;
 
 
@@ -21,6 +22,8 @@ public class PathfindingManager : MonoBehaviour
     private Vector3 offset;
     public Dictionary<Vector3Int, Node> nodeDictionary = new Dictionary<Vector3Int, Node>();
     public float myTimer;
+
+    public float VulnerableDuration = 1.99f;
 
     [Header("Beats")]
     public int RangedBeats;
@@ -108,24 +111,32 @@ public class PathfindingManager : MonoBehaviour
         if (myTimer >= BeatToLoop)
         {
             myTimer -= BeatToLoop;
-            int RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
-            AssignedEnemyList[RandomEnemy].VulnerableBeat = BeatToLoop - 2;
             
             foreach (var pathFindingObject in AssignedEnemyList)
             {
-                if(pathFindingObject.Dead == true)
+                if (pathFindingObject.Dead == true)
                 {
-                    return;
+                    DeadEnemyList.Add(pathFindingObject);
+                    // dont add to unassigned because dead.
                 }
-                pathFindingObject.ResetAttackList(myTimer);
-                pathFindingObject.isVulnerable = false;
-                //[TODO]Add lost attacks to current alive enemies?
+                else
+                {
+                    pathFindingObject.ResetAttackList(myTimer);
+                    pathFindingObject.isVulnerable = false;
+                    //[TODO]Add lost attacks to current alive enemies?
 
-                UnassignedEnemyList.Add(pathFindingObject);
+                    UnassignedEnemyList.Add(pathFindingObject);
+                }
             }
-            //AssignedEnemyList.Clear();
+            AssignedEnemyList.Clear();
 
-            AssignRangedAttacksByRandomBeat();
+            if (UnassignedEnemyList.Count > 0)
+            {
+                AssignRangedAttacksByRandomBeat();
+                /// This is currently set in RangedAttackByBeat
+                // int RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
+                //AssignedEnemyList[RandomEnemy].VulnerableBeat = BeatToLoop - 2;
+            }
         }
     }
 
@@ -185,6 +196,7 @@ public class PathfindingManager : MonoBehaviour
                     float BeatEventTimeToStart;
                     if (UnassignedEnemyList.Count > 0)
                     {
+                        
                         RandomEnemy = UnityEngine.Random.Range(0, UnassignedEnemyList.Count);
                         distance = GetDistance(nodeDictionary[UnassignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
                         BeatEventTimeToStart = UnassignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance);
@@ -220,9 +232,11 @@ public class PathfindingManager : MonoBehaviour
 
         int randomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
         AssignedEnemyList[randomEnemy].VulnerableBeat = BeatToLoop - 2;
+        AssignedEnemyList[randomEnemy].VulnerableDuration = VulnerableDuration;
+        Debug.Log("Enemy: " + AssignedEnemyList[randomEnemy] + "Assigned to be vulnerable on beat: " + AssignedEnemyList[randomEnemy].VulnerableBeat);
         foreach(var Enemy in AssignedEnemyList) 
         {
-            Enemy.CloneAttackList();
+            Enemy.CloneAttackList(); // Clone old attacks? might need to set new ones.
         }
     }
 

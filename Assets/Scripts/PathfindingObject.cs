@@ -29,11 +29,15 @@ public class PathfindingObject : MonoBehaviour
     public float projectileSpeed;
     //public List<string> searchTerms = new List<string> { "Ranged", "Melee", "Death" };
     public List<RangedBeat> rangedAttacksList = new List<RangedBeat>();
+    public List<RangedBeat> OriginalAttackList = new List<RangedBeat>();
     public List<RangedBeat> ItemsToRemove = new List<RangedBeat>();
+    [Header("Vulnerable Settings.")]
     public int VulnerableBeat = 999;
+    public float VulnerableDuration = 1.99f;
     public bool isVulnerable = false;
     public bool Active = false;
     public bool Dead = false;
+
 
     private List<PathfindingManager.Node> currentPath;
     [SerializeField]
@@ -67,7 +71,6 @@ public class PathfindingObject : MonoBehaviour
 
     //private AnimationClip clip;
 
-    public List<RangedBeat> OriginalAttackList = new List<RangedBeat>();
     public InputManager myInputManager;
     /// </summary>
     /// <param name="obstacleTilemap"></param>
@@ -97,7 +100,7 @@ public class PathfindingObject : MonoBehaviour
         if(myAnimationSettings== null)
             myAnimationSettings = FindObjectOfType<AnimationSettings>();
         
-        rangedAttackQuantityOriginal = rangedAttackQuantity;
+        //rangedAttackQuantityOriginal = rangedAttackQuantity; // this seems wrong
         RangedAttackAnimationTime = myAnimationSettings.NinjaAnimationLengths[0];
         myAnimator = GetComponent<Animator>();
         if (myAnimator == null)
@@ -288,7 +291,7 @@ public class PathfindingObject : MonoBehaviour
         {
             myAnimator.SetTrigger("Vulnerable");
             // Code the part where the enemy can die.
-            Invoke("ResetVulnerableBeat", 2f);
+            Invoke(methodName: "ResetVulnerableBeat", time: 1.99f); // can cause 2 enemies to become vulnerable if 2 seconds or more..
             isVulnerable = true; //Is set back to false in LoopBeat()
             myColour = (Color)Random.Range(1, 5);
         }
@@ -469,7 +472,7 @@ public class PathfindingObject : MonoBehaviour
             RangedBeat copy = new RangedBeat(RangedAttack.Done, RangedAttack.TimeToStart); // This is necessary else both references edit the same value!
             OriginalAttackList.Add(copy);
         }
-        rangedAttackQuantity = rangedAttackQuantityOriginal;
+        rangedAttackQuantity = OriginalAttackList.Count;
     }
     public void ResetAttackList(float Timer)
     {
@@ -478,8 +481,10 @@ public class PathfindingObject : MonoBehaviour
             RangedBeat copy = new RangedBeat(RangedAttack.Done, RangedAttack.TimeToStart);
             rangedAttacksList.Add(copy);
         }
-        Debug.Log("Enemy: " + this.name + " Has this many attacks: " + rangedAttacksList.Count + " First attack is at: " + rangedAttacksList[0].TimeToStart);
-        
+        if (rangedAttacksList.Count > 0)
+        {
+            Debug.Log("Enemy: " + this.name + " Has this many attacks: " + rangedAttacksList.Count + " First attack is at: " + rangedAttacksList[0].TimeToStart);
+        }
         myTimer = Timer;
     }
 
