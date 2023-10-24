@@ -225,12 +225,12 @@
 //                    continue;
 //                }
 
-//                int newMovementCostToNeighbor = currentNode.gCost + GetDistance(currentNode, neighbor);
+//                int newMovementCostToNeighbor = currentNode.gCost + GetDistanceInt(currentNode, neighbor);
 
 //                if (newMovementCostToNeighbor < neighbor.gCost || !openSet.Contains(neighbor))
 //                {
 //                    neighbor.gCost = newMovementCostToNeighbor;
-//                    neighbor.hCost = GetDistance(neighbor, targetNode);
+//                    neighbor.hCost = GetDistanceInt(neighbor, targetNode);
 //                    neighbor.parent = currentNode;
 
 //                    if (!openSet.Contains(neighbor))
@@ -285,7 +285,7 @@
 //        return neighbors;
 //    }
 
-//    private int GetDistance(Node nodeA, Node nodeB)
+//    private int GetDistanceInt(Node nodeA, Node nodeB)
 //    {
 //        int dstX = Mathf.Abs(nodeA.position.x - nodeB.position.x);
 //        int dstY = Mathf.Abs(nodeA.position.y - nodeB.position.y);

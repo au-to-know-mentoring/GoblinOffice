@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using System.Reflection;
 using System.Collections;
+using System;
 
 public class PathfindingObject : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class PathfindingObject : MonoBehaviour
     public List<RangedBeat> rangedAttacksList = new List<RangedBeat>();
     public List<RangedBeat> OriginalAttackList = new List<RangedBeat>();
     public List<RangedBeat> ItemsToRemove = new List<RangedBeat>();
+    public List<String> StringListOfActions = new List<String>();
     [Header("Vulnerable Settings.")]
     public int VulnerableBeat = 999;
     public float VulnerableDuration = 1.99f;
@@ -293,7 +295,7 @@ public class PathfindingObject : MonoBehaviour
             // Code the part where the enemy can die.
             Invoke(methodName: "ResetVulnerableBeat", time: 1.99f); // can cause 2 enemies to become vulnerable if 2 seconds or more..
             isVulnerable = true; //Is set back to false in LoopBeat()
-            myColour = (Color)Random.Range(1, 5);
+            myColour = (Color)UnityEngine.Random.Range(1, 5);
         }
     }
 
@@ -433,18 +435,18 @@ public class PathfindingObject : MonoBehaviour
 
     public float SetRangedAttack(int BeatToArrive,float Distance)
     {
-        rangedAttackedScript = rangedAttack.GetComponent<RangedProjectile>();
+        rangedAttackedScript = rangedAttack.GetComponent<RangedProjectile>(); // ????
         if (BeatToArrive == -1)
         {
             BeatToArrive = (int)arrivalTime;
         }
         if(Distance == 0)
         {
-            //GetDistance(startPos, endPos);
+            //GetDistanceInt(startPos, endPos);
         }
         // forumla is Enemy Animation + travel moveSpeed / distance
         float TimeToComplete = ((Distance) / projectileSpeed) + RangedAttackAnimationTime; // Used to check if there is enough time to perform
-        if (TimeToComplete + Time.time > arrivalTime)
+        if (TimeToComplete + myTimer > arrivalTime) // Since changing to myTimer from time now attacks grow in number?
         {
             Debug.Log("This Ranged Attack is unable to arrive on time.");
             return -1;
@@ -496,6 +498,19 @@ public class PathfindingObject : MonoBehaviour
         {
             Done = remove;
             TimeToStart = timeToStart;
+        }
+    }
+
+    public void CreateStringListOfActions()
+    {
+        StringListOfActions.Clear();
+        foreach (var rangedAttack in OriginalAttackList) 
+        {
+            StringListOfActions.Add("Beat: " + rangedAttack.TimeToStart + " Type: " + "RangedAttack ");
+        }
+        if(VulnerableBeat != 999)
+        {
+            StringListOfActions.Add("Vulnerable Beat: " + VulnerableBeat.ToString());
         }
     }
 

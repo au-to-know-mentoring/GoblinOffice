@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -12,6 +13,7 @@ public class PathfindingManager : MonoBehaviour
     public List<PathfindingObject> UnassignedEnemyList = new List<PathfindingObject>();
     public List<PathfindingObject> AssignedEnemyList = new List<PathfindingObject>(); // TODO
     public List<PathfindingObject> DeadEnemyList = new List<PathfindingObject>();
+    public List<String> StringBeatList= new List<String>();
     public UIImageSpawner myUIImageSpawner;
 
 
@@ -39,10 +41,11 @@ public class PathfindingManager : MonoBehaviour
     public enum BeatEvent
     {
         RangedAttack,
-        MeleeAttack
+        MeleeAttack,
+        Vulnerable
     }
     public List<BeatEvent?> beatEvents;
-    public List<BeatEventWithEnemy?> beatEventWithEnemies = new List<BeatEventWithEnemy?>(new BeatEventWithEnemy?[20]);
+    public List<BeatEventWithEnemy?> beatEventWithEnemies = new List<BeatEventWithEnemy?>(new BeatEventWithEnemy?[0]);
     private void Start()
     {
         // Register all pathfinding objects in the scene
@@ -91,6 +94,11 @@ public class PathfindingManager : MonoBehaviour
         {
             Debug.Log("C is pressed");
             AssignRangedAttacksByRandomBeat();
+            foreach (var pathFindingObject in AssignedEnemyList)
+            {
+                pathFindingObject.CreateStringListOfActions();
+            }
+            CreateStringListOfBeats();
         }
 
         // Update the paths for all pathfinding objects
@@ -137,6 +145,11 @@ public class PathfindingManager : MonoBehaviour
                 // int RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
                 //AssignedEnemyList[RandomEnemy].VulnerableBeat = BeatToLoop - 2;
             }
+            foreach (var pathFindingObject in AssignedEnemyList)
+            {
+               pathFindingObject.CreateStringListOfActions();
+            }
+            CreateStringListOfBeats();
         }
     }
 
@@ -147,7 +160,7 @@ public class PathfindingManager : MonoBehaviour
         {
             if (pathFindingObject.rangedAttackQuantity >= 1)
             {
-                int distance = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
+                int distance = GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
                 while (pathFindingObject.rangedAttackQuantity > 0)
                 {
                     bool EventChosen = false;
@@ -178,6 +191,13 @@ public class PathfindingManager : MonoBehaviour
     }
     private void AssignRangedAttacksByRandomBeat()
     {
+        beatEventWithEnemies.Clear();
+        for (int i = 0; i < BeatToLoop; ++i)
+        {
+            beatEventWithEnemies.Add(null);
+        }
+
+
         beatEvents = new List<BeatEvent?>(new BeatEvent?[BeatToLoop]);// creating the list here prevents both methods from doubling up
         for (int i = 0; i < RangedBeats; i++)
         {
@@ -192,15 +212,15 @@ public class PathfindingManager : MonoBehaviour
                     beatEvents[randomBeat] = BeatEvent.RangedAttack;
                     BeatSet = true;
                     int RandomEnemy;
-                    int distance;
+                    float distance; //Not sure why this was ever an int.
                     float BeatEventTimeToStart;
                     if (UnassignedEnemyList.Count > 0)
                     {
                         
                         RandomEnemy = UnityEngine.Random.Range(0, UnassignedEnemyList.Count);
-                        distance = GetDistance(nodeDictionary[UnassignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
+                        distance = GetDistanceFloat(nodeDictionary[UnassignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
                         BeatEventTimeToStart = UnassignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance);
-                        beatEventWithEnemies[RandomEnemy] = new BeatEventWithEnemy(BeatEvent.RangedAttack, UnassignedEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.RangedAttack, UnassignedEnemyList[RandomEnemy], BeatEventTimeToStart);
                         //Assign Random enemy for the event here. Add to beateventsWithEnenmys list
                         if (!AssignedEnemyList.Contains(UnassignedEnemyList[RandomEnemy]))
                         {
@@ -208,15 +228,15 @@ public class PathfindingManager : MonoBehaviour
                             AssignedEnemyList.Add(UnassignedEnemyList[RandomEnemy]);
                             UnassignedEnemyList[RandomEnemy].Active = true;
                         }
-                        UnassignedEnemyList[RandomEnemy].CloneAttackList();
+                        //UnassignedEnemyList[RandomEnemy].CloneAttackList();
                         UnassignedEnemyList.RemoveAt(RandomEnemy);
                     }
                     else
                     {
                         RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
-                        distance = GetDistance(nodeDictionary[AssignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
+                        distance = GetDistanceFloat(nodeDictionary[AssignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
                         BeatEventTimeToStart = AssignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance);
-                        beatEventWithEnemies[RandomEnemy] = new BeatEventWithEnemy(BeatEvent.RangedAttack, AssignedEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.RangedAttack, AssignedEnemyList[RandomEnemy], BeatEventTimeToStart);
                     }   
                 }
                 //debug stuff
@@ -233,10 +253,11 @@ public class PathfindingManager : MonoBehaviour
         int randomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
         AssignedEnemyList[randomEnemy].VulnerableBeat = BeatToLoop - 2;
         AssignedEnemyList[randomEnemy].VulnerableDuration = VulnerableDuration;
+        beatEventWithEnemies[BeatToLoop - 2] = new BeatEventWithEnemy(BeatEvent.Vulnerable, AssignedEnemyList[randomEnemy], BeatToLoop - 2);
         Debug.Log("Enemy: " + AssignedEnemyList[randomEnemy] + "Assigned to be vulnerable on beat: " + AssignedEnemyList[randomEnemy].VulnerableBeat);
         foreach(var Enemy in AssignedEnemyList) 
         {
-            Enemy.CloneAttackList(); // Clone old attacks? might need to set new ones.
+            //Enemy.CloneAttackList(); // Clone old attacks? might need to set new ones.
         }
     }
 
@@ -274,14 +295,14 @@ public class PathfindingManager : MonoBehaviour
         //RIGHT
         foreach (var pathFindingObject in UnassignedEnemyList)
         {
-            Debug.Log(GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]));
+            Debug.Log(GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]));
 
-            if (GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]) < DistanceToRightPos)
+            if (GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]) < DistanceToRightPos)
             {
                 if (pathFindingObject != EnemyForLeftPosition)
                 {
                     EnemyForRightPosition = pathFindingObject;
-                    DistanceToRightPos = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]);
+                    DistanceToRightPos = GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]);
                 }
             }
         }
@@ -290,14 +311,14 @@ public class PathfindingManager : MonoBehaviour
         //TOP
         foreach (var pathFindingObject in UnassignedEnemyList)
         {
-            Debug.Log(GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]));
+            Debug.Log(GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]));
 
-            if (GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]) < DistanceToTopPos)
+            if (GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]) < DistanceToTopPos)
             {
                 if (pathFindingObject != EnemyForLeftPosition & pathFindingObject != EnemyForRightPosition)
                 {
                     EnemyForTopPosition = pathFindingObject;
-                    DistanceToTopPos = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]);
+                    DistanceToTopPos = GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]);
                 }
             }
         }
@@ -317,12 +338,12 @@ public class PathfindingManager : MonoBehaviour
     {
         foreach (var pathFindingObject in UnassignedEnemyList)
         {
-            Debug.Log(GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(Position)]));
+            Debug.Log(GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(Position)]));
 
-            if (GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(Position)]) < DistanceToLeftPos)
+            if (GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(Position)]) < DistanceToLeftPos)
             {
                 EnemyForPosition = pathFindingObject;
-                DistanceToLeftPos = GetDistance(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(Position)]);
+                DistanceToLeftPos = GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(Position)]);
             }
         }
 
@@ -500,12 +521,12 @@ public class PathfindingManager : MonoBehaviour
                     continue;
                 }
 
-                int newMovementCostToNeighbor = currentNode.gCost + GetDistance(currentNode, neighbor);
+                int newMovementCostToNeighbor = currentNode.gCost + GetDistanceInt(currentNode, neighbor);
 
                 if (newMovementCostToNeighbor < neighbor.gCost || !openSet.Contains(neighbor))
                 {
                     neighbor.gCost = newMovementCostToNeighbor;
-                    neighbor.hCost = GetDistance(neighbor, targetNode);
+                    neighbor.hCost = GetDistanceInt(neighbor, targetNode);
                     neighbor.parent = currentNode;
 
                     if (!openSet.Contains(neighbor))
@@ -560,14 +581,44 @@ public class PathfindingManager : MonoBehaviour
         return neighbors;
     }
 
-    private int GetDistance(Node nodeA, Node nodeB)
+    private int GetDistanceInt(Node nodeA, Node nodeB)
     {
         int dstX = Mathf.Abs(nodeA.position.x - nodeB.position.x);
         int dstY = Mathf.Abs(nodeA.position.y - nodeB.position.y);
-
+       
         return dstX + dstY;
     }
 
+    private float GetDistanceFloat(Node nodeA, Node nodeB)
+    {
+        
+        float dstX = Mathf.Abs(nodeA.position.x - nodeB.position.x);
+        float dstY = Mathf.Abs(nodeA.position.y - nodeB.position.y);
+        if(dstX <= 0 || dstY <= 0)
+            return dstX + dstY; //[Optimise]
+        
+        else
+            return MathF.Sqrt(dstX* dstX + dstY * dstY); // gets diagnoal length.
+    }
+    public void CreateStringListOfBeats()
+    {
+        StringBeatList.Clear();
+        for (int i = 0; i < beatEventWithEnemies.Count; i++)
+        {
+            StringBeatList.Add(null);
+        }
+        for (int i = 0; i < beatEventWithEnemies.Count; i++)
+        {
+            if (beatEventWithEnemies[i] != null)
+            {
+                StringBeatList[i] = new string("Beat: " + beatEventWithEnemies[i].TimeToStart + " Type: " + beatEventWithEnemies[i].BeatEventType.ToString() + " Enemy: " + beatEventWithEnemies[i].Enemy.name);
+            }
+        }
+        //if (VulnerableBeat != 999)
+        //{
+        //    StringBeatList.Add("Vulnerable Beat: " + VulnerableBeat.ToString());
+        //}
+    }
     public class Node
     {
         public Vector3Int position;
@@ -588,11 +639,11 @@ public class PathfindingManager : MonoBehaviour
         }
     }
 
-    public struct BeatEventWithEnemy
+    public class BeatEventWithEnemy
     {
-        BeatEvent BeatEventType;
-        PathfindingObject Enemy;
-        float TimeToStart;
+        public BeatEvent BeatEventType;
+        public PathfindingObject Enemy;
+        public float TimeToStart;
         public BeatEventWithEnemy(BeatEvent beateventType, PathfindingObject pathfindingObject, float timeToStart)
         {
             BeatEventType= beateventType;
