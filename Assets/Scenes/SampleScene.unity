@@ -385,6 +385,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 304525657}
     m_Modifications:
+    - target: {fileID: 4946812721976323587, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 129147440, guid: 9e2dc8138e131844899defd7d4dc9989, type: 3}
     - target: {fileID: 4946812721976323589, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -435,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4946812721976323591, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
@@ -3600,7 +3604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4946812721976323591, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
@@ -5297,7 +5301,7 @@ MonoBehaviour:
   obstacleTilemap: {fileID: 1403044099}
   myTimer: 0
   VulnerableDuration: 0
-  RangedBeats: 2
+  RangedBeats: 1
   BeatToLoop: 8
   myAnimationSettings: {fileID: 0}
   LeftOfPlayerPosition: {x: 0, y: 0, z: 0}
@@ -5572,6 +5576,10 @@ PrefabInstance:
     - target: {fileID: 4946812721976323591, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
       propertyPath: m_Name
       value: TrollNinja
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946812721976323591, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
