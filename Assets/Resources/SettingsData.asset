@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SettingsData
   m_EditorClassIdentifier: 
   musicEnabled: 0
+  debugMode: 0
   soundVolume: 0
   BeatsPerMinuteBPM: 60
   Green1: {r: 0.4, g: 1, b: 0.40784314, a: 1}

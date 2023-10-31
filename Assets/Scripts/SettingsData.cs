@@ -5,6 +5,7 @@ public class SettingsData : ScriptableObject
 {
     // Add your settings variables here
     public bool musicEnabled;
+    public bool debugMode;
     public int soundVolume;
     public int BeatsPerMinuteBPM;
 

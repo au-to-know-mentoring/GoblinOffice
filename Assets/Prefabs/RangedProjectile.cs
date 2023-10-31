@@ -74,6 +74,8 @@ public class RangedProjectile : MonoBehaviour
 
                 // Apply the new position to the object's transform
                 transform.position = newPosition;
+            
+            //Debug stuff for if hit/deflected by player:
             if(transform.position == playerTransform.position)
             {
                 Debug.Log("Projectile: " + this.name + "Arrived at: " + Time.time);
@@ -83,17 +85,27 @@ public class RangedProjectile : MonoBehaviour
                 if (myInputManager.ButtonCurrentlyPressed == (int)myColour)
                 {
                     Debug.Log("Destroyed");
-                    this.gameObject.transform.position = new Vector3(5, 5, 0);
                     myPlayer.SetReflect();
+                    if (GlobalSettingsObject.debugMode == true)
+                    this.gameObject.transform.position = new Vector3(5, 5, 0);
+                    else
+                        this.gameObject.SetActive(false);
+
                 }
                 else
                 {
                     myPlayer.ReduceHealthBy(damage);
-                    this.gameObject.transform.position = new Vector3(-5, 5, 0);
+                    if (GlobalSettingsObject.debugMode == true)
+                        this.gameObject.transform.position = new Vector3(-5, 5, 0);
+                    else
+                        this.gameObject.SetActive(false);
                 }
             }
             }
     }
+
+
+
 
 }
 

@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public int Health;
     public int MaxHealth;
     public Animator myAnimator;
+    public GameObject myProjectile;
+    public GameObject myTarget;
     bool Reflect = false;
     float Counter = 0;
     // Start is called before the first frame update
@@ -52,5 +54,18 @@ public class Player : MonoBehaviour
         }
         else
             SetInjured();
+    }
+
+    public void RangedAttack(GameObject EnemyTarget)
+    {
+        myAnimator.SetTrigger("RangedAttack");
+        myTarget = EnemyTarget;
+    }
+
+    public void SpawnProjectile()
+    {
+      GameObject instantiatedPrefab = Instantiate(myProjectile);
+      PlayerRangedProjectile a = instantiatedPrefab.GetComponent<PlayerRangedProjectile>();
+        a.setTarget(myTarget);
     }
 }

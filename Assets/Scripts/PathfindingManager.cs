@@ -140,10 +140,19 @@ public class PathfindingManager : MonoBehaviour
 
             if (UnassignedEnemyList.Count > 0)
             {
-                AssignRangedAttacksByRandomBeat();
+                foreach (var pathFindingObject in UnassignedEnemyList)
+                {
+                    pathFindingObject.SetTimer(myTimer);
+                }
+                    AssignRangedAttacksByRandomBeat();
                 /// This is currently set in RangedAttackByBeat
                 // int RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
                 //AssignedEnemyList[RandomEnemy].VulnerableBeat = BeatToLoop - 2;
+            }
+            else
+            {
+                beatEventWithEnemies.Clear();
+                StringBeatList.Clear();
             }
             foreach (var pathFindingObject in AssignedEnemyList)
             {

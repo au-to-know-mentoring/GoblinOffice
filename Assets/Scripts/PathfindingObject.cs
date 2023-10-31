@@ -275,6 +275,10 @@ public class PathfindingObject : MonoBehaviour
         }
     }
 
+    public void setDead()
+    {
+        myAnimator.SetTrigger("Dead");
+    }
     private void ResolveVulnerableState()
     {
         if (isVulnerable)
@@ -283,9 +287,13 @@ public class PathfindingObject : MonoBehaviour
             {
                 if (myInputManager.CheckIfButtonIsPressed((int)myColour))
                 {
-                    myAnimator.SetTrigger("Dead");
-                    Dead = true;
-                    Debug.Log("Enemy: " + this.name + " Died at: " + Time.time);
+                    if (!Dead)
+                    {
+                        FindObjectOfType<Player>().RangedAttack(this.gameObject);
+                        Dead = true;
+                        Debug.Log("Enemy: " + this.name + " Died at: " + Time.time);
+                    }
+
                 }
             }
         }
@@ -490,6 +498,10 @@ public class PathfindingObject : MonoBehaviour
         myTimer = Timer;
     }
 
+    public void SetTimer(float Timer)
+    {
+        myTimer = Timer;
+    }
     public class RangedBeat
     {
         public bool Done;
@@ -500,6 +512,7 @@ public class PathfindingObject : MonoBehaviour
             TimeToStart = timeToStart;
         }
     }
+
 
     public void CreateStringListOfActions()
     {
