@@ -77,6 +77,8 @@ public class PathfindingObject : MonoBehaviour
     /// </summary>
     /// <param name="obstacleTilemap"></param>
     public Color myColour = Color.Debug0;
+    public SettingsData GlobalSettingsObject;
+    public TimeManager GlobalTimeManager;
     public enum Color
     {
         Debug0,
@@ -221,7 +223,7 @@ public class PathfindingObject : MonoBehaviour
 
         // Check if there is a path to follow
 
-        myTimer += Time.deltaTime;
+        
         if(Active == true)
         {
             ResolveRangeAttacks();
@@ -283,7 +285,7 @@ public class PathfindingObject : MonoBehaviour
     {
         if (isVulnerable)
         {
-            if (myTimer > VulnerableBeat + 1 - myInputManager.inputBufferWindow && myTimer < VulnerableBeat + 1 + myInputManager.inputBufferWindow) // within buffer window
+            if (GlobalTimeManager.Timer > VulnerableBeat + 1 - myInputManager.inputBufferWindow && GlobalTimeManager.Timer < VulnerableBeat + 1 + myInputManager.inputBufferWindow) // within buffer window
             {
                 if (myInputManager.CheckIfButtonIsPressed((int)myColour))
                 {
@@ -297,7 +299,7 @@ public class PathfindingObject : MonoBehaviour
                 }
             }
         }
-        else if (myTimer >= VulnerableBeat)
+        else if (GlobalTimeManager.Timer >= VulnerableBeat)
         {
             myAnimator.SetTrigger("Vulnerable");
             // Code the part where the enemy can die.
@@ -314,7 +316,7 @@ public class PathfindingObject : MonoBehaviour
 
         for (int i = rangedAttacksList.Count - 1; i >= 0; i--)
         {
-            if (rangedAttacksList[i].TimeToStart <= myTimer)
+            if (rangedAttacksList[i].TimeToStart <= GlobalTimeManager.Timer)
             {
                 if (rangedAttacksList[i].Done == false)
                 {
@@ -454,7 +456,7 @@ public class PathfindingObject : MonoBehaviour
         }
         // forumla is Enemy Animation + travel moveSpeed / distance
         float TimeToComplete = ((Distance) / projectileSpeed) + RangedAttackAnimationTime; // Used to check if there is enough time to perform
-        if (TimeToComplete + myTimer > arrivalTime) // Since changing to myTimer from time now attacks grow in number?
+        if (TimeToComplete + GlobalTimeManager.Timer > arrivalTime) // Since changing to myTimer from time now attacks grow in number?
         {
             Debug.Log("This Ranged Attack is unable to arrive on time.");
             return -1;
@@ -495,7 +497,7 @@ public class PathfindingObject : MonoBehaviour
         {
             Debug.Log("Enemy: " + this.name + " Has this many attacks: " + rangedAttacksList.Count + " First attack is at: " + rangedAttacksList[0].TimeToStart);
         }
-        myTimer = Timer;
+       // myTimer = Timer;
     }
 
     public void SetTimer(float Timer)

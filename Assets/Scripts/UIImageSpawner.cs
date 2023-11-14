@@ -14,16 +14,16 @@ public class UIImageSpawner : MonoBehaviour
     private float timer;
 
     Vector3 spawnHeight;
-
+    public TimeManager timeManager;
     private void Start()
     {
-        ScrollSpeed = (float)Screen.height / 2;
+        ScrollSpeed = (float)Screen.height * timeManager.GlobalSettings.BeatsPerSecondBPM / 2;
         timer = spawnInterval;
         spawnHeight = new Vector3(0, GetComponent<RectTransform>().rect.height / 2, 0);
     }
     private void Update()
     {
-        timer += Time.deltaTime;
+        timer += Time.deltaTime * timeManager.GlobalSettings.BeatsPerSecondBPM;
 
         if (timer >= spawnInterval)
         {

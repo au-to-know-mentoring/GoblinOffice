@@ -5,11 +5,15 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class PathfindingManager : MonoBehaviour
 {
+
+    [Header("Lists")]
     public List<PathfindingObject> UnassignedEnemyList = new List<PathfindingObject>();
     public List<PathfindingObject> AssignedEnemyList = new List<PathfindingObject>(); // TODO
     public List<PathfindingObject> DeadEnemyList = new List<PathfindingObject>();
@@ -38,6 +42,11 @@ public class PathfindingManager : MonoBehaviour
     public Vector3Int RightOfPlayerPosition;
     public Vector3Int TopOfPlayerPosition;
     public Vector3Int PlayerPosition;
+
+    public Text youWinText;
+    public Text youLoseText;
+    public SettingsData GlobalSettingsObject;
+    public TimeManager GlobalTimeManager;
     public enum BeatEvent
     {
         RangedAttack,
@@ -48,6 +57,8 @@ public class PathfindingManager : MonoBehaviour
     public List<BeatEventWithEnemy?> beatEventWithEnemies = new List<BeatEventWithEnemy?>(new BeatEventWithEnemy?[0]);
     private void Start()
     {
+        
+        youWinText.enabled = false;
         // Register all pathfinding objects in the scene
         RegisterPathfindingObjects();
         myUIImageSpawner = FindObjectOfType<UIImageSpawner>();
@@ -76,7 +87,7 @@ public class PathfindingManager : MonoBehaviour
     }
     private void Update()
     {
-        myTimer += Time.deltaTime;
+        GlobalTimeManager.Timer += Time.deltaTime * GlobalSettingsObject.BeatsPerSecondBPM;
         // Set Paths to surround Player.
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -116,10 +127,13 @@ public class PathfindingManager : MonoBehaviour
 
     private void LoopBeat()
     {
-        if (myTimer >= BeatToLoop)
+        if (GlobalTimeManager.Timer >= BeatToLoop)
         {
-            myTimer -= BeatToLoop;
-            
+            GlobalTimeManager.Timer -= BeatToLoop;
+            if(Player.GetComponent<Player>().Health == 0)
+            {
+                //LevelComplete(false);
+            }
             foreach (var pathFindingObject in AssignedEnemyList)
             {
                 if (pathFindingObject.Dead == true)
@@ -129,7 +143,7 @@ public class PathfindingManager : MonoBehaviour
                 }
                 else
                 {
-                    pathFindingObject.ResetAttackList(myTimer);
+                    pathFindingObject.ResetAttackList(GlobalTimeManager.Timer);
                     pathFindingObject.isVulnerable = false;
                     //[TODO]Add lost attacks to current alive enemies?
 
@@ -142,9 +156,10 @@ public class PathfindingManager : MonoBehaviour
             {
                 foreach (var pathFindingObject in UnassignedEnemyList)
                 {
-                    pathFindingObject.SetTimer(myTimer);
+                    pathFindingObject.SetTimer(GlobalTimeManager.Timer);
                 }
                     AssignRangedAttacksByRandomBeat();
+                    //AssignMeleeAttacksByRandomBeat();
                 /// This is currently set in RangedAttackByBeat
                 // int RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
                 //AssignedEnemyList[RandomEnemy].VulnerableBeat = BeatToLoop - 2;
@@ -153,6 +168,8 @@ public class PathfindingManager : MonoBehaviour
             {
                 beatEventWithEnemies.Clear();
                 StringBeatList.Clear();
+                //Reloads Scene.
+                LevelComplete(true);
             }
             foreach (var pathFindingObject in AssignedEnemyList)
             {
@@ -162,6 +179,99 @@ public class PathfindingManager : MonoBehaviour
         }
     }
 
+    private void AssignMeleeAttacksByRandomBeat()
+    {
+        //**[Optimize] Could be optimized by placing all pathFindingObjects into a list, and taking objects out after assigning them.
+        //**[Improvement] Current priority order is (Left, Right, Top). Could be changed to help equal out the arrival times.
+        //**[Limitations] Cannot Assign more then 3 enemies atm. Cannot Assign more then 1 enemy to 1 spot.
+
+        //Funtionalise each portion.
+        //Location as an argument.
+        //Beatmanager assign event WITHOUT choice of enemy.
+
+        PathfindingObject EnemyForLeftPosition = null;
+        PathfindingObject EnemyForRightPosition = null;
+        PathfindingObject EnemyForTopPosition = null;
+
+        int DistanceToLeftPos = 999;
+        int DistanceToRightPos = 999;
+        int DistanceToTopPos = 999;
+        //LEFT
+        foreach (var pathFindingObject in UnassignedEnemyList)
+        {
+            AssignMeleePosition(ref EnemyForLeftPosition, ref DistanceToLeftPos, LeftOfPlayerPosition);
+        }
+
+        //foreach (var pathFindingObject in UnassignedEnemyList)
+        //{
+        //    AssignMeleePosition(ref EnemyForRightPosition, ref DistanceToRightPos, RightOfPlayerPosition);
+        //}
+        //foreach (var pathFindingObject in UnassignedEnemyList)
+        //{
+        //    AssignMeleePosition(ref EnemyForTopPosition, ref DistanceToTopPos, TopOfPlayerPosition);
+        //}
+        //RIGHT
+        foreach (var pathFindingObject in UnassignedEnemyList)
+        {
+            Debug.Log(GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]));
+
+            if (GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]) < DistanceToRightPos)
+            {
+                if (pathFindingObject != EnemyForLeftPosition)
+                {
+                    EnemyForRightPosition = pathFindingObject;
+                    DistanceToRightPos = GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(RightOfPlayerPosition)]);
+                }
+            }
+        }
+        Debug.Log("The closest Enemy to the position Right of the player is: " + EnemyForRightPosition.name);
+        EnemyForRightPosition.endPos = Vector3Int.FloorToInt(RightOfPlayerPosition);
+        //TOP
+        foreach (var pathFindingObject in UnassignedEnemyList)
+        {
+            Debug.Log(GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]));
+
+            if (GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]) < DistanceToTopPos)
+            {
+                if (pathFindingObject != EnemyForLeftPosition & pathFindingObject != EnemyForRightPosition)
+                {
+                    EnemyForTopPosition = pathFindingObject;
+                    DistanceToTopPos = GetDistanceInt(nodeDictionary[pathFindingObject.startPos], nodeDictionary[Vector3Int.FloorToInt(TopOfPlayerPosition)]);
+                }
+            }
+        }
+        Debug.Log("The closest Enemy to the position Top of the player is: " + EnemyForTopPosition.name);
+        EnemyForLeftPosition.endPos = LeftOfPlayerPosition;
+        if (EnemyForRightPosition != null)
+        {
+            EnemyForRightPosition.endPos = RightOfPlayerPosition;
+            if (EnemyForTopPosition != null)
+            {
+                EnemyForTopPosition.endPos = TopOfPlayerPosition;
+            }
+        }
+        throw new NotImplementedException();
+    }
+
+    public void LevelComplete(bool win)
+    {
+        if (win == true)
+        {
+            //Runs when all enemies are dead.
+            youWinText.enabled = true;
+            Invoke("ReloadScene", 4f);
+        }
+        else
+        {
+            youLoseText.enabled = true;
+            Invoke("ReloadScene", 4f);
+        }
+    }
+
+    private void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     private void AssignRangedAttacks() // CHANGE TO BEAT EVENTS><
     {
         beatEvents = new List<BeatEvent?>(new BeatEvent?[BeatToLoop]); // creating the list here prevents both methods from doubling up
@@ -367,6 +477,8 @@ public class PathfindingManager : MonoBehaviour
         foreach (var pathFindingObject in UnassignedEnemyList)
         {
             pathFindingObject.setObstacleTilemap(obstacleTilemap);
+            pathFindingObject.GlobalSettingsObject = GlobalSettingsObject;
+            pathFindingObject.GlobalTimeManager = GlobalTimeManager;
         }
     }
     private void SetPositionsAroundPlayer()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -49,13 +50,18 @@ public class Player : MonoBehaviour
         Health = Health - damage;
         if(Health <= 0)
         {
-            myAnimator.SetTrigger("Death");
-            Health = 0;
+            Death();
         }
         else
             SetInjured();
     }
 
+    public void Death()
+    {
+        myAnimator.SetTrigger("Death");
+        Health = 0;
+        FindObjectOfType(typeof(PathfindingManager)).GetComponent<PathfindingManager>().LevelComplete(false);
+    }
     public void RangedAttack(GameObject EnemyTarget)
     {
         myAnimator.SetTrigger("RangedAttack");
