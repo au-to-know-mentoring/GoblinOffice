@@ -76,7 +76,7 @@ public class AnimationExporter : EditorWindow
                 // Populate frame data
                 FrameData frameData = new FrameData();
                 //[TODO] Get animation clip name
-                frameData.AnimationName =
+                //frameData.AnimationName =
                 frameData.Size = spriteRenderer.sprite.bounds.size;
                 frameData.SpriteName = spriteName ?? "UnknownSprite";
                 frameData.FrameIndex = frameIndex;
