@@ -14,6 +14,7 @@ public class RangedProjectile : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public SettingsData GlobalSettingsObject;
     public InputManager myInputManager;
+    public bool SpeedAdjusted = false;
     public enum Color
     {
         Debug0,
@@ -26,6 +27,8 @@ public class RangedProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        //moveSpeed *= GlobalSettingsObject.BeatsPerSecondBPM;
         myInputManager = FindObjectOfType<InputManager>();
         spriteRenderer = GetComponent<SpriteRenderer>(); 
         myColour = (Color)Random.Range(1, 5);

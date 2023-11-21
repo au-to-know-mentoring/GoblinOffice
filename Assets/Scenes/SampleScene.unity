@@ -5435,7 +5435,7 @@ MonoBehaviour:
   Player: {fileID: 2084591412}
   obstacleTilemap: {fileID: 1403044099}
   myTimer: 0
-  VulnerableDuration: 0
+  VulnerableDuration: 1.99
   RangedBeats: 3
   BeatToLoop: 8
   myAnimationSettings: {fileID: 0}

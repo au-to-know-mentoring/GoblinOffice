@@ -103,7 +103,7 @@ public class PathfindingObject : MonoBehaviour
             myInputManager = FindObjectOfType<InputManager>();
         if(myAnimationSettings== null)
             myAnimationSettings = FindObjectOfType<AnimationSettings>();
-        
+
         //rangedAttackQuantityOriginal = rangedAttackQuantity; // this seems wrong
         RangedAttackAnimationTime = myAnimationSettings.NinjaAnimationLengths[0];
         myAnimator = GetComponent<Animator>();
@@ -131,7 +131,7 @@ public class PathfindingObject : MonoBehaviour
                 object prefabScriptInstance = rangedAttack.GetComponent(scriptType);
                 object fieldValue = fieldInfo.GetValue(prefabScriptInstance);
                 projectileSpeed = (float)fieldValue;
-                Debug.Log("Member variable value: " + fieldValue.ToString());
+                Debug.Log("Projectile speed: " + fieldValue.ToString());
             }
             else
             {
@@ -303,7 +303,7 @@ public class PathfindingObject : MonoBehaviour
         {
             myAnimator.SetTrigger("Vulnerable");
             // Code the part where the enemy can die.
-            Invoke(methodName: "ResetVulnerableBeat", time: 1.99f); // can cause 2 enemies to become vulnerable if 2 seconds or more..
+            Invoke(methodName: "ResetVulnerableBeat", VulnerableDuration); // can cause 2 enemies to become vulnerable if 2 seconds or more..
             isVulnerable = true; //Is set back to false in LoopBeat()
             myColour = (Color)UnityEngine.Random.Range(1, 5);
         }
@@ -443,7 +443,7 @@ public class PathfindingObject : MonoBehaviour
         return dstX + dstY;
     }
 
-    public float SetRangedAttack(int BeatToArrive,float Distance)
+    public float SetRangedAttack(int BeatToArrive,float Distance, float BeatsPerSecond)
     {
         rangedAttackedScript = rangedAttack.GetComponent<RangedProjectile>(); // ????
         if (BeatToArrive == -1)
@@ -463,7 +463,7 @@ public class PathfindingObject : MonoBehaviour
             
         }
         // Do attack
-        TimeToStart = BeatToArrive - TimeToComplete; // should be BeatToArrive.
+        TimeToStart = BeatToArrive - (TimeToComplete * BeatsPerSecond); // should be BeatToArrive.
         RangedBeat BeatToAdd = new RangedBeat(false, TimeToStart);
         rangedAttacksList.Add(BeatToAdd);
 

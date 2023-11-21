@@ -57,7 +57,6 @@ public class PathfindingManager : MonoBehaviour
     public List<BeatEventWithEnemy?> beatEventWithEnemies = new List<BeatEventWithEnemy?>(new BeatEventWithEnemy?[0]);
     private void Start()
     {
-        
         youWinText.enabled = false;
         // Register all pathfinding objects in the scene
         RegisterPathfindingObjects();
@@ -104,6 +103,7 @@ public class PathfindingManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C))
         {
             Debug.Log("C is pressed");
+            //AdjustSpeedOfEnemies();
             AssignRangedAttacksByRandomBeat();
             foreach (var pathFindingObject in AssignedEnemyList)
             {
@@ -123,6 +123,19 @@ public class PathfindingManager : MonoBehaviour
         }
         //UpdatePaths();
         LoopBeat();
+    }
+
+    private void AdjustSpeedOfEnemies()
+    {
+        //VulnerableDuration *= GlobalSettingsObject.BeatsPerSecondBPM;
+        //foreach (var pathFindingObject in UnassignedEnemyList)
+        //{
+        //    Debug.Log("Global BPS: " + GlobalSettingsObject.BeatsPerSecondBPM);
+
+        //    pathFindingObject.VulnerableDuration *= GlobalSettingsObject.BeatsPerSecondBPM;
+        //    pathFindingObject.projectileSpeed *= GlobalSettingsObject.BeatsPerSecondBPM;
+        //   Debug.Log("P-Speed = " + pathFindingObject.projectileSpeed);
+        //}
     }
 
     private void LoopBeat()
@@ -290,7 +303,7 @@ public class PathfindingManager : MonoBehaviour
                         if (beatEvents[RandomNumber] == null)
                         {
                             beatEvents[RandomNumber] = BeatEvent.RangedAttack;
-                            float BeatEventTimeToStart = pathFindingObject.SetRangedAttack(RandomNumber, distance);
+                            float BeatEventTimeToStart = pathFindingObject.SetRangedAttack(RandomNumber, distance, GlobalSettingsObject.BeatsPerSecondBPM);
                             beatEventWithEnemies[RandomNumber] = new BeatEventWithEnemy(BeatEvent.RangedAttack, pathFindingObject, BeatEventTimeToStart);
                             EventChosen = true;
                             pathFindingObject.rangedAttackQuantity--;
@@ -338,7 +351,7 @@ public class PathfindingManager : MonoBehaviour
                         
                         RandomEnemy = UnityEngine.Random.Range(0, UnassignedEnemyList.Count);
                         distance = GetDistanceFloat(nodeDictionary[UnassignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
-                        BeatEventTimeToStart = UnassignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance);
+                        BeatEventTimeToStart = UnassignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance, GlobalSettingsObject.BeatsPerSecondBPM);
                         beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.RangedAttack, UnassignedEnemyList[RandomEnemy], BeatEventTimeToStart);
                         //Assign Random enemy for the event here. Add to beateventsWithEnenmys list
                         if (!AssignedEnemyList.Contains(UnassignedEnemyList[RandomEnemy]))
@@ -354,7 +367,7 @@ public class PathfindingManager : MonoBehaviour
                     {
                         RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
                         distance = GetDistanceFloat(nodeDictionary[AssignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
-                        BeatEventTimeToStart = AssignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance);
+                        BeatEventTimeToStart = AssignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance, GlobalSettingsObject.BeatsPerSecondBPM);
                         beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.RangedAttack, AssignedEnemyList[RandomEnemy], BeatEventTimeToStart);
                     }   
                 }
