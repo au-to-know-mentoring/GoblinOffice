@@ -1,12 +1,12 @@
-using UnityEngine;
-using UnityEditor;
-using System.Xml;
 using System.Xml.Serialization;
-using System.IO;
+using UnityEditor;
+using UnityEngine.Playables;
+using UnityEngine;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
+using System.IO;
+using System.Collections;
 
-public class AnimationExporter : EditorWindow
+public class AnimationExporterCoroutine : MonoBehaviour
 {
     // Declare instance variables
     private GameObject selectedObject;
@@ -15,50 +15,43 @@ public class AnimationExporter : EditorWindow
     private SpriteRenderer spriteRenderer;
     private AnimationClip myClip;
     private int frameIndex;
+    private int animationIndex;
+    private int totalAnimations;
+    private int totalFrames;
 
-    [MenuItem("Tools/Export Animation to XML")]
-    static void Init()
-    {
-        AnimationExporter window = (AnimationExporter)EditorWindow.GetWindow(typeof(AnimationExporter));
-        window.Show();
-    }
-
-    void OnGUI()
-    {
-        if (GUILayout.Button("Export My Animation"))
-        {
-            ExportAnimation();
-        }
-    }
-
-    void ExportAnimation()
+    void Start()
     {
         // Initialize instance variables
         selectedObject = Selection.activeGameObject;
         animator = selectedObject.GetComponent<Animator>();
+        animator.speed = 0f;
         animationData = new AnimationData();
         spriteRenderer = selectedObject.GetComponent<SpriteRenderer>();
 
         // Get the number of animations
-        int totalAnimations = animator.runtimeAnimatorController.animationClips.Length;
-        // Declare a separate counter for the frame index
-        int globalFrameIndex = 0;
+        totalAnimations = animator.runtimeAnimatorController.animationClips.Length;
 
-        // Iterate over all animations
-        for (int animationIndex = 0; animationIndex < totalAnimations; animationIndex++)
+        // Start the ExportAnimation coroutine
+        StartCoroutine(ExportAnimation());
+    }
+
+    IEnumerator ExportAnimation()
+    {
+        yield return new WaitForSeconds(0.1f);
+        for (animationIndex = 0; animationIndex < totalAnimations; animationIndex++)
         {
             myClip = animator.runtimeAnimatorController.animationClips[animationIndex];
             float frames = myClip.frameRate * myClip.length;
-            int totalFrames = Mathf.RoundToInt(frames);
-
+            totalFrames = Mathf.RoundToInt(frames);
+            yield return new WaitForSeconds(0.1f);
             for (frameIndex = 0; frameIndex < totalFrames; frameIndex++)
             {
                 // Set the animator to the current frame
                 float normalizedTime = (float)frameIndex / totalFrames;
                 animator.Play(myClip.name, 0, normalizedTime);
 
-                // Capture the current frame
-                EditorApplication.Step();
+                // Wait for a small delay to give the Animator time to update
+                yield return new WaitForSeconds(0.1f);
 
                 // Get the sprite name from the SpriteRenderer
                 string spriteName = spriteRenderer.sprite.name;
@@ -71,18 +64,16 @@ public class AnimationExporter : EditorWindow
 
                 // Add the frame data to the animation data
                 animationData.Frames.Add(frameData);
-                globalFrameIndex++;
             }
         }
 
-        // Serialize animation data to XML
         XmlSerializer serializer = new XmlSerializer(typeof(AnimationData));
-        using (FileStream stream = new FileStream("Assets/animation_data.xml", FileMode.Create))
+        using (FileStream stream = new FileStream("Assets/animationCoroutine_data.xml", FileMode.Create))
         {
             serializer.Serialize(stream, animationData);
         }
 
-        Debug.Log("Animation exported to XML: Assets/animation_data.xml");
+        Debug.Log("Animation exported to XML: Assets/animationCoroutine_data.xml");
     }
 
     [System.Serializable]
