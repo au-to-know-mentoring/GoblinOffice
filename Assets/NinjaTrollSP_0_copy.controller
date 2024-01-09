@@ -133,7 +133,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a7f256602c1db2d43b3affcea9071eab, type: 2}
+  m_Motion: {fileID: 7400000, guid: 435789c2249980f41b13d29797c0a178, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -181,7 +181,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NinjaTrollSP_0
+  m_Name: NinjaTrollSP_0_copy
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: RangedAttack
@@ -264,7 +264,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b91f5182765595346a84c5d998d4e818, type: 2}
+  m_Motion: {fileID: 7400000, guid: 43dd091a891921e49b53c8f2759de072, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -290,7 +290,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e9a06a97e2de99d4f911634f1363f13e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7c46ff0a72bd1fc4a8a9d82e572148c9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -386,7 +386,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 383cfc502f72b504a882629a2f6f1bd0, type: 2}
+  m_Motion: {fileID: 7400000, guid: d6f06240c3257be44bdc4c04a2c56b81, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

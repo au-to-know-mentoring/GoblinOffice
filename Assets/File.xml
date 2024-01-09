@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<SpriteSheetImporter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+					 EnemyName="GenericEnemyName" 
+	                 SpriteSheetFileName="BogusSpriteSheetFileName">
+  <MyAnimationClips>
+    <SpriteSheetImporter_AnimationClip Name="Idle" SpriteSheetIndex="0" StartingFrame="0" EndingFrame="5" HasAnimationEvent="false" AnimationEventFrame="-1" />
+    <SpriteSheetImporter_AnimationClip Name="DeathAnim" SpriteSheetIndex="0" StartingFrame="0" EndingFrame="5" HasAnimationEvent="false" AnimationEventFrame="-1" />
+    <SpriteSheetImporter_AnimationClip Name="VulnerableAnim" SpriteSheetIndex="0" StartingFrame="0" EndingFrame="5" HasAnimationEvent="false" AnimationEventFrame="-1" />
+    <SpriteSheetImporter_AnimationClip Name="RangedAttack Animator" SpriteSheetIndex="0" StartingFrame="0" EndingFrame="5" HasAnimationEvent="true" AnimationEventFrame="3" AnimationEventFunctionName="RangedAttackAnimationComplete" />
+  </MyAnimationClips>
+</SpriteSheetImporter>

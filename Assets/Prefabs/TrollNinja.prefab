@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1976296926, guid: 9ede108a8619da3439b1e61f4acbf157, type: 3}
+  m_Sprite: {fileID: 129147440, guid: 9e2dc8138e131844899defd7d4dc9989, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,9 +110,12 @@ MonoBehaviour:
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
   projectileSpeed: 0
+  StringListOfActions: []
   VulnerableBeat: 999
+  VulnerableDuration: 1.99
   isVulnerable: 0
   Active: 0
+  Dead: 0
   TimeToStart: 0
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0
@@ -121,6 +124,9 @@ MonoBehaviour:
   myTimer: 0
   myAnimationSettings: {fileID: 0}
   myInputManager: {fileID: 0}
+  myColour: 0
+  GlobalSettingsObject: {fileID: 0}
+  GlobalTimeManager: {fileID: 0}
 --- !u!95 &4946812721976323586
 Animator:
   serializedVersion: 4
@@ -188,7 +194,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sourceSpriteRenderer: {fileID: 4946812721976323587}
   CopySpriteRenderer: {fileID: 4946812722845080707}
-  spriteAtlas: {fileID: 4343727234628468602, guid: 823d48a299589184da409aa40ed4e5a9, type: 2}
+  GlobalSettingsObject: {fileID: 0}
+  myPathFindingObject: {fileID: 0}
+  spriteAtlas: {fileID: 4343727234628468602, guid: 2c22324c3d6bb344ab225872f0de6ead, type: 2}
   SourceTitle: 
   TargetTitle: 
 --- !u!212 &4946812722845080707

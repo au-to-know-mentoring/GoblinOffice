@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.Animations;
 using System.Collections.Generic;
+using System.IO;
 
-public class PrefabDuplicator: MonoBehaviour
+public class PrefabDuplicator : MonoBehaviour
 {
     public GameObject prefab; // The prefab to copy
     public Sprite[] oldSpriteSheet; // The original sprite sheet
     public Sprite[] newSpriteSheet; // The new sprite sheet
     public string newPrefabPath = "Assets/NewPrefab.prefab"; // The path to save the new prefab
-
     void Start()
     {
         // Instantiate a copy of the prefab
@@ -20,68 +21,93 @@ public class PrefabDuplicator: MonoBehaviour
         // Check if the Animator component exists
         if (animator != null)
         {
-            // Get the AnimatorOverrideController from the Animator
-            AnimatorOverrideController animatorOverrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
+            // Get the RuntimeAnimatorController from the Animator
+            RuntimeAnimatorController runtimeAnimatorController = animator.runtimeAnimatorController;
 
-            // Check if the AnimatorOverrideController exists
-            if (animatorOverrideController != null)
+            // Check if the RuntimeAnimatorController exists
+            if (runtimeAnimatorController != null)
             {
-                // Get the current list of animation clips
-                List<KeyValuePair<AnimationClip, AnimationClip>> overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>();
-                animatorOverrideController.GetOverrides(overrides);
+                // Get the path of the original AnimatorController
+                string originalPath = AssetDatabase.GetAssetPath(runtimeAnimatorController);
 
-                // Loop through each animation clip
-                for (int i = 0; i < overrides.Count; i++)
+                // Create a new path for the duplicate AnimatorController
+                string newPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + runtimeAnimatorController.name + "_copy.controller";
+
+                // Create a copy of the AnimatorController
+                AssetDatabase.CopyAsset(originalPath, newPath);
+
+                // Assign the new AnimatorController to the Animator
+                AnimatorController newAnimatorController = AssetDatabase.LoadAssetAtPath<AnimatorController>(newPath);
+                animator.runtimeAnimatorController = newAnimatorController;
+
+                // Iterate over the layers
+                for (int i = 0; i < newAnimatorController.layers.Length; i++)
                 {
-                    // Get the current animation clip
-                    AnimationClip clip = overrides[i].Value;
+                    var layer = newAnimatorController.layers[i];
+                    var stateMachine = layer.stateMachine;
 
-                    // Check if the animation clip exists
-                    if (clip != null)
+                    // Iterate over the states
+                    for (int j = 0; j < stateMachine.states.Length; j++)
                     {
-                        // Loop through each frame of the animation
-                        foreach (var binding in AnimationUtility.GetObjectReferenceCurveBindings(clip))
+                        var state = stateMachine.states[j].state;
+
+                        // Check if the state's motion is an AnimationClip
+                        if (state.motion is AnimationClip oldClip)
                         {
-                            // Check if the binding is a sprite
-                            if (binding.type == typeof(SpriteRenderer) && binding.propertyName == "m_Sprite")
-                            {
-                                // Get the current sprite curve
-                                ObjectReferenceKeyframe[] keyframes = AnimationUtility.GetObjectReferenceCurve(clip, binding);
+                            // Get the path of the original AnimationClip
+                            string originalClipPath = AssetDatabase.GetAssetPath(oldClip);
 
-                                // Loop through each keyframe
-                                for (int j = 0; j < keyframes.Length; j++)
-                                {
-                                    // Get the current sprite
-                                    Sprite sprite = keyframes[j].value as Sprite;
+                            // Create a new path for the duplicate AnimationClip
+                            string newClipPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + oldClip.name + "_copy.anim";
 
-                                    // Check if the sprite exists
-                                    if (sprite != null)
-                                    {
-                                        // Find the index of the sprite in the old sprite sheet
-                                        int index = System.Array.IndexOf(oldSpriteSheet, sprite);
+                            // Create a copy of the AnimationClip
+                            AssetDatabase.CopyAsset(originalClipPath, newClipPath);
 
-                                        // Check if the sprite was found in the old sprite sheet
-                                        if (index != -1)
-                                        {
-                                            // Replace the sprite with the corresponding sprite from the new sprite sheet
-                                            keyframes[j].value = newSpriteSheet[index];
-                                        }
-                                    }
-                                }
+                            // Load the new AnimationClip
+                            AnimationClip newClip = AssetDatabase.LoadAssetAtPath<AnimationClip>(newClipPath);
 
-                                // Set the new sprite curve
-                                AnimationUtility.SetObjectReferenceCurve(clip, binding, keyframes);
-                            }
+                            // Replace the old AnimationClip with the new one in the state
+                            state.motion = newClip;
                         }
                     }
                 }
             }
         }
-
+        CreateAnimationClip(newSpriteSheet, 10, 18, 12f, "152");
         // Save the new object as a prefab
         PrefabUtility.SaveAsPrefabAsset(newObject, newPrefabPath);
 
         // Destroy the new object from the scene
         Destroy(newObject);
+    }
+
+    public AnimationClip CreateAnimationClip(Sprite[] sprites, int startFrame, int endFrame , float frameRate, string name)
+    {
+        AnimationClip clip = new AnimationClip();
+        clip.frameRate = frameRate;  // frames per second
+
+        EditorCurveBinding spriteBinding = new EditorCurveBinding();
+        spriteBinding.type = typeof(SpriteRenderer);
+        spriteBinding.path = "";
+        spriteBinding.propertyName = "m_Sprite";
+
+
+        ObjectReferenceKeyframe[] spriteKeyFrames = new ObjectReferenceKeyframe[sprites.Length];
+        endFrame++;
+        for (int i = 0; i < (endFrame - startFrame); i++)
+        {
+            spriteKeyFrames[i] = new ObjectReferenceKeyframe();
+            spriteKeyFrames[i].time = i / frameRate;
+            spriteKeyFrames[i].value = sprites[i + startFrame];
+        }
+
+        AnimationUtility.SetObjectReferenceCurve(clip, spriteBinding, spriteKeyFrames);
+
+
+        // Save the AnimationClip to the specified path
+        AssetDatabase.CreateAsset(clip, "Assets/NewAnimations/" + name + ".anim");
+        AssetDatabase.SaveAssets();
+
+        return clip;
     }
 }

@@ -744,7 +744,9 @@ public class PathfindingManager : MonoBehaviour
         {
             if (beatEventWithEnemies[i] != null)
             {
-                StringBeatList[i] = new string("Beat: " + beatEventWithEnemies[i].TimeToStart + " Type: " + beatEventWithEnemies[i].BeatEventType.ToString() + " Enemy: " + beatEventWithEnemies[i].Enemy.name);
+                StringBeatList[i] = new string("Beat: " + beatEventWithEnemies[i].TimeToStart + 
+                    " Type: " + beatEventWithEnemies[i].BeatEventType.ToString() + 
+                    " Enemy: " + beatEventWithEnemies[i].Enemy.name);
             }
         }
         //if (VulnerableBeat != 999)
