@@ -20,7 +20,7 @@ public class Importer : MonoBehaviour
     public Texture2D mySpriteSheet; //[TODO] Grab this info from the XML file.
     public SpriteSheetImporter mySpriteSheetImporter;
     public PrefabDuplicator myPrefabDuplicator;
-
+    private Animator animator;
 
     public Sprite[] sprites;
 
@@ -29,7 +29,14 @@ public class Importer : MonoBehaviour
         myXML = XDocument.Load(xmlFileName);
         mySpriteSheetImporter = ImportFromXML(xmlFileName);
 
-        sprites = Resources.LoadAll<Sprite>("BogusSpriteSheet");
+        if (sprites == null)
+        {
+            sprites = Resources.LoadAll<Sprite>("BogusSpriteSheet");
+        }
+        if(sprites.Length < 1)
+        {
+            Debug.LogError("Importer SpriteSheet not loaded correctly.");
+        }
         CreateAnimationFromXML();
         //GenerateXMLTemplate();
         Debug.Log(mySpriteSheetImporter.EnemyName);
@@ -52,7 +59,7 @@ public class Importer : MonoBehaviour
 
         // Get all SpriteSheetImporter_AnimationClip elements
         XmlNodeList animationClipNodes = doc.GetElementsByTagName("SpriteSheetImporter_AnimationClip");
-
+        animator = myPrefabDuplicator.SaveAnimatorController("Assets/Animator.controller");
         foreach (XmlNode node in animationClipNodes)
         {
             // Get the name, starting frame, and ending frame

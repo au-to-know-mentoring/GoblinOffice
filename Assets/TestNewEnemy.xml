@@ -7,11 +7,11 @@
 	                <!--[TODO] Add ranged projectile-->
   
   <MyAnimationClips>
-	  <!--<SpriteSheetImporter_AnimationClip Name="Idle"
+      <!--<SpriteSheetImporter_AnimationClip Name="Idle"
                                        StartingFrame="0"                //Set Start Frame
                                        EndingFrame="5"                  //Set End Frame
                                        HasAnimationEvent="false"        //Don't change
-                                       AnimationEventFrame="-1" />-->   
+                                       AnimationEventFrame="-1" />-->
 
 	  <SpriteSheetImporter_AnimationClip Name="Idle"
                                        StartingFrame="0" 
