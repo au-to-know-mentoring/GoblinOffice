@@ -11,9 +11,10 @@ public class PrefabDuplicator : MonoBehaviour
     public Sprite[] oldSpriteSheet; // The original sprite sheet
     public Sprite[] newSpriteSheet; // The new sprite sheet
     public string newPrefabPath = "Assets/NewPrefab.prefab"; // The path to save the new prefab
+    public RuntimeAnimatorController animatorController;
     public Animator animator;
     GameObject newObject;
-    void Start()
+    void Awake()
     {
         // Instantiate a copy of the prefab
         newObject = Instantiate(prefab);
@@ -21,6 +22,7 @@ public class PrefabDuplicator : MonoBehaviour
 
         // Get the Animator component
         animator = newObject.GetComponent<Animator>();
+        animatorController = animator.runtimeAnimatorController;
 
         // Check if the Animator component exists
         //if (animator != null)
@@ -108,36 +110,41 @@ public class PrefabDuplicator : MonoBehaviour
 
 
         // Save the AnimationClip to the specified path
-        AssetDatabase.CreateAsset(clip, "Assets/Exported/" + name + ".anim");
+        AssetDatabase.CreateAsset(clip, "Assets/Exported/" + name + "_COPY_.anim");
         AssetDatabase.SaveAssets();
 
         return clip;
     }
 
-    public Animator SaveAnimatorController(string newPrefabPath)
+    public RuntimeAnimatorController SaveAnimatorController(string newPrefabPath)
     {
         // Get the RuntimeAnimatorController from the Animator
-        RuntimeAnimatorController runtimeAnimatorController = animator.runtimeAnimatorController;
+        //RuntimeAnimatorController runtimeAnimatorController = animatorController.runtimeAnimatorController;
 
         // Check if the RuntimeAnimatorController exists
-        if (runtimeAnimatorController != null)
+        if (animatorController != null)
         {
             // Get the path of the original AnimatorController
-            string originalPath = AssetDatabase.GetAssetPath(runtimeAnimatorController);
+            string originalPath = AssetDatabase.GetAssetPath(animatorController);
 
             // Create a new path for the duplicate AnimatorController
-            string newPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + runtimeAnimatorController.name + "_copy.controller";
+            string newPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + animatorController.name + "_copy.controller";
 
             // Create a copy of the AnimatorController
             AssetDatabase.CopyAsset(originalPath, newPath);
 
             // Assign the new AnimatorController to the Animator
             AnimatorController newAnimatorController = AssetDatabase.LoadAssetAtPath<AnimatorController>(newPath);
-            animator.runtimeAnimatorController = newAnimatorController;
-
-          
+            //animatorController.runtimeAnimatorController = newAnimatorController;
         }
-        
-        return animator;
+        else
+        {
+            Debug.LogError("Animator for Duplicator NULL");
+        }
+        // Save the new object as a prefab in the same directory
+        string prefabPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + newObject.name + ".prefab";
+        PrefabUtility.SaveAsPrefabAsset(newObject, prefabPath);
+
+        return animatorController;
     }
 }

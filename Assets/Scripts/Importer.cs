@@ -8,6 +8,7 @@ using System;
 using System.Xml.Linq;
 using UnityEditor;
 using System.Linq;
+using UnityEditor.Animations;
 
 public class Importer : MonoBehaviour
 {
@@ -20,8 +21,9 @@ public class Importer : MonoBehaviour
     public Texture2D mySpriteSheet; //[TODO] Grab this info from the XML file.
     public SpriteSheetImporter mySpriteSheetImporter;
     public PrefabDuplicator myPrefabDuplicator;
-    private Animator animator;
+    private RuntimeAnimatorController myAnimatorController;
 
+    //public string NewAnimatorSavePath = "PathToSaveAnimatorHere";
     public Sprite[] sprites;
 
     private void Start()
@@ -59,7 +61,7 @@ public class Importer : MonoBehaviour
 
         // Get all SpriteSheetImporter_AnimationClip elements
         XmlNodeList animationClipNodes = doc.GetElementsByTagName("SpriteSheetImporter_AnimationClip");
-        animator = myPrefabDuplicator.SaveAnimatorController("Assets/Animator.controller");
+        myAnimatorController = myPrefabDuplicator.SaveAnimatorController("Assets/Exported/");
         foreach (XmlNode node in animationClipNodes)
         {
             // Get the name, starting frame, and ending frame
@@ -79,6 +81,7 @@ public class Importer : MonoBehaviour
             // Create and save the animation clip
             //string path = $"Assets/Animations/{name}.anim";
             myPrefabDuplicator.CreateAnimationClip(sprites, startingFrame, endingFrame, frameRate, name);
+            
         }
     }
 
@@ -136,17 +139,11 @@ public class Importer : MonoBehaviour
         var serializer = new XmlSerializer(typeof(SpriteSheetImporter));
         string path = "./assets/File.xml";
 
-
-
         var stream = new FileStream(path, FileMode.Create);
         serializer.Serialize(stream, mySpriteSheetImporter);
         stream.Close();
 
-
     }
-
-
-
 }
 [XmlRoot("SpriteSheetImporter")]
 public class SpriteSheetImporter
