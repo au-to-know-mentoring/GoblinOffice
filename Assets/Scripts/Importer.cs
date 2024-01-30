@@ -17,7 +17,7 @@ public class Importer : MonoBehaviour
 
     public float frameRate;
 
-    public GameObject EnemyTemplatePrefab;
+    //public GameObject EnemyTemplatePrefab;
     public Texture2D mySpriteSheet; //[TODO] Grab this info from the XML file.
     public SpriteSheetImporter mySpriteSheetImporter;
     public PrefabDuplicator myPrefabDuplicator;
@@ -31,7 +31,7 @@ public class Importer : MonoBehaviour
         myXML = XDocument.Load(xmlFileName);
         mySpriteSheetImporter = ImportFromXML(xmlFileName);
 
-        if (sprites == null)
+        if (sprites == null || sprites.Length < 1)
         {
             sprites = Resources.LoadAll<Sprite>("BogusSpriteSheet");
         }

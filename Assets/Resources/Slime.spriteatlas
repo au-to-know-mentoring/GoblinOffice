@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Slime
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 1858713566, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -861877910, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -1416271793, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: 497230746, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: 1343582807, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -811755260, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -1975784201, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: 283327755, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: 937180158, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: 2064025141, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -2089560977, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: 689298955, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -939466215, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: 2109867087, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -1833429462, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -779120547, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -1893834279, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -2121959693, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -1250456630, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: 318280832, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -63382062, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -318485322, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -744044593, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -59603985, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -1481713482, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  - {fileID: -522928142, guid: cbcc8932a668dbf45aa549ae6241bf22, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - whiteslimetroll_19
+  - whiteslimetroll_18
+  - whiteslimetroll_11
+  - whiteslimetroll_10
+  - whiteslimetroll_13
+  - whiteslimetroll_12
+  - whiteslimetroll_15
+  - whiteslimetroll_14
+  - whiteslimetroll_17
+  - whiteslimetroll_16
+  - whiteslimetroll_2
+  - whiteslimetroll_3
+  - whiteslimetroll_0
+  - whiteslimetroll_1
+  - whiteslimetroll_6
+  - whiteslimetroll_7
+  - whiteslimetroll_4
+  - whiteslimetroll_5
+  - whiteslimetroll_8
+  - whiteslimetroll_9
+  - whiteslimetroll_20
+  - whiteslimetroll_21
+  - whiteslimetroll_22
+  - whiteslimetroll_23
+  - whiteslimetroll_24
+  - whiteslimetroll_25
+  m_RenderDataMap: {}
+  m_Tag: Slime
+  m_IsVariant: 0

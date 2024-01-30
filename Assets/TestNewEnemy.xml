@@ -15,25 +15,25 @@
 
 	  <SpriteSheetImporter_AnimationClip Name="Idle"
                                        StartingFrame="0" 
-                                       EndingFrame="5" 
+                                       EndingFrame="4" 
                                        HasAnimationEvent="false" 
                                        AnimationEventFrame="-1" />
 	
     <SpriteSheetImporter_AnimationClip Name="DeathAnim"
-                                       StartingFrame="6"
-                                       EndingFrame="12"
+                                       StartingFrame="10"
+                                       EndingFrame="22"
                                        HasAnimationEvent="false"
                                        AnimationEventFrame="-1" />
     
     <SpriteSheetImporter_AnimationClip Name="VulnerableAnim"
-                                       StartingFrame="13"
-                                       EndingFrame="15"
+                                       StartingFrame="5"
+                                       EndingFrame="9"
                                        HasAnimationEvent="false"
                                        AnimationEventFrame="-1" />
     
     <SpriteSheetImporter_AnimationClip Name="RangedAttack Animator"
-                                       StartingFrame="16"
-                                       EndingFrame="30"
+                                       StartingFrame="22"
+                                       EndingFrame="23"
                                        HasAnimationEvent="true"
                                        AnimationEventFrame="3"
                                        AnimationEventFunctionName="RangedAttackAnimationComplete" />

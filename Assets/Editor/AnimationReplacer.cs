@@ -39,7 +39,7 @@ public class AnimationReplacer : EditorWindow
             {
                 // Create a copy of the AnimatorController
                 AnimatorController newController = Instantiate(controller);
-                newController.AddLayer("Base Layer");
+                newController.AddLayer("New Layer");
                 foreach (var layer in newController.layers)
                 {
                     foreach (var state in layer.stateMachine.states)

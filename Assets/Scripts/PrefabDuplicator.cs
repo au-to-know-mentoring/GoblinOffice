@@ -8,11 +8,11 @@ using Unity.VisualScripting;
 public class PrefabDuplicator : MonoBehaviour
 {
     public GameObject prefab; // The prefab to copy
-    public Sprite[] oldSpriteSheet; // The original sprite sheet
-    public Sprite[] newSpriteSheet; // The new sprite sheet
-    public string newPrefabPath = "Assets/NewPrefab.prefab"; // The path to save the new prefab
-    public RuntimeAnimatorController animatorController;
-    public Animator animator;
+    //public Sprite[] oldSpriteSheet; // The original sprite sheet
+    //public Sprite[] newSpriteSheet; // The new sprite sheet
+    public string newPrefabName = "Assets/NewPrefab.prefab"; //[TODO] GET FROM XML
+    private RuntimeAnimatorController animatorController;
+    private Animator animator;
     GameObject newObject;
     void Awake()
     {
@@ -116,7 +116,7 @@ public class PrefabDuplicator : MonoBehaviour
         return clip;
     }
 
-    public RuntimeAnimatorController SaveAnimatorController(string newPrefabPath)
+    public RuntimeAnimatorController SaveAnimatorController(string newPrefabPath) // + string name)
     {
         // Get the RuntimeAnimatorController from the Animator
         //RuntimeAnimatorController runtimeAnimatorController = animatorController.runtimeAnimatorController;
@@ -142,7 +142,7 @@ public class PrefabDuplicator : MonoBehaviour
             Debug.LogError("Animator for Duplicator NULL");
         }
         // Save the new object as a prefab in the same directory
-        string prefabPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + newObject.name + ".prefab";
+        string prefabPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + newPrefabName + ".prefab";
         PrefabUtility.SaveAsPrefabAsset(newObject, prefabPath);
 
         return animatorController;
