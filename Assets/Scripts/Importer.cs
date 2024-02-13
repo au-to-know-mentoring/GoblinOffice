@@ -61,11 +61,13 @@ public class Importer : MonoBehaviour
 
         // Get all SpriteSheetImporter_AnimationClip elements
         XmlNodeList animationClipNodes = doc.GetElementsByTagName("SpriteSheetImporter_AnimationClip");
-        myAnimatorController = myPrefabDuplicator.SaveAnimatorController("Assets/Exported/");
+        string enemyName = myXML.Root.Attribute("EnemyName").Value;
+
+        myAnimatorController = myPrefabDuplicator.SaveAnimatorController("Assets/Exported/", enemyName);
         foreach (XmlNode node in animationClipNodes)
         {
             // Get the name, starting frame, and ending frame
-            string name = node.Attributes["Name"].Value;
+            string name = enemyName + "_" + node.Attributes["Name"].Value;
             int startingFrame = int.Parse(node.Attributes["StartingFrame"].Value);
             int endingFrame = int.Parse(node.Attributes["EndingFrame"].Value);
 

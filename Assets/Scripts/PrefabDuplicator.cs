@@ -108,15 +108,35 @@ public class PrefabDuplicator : MonoBehaviour
 
         AnimationUtility.SetObjectReferenceCurve(clip, spriteBinding, spriteKeyFrames);
 
+        Keyframe[] myKeyFrames = new Keyframe[2];
+        myKeyFrames[0] = new Keyframe(0.0f, 1.0f);
+        myKeyFrames[1] = new Keyframe((endFrame - startFrame) / frameRate, 1f);
+        AnimationCurve myCurve = new AnimationCurve(myKeyFrames);
+        AnimationClipSettings mySettings = new AnimationClipSettings();
+        
+        if(clip)
+        mySettings.loopTime = true;
+
+   
+        AnimationUtility.SetAnimationClipSettings(clip, mySettings);
+        clip.SetCurve("", typeof(Transform), "localScale.x", myCurve);
+ 
+        AssetDatabase.Refresh();
+
+
+
+
 
         // Save the AnimationClip to the specified path
         AssetDatabase.CreateAsset(clip, "Assets/Exported/" + name + "_COPY_.anim");
         AssetDatabase.SaveAssets();
-
+        Debug.Log("Animation: " + clip.name + "Length: " +  clip.length);
+    
+        
         return clip;
     }
 
-    public RuntimeAnimatorController SaveAnimatorController(string newPrefabPath) // + string name)
+    public RuntimeAnimatorController SaveAnimatorController(string newPrefabPath, string enemyName) // + string name)
     {
         // Get the RuntimeAnimatorController from the Animator
         //RuntimeAnimatorController runtimeAnimatorController = animatorController.runtimeAnimatorController;
@@ -128,7 +148,7 @@ public class PrefabDuplicator : MonoBehaviour
             string originalPath = AssetDatabase.GetAssetPath(animatorController);
 
             // Create a new path for the duplicate AnimatorController
-            string newPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + animatorController.name + "_copy.controller";
+            string newPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + enemyName + "_copy.controller";
 
             // Create a copy of the AnimatorController
             AssetDatabase.CopyAsset(originalPath, newPath);
@@ -142,7 +162,7 @@ public class PrefabDuplicator : MonoBehaviour
             Debug.LogError("Animator for Duplicator NULL");
         }
         // Save the new object as a prefab in the same directory
-        string prefabPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + newPrefabName + ".prefab";
+        string prefabPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + enemyName + ".prefab";
         PrefabUtility.SaveAsPrefabAsset(newObject, prefabPath);
 
         return animatorController;

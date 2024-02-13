@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <SpriteSheetImporter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
                      
-                     EnemyName="Works" 
-                     SpriteSheetFileName="BogusSpriteSheetFileName"> 
+                     EnemyName="Slime" 
+                     SpriteSheetFileName="BogusSpriteSheetFileName">
 	
 	                <!--[TODO] Add ranged projectile-->
   
@@ -12,6 +12,8 @@
                                        EndingFrame="5"                  //Set End Frame
                                        HasAnimationEvent="false"        //Don't change
                                        AnimationEventFrame="-1" />-->
+
+	  <!--Start Animations at FRAME 1 NOT 0-->
 
 	  <SpriteSheetImporter_AnimationClip Name="Idle"
                                        StartingFrame="0" 
