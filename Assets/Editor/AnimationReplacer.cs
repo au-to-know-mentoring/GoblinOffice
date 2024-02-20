@@ -22,6 +22,20 @@ public class AnimationReplacer : EditorWindow
 
         if (controller != null)
         {
+            string controllerPath = AssetDatabase.GetAssetPath(controller);
+            string directory = System.IO.Path.GetDirectoryName(controllerPath);
+
+            // Find all AnimationClip assets in the same directory as the controller
+            string[] guids = AssetDatabase.FindAssets("t:AnimationClip", new[] { directory });
+            foreach (string guid in guids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                AnimationClip clip = AssetDatabase.LoadAssetAtPath<AnimationClip>(path);
+                if (!newClips.ContainsKey(clip.name))
+                {
+                    newClips[clip.name] = clip;
+                }
+            }
             foreach (var layer in controller.layers)
             {
                 foreach (var state in layer.stateMachine.states)
@@ -69,5 +83,26 @@ public class AnimationReplacer : EditorWindow
                 newClips.Clear();
             }
         }
+    }
+
+
+    public void SetAnimatorFromPrefab()
+    {
+        GameObject newPrefab = (GameObject)EditorGUILayout.ObjectField("Prefab", prefab, typeof(GameObject), false);
+        if (newPrefab != prefab)
+        {
+            prefab = newPrefab;
+            // When a new prefab is assigned, search for the first Animator component in it
+            if (prefab != null)
+            {
+                Animator foundAnimator = prefab.GetComponentInChildren<Animator>();
+                if (foundAnimator != null)
+                {
+                    // If an Animator is found, set it as the controller to be used
+                    controller = foundAnimator.runtimeAnimatorController as AnimatorController;
+                }
+            }
+        }
+
     }
 }
