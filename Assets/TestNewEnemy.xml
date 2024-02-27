@@ -17,7 +17,7 @@
 
 	  <SpriteSheetImporter_AnimationClip Name="Idle"
                                        StartingFrame="0" 
-                                       EndingFrame="4" 
+                                       EndingFrame="3" 
                                        HasAnimationEvent="false" 
                                        AnimationEventFrame="-1" />
 	
@@ -33,11 +33,11 @@
                                        HasAnimationEvent="false"
                                        AnimationEventFrame="-1" />
     
-    <SpriteSheetImporter_AnimationClip Name="RangedAttack Animator"
+    <SpriteSheetImporter_AnimationClip Name="RangedAttack"
                                        StartingFrame="22"
                                        EndingFrame="23"
                                        HasAnimationEvent="true"
-                                       AnimationEventFrame="3"
+                                       AnimationEventFrame="1"
                                        AnimationEventFunctionName="RangedAttackAnimationComplete" />
   </MyAnimationClips>
 </SpriteSheetImporter>

@@ -125,7 +125,7 @@ public class SpriteSynchronizer : MonoBehaviour
         // Assuming the sprite sheet has been sliced evenly
         string targetSpriteName = TargetTitle + "_" + number.ToString();
 
-        Sprite targetSprite = spriteAtlas.GetSprite(targetSpriteName);  // spriteAtlas.GetSprite(targetSpriteName);
+        Sprite targetSprite = spriteAtlas.GetSprite(targetSpriteName);  
 
         if (targetSprite != null)
         {

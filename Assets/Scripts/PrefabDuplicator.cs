@@ -14,6 +14,7 @@ public class PrefabDuplicator : MonoBehaviour
     private RuntimeAnimatorController animatorController;
     private Animator animator;
     GameObject newObject;
+    private string uniqueAssetsFolder = null;
     void Awake()
     {
         // Instantiate a copy of the prefab
@@ -125,14 +126,17 @@ public class PrefabDuplicator : MonoBehaviour
 
 
 
-
+        // Ensure a unique asset folder is available based on the prefab name
+        string uniqueFolderPath = EnsureUniqueAssetFolder("Assets/ExportedAnimations", name);
+        string animationName = name + "_Animation"; // Customize this name as needed
+        string uniquePath = Path.Combine(uniqueFolderPath, animationName + ".anim");
 
         // Save the AnimationClip to the specified path
-        AssetDatabase.CreateAsset(clip, "Assets/Exported/" + name + "_COPY_.anim");
+        AssetDatabase.CreateAsset(clip, uniquePath);
         AssetDatabase.SaveAssets();
-        Debug.Log("Animation: " + clip.name + "Length: " +  clip.length);
-    
-        
+        Debug.Log("Animation: " + clip.name + " saved to " + uniquePath);
+
+
         return clip;
     }
 
@@ -147,10 +151,11 @@ public class PrefabDuplicator : MonoBehaviour
             // Get the path of the original AnimatorController
             string originalPath = AssetDatabase.GetAssetPath(animatorController);
 
-            // Create a new path for the duplicate AnimatorController
-            string newPath = System.IO.Path.GetDirectoryName(newPrefabPath) + "/" + enemyName + "_copy.controller";
+            // Ensure a unique asset folder is available based on the enemy name
+            string baseDirectory = Path.GetDirectoryName(newPrefabPath);
+            string uniqueFolderPath = EnsureUniqueAssetFolder(baseDirectory, enemyName);
+            string newPath = Path.Combine(uniqueFolderPath, enemyName + ".controller");
 
-            // Create a copy of the AnimatorController
             AssetDatabase.CopyAsset(originalPath, newPath);
 
             // Assign the new AnimatorController to the Animator
@@ -167,4 +172,33 @@ public class PrefabDuplicator : MonoBehaviour
 
         return animatorController;
     }
+
+    private string EnsureUniqueAssetFolder(string baseDirectory, string prefabName)
+    {
+        // If we've already determined a unique folder for this operation, use it
+        if (!string.IsNullOrEmpty(uniqueAssetsFolder))
+        {
+            return uniqueAssetsFolder;
+        }
+
+        string folderName = prefabName;
+        int counter = 0;
+
+        // Check if the folder already exists; if so, append a counter to the name until a unique name is found
+        while (AssetDatabase.IsValidFolder(Path.Combine(baseDirectory, folderName)))
+        {
+            counter++;
+            folderName = $"{prefabName}({counter})";
+        }
+
+        // Create the new directory
+        string newDirectoryPath = Path.Combine(baseDirectory, folderName);
+        AssetDatabase.CreateFolder(baseDirectory, folderName);
+
+        // Store this directory path for reuse during this operation
+        uniqueAssetsFolder = newDirectoryPath;
+
+        return newDirectoryPath;
+    }
+
 }
