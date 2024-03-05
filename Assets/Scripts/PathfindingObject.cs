@@ -19,7 +19,8 @@ public class PathfindingObject : MonoBehaviour
     //private TileBase[] obstacleTiles; // this isn't currently used.
     private Dictionary<Vector3Int, PathfindingManager.Node> nodeDictionary;
     public bool UpdateStartingPosition = true;
-    [Header("Ranged Attack Variables")]
+    [Header("Attack Variables")]
+    public bool MeleeMode;
     public GameObject rangedAttack;
     public int rangedAttackQuantity;
     public int rangedAttackQuantityOriginal;

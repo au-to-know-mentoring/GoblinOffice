@@ -39,5 +39,12 @@
                                        HasAnimationEvent="true"
                                        AnimationEventFrame="1"
                                        AnimationEventFunctionName="RangedAttackAnimationComplete" />
+
+	  <SpriteSheetImporter_AnimationClip Name="MeleeAttack"
+                                       StartingFrame="20"
+                                       EndingFrame="27"
+                                       HasAnimationEvent="true"
+                                       AnimationEventFrame="1"
+                                       AnimationEventFunctionName="RangedAttackAnimationComplete" />
   </MyAnimationClips>
 </SpriteSheetImporter>

@@ -4,6 +4,7 @@ using UnityEditor.Animations;
 using System.Collections.Generic;
 using System.IO;
 using Unity.VisualScripting;
+using UnityEngine.Playables;
 
 public class PrefabDuplicator : MonoBehaviour
 {
@@ -111,7 +112,7 @@ public class PrefabDuplicator : MonoBehaviour
 
         Keyframe[] myKeyFrames = new Keyframe[2];
         myKeyFrames[0] = new Keyframe(0.0f, 1.0f);
-        myKeyFrames[1] = new Keyframe((endFrame - startFrame) / frameRate, 1f);
+        myKeyFrames[1] = new Keyframe((endFrame - startFrame) / frameRate - 1, 1f);
         AnimationCurve myCurve = new AnimationCurve(myKeyFrames);
         AnimationClipSettings mySettings = new AnimationClipSettings();
         
@@ -121,7 +122,7 @@ public class PrefabDuplicator : MonoBehaviour
    
         AnimationUtility.SetAnimationClipSettings(clip, mySettings);
         clip.SetCurve("", typeof(Transform), "localScale.x", myCurve);
- 
+        
         AssetDatabase.Refresh();
 
 
@@ -130,11 +131,16 @@ public class PrefabDuplicator : MonoBehaviour
         string uniqueFolderPath = EnsureUniqueAssetFolder("Assets/ExportedAnimations", name);
         string animationName = name + "_Animation"; // Customize this name as needed
         string uniquePath = Path.Combine(uniqueFolderPath, animationName + ".anim");
-
+        
+        //RemoveAllScaleCurves(clip); Doesn't work but makes no errors.
+        
         // Save the AnimationClip to the specified path
         AssetDatabase.CreateAsset(clip, uniquePath);
         AssetDatabase.SaveAssets();
         Debug.Log("Animation: " + clip.name + " saved to " + uniquePath);
+
+
+        
 
 
         return clip;
@@ -201,4 +207,29 @@ public class PrefabDuplicator : MonoBehaviour
         return newDirectoryPath;
     }
 
+    public void RemoveLocalScaleXCurve(AnimationClip clip)
+    {
+        // Define the curve binding for localScale.x
+        EditorCurveBinding curveBinding = EditorCurveBinding.FloatCurve("", typeof(Transform), "localScale.x");
+
+        // Remove the curve by setting it to null
+        AnimationUtility.SetEditorCurve(clip, curveBinding, null);
+
+        Debug.Log("Removed localScale.x curve from " + clip.name);
+    }
+
+    public void RemoveAllScaleCurves(AnimationClip clip)
+    {
+        // Define the curve bindings for localScale.x, localScale.y, and localScale.z
+        EditorCurveBinding scaleXBinding = EditorCurveBinding.FloatCurve("", typeof(Transform), "localScale.x");
+        EditorCurveBinding scaleYBinding = EditorCurveBinding.FloatCurve("", typeof(Transform), "localScale.y");
+        EditorCurveBinding scaleZBinding = EditorCurveBinding.FloatCurve("", typeof(Transform), "localScale.z");
+
+        // Remove the curves by setting them to null
+        AnimationUtility.SetEditorCurve(clip, scaleXBinding, null);
+        AnimationUtility.SetEditorCurve(clip, scaleYBinding, null);
+        AnimationUtility.SetEditorCurve(clip, scaleZBinding, null);
+
+        Debug.Log("Removed all localScale curves from " + clip.name);
+    }
 }
