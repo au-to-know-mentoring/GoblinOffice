@@ -129,7 +129,7 @@ public class PrefabDuplicator : MonoBehaviour
 
         // Ensure a unique asset folder is available based on the prefab name
         string uniqueFolderPath = EnsureUniqueAssetFolder("Assets/ExportedAnimations", name);
-        string animationName = name + "_Animation"; // Customize this name as needed
+        //string animationName = name + "_Animation"; // Customize this name as needed
         string uniquePath = Path.Combine(uniqueFolderPath, animationName + ".anim");
         
         //RemoveAllScaleCurves(clip); Doesn't work but makes no errors.
