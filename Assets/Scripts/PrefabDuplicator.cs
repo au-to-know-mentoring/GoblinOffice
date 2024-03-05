@@ -207,7 +207,7 @@ public class PrefabDuplicator : MonoBehaviour
         return newDirectoryPath;
     }
 
-    public void RemoveLocalScaleXCurve(AnimationClip clip)
+    public void RemoveLocalScaleXCurve(AnimationClip clip)      // Doesn't work
     {
         // Define the curve binding for localScale.x
         EditorCurveBinding curveBinding = EditorCurveBinding.FloatCurve("", typeof(Transform), "localScale.x");
@@ -218,7 +218,7 @@ public class PrefabDuplicator : MonoBehaviour
         Debug.Log("Removed localScale.x curve from " + clip.name);
     }
 
-    public void RemoveAllScaleCurves(AnimationClip clip)
+    public void RemoveAllScaleCurves(AnimationClip clip)        // Doesn't work
     {
         // Define the curve bindings for localScale.x, localScale.y, and localScale.z
         EditorCurveBinding scaleXBinding = EditorCurveBinding.FloatCurve("", typeof(Transform), "localScale.x");

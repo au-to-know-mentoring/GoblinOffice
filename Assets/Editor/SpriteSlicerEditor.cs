@@ -3,6 +3,7 @@ using UnityEditor;
 using System.IO;
 using UnityEngine.U2D;
 using UnityEditor.U2D;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class SpriteSlicerEditor : EditorWindow
 {
@@ -40,29 +41,38 @@ public class SpriteSlicerEditor : EditorWindow
         
         string path = AssetDatabase.GetAssetPath(textureToSlice);
         string directory = System.IO.Path.GetDirectoryName(path);
-        string exportedDirectory = System.IO.Path.Combine(directory, "Exported");
+        string exportedDirectory = System.IO.Path.Combine(directory, "Asset");
+        string PNGDirectory = System.IO.Path.Combine(directory, "Png");
 
         MakeTextureReadable(path);
         if (!System.IO.Directory.Exists(exportedDirectory))
         {
             System.IO.Directory.CreateDirectory(exportedDirectory);
         }
+        if (!System.IO.Directory.Exists(PNGDirectory))
+        {
+            System.IO.Directory.CreateDirectory(PNGDirectory);
+        }
 
         int spriteWidth = textureToSlice.width / columns;
         int spriteHeight = textureToSlice.height / rows;
+        int counter = 0;
 
         for (int y = 0; y < rows; y++)
         {
+           
             for (int x = 0; x < columns; x++)
             {
                 Rect spriteRect = new Rect(x * spriteWidth, (rows - y - 1) * spriteHeight, spriteWidth, spriteHeight);
                 Sprite newSprite = Sprite.Create(textureToSlice, spriteRect, new Vector2(0.5f, 0.5f));
-                string spritePath = System.IO.Path.Combine(exportedDirectory, textureToSlice.name + "_" + x + "_" + y + ".asset");
+                string spritePath = System.IO.Path.Combine(exportedDirectory, textureToSlice.name + "_" + counter + ".asset");
                 AssetDatabase.CreateAsset(newSprite, spritePath);
+                counter++;
             }
         }
+
         SpriteAtlas spriteAtlas = new SpriteAtlas();
-        SpriteAtlasUtility.PackTextures(spriteAtlas, textureToSlice, exportedDirectory, columns, rows);
+        SpriteAtlasUtility.PackTextures(spriteAtlas, textureToSlice, PNGDirectory, columns, rows);
 
         AssetDatabase.SaveAssets();
         Debug.Log("Sprites and SpriteAtlas saved to " + exportedDirectory);
@@ -70,11 +80,12 @@ public class SpriteSlicerEditor : EditorWindow
 
     public static class SpriteAtlasUtility
     {
-        public static void PackTextures(SpriteAtlas spriteAtlas, Texture2D textureToSlice, string exportedDirectory, int columns, int rows)
+        public static void PackTextures(SpriteAtlas spriteAtlas, Texture2D textureToSlice, string PNGDirectory, int columns, int rows)
         {
             int spriteWidth = textureToSlice.width / columns;
             int spriteHeight = textureToSlice.height / rows;
-
+            int counter = 0;
+           
             for (int y = 0; y < rows; y++)
             {
                 for (int x = 0; x < columns; x++)
@@ -86,7 +97,8 @@ public class SpriteSlicerEditor : EditorWindow
 
                     byte[] bytes = newTexture.EncodeToPNG();
                     //string texturePath = Path.Combine(exportedDirectory, textureToSlice.name + "_" + x + "_" + y + ".png");
-                    string texturePath = Path.Combine(exportedDirectory, textureToSlice.name + "_" + (x + (10*y)) + ".png");
+                    string texturePath = Path.Combine(PNGDirectory, textureToSlice.name + "_" + counter + ".png");
+                    counter++;
                     File.WriteAllBytes(texturePath, bytes);
                     AssetDatabase.ImportAsset(texturePath);
 
@@ -99,7 +111,7 @@ public class SpriteSlicerEditor : EditorWindow
                 }
             }
 
-            string atlasPath = Path.Combine(exportedDirectory, textureToSlice.name + "_SpriteAtlas.spriteatlas");
+            string atlasPath = Path.Combine(PNGDirectory, textureToSlice.name + "_SpriteAtlas.spriteatlas");
             AssetDatabase.CreateAsset(spriteAtlas, atlasPath);
         }
     }

@@ -208,6 +208,7 @@ MonoBehaviour:
   TimeBetweenTiles: 1
   arrivalTime: 5
   UpdateStartingPosition: 1
+  MeleeMode: 0
   rangedAttack: {fileID: 7891159223147854986, guid: ce2c771595496bc40b2ba1f00bd3304c, type: 3}
   rangedAttackQuantity: 1
   rangedAttackQuantityOriginal: 0
