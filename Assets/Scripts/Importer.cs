@@ -33,6 +33,7 @@ public class Importer : MonoBehaviour
 
         if (sprites == null || sprites.Length < 1)
         {
+            // Load spritesheet by xml here
             sprites = Resources.LoadAll<Sprite>("BogusSpriteSheet");
         }
         if(sprites.Length < 1)

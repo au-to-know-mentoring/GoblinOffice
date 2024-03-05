@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <SpriteSheetImporter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
                      
-                     EnemyName="Slime" 
+                     EnemyName="TrollGun" 
                      SpriteSheetFileName="BogusSpriteSheetFileName">
 	
 	                <!--[TODO] Add ranged projectile-->
@@ -22,29 +22,28 @@
                                        AnimationEventFrame="-1" />
 	
     <SpriteSheetImporter_AnimationClip Name="DeathAnim"
-                                       StartingFrame="10"
-                                       EndingFrame="22"
+                                       StartingFrame="17"
+                                       EndingFrame="24"
                                        HasAnimationEvent="false"
                                        AnimationEventFrame="-1" />
     
     <SpriteSheetImporter_AnimationClip Name="VulnerableAnim"
-                                       StartingFrame="5"
-                                       EndingFrame="9"
+                                       StartingFrame="32"
+                                       EndingFrame="54"
                                        HasAnimationEvent="false"
                                        AnimationEventFrame="-1" />
     
     <SpriteSheetImporter_AnimationClip Name="RangedAttack"
-                                       StartingFrame="22"
-                                       EndingFrame="23"
+                                       StartingFrame="4"
+                                       EndingFrame="7"
                                        HasAnimationEvent="true"
                                        AnimationEventFrame="1"
                                        AnimationEventFunctionName="RangedAttackAnimationComplete" />
 
 	  <SpriteSheetImporter_AnimationClip Name="MeleeAttack"
-                                       StartingFrame="20"
-                                       EndingFrame="27"
-                                       HasAnimationEvent="true"
-                                       AnimationEventFrame="1"
-                                       AnimationEventFunctionName="RangedAttackAnimationComplete" />
+                                       StartingFrame="8"
+                                       EndingFrame="16"
+                                       HasAnimationEvent="false"
+                                       AnimationEventFrame="-1" />
   </MyAnimationClips>
 </SpriteSheetImporter>
