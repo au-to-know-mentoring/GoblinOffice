@@ -9,7 +9,7 @@ public class AnimationReplacer : EditorWindow
     private GameObject prefab;
     private Dictionary<string, AnimationClip> newClips = new Dictionary<string, AnimationClip>();
 
-    [MenuItem("Window/Animation Replacer")]
+    [MenuItem("Tools/Animation Replacer")]
     public static void ShowWindow()
     {
         GetWindow<AnimationReplacer>("Animation Replacer");
