@@ -1160,6 +1160,7 @@ MonoBehaviour:
   rangedAttackQuantityOriginal: 0
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
+  MeleeAttackAnimationTime: 0
   projectileSpeed: 0
   StringListOfActions: []
   VulnerableBeat: -1
@@ -4018,6 +4019,7 @@ MonoBehaviour:
   rangedAttackQuantityOriginal: 0
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
+  MeleeAttackAnimationTime: 0
   projectileSpeed: 0
   StringListOfActions: []
   VulnerableBeat: 999
@@ -4118,7 +4120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1278759295
 Transform:
   m_ObjectHideFlags: 0
@@ -4275,6 +4277,7 @@ MonoBehaviour:
   rangedAttackQuantityOriginal: 0
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
+  MeleeAttackAnimationTime: 0
   projectileSpeed: 0
   StringListOfActions: []
   VulnerableBeat: -1
@@ -5077,11 +5080,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4194696172890936945, guid: 55c154e8fb1aa99499dc0009c2ad188c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6528573
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4194696172890936945, guid: 55c154e8fb1aa99499dc0009c2ad188c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.0176983
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4194696172890936945, guid: 55c154e8fb1aa99499dc0009c2ad188c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5610,6 +5613,7 @@ MonoBehaviour:
   rangedAttackQuantityOriginal: 0
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
+  MeleeAttackAnimationTime: 0
   projectileSpeed: 0
   StringListOfActions: []
   VulnerableBeat: -1
@@ -5782,6 +5786,7 @@ MonoBehaviour:
   rangedAttackQuantityOriginal: 0
   delayBetweenRangedAttacks: 0
   RangedAttackAnimationTime: 0
+  MeleeAttackAnimationTime: 0
   projectileSpeed: 0
   StringListOfActions: []
   VulnerableBeat: -1
@@ -5878,7 +5883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnassignedEnemyList: []
-  AssignedEnemyList: []
+  ActiveEnemyList: []
+  MeleeEnemyList: []
   DeadEnemyList: []
   StringBeatList: []
   myUIImageSpawner: {fileID: 0}
@@ -5889,6 +5895,7 @@ MonoBehaviour:
   RangedBeats: 3
   BeatToLoop: 8
   myAnimationSettings: {fileID: 0}
+  MeleeAssignments: 1
   LeftOfPlayerPosition: {x: 0, y: 0, z: 0}
   RightOfPlayerPosition: {x: 0, y: 0, z: 0}
   TopOfPlayerPosition: {x: 0, y: 0, z: 0}
@@ -6118,11 +6125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4946812721976323589, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.47064602
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4946812721976323589, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2294338
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4946812721976323589, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6134,15 +6141,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4946812721976323589, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4946812721976323589, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4946812721976323589, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4946812721976323589, guid: 9d8734d7d17410f4ab5f9ff7b51fa453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

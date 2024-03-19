@@ -26,6 +26,7 @@ public class PathfindingObject : MonoBehaviour
     public int rangedAttackQuantityOriginal;
     public float delayBetweenRangedAttacks; // Change to beat manager eventually
     public float RangedAttackAnimationTime; // TODO
+    public float MeleeAttackAnimationTime;
     private float rangedAttackDelayTimer = 0;
     private RangedProjectile rangedAttackedScript;
     public float projectileSpeed;
@@ -106,7 +107,7 @@ public class PathfindingObject : MonoBehaviour
             myAnimationSettings = FindObjectOfType<AnimationSettings>();
 
         //rangedAttackQuantityOriginal = rangedAttackQuantity; // this seems wrong
-        RangedAttackAnimationTime = myAnimationSettings.NinjaAnimationLengths[0];
+        RangedAttackAnimationTime = myAnimationSettings.NinjaAnimationLengths[0]; //TODO for each enemy?
         myAnimator = GetComponent<Animator>();
         if (myAnimator == null)
         {
@@ -446,6 +447,11 @@ public class PathfindingObject : MonoBehaviour
 
     public float SetRangedAttack(int BeatToArrive,float Distance, float BeatsPerSecond)
     {
+        if(MeleeMode == true)
+        {
+            TimeToStart = BeatToArrive - MeleeAttackAnimationTime;
+            
+        }
         rangedAttackedScript = rangedAttack.GetComponent<RangedProjectile>(); // ????
         if (BeatToArrive == -1)
         {
@@ -470,6 +476,21 @@ public class PathfindingObject : MonoBehaviour
 
         return TimeToStart;
 
+    }
+
+    public float SetMeleeAttack(int BeatToArrive, float BeatsPerSecond)
+    {
+        if (BeatToArrive == -1)
+        {
+            BeatToArrive = (int)arrivalTime;
+        }
+        float TimeToComplete = MeleeAttackAnimationTime;
+        TimeToStart = BeatToArrive - (TimeToComplete * BeatsPerSecond);
+
+        RangedBeat BeatToAdd = new RangedBeat(false, TimeToStart);
+        rangedAttacksList.Add(BeatToAdd);
+
+        return TimeToStart;
     }
 
     public void SetVulnerable(int BeatToStart, float Duration)

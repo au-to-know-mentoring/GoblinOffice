@@ -22,27 +22,27 @@
                                        AnimationEventFrame="-1" />
 	
     <SpriteSheetImporter_AnimationClip Name="DeathAnim"
-                                       StartingFrame="17"
-                                       EndingFrame="24"
+                                       StartingFrame="31"
+                                       EndingFrame="41"
                                        HasAnimationEvent="false"
                                        AnimationEventFrame="-1" />
     
     <SpriteSheetImporter_AnimationClip Name="VulnerableAnim"
-                                       StartingFrame="32"
-                                       EndingFrame="54"
+                                       StartingFrame="65"
+                                       EndingFrame="83"
                                        HasAnimationEvent="false"
                                        AnimationEventFrame="-1" />
     
     <SpriteSheetImporter_AnimationClip Name="RangedAttack"
-                                       StartingFrame="4"
-                                       EndingFrame="7"
+                                       StartingFrame="12"
+                                       EndingFrame="19"
                                        HasAnimationEvent="true"
                                        AnimationEventFrame="1"
                                        AnimationEventFunctionName="RangedAttackAnimationComplete" />
 
 	  <SpriteSheetImporter_AnimationClip Name="MeleeAttack"
-                                       StartingFrame="8"
-                                       EndingFrame="16"
+                                       StartingFrame="20"
+                                       EndingFrame="30"
                                        HasAnimationEvent="false"
                                        AnimationEventFrame="-1" />
   </MyAnimationClips>

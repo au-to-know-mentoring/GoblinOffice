@@ -14,9 +14,10 @@ public class PathfindingManager : MonoBehaviour
 
     [Header("Lists")]
     public List<PathfindingObject> UnassignedEnemyList = new List<PathfindingObject>();
-    public List<PathfindingObject> AssignedEnemyList = new List<PathfindingObject>(); // TODO
+    public List<PathfindingObject> ActiveEnemyList = new List<PathfindingObject>(); // TODO
+    public List<PathfindingObject> MeleeEnemyList = new List<PathfindingObject>();
     public List<PathfindingObject> DeadEnemyList = new List<PathfindingObject>();
-    public List<String> StringBeatList= new List<String>();
+    public List<String> StringBeatList = new List<String>();
     public UIImageSpawner myUIImageSpawner;
 
 
@@ -35,6 +36,7 @@ public class PathfindingManager : MonoBehaviour
     public int BeatToLoop;
     private bool HasLoopedBefore = false;
     public AnimationSettings myAnimationSettings;
+    public int MeleeAssignments = 1;
 
     [Header("Player Positions")]
     public Vector3Int LeftOfPlayerPosition;
@@ -54,6 +56,10 @@ public class PathfindingManager : MonoBehaviour
     }
     public List<BeatEvent?> beatEvents;
     public List<BeatEventWithEnemy?> beatEventWithEnemies = new List<BeatEventWithEnemy?>(new BeatEventWithEnemy?[0]);
+
+    private bool topOfPlayerSet = false;
+    private bool leftOfPlayerSet = false;
+    private bool rightOfPlayerSet = false;
     private void Start()
     {
         youWinText.enabled = false;
@@ -63,7 +69,7 @@ public class PathfindingManager : MonoBehaviour
         myUIImageSpawner.setBeatLoop(BeatToLoop);
         // Set Positions adjacent to player.
         SetPositionsAroundPlayer();
-        
+
 
         // Get the obstacle tiles from the tilemap
         obstacleTiles = obstacleTilemap.GetTilesBlock(obstacleTilemap.cellBounds);
@@ -99,12 +105,14 @@ public class PathfindingManager : MonoBehaviour
             AssignRangedAttacks();
         }
 
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             Debug.Log("C is pressed");
             //AdjustSpeedOfEnemies();
+            beatEventWithEnemies.Clear();
+            AssignMeleeByRandomBeat();
             AssignRangedAttacksByRandomBeat();
-            foreach (var pathFindingObject in AssignedEnemyList)
+            foreach (var pathFindingObject in ActiveEnemyList)
             {
                 pathFindingObject.CreateStringListOfActions();
             }
@@ -142,11 +150,11 @@ public class PathfindingManager : MonoBehaviour
         if (GlobalTimeManager.Timer >= BeatToLoop)
         {
             GlobalTimeManager.Timer -= BeatToLoop;
-            if(Player.GetComponent<Player>().Health == 0)
+            if (Player.GetComponent<Player>().Health == 0)
             {
                 //LevelComplete(false);
             }
-            foreach (var pathFindingObject in AssignedEnemyList)
+            foreach (var pathFindingObject in ActiveEnemyList)
             {
                 if (pathFindingObject.Dead == true)
                 {
@@ -162,7 +170,7 @@ public class PathfindingManager : MonoBehaviour
                     UnassignedEnemyList.Add(pathFindingObject);
                 }
             }
-            AssignedEnemyList.Clear();
+            ActiveEnemyList.Clear();
 
             if (UnassignedEnemyList.Count > 0)
             {
@@ -170,8 +178,9 @@ public class PathfindingManager : MonoBehaviour
                 {
                     pathFindingObject.SetTimer(GlobalTimeManager.Timer);
                 }
-                    AssignRangedAttacksByRandomBeat();
-                    //AssignMeleeAttacksByRandomBeat();
+                beatEventWithEnemies.Clear();
+                AssignRangedAttacksByRandomBeat();
+                //AssignMeleeAttacksByRandomBeat();
                 /// This is currently set in RangedAttackByBeat
                 // int RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
                 //AssignedEnemyList[RandomEnemy].VulnerableBeat = BeatToLoop - 2;
@@ -183,9 +192,9 @@ public class PathfindingManager : MonoBehaviour
                 //Reloads Scene.
                 LevelComplete(true);
             }
-            foreach (var pathFindingObject in AssignedEnemyList)
+            foreach (var pathFindingObject in ActiveEnemyList)
             {
-               pathFindingObject.CreateStringListOfActions();
+                pathFindingObject.CreateStringListOfActions();
             }
             CreateStringListOfBeats();
         }
@@ -310,19 +319,120 @@ public class PathfindingManager : MonoBehaviour
                         }
                     }
                 }
-                AssignedEnemyList.Add(pathFindingObject);
+                ActiveEnemyList.Add(pathFindingObject);
                 pathFindingObject.Active = true;
                 pathFindingObject.CloneAttackList();
             }
         }
-        foreach (var pathFindingObject in AssignedEnemyList)
+        foreach (var pathFindingObject in ActiveEnemyList)
         {
             UnassignedEnemyList.Remove(pathFindingObject);
         }
     }
+
+    private void AssignMeleeByRandomBeat1()
+    {
+        if (UnassignedEnemyList.Count > 0)
+        {
+            int RandomEnemy;
+            RandomEnemy = UnityEngine.Random.Range(0, UnassignedEnemyList.Count);
+            if (!MeleeEnemyList.Contains(UnassignedEnemyList[RandomEnemy]))
+            {
+                //Add enemy to assigned list and activate it.
+                MeleeEnemyList.Add(UnassignedEnemyList[RandomEnemy]);
+                UnassignedEnemyList[RandomEnemy].Active = true;
+            }
+            UnassignedEnemyList.RemoveAt(RandomEnemy);
+        }
+
+       
+        else
+        {
+            Debug.LogError("No Unassigned enemies to set to Melee.");
+        }
+    }
+    private void AssignMeleeByRandomBeat()
+    {
+        for (int i = 0; i < MeleeAssignments; i++)
+        {
+            if (UnassignedEnemyList.Count > 0)
+            {
+                PathfindingObject closestEnemy = null;
+                float closestDistance = float.MaxValue;
+                Vector3Int closestPosition = Vector3Int.zero;
+                string closeString = "NULL";
+                foreach (var enemy in UnassignedEnemyList)
+                {
+                    // Calculate distances to each position
+                    float distanceToLeft = Vector3Int.Distance(enemy.startPos, LeftOfPlayerPosition);
+                    float distanceToRight = Vector3Int.Distance(enemy.startPos, RightOfPlayerPosition);
+                    float distanceToTop = Vector3Int.Distance(enemy.startPos, TopOfPlayerPosition);
+
+
+                    // Determine the closest position and its distance
+                    if (distanceToLeft < closestDistance && leftOfPlayerSet == false)
+                    {
+                        closestDistance = distanceToLeft;
+                        closestEnemy = enemy;
+                        closestPosition = LeftOfPlayerPosition;
+                        closeString = "Left";
+                    }
+                    if (distanceToRight < closestDistance && rightOfPlayerSet == false)
+                    {
+                        closestDistance = distanceToRight;
+                        closestEnemy = enemy;
+                        closestPosition = RightOfPlayerPosition;
+                        closeString = "Right";
+                    }
+                    if (distanceToTop < closestDistance && topOfPlayerSet == false)
+                    {
+                        closestDistance = distanceToTop;
+                        closestEnemy = enemy;
+                        closestPosition = TopOfPlayerPosition;
+                        closeString = "Top";
+                    }
+                }
+                // After determining the closest position, use a switch statement
+                switch (closeString)
+                {
+                    case "Left":
+                        leftOfPlayerSet = true;
+                        break;
+                    case "Right":
+                        rightOfPlayerSet = true;
+                        break;
+                    case "Top":
+                        topOfPlayerSet = true;
+                        break;
+                    default:
+                        // Optional: Code for handling unexpected cases
+                        break;
+                }
+                // Now closestEnemy is the enemy closest to one of the positions
+                // closestPosition is the position that the enemy is closest to
+                if (closestEnemy != null)
+                {
+                    Debug.Log("Closest Enemy is: " + closestEnemy + " Closest Position is: " + closeString);
+                    closestEnemy.endPos = closestPosition; // Assign the closest position as the target position
+                    UnassignedEnemyList.Remove(closestEnemy); // Remove the enemy from the unassigned list
+                    MeleeEnemyList.Add(closestEnemy);// Add the enemy to the melee list
+                    ActiveEnemyList.Add(closestEnemy);
+                    closestEnemy.MeleeMode = true; // Set to Melee
+                    closestEnemy.Active = true; // Activate the enemy
+
+                    closestEnemy.SetCurrentPath(FindPath(closestEnemy.startPos, closestPosition));
+                    closestEnemy.StartMovement();
+                }
+            }
+            else
+            {
+                Debug.LogError("No Unassigned enemies to set to Melee.");
+            }
+        }
+    }
     private void AssignRangedAttacksByRandomBeat()
     {
-        beatEventWithEnemies.Clear();
+        
         for (int i = 0; i < BeatToLoop; ++i)
         {
             beatEventWithEnemies.Add(null);
@@ -350,13 +460,22 @@ public class PathfindingManager : MonoBehaviour
                         
                         RandomEnemy = UnityEngine.Random.Range(0, UnassignedEnemyList.Count);
                         distance = GetDistanceFloat(nodeDictionary[UnassignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
-                        BeatEventTimeToStart = UnassignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance, GlobalSettingsObject.BeatsPerSecondBPM);
-                        beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.RangedAttack, UnassignedEnemyList[RandomEnemy], BeatEventTimeToStart);
+
+                        if (ActiveEnemyList[RandomEnemy].MeleeMode == true)
+                        {
+                            BeatEventTimeToStart = UnassignedEnemyList[RandomEnemy].SetMeleeAttack(randomBeat, GlobalSettingsObject.BeatsPerSecondBPM);
+                            beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.MeleeAttack, ActiveEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        }
+                        else
+                        {
+                            BeatEventTimeToStart = UnassignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance, GlobalSettingsObject.BeatsPerSecondBPM);
+                            beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.RangedAttack, UnassignedEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        }
                         //Assign Random enemy for the event here. Add to beateventsWithEnenmys list
-                        if (!AssignedEnemyList.Contains(UnassignedEnemyList[RandomEnemy]))
+                        if (!ActiveEnemyList.Contains(UnassignedEnemyList[RandomEnemy]))
                         {
                             //Add enemy to assigned list and activate it.
-                            AssignedEnemyList.Add(UnassignedEnemyList[RandomEnemy]);
+                            ActiveEnemyList.Add(UnassignedEnemyList[RandomEnemy]);
                             UnassignedEnemyList[RandomEnemy].Active = true;
                         }
                         //UnassignedEnemyList[RandomEnemy].CloneAttackList();
@@ -364,10 +483,19 @@ public class PathfindingManager : MonoBehaviour
                     }
                     else
                     {
-                        RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
-                        distance = GetDistanceFloat(nodeDictionary[AssignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
-                        BeatEventTimeToStart = AssignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance, GlobalSettingsObject.BeatsPerSecondBPM);
-                        beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.RangedAttack, AssignedEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        RandomEnemy = UnityEngine.Random.Range(0, ActiveEnemyList.Count);
+                        distance = GetDistanceFloat(nodeDictionary[ActiveEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
+                        if (ActiveEnemyList[RandomEnemy].MeleeMode == true)
+                        {
+                            BeatEventTimeToStart = ActiveEnemyList[RandomEnemy].SetMeleeAttack(randomBeat, GlobalSettingsObject.BeatsPerSecondBPM);
+                            beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.MeleeAttack, ActiveEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        }
+                        else
+                        {
+                            BeatEventTimeToStart = ActiveEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance, GlobalSettingsObject.BeatsPerSecondBPM);
+                            beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.RangedAttack, ActiveEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        }
+
                     }   
                 }
                 //debug stuff
@@ -381,12 +509,12 @@ public class PathfindingManager : MonoBehaviour
             }
         }
 
-        int randomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
-        AssignedEnemyList[randomEnemy].VulnerableBeat = BeatToLoop - 2;
-        AssignedEnemyList[randomEnemy].VulnerableDuration = VulnerableDuration;
-        beatEventWithEnemies[BeatToLoop - 2] = new BeatEventWithEnemy(BeatEvent.Vulnerable, AssignedEnemyList[randomEnemy], BeatToLoop - 2);
-        Debug.Log("Enemy: " + AssignedEnemyList[randomEnemy] + "Assigned to be vulnerable on beat: " + AssignedEnemyList[randomEnemy].VulnerableBeat);
-        foreach(var Enemy in AssignedEnemyList) 
+        int randomEnemy = UnityEngine.Random.Range(0, ActiveEnemyList.Count);
+        ActiveEnemyList[randomEnemy].VulnerableBeat = BeatToLoop - 2;
+        ActiveEnemyList[randomEnemy].VulnerableDuration = VulnerableDuration;
+        beatEventWithEnemies[BeatToLoop - 2] = new BeatEventWithEnemy(BeatEvent.Vulnerable, ActiveEnemyList[randomEnemy], BeatToLoop - 2);
+        Debug.Log("Enemy: " + ActiveEnemyList[randomEnemy] + "Assigned to be vulnerable on beat: " + ActiveEnemyList[randomEnemy].VulnerableBeat);
+        foreach(var Enemy in ActiveEnemyList) 
         {
             //Enemy.CloneAttackList(); // Clone old attacks? might need to set new ones.
         }

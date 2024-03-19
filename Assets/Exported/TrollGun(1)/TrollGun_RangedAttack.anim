@@ -45,12 +45,42 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 0}
+      value: {fileID: 21300000, guid: 1472a58b7a9c7c34dab886abfe512ac9, type: 3}
     - time: 0.083333336
-      value: {fileID: 0}
+      value: {fileID: 21300000, guid: b4f21255f334cce4286b6468315b9b0c, type: 3}
     - time: 0.16666667
-      value: {fileID: 0}
+      value: {fileID: 21300000, guid: 705f6113d32b02c41aeee109d78febf7, type: 3}
     - time: 0.25
+      value: {fileID: 21300000, guid: 0d2fc5827112c334d907841e38efe483, type: 3}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
+      value: {fileID: 0}
+    - time: 0
       value: {fileID: 0}
     - time: 0
       value: {fileID: 0}
