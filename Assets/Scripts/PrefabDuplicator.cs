@@ -112,7 +112,9 @@ public class PrefabDuplicator : MonoBehaviour
 
         Keyframe[] myKeyFrames = new Keyframe[2];
         myKeyFrames[0] = new Keyframe(0.0f, 1.0f);
-        myKeyFrames[1] = new Keyframe((endFrame - startFrame) / frameRate - 1, 1f);
+        float testa = (endFrame - startFrame) / frameRate;
+        testa -= (1 / frameRate);
+        myKeyFrames[1] = new Keyframe(testa, 1f);
         AnimationCurve myCurve = new AnimationCurve(myKeyFrames);
         AnimationClipSettings mySettings = new AnimationClipSettings();
         

@@ -461,10 +461,10 @@ public class PathfindingManager : MonoBehaviour
                         RandomEnemy = UnityEngine.Random.Range(0, UnassignedEnemyList.Count);
                         distance = GetDistanceFloat(nodeDictionary[UnassignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
 
-                        if (ActiveEnemyList[RandomEnemy].MeleeMode == true)
+                        if (UnassignedEnemyList[RandomEnemy].MeleeMode == true)
                         {
                             BeatEventTimeToStart = UnassignedEnemyList[RandomEnemy].SetMeleeAttack(randomBeat, GlobalSettingsObject.BeatsPerSecondBPM);
-                            beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.MeleeAttack, ActiveEnemyList[RandomEnemy], BeatEventTimeToStart);
+                            beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.MeleeAttack, UnassignedEnemyList[RandomEnemy], BeatEventTimeToStart);
                         }
                         else
                         {

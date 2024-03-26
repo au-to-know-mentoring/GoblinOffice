@@ -315,15 +315,25 @@ public class PathfindingObject : MonoBehaviour
     {
         // Create a list to store attacks to be removed
         List<RangedBeat> attacksToRemove = new List<RangedBeat>();
-
+      
+            
         for (int i = rangedAttacksList.Count - 1; i >= 0; i--)
         {
             if (rangedAttacksList[i].TimeToStart <= GlobalTimeManager.Timer)
             {
                 if (rangedAttacksList[i].Done == false)
                 {
-                    myAnimator.SetTrigger("RangedAttack");
-                    rangedAttacksList[i].Done = true;
+                    if (MeleeMode == true)
+                    {
+                        myAnimator.SetTrigger("MeleeAttack");
+                        rangedAttacksList[i].Done = true;
+                        myColour = (Color)UnityEngine.Random.Range(1, 5);
+                    }
+                    else
+                    {
+                        myAnimator.SetTrigger("RangedAttack");
+                        rangedAttacksList[i].Done = true;
+                    }
                 }
             }
         }
@@ -341,6 +351,18 @@ public class PathfindingObject : MonoBehaviour
         }
     }
 
+    public void MeleeAttackHit()
+    {
+        Player myPlayer = FindObjectOfType<Player>();
+        if (myInputManager.ButtonCurrentlyPressed == (int)myColour)
+        {
+            myPlayer.SetReflect();
+        }
+        else
+        {
+            myPlayer.ReduceHealthBy(1);
+        }    
+    }
 
 
     private List<PathfindingManager.Node > AStar(PathfindingManager.Node  startNode, PathfindingManager.Node  targetNode)

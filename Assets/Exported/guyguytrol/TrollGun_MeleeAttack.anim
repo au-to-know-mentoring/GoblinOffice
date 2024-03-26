@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TrollGun_DeathAnim
+  m_Name: TrollGun_MeleeAttack
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: -0.33333334
+        time: 0
         value: {x: 1, y: 1, z: 1}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -29,7 +29,7 @@ AnimationClip:
         inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 0
+        time: 0.8333334
         value: {x: 1, y: 1, z: 1}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -45,27 +45,27 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: a09a37701fb697d459a5028b125510d2, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: a7a44190f925f234895bafe4044946fe, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 034f33501ba72bf4daaabbbd4deb9016, type: 3}
-    - time: 0.25
       value: {fileID: 21300000, guid: 932905ada6122f44d9e401dacf4f80ba, type: 3}
-    - time: 0.33333334
+    - time: 0.083333336
       value: {fileID: 21300000, guid: 8a42faf7acf7d834c9550561c5210c3c, type: 3}
-    - time: 0.41666666
+    - time: 0.16666667
       value: {fileID: 21300000, guid: f84bc119380419044ac505f4c9fed962, type: 3}
-    - time: 0.5
+    - time: 0.25
       value: {fileID: 21300000, guid: b1a3f6db60ab82747a4a1d5c1fd95f7e, type: 3}
-    - time: 0.5833333
+    - time: 0.33333334
       value: {fileID: 21300000, guid: ba061eaf063cda244ba4c938d63436ad, type: 3}
-    - time: 0
-      value: {fileID: 0}
-    - time: 0
-      value: {fileID: 0}
-    - time: 0
-      value: {fileID: 0}
+    - time: 0.41666666
+      value: {fileID: 21300000, guid: c7b09f913b4d15046bdd277d800e8553, type: 3}
+    - time: 0.5
+      value: {fileID: 21300000, guid: 675f8df1c462d2e4b80ce1d361a2c9bf, type: 3}
+    - time: 0.5833333
+      value: {fileID: 21300000, guid: 5716c3356b600664bb0b9026455cd8bc, type: 3}
+    - time: 0.6666667
+      value: {fileID: 21300000, guid: 5fd3d8c8c231f5a47800229438581c62, type: 3}
+    - time: 0.75
+      value: {fileID: 21300000, guid: df88267ddd01a1e4e93558b45e11aeee, type: 3}
+    - time: 0.8333333
+      value: {fileID: 21300000, guid: 1f2254bdd30fb1d4ba6ab5881356fa2e, type: 3}
     - time: 0
       value: {fileID: 0}
     - time: 0
@@ -249,7 +249,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.083333336
+    m_StopTime: 0.8333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

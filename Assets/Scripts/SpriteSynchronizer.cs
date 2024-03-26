@@ -18,6 +18,7 @@ public class SpriteSynchronizer : MonoBehaviour
     [Header("View Only")]
     [SerializeField]
     private string SourceTitle;
+    private string originalSourceTitle;
     [SerializeField]
     private string TargetTitle;
 
@@ -33,8 +34,11 @@ public class SpriteSynchronizer : MonoBehaviour
         {
             myPathFindingObject = sourceSpriteRenderer.gameObject.GetComponent<PathfindingObject>();
         }
-        SourceTitle = Regex.Replace(sourceSpriteRenderer.sprite.name, "[0-9_]", "");
-        TargetTitle = Regex.Replace(CopySpriteRenderer.sprite.name, "[0-9_]", "");
+            originalSourceTitle = sourceSpriteRenderer.name;
+            SourceTitle = Regex.Replace(sourceSpriteRenderer.sprite.name, "[0-9_]", "");
+            TargetTitle = Regex.Replace(CopySpriteRenderer.sprite.name, "[0-9_]", "");
+        
+
         if (spriteAtlas == null)
         {
             spriteAtlas = Resources.Load<SpriteAtlas>(SourceTitle + "Atlas"); // (NameOfSprite + Atlas.) = (TrollNinjaAtlas)
@@ -65,10 +69,14 @@ public class SpriteSynchronizer : MonoBehaviour
         }
 
         // Get the numerical value following the underscore from the source sprite name
-        int spriteNumber = ExtractNumberFromSpriteName(sourceSpriteRenderer.sprite.name);
-
+        //int spriteNumber = ExtractNumberFromSpriteName(sourceSpriteRenderer.sprite.name);
+        string stringSpriteNumber = ExtractStringNumberFromSpriteName(sourceSpriteRenderer.sprite.name);
         // Set the sprite on the target GameObject using the numerical value
-        SetSpriteByNumber(spriteNumber);
+        //SetSpriteByNumber(spriteNumber);
+
+
+        SetSpriteByStringNumber(stringSpriteNumber);
+        
         if (myPathFindingObject != null)
             myColour = (int)myPathFindingObject.myColour;
 
@@ -103,6 +111,13 @@ public class SpriteSynchronizer : MonoBehaviour
     private int ExtractNumberFromSpriteName(string spriteName)
     {
         int number = -1;
+        string result = Regex.Replace(spriteName, "[^0-9]", "");
+        if (int.TryParse(result, out number))
+        {
+            return number;
+        }
+
+        //ALl below unneccessary?
         int underscoreIndex = spriteName.LastIndexOf('_');
         if (underscoreIndex >= 0 && underscoreIndex < spriteName.Length - 1)
         {
@@ -115,6 +130,12 @@ public class SpriteSynchronizer : MonoBehaviour
         return number;
     }
 
+    private string ExtractStringNumberFromSpriteName(string spriteName)
+    {
+        string result = Regex.Replace(spriteName, "[^0-9]", "");
+        return result;
+    }
+
     private void SetSpriteByNumber(int number)
     {
         if (number < 0 || spriteAtlas == null)
@@ -123,9 +144,43 @@ public class SpriteSynchronizer : MonoBehaviour
         }
 
         // Assuming the sprite sheet has been sliced evenly
-        string targetSpriteName = TargetTitle + "_" + number.ToString();
+        string targetSpriteName;
+        if(SourceTitle.Contains("_"))
+        {
+            targetSpriteName = TargetTitle + "_" + number.ToString();
+        }
+        else
+        {
+            targetSpriteName = TargetTitle; // targetSpriteName = TargetTitle + "PARTCLE" + number.ToString();  // Change this.
+        }
 
         Sprite targetSprite = spriteAtlas.GetSprite(targetSpriteName);  
+
+        if (targetSprite != null)
+        {
+            CopySpriteRenderer.sprite = targetSprite;
+        }
+    }
+
+    private void SetSpriteByStringNumber(string number)
+    {
+        if (spriteAtlas == null)
+        {
+            return;
+        }
+
+        // Assuming the sprite sheet has been sliced evenly
+        string targetSpriteName;
+        if (originalSourceTitle.Contains("_"))
+        {
+            targetSpriteName = TargetTitle + "_" + number;
+        }
+        else
+        {
+            targetSpriteName = TargetTitle + number; // targetSpriteName = TargetTitle + "PARTCLE" + number.ToString();  // Change this.
+        }
+
+        Sprite targetSprite = spriteAtlas.GetSprite(targetSpriteName);
 
         if (targetSprite != null)
         {
