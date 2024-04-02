@@ -48,6 +48,7 @@ public class PathfindingObject : MonoBehaviour
     private float TimeToStart;
     private float journeyLength;
     private Vector3 offset;
+    private bool moveObject = false;
     [Header("View only Variables")]
     [SerializeField]
     private Vector3 targetPosition;
@@ -199,9 +200,11 @@ public class PathfindingObject : MonoBehaviour
         {
             // Start the movement
             //TODO FIX THIS CALCULATION (Seems right, need to know timer for update.)
-            TimeToStart = arrivalTime - (journeyLength / speed);
+            //TimeToStart = arrivalTime - (journeyLength / speed);
+            moveObject = true;
             PathfindingManager.Node targetNode = currentPath[targetIndex];
             targetPosition = obstacleTilemap.CellToWorld(targetNode.position) + offset;
+            Debug.Log("Time to start moving called: " +  Time.time);
         }
 
     }
@@ -240,7 +243,7 @@ public class PathfindingObject : MonoBehaviour
             //}/////////
 
         }
-        if (TimeToStart <= Time.timeSinceLevelLoad)
+        if (moveObject == true) //(TimeToStart <= Time.timeSinceLevelLoad)
         {
             
             if (currentPath == null)
@@ -483,11 +486,13 @@ public class PathfindingObject : MonoBehaviour
         {
             //GetDistanceInt(startPos, endPos);
         }
+
+        
         // forumla is Enemy Animation + travel moveSpeed / distance
         float TimeToComplete = ((Distance) / projectileSpeed) + RangedAttackAnimationTime; // Used to check if there is enough time to perform
-        if (TimeToComplete + GlobalTimeManager.Timer > arrivalTime) // Since changing to myTimer from time now attacks grow in number?
+        if (TimeToComplete + GlobalTimeManager.Timer > BeatToArrive) // Since changing to myTimer from time now attacks grow in number?
         {
-            Debug.Log("This Ranged Attack is unable to arrive on time.");
+            Debug.LogWarning("Unable to arrive on time, Time to complete: " + TimeToComplete + " GlobalTime: " + GlobalTimeManager.Timer + " Arrival Time: " + arrivalTime);
             return -1;
             
         }

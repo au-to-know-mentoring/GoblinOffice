@@ -81,10 +81,10 @@ public class RangedProjectile : MonoBehaviour
             //Debug stuff for if hit/deflected by player:
             if(transform.position == playerTransform.position)
             {
-                Debug.Log("Projectile: " + this.name + "Arrived at: " + Time.time);
+                //Debug.Log("Projectile: " + this.name + "Arrived at: " + Time.time);
                 playerTransform = null;
-                Debug.Log("Button pressed is: " + myInputManager.ButtonCurrentlyPressed);
-                Debug.Log("Button Needed is: " + (int)myColour);
+                //Debug.Log("Button pressed is: " + myInputManager.ButtonCurrentlyPressed);
+                //Debug.Log("Button Needed is: " + (int)myColour);
                 if (myInputManager.ButtonCurrentlyPressed == (int)myColour)
                 {
                     Debug.Log("Destroyed");

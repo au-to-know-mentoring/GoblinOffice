@@ -68,6 +68,8 @@ public class SpriteSynchronizer : MonoBehaviour
             return;
         }
 
+        CopySpriteRenderer.flipX = sourceSpriteRenderer.flipX;
+
         // Get the numerical value following the underscore from the source sprite name
         //int spriteNumber = ExtractNumberFromSpriteName(sourceSpriteRenderer.sprite.name);
         string stringSpriteNumber = ExtractStringNumberFromSpriteName(sourceSpriteRenderer.sprite.name);
