@@ -67,6 +67,7 @@ public class PathfindingManager : MonoBehaviour
     private bool rightOfPlayerSet = false;
     private void Start()
     {
+        myPlayer = FindFirstObjectByType<Player>();
         SpawnRandomAmountOfEnemies();
         youWinText.enabled = false;
         // Register all pathfinding objects in the scene
@@ -98,6 +99,10 @@ public class PathfindingManager : MonoBehaviour
     private void Update()
     {
         GlobalTimeManager.Timer += Time.deltaTime * GlobalSettingsObject.BeatsPerSecondBPM;
+
+        //Spawn player and walk to center?
+
+
         // Set Paths to surround Player.
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -113,7 +118,6 @@ public class PathfindingManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            Debug.Log("C is pressed");
             //AdjustSpeedOfEnemies();
             beatEventWithEnemies.Clear();
             AssignMeleeByRandomBeat();
@@ -123,6 +127,7 @@ public class PathfindingManager : MonoBehaviour
                 pathFindingObject.CreateStringListOfActions();
             }
             CreateStringListOfBeats();
+            Debug.Log("C is pressed");
         }
 
         // Update the paths for all pathfinding objects
@@ -140,10 +145,10 @@ public class PathfindingManager : MonoBehaviour
     void SpawnRandomAmountOfEnemies()
     {
         Debug.Log("enemies should be spawned");
-        int enemiesToSpawn = UnityEngine.Random.Range(1, 5); // Random number between 1 and 5
+        int enemiesToSpawn = UnityEngine.Random.Range(1, 6); // Random number between 1 and 5
         List<Transform> availableSpawnPoints = new List<Transform>(spawnPoints);
 
-        for (int i = 0; i <= enemiesToSpawn; i++)
+        for (int i = 0; i < enemiesToSpawn; i++)
         {
             GameObject enemy;
             if (availableSpawnPoints.Count > 0)
@@ -385,7 +390,7 @@ public class PathfindingManager : MonoBehaviour
        
         else
         {
-            Debug.LogError("No Unassigned enemies to set to Melee.");
+            Debug.Log("No Unassigned enemies to set to Melee.");
         }
     }
     private void AssignMeleeByRandomBeat()

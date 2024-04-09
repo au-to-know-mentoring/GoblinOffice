@@ -13,11 +13,20 @@ public class Player : MonoBehaviour
     bool Reflect = false;
     float Counter = 0;
     public Transform ExitTransform;
+    public Vector3 ExitPosition;
     public float timeToMove;
     public bool TravelingToDoor = false;
     // Start is called before the first frame update
     void Start()
     {
+        if (ExitTransform != null)
+        {
+            ExitPosition = ExitTransform.position;
+        }
+        else
+        {
+            ExitPosition = new Vector3(6.63000011f, 2.26999998f, -0.0669358075f);
+        }    
         myAnimator = GetComponent<Animator>();
     }
 
