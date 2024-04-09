@@ -6492,6 +6492,7 @@ GameObject:
   - component: {fileID: 2049886047}
   - component: {fileID: 2049886049}
   - component: {fileID: 2049886050}
+  - component: {fileID: 2049886051}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -6586,6 +6587,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2e38dbb57efa549a8a2adcde6c37b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2049886051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049886046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d16c5902f58f0c4bbc8258d967b0236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 531067805241645127, guid: 2adc3dc6e332f4e45a4f9b45c2028ba0, type: 3}
+  EnemiesParent: {fileID: 304525656}
+  spawnPoints:
+  - {fileID: 1274545123}
+  - {fileID: 764788750}
+  - {fileID: 1827002129}
+  - {fileID: 1216960088}
+  - {fileID: 1550273937}
 --- !u!1 &2084591412
 GameObject:
   m_ObjectHideFlags: 0
