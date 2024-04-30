@@ -16,9 +16,12 @@ MonoBehaviour:
   debugMode: 0
   soundVolume: 0
   BeatsPerMinuteBPM: 60
-  BeatsPerSecondBPM: 1.5
+  BeatsPerSecondBPM: 1
   GlobalSettingsTimer: 0.30246502
   Green1: {r: 0.4, g: 1, b: 0.40784314, a: 1}
   Red2: {r: 1, g: 0.43137255, b: 0.4, a: 1}
   Blue3: {r: 0.4, g: 0.61960787, b: 1, a: 1}
   Yellow4: {r: 1, g: 0.90588236, b: 0.4, a: 1}
+  TrueBeats: 0
+  difficultyMultiplier: 1
+  totalBeats: 10

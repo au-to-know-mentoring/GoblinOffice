@@ -8,7 +8,6 @@ using System;
 using System.Xml.Linq;
 using UnityEditor;
 using System.Linq;
-using UnityEditor.Animations;
 
 public class Importer : MonoBehaviour
 {

@@ -87,6 +87,16 @@ public class PathfindingManager : MonoBehaviour
         // Initialize the grid
         InitializeGrid();
         DrawDebugLines();
+        //AdjustSpeedOfEnemies();
+        beatEventWithEnemies.Clear();
+        AssignMeleeByRandomBeat();
+        AssignRangedAttacksByRandomBeat();
+        foreach (var pathFindingObject in ActiveEnemyList)
+        {
+            pathFindingObject.CreateStringListOfActions();
+        }
+        CreateStringListOfBeats();
+        Debug.Log("C is pressed");
     }
 
 
