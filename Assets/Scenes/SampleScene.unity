@@ -5746,7 +5746,7 @@ MonoBehaviour:
   BlueBtn3: {fileID: 912590437}
   YellowBtn4: {fileID: 949336418}
   GlobalSettingsObject: {fileID: 11400000, guid: affd884bcd0ad3c4999b88aaa4db9b0d, type: 2}
-  WASDControls: 0
+  WASDControls: 1
   UIButtonPressed: {fileID: 1372243171}
   ButtonCurrentlyPressed: 0
   inputBufferWindow: 0.5

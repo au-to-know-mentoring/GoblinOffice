@@ -51,6 +51,10 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         if (!WASDControls)
             return;
+        if(Input.GetMouseButton(0))
+        {
+            return;
+        }
         if (Input.GetKey(KeyCode.W))
         {
             ButtonCurrentlyPressed = 4;
