@@ -16,6 +16,12 @@ public class Player : MonoBehaviour
     public Vector3 ExitPosition;
     public float timeToMove;
     public bool TravelingToDoor = false;
+    [Header("Sounds")]
+    public AudioSource hurtSound;
+    public AudioSource attackSound;
+    public AudioSource deathSound;
+    public AudioSource blockSound;
+    public AudioSource winSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,17 +32,17 @@ public class Player : MonoBehaviour
         else
         {
             ExitPosition = new Vector3(6.63000011f, 2.26999998f, -0.0669358075f);
-        }    
+        }
         myAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Reflect) 
+        if (Reflect)
         {
             Counter += Time.deltaTime;
-            if(Counter >= .3f)
+            if (Counter >= .3f)
             {
                 Reflect = false;
                 myAnimator.SetBool("Reflect", false);
@@ -68,6 +74,7 @@ public class Player : MonoBehaviour
             transform.position = ExitTransform.position;
             // Stop further movement by disabling this script or using a boolean flag
         }
+        winSound.Play();
     }
 
     public IEnumerator MoveObject(Vector3 target, float duration)
@@ -89,21 +96,23 @@ public class Player : MonoBehaviour
     }
     public void SetReflect()
     {
-        Counter= 0;
+        Counter = 0;
         myAnimator.SetBool("Reflect", true);
         Reflect = true;
+        blockSound.Play();
     }
 
     public void SetInjured()
     {
         Counter = 0;
         myAnimator.SetTrigger("Injured");
+        hurtSound.Play();
     }
 
     public void ReduceHealthBy(int damage)
     {
         Health = Health - damage;
-        if(Health <= 0)
+        if (Health <= 0)
         {
             Death();
         }
@@ -116,17 +125,20 @@ public class Player : MonoBehaviour
         myAnimator.SetTrigger("Death");
         Health = 0;
         FindObjectOfType(typeof(PathfindingManager)).GetComponent<PathfindingManager>().LevelComplete(false);
+        deathSound.Play();
     }
     public void RangedAttack(GameObject EnemyTarget)
     {
         myAnimator.SetTrigger("RangedAttack");
         myTarget = EnemyTarget;
+        attackSound.Play();
     }
 
     public void SpawnProjectile()
     {
-      GameObject instantiatedPrefab = Instantiate(myProjectile);
-      PlayerRangedProjectile a = instantiatedPrefab.GetComponent<PlayerRangedProjectile>();
+        GameObject instantiatedPrefab = Instantiate(myProjectile);
+        PlayerRangedProjectile a = instantiatedPrefab.GetComponent<PlayerRangedProjectile>();
         a.setTarget(myTarget);
     }
 }
+
