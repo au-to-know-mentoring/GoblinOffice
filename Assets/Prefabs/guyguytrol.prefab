@@ -29,9 +29,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3203876969055262424}
   - {fileID: 8362207383477944101}
   - {fileID: 7183002097790017683}
-  - {fileID: 3203876969055262424}
   - {fileID: 8921704902832443596}
   m_Father: {fileID: 5423392492273633445}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,8 +77,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: b6e4230a8683a644db6d409df53bed73, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -205,8 +205,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 725a62e04875421409be1ba0ecfcc8f8, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -333,8 +333,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 913b0b96130e6d74d9db80fa83acec15, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -461,8 +461,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 19f4a0b8da99be2498686785b7cd3123, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -588,6 +588,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4343727234628468602, guid: 1d5775e72c26db945bf8d5a4670b53a7, type: 2}
     - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 6986231427529141444}
+    - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: tauntSound
+      value: 
+      objectReference: {fileID: 2854113997086616820}
+    - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
       propertyPath: arrivalTime
       value: 1
       objectReference: {fileID: 0}
@@ -595,6 +603,14 @@ PrefabInstance:
       propertyPath: TimeBetweenTiles
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: meleeAttackSound
+      value: 
+      objectReference: {fileID: 7732181602263467855}
+    - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: rangedAttackSound
+      value: 
+      objectReference: {fileID: 7389930646166847141}
     - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
       propertyPath: MeleeAttackAnimationTime
       value: 0.6666
@@ -605,11 +621,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -0.43521076
       objectReference: {fileID: 0}
     - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: -0.5736869
       objectReference: {fileID: 0}
     - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
       propertyPath: m_LocalPosition.z

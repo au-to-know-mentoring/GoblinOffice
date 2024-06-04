@@ -74,7 +74,8 @@ public class Player : MonoBehaviour
             transform.position = ExitTransform.position;
             // Stop further movement by disabling this script or using a boolean flag
         }
-        winSound.Play();
+        if (winSound != null)
+            winSound.Play();
     }
 
     public IEnumerator MoveObject(Vector3 target, float duration)
@@ -99,14 +100,16 @@ public class Player : MonoBehaviour
         Counter = 0;
         myAnimator.SetBool("Reflect", true);
         Reflect = true;
-        blockSound.Play();
+        if (blockSound != null)
+            blockSound.Play();
     }
 
     public void SetInjured()
     {
         Counter = 0;
         myAnimator.SetTrigger("Injured");
-        hurtSound.Play();
+        if (hurtSound != null)
+            hurtSound.Play();
     }
 
     public void ReduceHealthBy(int damage)
@@ -125,13 +128,15 @@ public class Player : MonoBehaviour
         myAnimator.SetTrigger("Death");
         Health = 0;
         FindObjectOfType(typeof(PathfindingManager)).GetComponent<PathfindingManager>().LevelComplete(false);
-        deathSound.Play();
+        if (deathSound != null)
+            deathSound.Play();
     }
     public void RangedAttack(GameObject EnemyTarget)
     {
         myAnimator.SetTrigger("RangedAttack");
         myTarget = EnemyTarget;
-        attackSound.Play();
+        if (attackSound != null)
+            attackSound.Play();
     }
 
     public void SpawnProjectile()
@@ -141,4 +146,3 @@ public class Player : MonoBehaviour
         a.setTarget(myTarget);
     }
 }
-

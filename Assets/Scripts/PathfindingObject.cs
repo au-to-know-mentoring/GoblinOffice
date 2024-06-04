@@ -293,6 +293,8 @@ public class PathfindingObject : MonoBehaviour
     public void setDead()
     {
         myAnimator.SetTrigger("Dead");
+        if(deathSound != null)
+        deathSound.Play();
     }
     private void ResolveVulnerableState()
     {
