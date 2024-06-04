@@ -82,6 +82,13 @@ public class PathfindingObject : MonoBehaviour
     public Color myColour = Color.Debug0;
     public SettingsData GlobalSettingsObject;
     public TimeManager GlobalTimeManager;
+
+    [HeaderAttribute("Sounds")]
+    public AudioSource rangedAttackSound;
+    public AudioSource meleeAttackSound;
+    public AudioSource deathSound;
+    public AudioSource tauntSound;
+    
     public enum Color
     {
         Debug0,
@@ -218,6 +225,7 @@ public class PathfindingObject : MonoBehaviour
     public void RangedAttackAnimationComplete()
     {
         Instantiate(rangedAttack, transform.position, Quaternion.identity);
+        rangedAttackSound.Play();
     }
     private void Update()
     {
@@ -311,6 +319,7 @@ public class PathfindingObject : MonoBehaviour
             Invoke(methodName: "ResetVulnerableBeat", VulnerableDuration); // can cause 2 enemies to become vulnerable if 2 seconds or more..
             isVulnerable = true; //Is set back to false in LoopBeat()
             myColour = (Color)UnityEngine.Random.Range(1, 5);
+            tauntSound.Play();
         }
     }
 
@@ -364,6 +373,7 @@ public class PathfindingObject : MonoBehaviour
         else
         {
             myPlayer.ReduceHealthBy(1);
+            meleeAttackSound.Play();
         }    
     }
 
