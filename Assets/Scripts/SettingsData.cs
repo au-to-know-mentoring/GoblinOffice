@@ -22,7 +22,7 @@ public class SettingsData : ScriptableObject
     public int TrueBeats = 0;
 
     [Range(1, 5)]
-    public float difficultyMultiplier = 1; // Adjustable in the Inspector
+    public float difficultyMultiplier = 1.1f; // Adjustable in the Inspector
 
     public int totalBeats = 10; // Total number of beats in a loop
 
@@ -51,7 +51,7 @@ public class SettingsData : ScriptableObject
         // If the previous beat had an event, reduce the probability for this beat
         if (previousBeatHadEvent)
         {
-            adjustedProbability *= 0.5f; // Example: halve the probability
+            adjustedProbability *= difficultyMultiplier / 5f; // Example: halve the probability
         }
 
         // Roll for BeatEvent

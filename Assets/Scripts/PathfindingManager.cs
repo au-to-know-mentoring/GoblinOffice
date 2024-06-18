@@ -70,7 +70,7 @@ public class PathfindingManager : MonoBehaviour
         EnemySpawner enemySpawner = GetComponent<EnemySpawner>(); // Make sure EnemySpawner is on the same GameObject or find it accordingly
         if (enemySpawner != null)
         {
-            enemySpawner.SpawnRandomAmountOfEnemies();
+            enemySpawner.SpawnRandomAmountOfEnemies(GlobalSettingsObject.difficultyMultiplier);
         }
         myPlayer = FindFirstObjectByType<Player>();
         youWinText.enabled = false;
@@ -292,11 +292,13 @@ public class PathfindingManager : MonoBehaviour
             youWinText.enabled = true;
             myPlayer.TravelingToDoor = true;
             myPlayer.StartCoroutine(myPlayer.MoveObject(myPlayer.ExitTransform.position, 3f));
+            GlobalSettingsObject.difficultyMultiplier += 1;
             Invoke("ReloadScene", 4f);
         }
         else
         {
             youLoseText.enabled = true;
+            GlobalSettingsObject.difficultyMultiplier = 1.1f;
             Invoke("ReloadScene", 4f);
         }
     }

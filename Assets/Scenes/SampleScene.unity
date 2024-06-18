@@ -5670,8 +5670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d59b50b9a0dc2e44a5f9b8b43480c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  newPrefabName: guyguytrol
 --- !u!4 &1613503623
 Transform:
   m_ObjectHideFlags: 0
