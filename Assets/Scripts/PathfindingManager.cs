@@ -648,9 +648,9 @@ public class PathfindingManager : MonoBehaviour
     }
     private void SetPositionsAroundPlayer()
     {
-        LeftOfPlayerPosition = Vector3Int.FloorToInt(Player.transform.position + Vector3.left);
-        RightOfPlayerPosition = Vector3Int.FloorToInt(Player.transform.position + Vector3.right);
-        TopOfPlayerPosition = Vector3Int.FloorToInt(Player.transform.position + Vector3.up);
+        LeftOfPlayerPosition = Vector3Int.FloorToInt(Player.transform.position + (Vector3.left * 1.1f));
+        RightOfPlayerPosition = Vector3Int.FloorToInt(Player.transform.position + (Vector3.right * 2f));
+        TopOfPlayerPosition = Vector3Int.FloorToInt(Player.transform.position + Vector3.up * 1.5f);
     }
 
 
