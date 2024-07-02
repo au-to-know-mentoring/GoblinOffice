@@ -12,8 +12,8 @@ public class EnemySpawner : MonoBehaviour
         Debug.Log("enemies should be spawned");
         // Assuming 'difficulty' is a float variable ranging from 1 to 5
         int minEnemies = Mathf.CeilToInt(difficulty); // This ensures that the minimum number of enemies increases with difficulty
-        int maxEnemies = 6; // Maximum number of enemies remains the same
-
+        int maxEnemies = 1 + (int)difficulty; // Maximum number of enemies remains the same
+        Debug.Log("MaxE: " + maxEnemies);
         int enemiesToSpawn = UnityEngine.Random.Range(minEnemies, maxEnemies); // Random number between 1 and 5
         List<Transform> availableSpawnPoints = new List<Transform>(spawnPoints);
 

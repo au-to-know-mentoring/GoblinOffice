@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 [CreateAssetMenu(fileName = "SettingsData", menuName = "ScriptableObjects/SettingsData", order = 1)]
 public class SettingsData : ScriptableObject
@@ -12,6 +10,7 @@ public class SettingsData : ScriptableObject
     public int BeatsPerMinuteBPM;
     public float BeatsPerSecondBPM;
     public float GlobalSettingsTimer;
+    public int roomsCleared = 0;
 
     public Color Green1;
     public Color Red2;
@@ -22,7 +21,7 @@ public class SettingsData : ScriptableObject
     public int TrueBeats = 0;
 
     [Range(1, 5)]
-    public float difficultyMultiplier = 1.1f; // Adjustable in the Inspector
+    public float difficultyMultiplier = 1.0f; // Adjustable in the Inspector
 
     public int totalBeats = 10; // Total number of beats in a loop
 
@@ -30,12 +29,34 @@ public class SettingsData : ScriptableObject
     public bool[] RollBeatEvents()
     {
         bool[] beatEvents = new bool[totalBeats];
-        for (int i = 0; i < totalBeats; i++)
+        beatEvents[0] = false;
+        beatEvents[1] = false;
+        beatEvents[2] = false;
+        for (int i = 2; i < totalBeats - 2; i++)
         {
             // For the first beat, there is no previous beat, so pass false as the default value
             bool previousBeatHadEvent = i > 0 && beatEvents[i - 1];
             beatEvents[i] = RollForBeatEvent(previousBeatHadEvent);
         }
+
+        // Check if all beats are false
+        bool allFalse = true;
+        for (int i = 2; i < totalBeats - 2; i++)
+        {
+            if (beatEvents[i])
+            {
+                allFalse = false;
+                break;
+            }
+        }
+
+        // If all beats are false, randomly set one to true
+        if (allFalse)
+        {
+            int randomIndex = UnityEngine.Random.Range(3, totalBeats - 2);
+            beatEvents[randomIndex] = true;
+        }
+
         return beatEvents;
     }
 
@@ -51,6 +72,10 @@ public class SettingsData : ScriptableObject
         // If the previous beat had an event, reduce the probability for this beat
         if (previousBeatHadEvent)
         {
+            if(difficultyMultiplier == 1.0f)
+            {
+                adjustedProbability = 0f;
+            }
             adjustedProbability *= difficultyMultiplier / 5f; // Example: halve the probability
         }
 

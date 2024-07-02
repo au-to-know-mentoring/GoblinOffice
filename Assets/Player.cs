@@ -114,6 +114,7 @@ public class Player : MonoBehaviour
 
     public void ReduceHealthBy(int damage)
     {
+        if(Health <= 0) return;
         Health = Health - damage;
         if (Health <= 0)
         {

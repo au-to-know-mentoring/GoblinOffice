@@ -41,6 +41,7 @@ public class PathfindingManager : MonoBehaviour
     private bool HasLoopedBefore = false;
     public AnimationSettings myAnimationSettings;
     public int MeleeAssignments = 1;
+    public bool[] beatRollResults;
 
     [Header("Player Positions")]
     public Vector3Int LeftOfPlayerPosition;
@@ -75,6 +76,7 @@ public class PathfindingManager : MonoBehaviour
         myPlayer = FindFirstObjectByType<Player>();
         youWinText.enabled = false;
         // Register all pathfinding objects in the scene
+        BeatToLoop = GlobalSettingsObject.totalBeats;
         RegisterPathfindingObjects();
         myUIImageSpawner = FindObjectOfType<UIImageSpawner>();
         myUIImageSpawner.setBeatLoop(BeatToLoop);
@@ -93,14 +95,20 @@ public class PathfindingManager : MonoBehaviour
         DrawDebugLines();
         //AdjustSpeedOfEnemies();
         beatEventWithEnemies.Clear();
+        beatRollResults = GlobalSettingsObject.RollBeatEvents();
+        
+        StartCoroutine(DelayedAssignRangedAttacks());
+    }
+    private IEnumerator DelayedAssignRangedAttacks()
+    {
+        yield return new WaitForSeconds(0.2f);
         AssignMeleeByRandomBeat();
-        AssignRangedAttacksByRandomBeat();
+        AssignRangedAttacksByRandomBeat(beatRollResults);
         foreach (var pathFindingObject in ActiveEnemyList)
         {
             pathFindingObject.CreateStringListOfActions();
         }
         CreateStringListOfBeats();
-        Debug.Log("C is pressed");
     }
     public Dictionary<Vector3Int, Node> GetNodeDictionary()
     {
@@ -199,7 +207,8 @@ public class PathfindingManager : MonoBehaviour
                     pathFindingObject.SetTimer(GlobalTimeManager.Timer);
                 }
                 beatEventWithEnemies.Clear();
-                AssignRangedAttacksByRandomBeat();
+                beatRollResults = GlobalSettingsObject.RollBeatEvents();
+                AssignRangedAttacksByRandomBeat(beatRollResults);
                 //AssignMeleeAttacksByRandomBeat();
                 /// This is currently set in RangedAttackByBeat
                 // int RandomEnemy = UnityEngine.Random.Range(0, AssignedEnemyList.Count);
@@ -308,7 +317,7 @@ public class PathfindingManager : MonoBehaviour
         else
         {
             youLoseText.enabled = true;
-            GlobalSettingsObject.difficultyMultiplier = 1.1f;
+            GlobalSettingsObject.difficultyMultiplier = 1.0f;
             Invoke("ReloadScene", 4f);
         }
     }
@@ -379,7 +388,7 @@ public class PathfindingManager : MonoBehaviour
     {
         for (int i = 0; i < MeleeAssignments; i++)
         {
-            if (UnassignedEnemyList.Count > 0)
+            if (UnassignedEnemyList.Count > 1)
             {
                 PathfindingObject closestEnemy = null;
                 float closestDistance = float.MaxValue;
@@ -451,8 +460,79 @@ public class PathfindingManager : MonoBehaviour
             }
             else
             {
-                Debug.LogError("No Unassigned enemies to set to Melee.");
+                //Debug.LogError("No Unassigned enemies to set to Melee.");
             }
+        }
+    }
+    private void AssignRangedAttacksByRandomBeat(bool[] rangedBeatsArray)
+    {
+        for (int i = 0; i < BeatToLoop; ++i)
+        {
+            beatEventWithEnemies.Add(null);
+        }
+
+        beatEvents = new List<BeatEvent?>(new BeatEvent?[BeatToLoop]); // creating the list here prevents both methods from doubling up
+
+        for (int i = 0; i < rangedBeatsArray.Length; i++)
+        {
+            if (rangedBeatsArray[i])
+            {
+                int randomBeat = i;
+                if (beatEvents[randomBeat] == null)
+                {
+                    beatEvents[randomBeat] = BeatEvent.RangedAttack;
+                    int RandomEnemy;
+                    float distance; //Not sure why this was ever an int.
+                    float BeatEventTimeToStart;
+                    if (UnassignedEnemyList.Count > 0)
+                    {
+                        RandomEnemy = UnityEngine.Random.Range(0, UnassignedEnemyList.Count);
+                        distance = GetDistanceFloat(nodeDictionary[UnassignedEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
+
+                        if (UnassignedEnemyList[RandomEnemy].MeleeMode == true)
+                        {
+                            BeatEventTimeToStart = UnassignedEnemyList[RandomEnemy].SetMeleeAttack(randomBeat, GlobalSettingsObject.BeatsPerSecondBPM);
+                            beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.MeleeAttack, UnassignedEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        }
+                        else
+                        {
+                            BeatEventTimeToStart = UnassignedEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance, GlobalSettingsObject.BeatsPerSecondBPM);
+                            beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.RangedAttack, UnassignedEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        }
+                        if (!ActiveEnemyList.Contains(UnassignedEnemyList[RandomEnemy]))
+                        {
+                            ActiveEnemyList.Add(UnassignedEnemyList[RandomEnemy]);
+                            UnassignedEnemyList[RandomEnemy].Active = true;
+                        }
+                        UnassignedEnemyList.RemoveAt(RandomEnemy);
+                    }
+                    else
+                    {
+                        RandomEnemy = UnityEngine.Random.Range(0, ActiveEnemyList.Count);
+                        distance = GetDistanceFloat(nodeDictionary[ActiveEnemyList[RandomEnemy].startPos], nodeDictionary[Vector3Int.FloorToInt(PlayerPosition)]);
+                        if (ActiveEnemyList[RandomEnemy].MeleeMode == true)
+                        {
+                            BeatEventTimeToStart = ActiveEnemyList[RandomEnemy].SetMeleeAttack(randomBeat, GlobalSettingsObject.BeatsPerSecondBPM);
+                            beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.MeleeAttack, ActiveEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        }
+                        else
+                        {
+                            BeatEventTimeToStart = ActiveEnemyList[RandomEnemy].SetRangedAttack(randomBeat, distance, GlobalSettingsObject.BeatsPerSecondBPM);
+                            beatEventWithEnemies[randomBeat] = new BeatEventWithEnemy(BeatEvent.RangedAttack, ActiveEnemyList[RandomEnemy], BeatEventTimeToStart);
+                        }
+                    }
+                }
+            }
+        }
+
+        int randomEnemy = UnityEngine.Random.Range(0, ActiveEnemyList.Count);
+        ActiveEnemyList[randomEnemy].VulnerableBeat = BeatToLoop - 2;
+        ActiveEnemyList[randomEnemy].VulnerableDuration = VulnerableDuration;
+        beatEventWithEnemies[BeatToLoop - 2] = new BeatEventWithEnemy(BeatEvent.Vulnerable, ActiveEnemyList[randomEnemy], BeatToLoop - 2);
+        Debug.Log("Enemy: " + ActiveEnemyList[randomEnemy] + "Assigned to be vulnerable on beat: " + ActiveEnemyList[randomEnemy].VulnerableBeat);
+        foreach (var Enemy in ActiveEnemyList)
+        {
+            //Enemy.CloneAttackList(); // Clone old attacks? might need to set new ones.
         }
     }
     private void AssignRangedAttacksByRandomBeat()
