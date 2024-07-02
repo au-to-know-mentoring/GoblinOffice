@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class PathfindingManager : MonoBehaviour
 {
@@ -52,6 +51,10 @@ public class PathfindingManager : MonoBehaviour
 
     public Text youWinText;
     public Text youLoseText;
+    public Image youWinImage;
+    public Image youLoseImage;
+    public AudioSource youWinSound;
+
     public SettingsData GlobalSettingsObject;
     public TimeManager GlobalTimeManager;
     public enum BeatEvent
@@ -73,6 +76,7 @@ public class PathfindingManager : MonoBehaviour
         {
             enemySpawner.SpawnRandomAmountOfEnemies(GlobalSettingsObject.difficultyMultiplier);
         }
+        youWinSound = GetComponentInChildren<AudioSource>();
         myPlayer = FindFirstObjectByType<Player>();
         youWinText.enabled = false;
         // Register all pathfinding objects in the scene
@@ -308,7 +312,10 @@ public class PathfindingManager : MonoBehaviour
         if (win == true)
         {
             //Runs when all enemies are dead.
-            youWinText.enabled = true;
+            youWinImage.enabled = true;
+            youWinSound.Play();
+
+            
             myPlayer.TravelingToDoor = true;
             myPlayer.StartCoroutine(myPlayer.MoveObject(myPlayer.ExitTransform.position, 3f));
             GlobalSettingsObject.difficultyMultiplier += 1;
@@ -318,10 +325,14 @@ public class PathfindingManager : MonoBehaviour
         {
             youLoseText.enabled = true;
             GlobalSettingsObject.difficultyMultiplier = 1.0f;
-            Invoke("ReloadScene", 4f);
+            Invoke("LoadGameOver", 4f);
         }
     }
 
+    private void LoadGameOver()
+    {
+        SceneManager.LoadScene("Game Over");
+    }
     private void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
