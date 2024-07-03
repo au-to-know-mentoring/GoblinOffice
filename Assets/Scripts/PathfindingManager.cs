@@ -78,7 +78,7 @@ public class PathfindingManager : MonoBehaviour
         }
         youWinSound = GetComponentInChildren<AudioSource>();
         myPlayer = FindFirstObjectByType<Player>();
-        youWinText.enabled = false;
+        //youWinText.enabled = false;
         // Register all pathfinding objects in the scene
         BeatToLoop = GlobalSettingsObject.totalBeats;
         RegisterPathfindingObjects();

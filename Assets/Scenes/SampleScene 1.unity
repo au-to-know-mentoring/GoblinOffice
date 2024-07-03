@@ -5902,9 +5902,9 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   youWinText: {fileID: 0}
   youLoseText: {fileID: 988477592}
-  youWinImage: {fileID: 0}
+  youWinImage: {fileID: 1598904697}
   youLoseImage: {fileID: 0}
-  youWinSound: {fileID: 0}
+  youWinSound: {fileID: 351385806}
   GlobalSettingsObject: {fileID: 11400000, guid: affd884bcd0ad3c4999b88aaa4db9b0d, type: 2}
   GlobalTimeManager: {fileID: 2034538003}
 --- !u!4 &2049886048
