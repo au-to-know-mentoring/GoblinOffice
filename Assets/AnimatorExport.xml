@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SpriteSheetImporter EnemyName="ninjatroll" SpriteSheetFileName="ninjatroll">
+  <Parameters>
+    <Parameter Name="RangedAttack" Type="Trigger" />
+    <Parameter Name="Vulnerable" Type="Trigger" />
+    <Parameter Name="Dead" Type="Trigger" />
+    <Parameter Name="MeleeAttack" Type="Trigger" />
+  </Parameters>
+  <States>
+    <State Name="Idle" StartingFrame="0" EndingFrame="3">
+      <Transitions>
+        <Transition To="RangedAttack" Condition="RangedAttack" />
+        <Transition To="Vulnerable" Condition="Vulnerable" />
+        <Transition To="Death" Condition="Dead" />
+        <Transition To="MeleeAttack" Condition="MeleeAttack" />
+      </Transitions>
+    </State>
+    <State Name="RangedAttack" StartingFrame="12" EndingFrame="19">
+      <Transitions>
+        <Transition To="Idle" Condition="None" />
+      </Transitions>
+    </State>
+    <State Name="Vulnerable" StartingFrame="65" EndingFrame="83">
+      <Transitions>
+        <Transition To="Idle" Condition="None" />
+        <Transition To="Death" Condition="Dead" />
+      </Transitions>
+    </State>
+    <State Name="Death" StartingFrame="31" EndingFrame="41">
+      <Transitions />
+    </State>
+    <State Name="New State" StartingFrame="0" EndingFrame="0">
+      <Transitions>
+        <Transition To="Idle" Condition="None" />
+      </Transitions>
+    </State>
+    <State Name="MeleeAttack" StartingFrame="20" EndingFrame="30">
+      <Transitions>
+        <Transition To="Idle" Condition="None" />
+      </Transitions>
+    </State>
+  </States>
+</SpriteSheetImporter>

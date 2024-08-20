@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a6e4d40c7333b5428d2859dd57a4a8b
+guid: c6e89061868283044b334e70bb603b9e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ninjatroll_0
+      name: ninjatrollerparticle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5539600b0c1bbb14f8ded13081393309
-      internalID: -282924366
+      spriteID: fb5e9836f5254f743a0ddaa1b140ce16
+      internalID: -643779640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_1
+      name: ninjatrollerparticle_1
       rect:
         serializedVersion: 2
         x: 256
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eda1dfc86d2f074992a12c1753549cf
-      internalID: -2044041749
+      spriteID: dbdba2c505a4a3a4cb80422ce87eb2ca
+      internalID: -1962349829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_2
+      name: ninjatrollerparticle_2
       rect:
         serializedVersion: 2
         x: 512
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da72043bb0f62844d85d2ccbee553082
-      internalID: 1984485765
+      spriteID: 4eceeafb7897d6b4489c6726e3c992b5
+      internalID: 1436863721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_3
+      name: ninjatrollerparticle_3
       rect:
         serializedVersion: 2
         x: 768
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fa20d7c87b538c459f1935682c7ab29
-      internalID: 497056525
+      spriteID: 4b868025b1684dc4cbf5626008f4cb0c
+      internalID: 1488106435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_4
+      name: ninjatrollerparticle_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74332b242394dd24489747fd943f7f04
-      internalID: -320510188
+      spriteID: cbf67c24731d66a4aaab3e7b5233dcf5
+      internalID: 1031090932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_5
+      name: ninjatrollerparticle_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13535e6315ebe2c4685fd1194b0d560a
-      internalID: 1841063494
+      spriteID: b9fdaf677a4709345ac37fc11fe30abc
+      internalID: 641652584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_6
+      name: ninjatrollerparticle_6
       rect:
         serializedVersion: 2
         x: 1536
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52a4760d8edd59b4794ba2be0deed71b
-      internalID: -606031190
+      spriteID: d777f735fc984e84f94125e90a7b739b
+      internalID: 1671177389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_7
+      name: ninjatrollerparticle_7
       rect:
         serializedVersion: 2
         x: 1792
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c18f7d48f31945d448e10b3e5c367ce4
-      internalID: -487190318
+      spriteID: a22063f8fdda27c4d87c060edef7fe81
+      internalID: -171578839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_8
+      name: ninjatrollerparticle_8
       rect:
         serializedVersion: 2
         x: 2048
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac37ff926ea31414ba06187c95d069e9
-      internalID: 471025194
+      spriteID: d52aa12dd57109a459ced749d1644469
+      internalID: 157509136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_9
+      name: ninjatrollerparticle_9
       rect:
         serializedVersion: 2
         x: 2304
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e29f4a3cee274484ca8acf62ce79d5e1
-      internalID: 1022238344
+      spriteID: 5f8c3e2432454d44c952b2d037ec40ab
+      internalID: -1578235187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_10
+      name: ninjatrollerparticle_10
       rect:
         serializedVersion: 2
         x: 0
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2746f64721b547d4b8c43f34afcaec77
-      internalID: 1568692141
+      spriteID: 6ba2e1154cc5c91429ff4cfe1e6f22da
+      internalID: -1285887167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_11
+      name: ninjatrollerparticle_11
       rect:
         serializedVersion: 2
         x: 256
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2e46529c407731488665f95a575bfb3
-      internalID: -1190716286
+      spriteID: d1804a8049074eb40b7850c92f069f58
+      internalID: -1469976553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_12
+      name: ninjatrollerparticle_12
       rect:
         serializedVersion: 2
         x: 512
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deaf904aabcec3f4dbf6d384cc4227d5
-      internalID: 1043781230
+      spriteID: 170b0b9f61e907545b5b54407a743952
+      internalID: -1108402699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_13
+      name: ninjatrollerparticle_13
       rect:
         serializedVersion: 2
         x: 768
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b92f582810279d14eb331f0a92669387
-      internalID: -360424911
+      spriteID: b4e9a20719b8211479afb0edb5cf8af5
+      internalID: -383640762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_14
+      name: ninjatrollerparticle_14
       rect:
         serializedVersion: 2
         x: 1024
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6718b2dc02a13274eba62a12b4ccf536
-      internalID: 1849133011
+      spriteID: 428df069169f1494199e74c4d51e05fe
+      internalID: -730552835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_15
+      name: ninjatrollerparticle_15
       rect:
         serializedVersion: 2
         x: 1280
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ee35cf7fb71fba43a18dacf90995e3c
-      internalID: 1948979349
+      spriteID: 8f8dac7f669dc83439a66c12c00012be
+      internalID: -242523779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_16
+      name: ninjatrollerparticle_16
       rect:
         serializedVersion: 2
         x: 1536
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da3804df5f072a84c96de9c0bf839423
-      internalID: -531923925
+      spriteID: 44bd2ff38e68e1a49a72072837faa858
+      internalID: 105104498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_17
+      name: ninjatrollerparticle_17
       rect:
         serializedVersion: 2
         x: 1792
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56a802f65ae7a75499de3d808e5ee6fd
-      internalID: 2026012321
+      spriteID: 1715735ecc9902642bdfc06ce0d2a82d
+      internalID: -1516389555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_18
+      name: ninjatrollerparticle_18
       rect:
         serializedVersion: 2
         x: 2048
@@ -515,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4ce45e1baf05514a9d9a8047d65df54
-      internalID: -519311344
+      spriteID: c1a8b555ba6104048add0c6d7f11f694
+      internalID: 989656288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_19
+      name: ninjatrollerparticle_19
       rect:
         serializedVersion: 2
         x: 2304
@@ -536,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4056590eb733c64d96b972862f184e6
-      internalID: 216746263
+      spriteID: b7bbb746ed5ed1e42b92c27034b7c1e8
+      internalID: 419344272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_20
+      name: ninjatrollerparticle_20
       rect:
         serializedVersion: 2
         x: 0
@@ -557,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a26351549155d1e4d981aa5cdde8e5dc
-      internalID: -1788022361
+      spriteID: 14d7c21ccaed1ed499e0cf38bc5c6db6
+      internalID: 1333703855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_21
+      name: ninjatrollerparticle_21
       rect:
         serializedVersion: 2
         x: 256
@@ -578,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a57219b4fed9e745af8e473e118863f
-      internalID: -1388350278
+      spriteID: 06b9270b8dfe93c4599804a8f8a32485
+      internalID: 974978278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_22
+      name: ninjatrollerparticle_22
       rect:
         serializedVersion: 2
         x: 512
@@ -599,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d852025370b50824283b6db9c594e7a8
-      internalID: -885980904
+      spriteID: e6b4f34af10b735468e2f1d8d1319af5
+      internalID: 920641738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_23
+      name: ninjatrollerparticle_23
       rect:
         serializedVersion: 2
         x: 768
@@ -620,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58a90882e8fbd1847bb71227b2450f92
-      internalID: -559174129
+      spriteID: fd2bf331b020be941893fe8ce50c918b
+      internalID: -86075909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_24
+      name: ninjatrollerparticle_24
       rect:
         serializedVersion: 2
         x: 1024
@@ -641,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 303d1bbf34cafb64ab7f3fccca1251af
-      internalID: 936454138
+      spriteID: f43397c57b4e94240857387876cf8912
+      internalID: 605595571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_25
+      name: ninjatrollerparticle_25
       rect:
         serializedVersion: 2
         x: 1280
@@ -662,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a0e06ec3397cd8438dbe244d01a3d97
-      internalID: -906212877
+      spriteID: 70728bc8689435b448e3725277125def
+      internalID: 2040786542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_26
+      name: ninjatrollerparticle_26
       rect:
         serializedVersion: 2
         x: 1536
@@ -683,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6802769c4be48c34dba7856611e37112
-      internalID: -164949038
+      spriteID: 96a5218b838757145b5c106085d9c2a6
+      internalID: -893186476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_27
+      name: ninjatrollerparticle_27
       rect:
         serializedVersion: 2
         x: 1792
@@ -704,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e239d5d0964b1a4fbb5f21f688e5f3e
-      internalID: 323513539
+      spriteID: cfe5f2ad33fc61045b3f22d512856cf3
+      internalID: 1314543663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_28
+      name: ninjatrollerparticle_28
       rect:
         serializedVersion: 2
         x: 2048
@@ -725,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dab479295d99f484ca73aa6b270eadd5
-      internalID: -832319694
+      spriteID: e21e79e5908764a4fb69c0bf51cba595
+      internalID: -994496791
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_29
+      name: ninjatrollerparticle_29
       rect:
         serializedVersion: 2
         x: 2304
@@ -746,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfddbfa452170094f9acdd73d8e39563
-      internalID: -849775409
+      spriteID: 2cbce38550f9b8f43a46867ddb6d5ec9
+      internalID: -188124147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_30
+      name: ninjatrollerparticle_30
       rect:
         serializedVersion: 2
         x: 0
@@ -767,14 +767,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c18a581e71c4d6c4290a204ab9005423
-      internalID: -1975901614
+      spriteID: 0b06047f4a17f7e4a9d36682a3e23e24
+      internalID: -783135620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_31
+      name: ninjatrollerparticle_31
       rect:
         serializedVersion: 2
         x: 256
@@ -788,14 +788,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3503b18b72f9a414a9fbbff3b5f74111
-      internalID: 2034052377
+      spriteID: e4f0e7df443a78346bff2dd47f98d0b4
+      internalID: 613757819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_32
+      name: ninjatrollerparticle_32
       rect:
         serializedVersion: 2
         x: 512
@@ -809,14 +809,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 330b14771622a2a4fbbcb40aa46b58a2
-      internalID: 69783175
+      spriteID: 8bdfc5754175f4f4098aa9e69a258f80
+      internalID: -965040779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_33
+      name: ninjatrollerparticle_33
       rect:
         serializedVersion: 2
         x: 768
@@ -830,14 +830,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b45e9924d64a5e845bc584b60ecbc242
-      internalID: -785474397
+      spriteID: 2f66dfe0ee219784f82989ed07627f57
+      internalID: -1375972113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_34
+      name: ninjatrollerparticle_34
       rect:
         serializedVersion: 2
         x: 1024
@@ -851,14 +851,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdd9180a5513f7c40a507609ac46fa04
-      internalID: 1149038000
+      spriteID: 458d5eb4027b50041ba842fbe3e49e00
+      internalID: 1632435167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_35
+      name: ninjatrollerparticle_35
       rect:
         serializedVersion: 2
         x: 1280
@@ -872,14 +872,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b15c1775e30fc740ad587b2820b3304
-      internalID: 253020885
+      spriteID: b664cf7ceeea4df44a448711aef73035
+      internalID: 496441983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_36
+      name: ninjatrollerparticle_36
       rect:
         serializedVersion: 2
         x: 1536
@@ -893,14 +893,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dca7076a3b6501948be696f71c703093
-      internalID: -2073870109
+      spriteID: 0b9c6296df029444dab190eeb11ec0a1
+      internalID: 872924079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_37
+      name: ninjatrollerparticle_37
       rect:
         serializedVersion: 2
         x: 1792
@@ -914,14 +914,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3002ee05ff45b6438bf213d7fc6561f
-      internalID: 1610077071
+      spriteID: bfe2e92f1dc9902419f0e8d145dc1023
+      internalID: -1426180849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_38
+      name: ninjatrollerparticle_38
       rect:
         serializedVersion: 2
         x: 2048
@@ -935,14 +935,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c47ac94a7e33a147a2e170d96a30635
-      internalID: 1175232824
+      spriteID: efcee32999b4c46409dd5212f801bc5b
+      internalID: 1309525000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_39
+      name: ninjatrollerparticle_39
       rect:
         serializedVersion: 2
         x: 2304
@@ -956,14 +956,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 642f74fa7d70f164b9ab1d7c98ec742d
-      internalID: -1335312241
+      spriteID: dbd6e7cc2e00345448de5fa5269980cc
+      internalID: 48121501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_40
+      name: ninjatrollerparticle_40
       rect:
         serializedVersion: 2
         x: 0
@@ -977,14 +977,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 305c5c2d50413b44482b1eb88a736f47
-      internalID: -1348550898
+      spriteID: f3b35246ecfa87d449cbfc94a96d3746
+      internalID: -86844941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_41
+      name: ninjatrollerparticle_41
       rect:
         serializedVersion: 2
         x: 256
@@ -998,14 +998,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fe417f81c0556847a8805992b34ff9e
-      internalID: 1186944060
+      spriteID: 8db8b507e45481b41bc3bd7d72ea3871
+      internalID: -432644636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_42
+      name: ninjatrollerparticle_42
       rect:
         serializedVersion: 2
         x: 512
@@ -1019,14 +1019,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e19092af953ad543a176410599553d4
-      internalID: -2039189090
+      spriteID: 053547e60ce06ec469f038a6a96ba973
+      internalID: 1469283284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_43
+      name: ninjatrollerparticle_43
       rect:
         serializedVersion: 2
         x: 768
@@ -1040,14 +1040,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 251827a977a7b684cab0b4c9d69e50b6
-      internalID: -1227538052
+      spriteID: bf45f99299833c646b6192fe89b6fb89
+      internalID: -190530208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_44
+      name: ninjatrollerparticle_44
       rect:
         serializedVersion: 2
         x: 1024
@@ -1061,14 +1061,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7b5e90a647a1784e823e7905719b607
-      internalID: -2146770292
+      spriteID: 0f31ebc059faf474bb94517b43c3ef2e
+      internalID: 866664870
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_45
+      name: ninjatrollerparticle_45
       rect:
         serializedVersion: 2
         x: 1280
@@ -1082,14 +1082,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 215079fc63edd344b81f2e6869fbe885
-      internalID: -94783635
+      spriteID: f192f9a877e8108469fc9ed3b73a8c14
+      internalID: -1453553183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_46
+      name: ninjatrollerparticle_46
       rect:
         serializedVersion: 2
         x: 1536
@@ -1103,14 +1103,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e21a0747b3ad554596cf95f6d3c2f16
-      internalID: -219347464
+      spriteID: 02fceeca81ea6d549905022132feeaa4
+      internalID: 2113646958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_47
+      name: ninjatrollerparticle_47
       rect:
         serializedVersion: 2
         x: 1792
@@ -1124,14 +1124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b00620f838ea99d498da2549526cdcf8
-      internalID: 79442484
+      spriteID: 20eb8301e1872ca4a97723adfc497b97
+      internalID: -926235367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_48
+      name: ninjatrollerparticle_48
       rect:
         serializedVersion: 2
         x: 2048
@@ -1145,14 +1145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6646620e21cf72c4fbb3597b699deead
-      internalID: 307921921
+      spriteID: 79d74ec80167fd04287d19d4094171b4
+      internalID: 612316105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_49
+      name: ninjatrollerparticle_49
       rect:
         serializedVersion: 2
         x: 2304
@@ -1166,14 +1166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14abaa8438be3c14392b2d2db7b6e4d1
-      internalID: -1066596134
+      spriteID: b5239bb4e02ed6341a9171737a7842f0
+      internalID: 2110453611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_50
+      name: ninjatrollerparticle_50
       rect:
         serializedVersion: 2
         x: 0
@@ -1187,14 +1187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: beb96e6a2df4cb24d856dfd29df4aef7
-      internalID: -1332527523
+      spriteID: 3d6cc0a21ce897c4faa9e475af732727
+      internalID: 97986023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_51
+      name: ninjatrollerparticle_51
       rect:
         serializedVersion: 2
         x: 256
@@ -1208,14 +1208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25ee80b3f03ba3a419cd9aee65166941
-      internalID: -110898586
+      spriteID: b376302ab77c13742a9ef1319a880a79
+      internalID: 1876140599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_52
+      name: ninjatrollerparticle_52
       rect:
         serializedVersion: 2
         x: 512
@@ -1229,14 +1229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a2379f56cfd80f49b2ab772c3dd4e50
-      internalID: -425688734
+      spriteID: db5fafa0070c34842a6aa44b7019a300
+      internalID: 1559181196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_53
+      name: ninjatrollerparticle_53
       rect:
         serializedVersion: 2
         x: 768
@@ -1250,14 +1250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e47320fc90723cb47905e6eae1267485
-      internalID: 385844874
+      spriteID: 0d05dca741aca574c90ba1b71623a9b5
+      internalID: -833564567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_54
+      name: ninjatrollerparticle_54
       rect:
         serializedVersion: 2
         x: 1024
@@ -1271,14 +1271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a7e629c78380f7479a5ea7da706b5a4
-      internalID: -1686237762
+      spriteID: 0de2709cbb2d8d249a14e4a204e5d0d9
+      internalID: 624579598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_55
+      name: ninjatrollerparticle_55
       rect:
         serializedVersion: 2
         x: 1280
@@ -1292,14 +1292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aea7f0ec0a4cf9646b484d4bfaa332f9
-      internalID: 1044235603
+      spriteID: 477f5d3f1e1ab5143ae57c88a549cda9
+      internalID: 39755680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_56
+      name: ninjatrollerparticle_56
       rect:
         serializedVersion: 2
         x: 1536
@@ -1313,14 +1313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9576c9b55d406ff43b954be7db866633
-      internalID: -1364722438
+      spriteID: 3f574552c49a2f54aa6535b06ec9293b
+      internalID: -2019543785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_57
+      name: ninjatrollerparticle_57
       rect:
         serializedVersion: 2
         x: 1792
@@ -1334,14 +1334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec103e9a6c1f59548a2c269db388f983
-      internalID: 128253763
+      spriteID: f8e0764590baddd428bab2afac4ffd19
+      internalID: -718573814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_58
+      name: ninjatrollerparticle_58
       rect:
         serializedVersion: 2
         x: 2048
@@ -1355,14 +1355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 501ba12fa594a8b4db48c426f6c375b4
-      internalID: 1721674517
+      spriteID: 06c2d089c9faf154797e1bc356fbdc0c
+      internalID: 1919166714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_59
+      name: ninjatrollerparticle_59
       rect:
         serializedVersion: 2
         x: 2304
@@ -1376,14 +1376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b81e396745e138438d8ae7711bfa866
-      internalID: -1685597375
+      spriteID: 70cb265eb92899a4687ddf0728ca5e73
+      internalID: 1401786252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_60
+      name: ninjatrollerparticle_60
       rect:
         serializedVersion: 2
         x: 0
@@ -1397,14 +1397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7117d0e54abf6b4f9ece556a4e061bf
-      internalID: 71486183
+      spriteID: 8c43175fe171d6242a53ab7803925167
+      internalID: 1100220764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_61
+      name: ninjatrollerparticle_61
       rect:
         serializedVersion: 2
         x: 256
@@ -1418,14 +1418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a90b5ebc168900b4bb4ffa61c571e338
-      internalID: 1556166752
+      spriteID: ec4a222bbbec2dd44946d764e390f102
+      internalID: 1718264551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_62
+      name: ninjatrollerparticle_62
       rect:
         serializedVersion: 2
         x: 512
@@ -1439,14 +1439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b524aedb650b84c4cb224fa0373114ac
-      internalID: -1487263482
+      spriteID: 26e0f0bc5d9bee0439d96cba18c5e5ff
+      internalID: -1808927183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_63
+      name: ninjatrollerparticle_63
       rect:
         serializedVersion: 2
         x: 768
@@ -1460,14 +1460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f345449f435d93247b9187276dfb5589
-      internalID: 1140300330
+      spriteID: fb3845d5d5afd7e41b489bda275a7fbc
+      internalID: 1028565513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_64
+      name: ninjatrollerparticle_64
       rect:
         serializedVersion: 2
         x: 1024
@@ -1481,14 +1481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9052ba63530a084bb33db8e13e91701
-      internalID: -235826727
+      spriteID: 332149a431bbe6e4a8ad44c6491ee4a9
+      internalID: 2117318962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_65
+      name: ninjatrollerparticle_65
       rect:
         serializedVersion: 2
         x: 1280
@@ -1502,14 +1502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7592a3df9721b7946b854a08e0ef7813
-      internalID: 530441762
+      spriteID: a3d4ab6ed8b171149a486b5c07c7fd0b
+      internalID: -392951582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_66
+      name: ninjatrollerparticle_66
       rect:
         serializedVersion: 2
         x: 1536
@@ -1523,14 +1523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b75e95a5683b9a14691ea9f007dc4fbf
-      internalID: 1495098535
+      spriteID: 4d001cad8a6fa7a41b991a149389b26b
+      internalID: -1467508272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_67
+      name: ninjatrollerparticle_67
       rect:
         serializedVersion: 2
         x: 1792
@@ -1544,14 +1544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87ca0741f4a3b82459e5fbe02828f4b3
-      internalID: 1429032420
+      spriteID: 6a1908480e3ab74439d7effb43b68702
+      internalID: -748598059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_68
+      name: ninjatrollerparticle_68
       rect:
         serializedVersion: 2
         x: 2048
@@ -1565,14 +1565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f172c7ce7eaaf1045bf32cbd8e46bebd
-      internalID: -1396737803
+      spriteID: 0fe792dadcaa39140859041c41d649af
+      internalID: -920718191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_69
+      name: ninjatrollerparticle_69
       rect:
         serializedVersion: 2
         x: 2304
@@ -1586,14 +1586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d342bd1ba9e54844b5ebecfca9ca7a4
-      internalID: 2006774919
+      spriteID: c0d248293124c6543a83f0c2a7491af2
+      internalID: 1912173210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_70
+      name: ninjatrollerparticle_70
       rect:
         serializedVersion: 2
         x: 0
@@ -1607,14 +1607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73f08c3b21f4870459a53ea977819546
-      internalID: 382097959
+      spriteID: a4e1dc3de46236a49b292b07046accaf
+      internalID: -330166623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_71
+      name: ninjatrollerparticle_71
       rect:
         serializedVersion: 2
         x: 256
@@ -1628,14 +1628,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cad5ff0eb791934db002a587a869466
-      internalID: 2086559200
+      spriteID: 7e6fe5b063ad43848beb3d254fd0568c
+      internalID: -1051616983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_72
+      name: ninjatrollerparticle_72
       rect:
         serializedVersion: 2
         x: 512
@@ -1649,14 +1649,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf9635aa6b6324e4b92c88dbf5c7797d
-      internalID: -627857591
+      spriteID: 2ba6f402d44c648419c157101099a8a9
+      internalID: 2078569219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_73
+      name: ninjatrollerparticle_73
       rect:
         serializedVersion: 2
         x: 768
@@ -1670,14 +1670,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4deaecfbba2992a4ea423c7b8ea47234
-      internalID: 1659608129
+      spriteID: 48f4573a37bb5dc489a7eab91ae569fc
+      internalID: 1807884294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_74
+      name: ninjatrollerparticle_74
       rect:
         serializedVersion: 2
         x: 1024
@@ -1691,14 +1691,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aef3191e1b93cf244a2571bd1727d05d
-      internalID: 239933702
+      spriteID: 7c9c8be56ecdbd44bb8485750c0ed65d
+      internalID: 1059842362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_75
+      name: ninjatrollerparticle_75
       rect:
         serializedVersion: 2
         x: 1280
@@ -1712,14 +1712,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ff3477c1a6f1c54ab14734c972218bc
-      internalID: -1934582515
+      spriteID: 167f3635bbf81014fb4422140e62fe9f
+      internalID: -1876979315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_76
+      name: ninjatrollerparticle_76
       rect:
         serializedVersion: 2
         x: 1536
@@ -1733,14 +1733,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6bc6172c4469c947ad04ed5c4c65ef0
-      internalID: -1722645263
+      spriteID: 631ab0321db123848baac04f206e27f1
+      internalID: -1016595619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_77
+      name: ninjatrollerparticle_77
       rect:
         serializedVersion: 2
         x: 1792
@@ -1754,14 +1754,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e01cc40303ba411479dc569931121140
-      internalID: -828203498
+      spriteID: 9396f7a888c387a49a4fc72cf4c7d645
+      internalID: 1001223663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_78
+      name: ninjatrollerparticle_78
       rect:
         serializedVersion: 2
         x: 2048
@@ -1775,14 +1775,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef988da98bb76cb40b58cfbda38375c4
-      internalID: -136078908
+      spriteID: af4185d70710ae84fb1bf05eb643304b
+      internalID: 445046730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_79
+      name: ninjatrollerparticle_79
       rect:
         serializedVersion: 2
         x: 2304
@@ -1796,14 +1796,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36d58f47441840147a1fb77bcf0e35e0
-      internalID: -1736585924
+      spriteID: 7ae1067b61a6e534bbc5d433f63ca3b3
+      internalID: -1431355931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_80
+      name: ninjatrollerparticle_80
       rect:
         serializedVersion: 2
         x: 0
@@ -1817,14 +1817,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddb9bfe3ff23f0e47bffcfda4c9111d6
-      internalID: -1703007839
+      spriteID: 91bd4b3cf69d2b9469777664f6f033a8
+      internalID: -998536245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_81
+      name: ninjatrollerparticle_81
       rect:
         serializedVersion: 2
         x: 256
@@ -1838,14 +1838,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 530896b46b2ddfe44a0415fef9fd4e35
-      internalID: 355579884
+      spriteID: aab3d49765ea4804bb744cac9c02ccb2
+      internalID: -40437222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_82
+      name: ninjatrollerparticle_82
       rect:
         serializedVersion: 2
         x: 512
@@ -1859,14 +1859,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b2cf5bae73f8a744bea31c170c03134
-      internalID: 2019182057
+      spriteID: ace3509da9835f146b5ac656afdcbd9d
+      internalID: 1093728524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_83
+      name: ninjatrollerparticle_83
       rect:
         serializedVersion: 2
         x: 768
@@ -1880,14 +1880,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee8cd068aff17945b26b306c2bcb75a
-      internalID: 2082677339
+      spriteID: 1056d6bd8486d444896fed3d6de16628
+      internalID: -1315145453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_84
+      name: ninjatrollerparticle_84
       rect:
         serializedVersion: 2
         x: 1024
@@ -1901,14 +1901,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecfbb78595247ac4388aa59f27c96b6f
-      internalID: 1559427218
+      spriteID: b5a647a84cc7365428ef717a25ea90d2
+      internalID: 1123548843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_85
+      name: ninjatrollerparticle_85
       rect:
         serializedVersion: 2
         x: 1280
@@ -1922,14 +1922,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22893354b44a62445b2fd0ac30c5507f
-      internalID: -283118741
+      spriteID: f32bbad4d4c28024b869bb8b02c22264
+      internalID: -80928983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_86
+      name: ninjatrollerparticle_86
       rect:
         serializedVersion: 2
         x: 1536
@@ -1943,14 +1943,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09c5ab34030d5ef48a58938d701b9f1f
-      internalID: -143287121
+      spriteID: b3e104bba1695ca4aae87fa566c06d5d
+      internalID: 1439640169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_87
+      name: ninjatrollerparticle_87
       rect:
         serializedVersion: 2
         x: 1792
@@ -1964,14 +1964,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72178172885709544a2b0ff413abcde0
-      internalID: 1173985894
+      spriteID: 78d66f6058dc42a458f400c2c115f1ff
+      internalID: -573809797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_88
+      name: ninjatrollerparticle_88
       rect:
         serializedVersion: 2
         x: 2048
@@ -1985,14 +1985,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14ee839acc34cc344a0b31a98c684b21
-      internalID: 1878694749
+      spriteID: 4c5929d0325f84146b8ba108f114ad6a
+      internalID: 1064347046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninjatroll_89
+      name: ninjatrollerparticle_89
       rect:
         serializedVersion: 2
         x: 2304
@@ -2006,8 +2006,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26e40572c870311479072651840ba2c0
-      internalID: 508721821
+      spriteID: 476dd330368c291429588186718d08a9
+      internalID: 975845026
       vertices: []
       indices: 
       edges: []
@@ -2023,96 +2023,96 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ninjatroll_0: -282924366
-      ninjatroll_1: -2044041749
-      ninjatroll_10: 1568692141
-      ninjatroll_11: -1190716286
-      ninjatroll_12: 1043781230
-      ninjatroll_13: -360424911
-      ninjatroll_14: 1849133011
-      ninjatroll_15: 1948979349
-      ninjatroll_16: -531923925
-      ninjatroll_17: 2026012321
-      ninjatroll_18: -519311344
-      ninjatroll_19: 216746263
-      ninjatroll_2: 1984485765
-      ninjatroll_20: -1788022361
-      ninjatroll_21: -1388350278
-      ninjatroll_22: -885980904
-      ninjatroll_23: -559174129
-      ninjatroll_24: 936454138
-      ninjatroll_25: -906212877
-      ninjatroll_26: -164949038
-      ninjatroll_27: 323513539
-      ninjatroll_28: -832319694
-      ninjatroll_29: -849775409
-      ninjatroll_3: 497056525
-      ninjatroll_30: -1975901614
-      ninjatroll_31: 2034052377
-      ninjatroll_32: 69783175
-      ninjatroll_33: -785474397
-      ninjatroll_34: 1149038000
-      ninjatroll_35: 253020885
-      ninjatroll_36: -2073870109
-      ninjatroll_37: 1610077071
-      ninjatroll_38: 1175232824
-      ninjatroll_39: -1335312241
-      ninjatroll_4: -320510188
-      ninjatroll_40: -1348550898
-      ninjatroll_41: 1186944060
-      ninjatroll_42: -2039189090
-      ninjatroll_43: -1227538052
-      ninjatroll_44: -2146770292
-      ninjatroll_45: -94783635
-      ninjatroll_46: -219347464
-      ninjatroll_47: 79442484
-      ninjatroll_48: 307921921
-      ninjatroll_49: -1066596134
-      ninjatroll_5: 1841063494
-      ninjatroll_50: -1332527523
-      ninjatroll_51: -110898586
-      ninjatroll_52: -425688734
-      ninjatroll_53: 385844874
-      ninjatroll_54: -1686237762
-      ninjatroll_55: 1044235603
-      ninjatroll_56: -1364722438
-      ninjatroll_57: 128253763
-      ninjatroll_58: 1721674517
-      ninjatroll_59: -1685597375
-      ninjatroll_6: -606031190
-      ninjatroll_60: 71486183
-      ninjatroll_61: 1556166752
-      ninjatroll_62: -1487263482
-      ninjatroll_63: 1140300330
-      ninjatroll_64: -235826727
-      ninjatroll_65: 530441762
-      ninjatroll_66: 1495098535
-      ninjatroll_67: 1429032420
-      ninjatroll_68: -1396737803
-      ninjatroll_69: 2006774919
-      ninjatroll_7: -487190318
-      ninjatroll_70: 382097959
-      ninjatroll_71: 2086559200
-      ninjatroll_72: -627857591
-      ninjatroll_73: 1659608129
-      ninjatroll_74: 239933702
-      ninjatroll_75: -1934582515
-      ninjatroll_76: -1722645263
-      ninjatroll_77: -828203498
-      ninjatroll_78: -136078908
-      ninjatroll_79: -1736585924
-      ninjatroll_8: 471025194
-      ninjatroll_80: -1703007839
-      ninjatroll_81: 355579884
-      ninjatroll_82: 2019182057
-      ninjatroll_83: 2082677339
-      ninjatroll_84: 1559427218
-      ninjatroll_85: -283118741
-      ninjatroll_86: -143287121
-      ninjatroll_87: 1173985894
-      ninjatroll_88: 1878694749
-      ninjatroll_89: 508721821
-      ninjatroll_9: 1022238344
+      ninjatrollerparticle_0: -643779640
+      ninjatrollerparticle_1: -1962349829
+      ninjatrollerparticle_10: -1285887167
+      ninjatrollerparticle_11: -1469976553
+      ninjatrollerparticle_12: -1108402699
+      ninjatrollerparticle_13: -383640762
+      ninjatrollerparticle_14: -730552835
+      ninjatrollerparticle_15: -242523779
+      ninjatrollerparticle_16: 105104498
+      ninjatrollerparticle_17: -1516389555
+      ninjatrollerparticle_18: 989656288
+      ninjatrollerparticle_19: 419344272
+      ninjatrollerparticle_2: 1436863721
+      ninjatrollerparticle_20: 1333703855
+      ninjatrollerparticle_21: 974978278
+      ninjatrollerparticle_22: 920641738
+      ninjatrollerparticle_23: -86075909
+      ninjatrollerparticle_24: 605595571
+      ninjatrollerparticle_25: 2040786542
+      ninjatrollerparticle_26: -893186476
+      ninjatrollerparticle_27: 1314543663
+      ninjatrollerparticle_28: -994496791
+      ninjatrollerparticle_29: -188124147
+      ninjatrollerparticle_3: 1488106435
+      ninjatrollerparticle_30: -783135620
+      ninjatrollerparticle_31: 613757819
+      ninjatrollerparticle_32: -965040779
+      ninjatrollerparticle_33: -1375972113
+      ninjatrollerparticle_34: 1632435167
+      ninjatrollerparticle_35: 496441983
+      ninjatrollerparticle_36: 872924079
+      ninjatrollerparticle_37: -1426180849
+      ninjatrollerparticle_38: 1309525000
+      ninjatrollerparticle_39: 48121501
+      ninjatrollerparticle_4: 1031090932
+      ninjatrollerparticle_40: -86844941
+      ninjatrollerparticle_41: -432644636
+      ninjatrollerparticle_42: 1469283284
+      ninjatrollerparticle_43: -190530208
+      ninjatrollerparticle_44: 866664870
+      ninjatrollerparticle_45: -1453553183
+      ninjatrollerparticle_46: 2113646958
+      ninjatrollerparticle_47: -926235367
+      ninjatrollerparticle_48: 612316105
+      ninjatrollerparticle_49: 2110453611
+      ninjatrollerparticle_5: 641652584
+      ninjatrollerparticle_50: 97986023
+      ninjatrollerparticle_51: 1876140599
+      ninjatrollerparticle_52: 1559181196
+      ninjatrollerparticle_53: -833564567
+      ninjatrollerparticle_54: 624579598
+      ninjatrollerparticle_55: 39755680
+      ninjatrollerparticle_56: -2019543785
+      ninjatrollerparticle_57: -718573814
+      ninjatrollerparticle_58: 1919166714
+      ninjatrollerparticle_59: 1401786252
+      ninjatrollerparticle_6: 1671177389
+      ninjatrollerparticle_60: 1100220764
+      ninjatrollerparticle_61: 1718264551
+      ninjatrollerparticle_62: -1808927183
+      ninjatrollerparticle_63: 1028565513
+      ninjatrollerparticle_64: 2117318962
+      ninjatrollerparticle_65: -392951582
+      ninjatrollerparticle_66: -1467508272
+      ninjatrollerparticle_67: -748598059
+      ninjatrollerparticle_68: -920718191
+      ninjatrollerparticle_69: 1912173210
+      ninjatrollerparticle_7: -171578839
+      ninjatrollerparticle_70: -330166623
+      ninjatrollerparticle_71: -1051616983
+      ninjatrollerparticle_72: 2078569219
+      ninjatrollerparticle_73: 1807884294
+      ninjatrollerparticle_74: 1059842362
+      ninjatrollerparticle_75: -1876979315
+      ninjatrollerparticle_76: -1016595619
+      ninjatrollerparticle_77: 1001223663
+      ninjatrollerparticle_78: 445046730
+      ninjatrollerparticle_79: -1431355931
+      ninjatrollerparticle_8: 157509136
+      ninjatrollerparticle_80: -998536245
+      ninjatrollerparticle_81: -40437222
+      ninjatrollerparticle_82: 1093728524
+      ninjatrollerparticle_83: -1315145453
+      ninjatrollerparticle_84: 1123548843
+      ninjatrollerparticle_85: -80928983
+      ninjatrollerparticle_86: 1439640169
+      ninjatrollerparticle_87: -573809797
+      ninjatrollerparticle_88: 1064347046
+      ninjatrollerparticle_89: 975845026
+      ninjatrollerparticle_9: -1578235187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
