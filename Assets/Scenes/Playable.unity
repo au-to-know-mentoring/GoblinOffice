@@ -1287,6 +1287,10 @@ MonoBehaviour:
   myColour: 0
   GlobalSettingsObject: {fileID: 0}
   GlobalTimeManager: {fileID: 0}
+  rangedAttackSound: {fileID: 0}
+  meleeAttackSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  tauntSound: {fileID: 0}
 --- !u!212 &729106394
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4342,6 +4346,10 @@ MonoBehaviour:
   myColour: 0
   GlobalSettingsObject: {fileID: 0}
   GlobalTimeManager: {fileID: 0}
+  rangedAttackSound: {fileID: 0}
+  meleeAttackSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  tauntSound: {fileID: 0}
 --- !u!212 &1267413929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4597,6 +4605,10 @@ MonoBehaviour:
   myColour: 0
   GlobalSettingsObject: {fileID: 0}
   GlobalTimeManager: {fileID: 0}
+  rangedAttackSound: {fileID: 0}
+  meleeAttackSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  tauntSound: {fileID: 0}
 --- !u!212 &1295112134
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5843,6 +5855,10 @@ MonoBehaviour:
   myColour: 0
   GlobalSettingsObject: {fileID: 0}
   GlobalTimeManager: {fileID: 0}
+  rangedAttackSound: {fileID: 0}
+  meleeAttackSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  tauntSound: {fileID: 0}
 --- !u!4 &1771645367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6999126690193074787, guid: 2adc3dc6e332f4e45a4f9b45c2028ba0, type: 3}
@@ -6167,6 +6183,10 @@ MonoBehaviour:
   myColour: 0
   GlobalSettingsObject: {fileID: 0}
   GlobalTimeManager: {fileID: 0}
+  rangedAttackSound: {fileID: 0}
+  meleeAttackSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  tauntSound: {fileID: 0}
 --- !u!1 &2034538001
 GameObject:
   m_ObjectHideFlags: 0
@@ -6267,6 +6287,7 @@ MonoBehaviour:
   BeatToLoop: 8
   myAnimationSettings: {fileID: 0}
   MeleeAssignments: 2
+  beatRollResults: 
   LeftOfPlayerPosition: {x: 0, y: 0, z: 0}
   RightOfPlayerPosition: {x: 0, y: 0, z: 0}
   TopOfPlayerPosition: {x: 0, y: 0, z: 0}
@@ -6485,6 +6506,11 @@ MonoBehaviour:
   ExitPosition: {x: 0, y: 0, z: 0}
   timeToMove: 2
   TravelingToDoor: 0
+  hurtSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  blockSound: {fileID: 0}
+  winSound: {fileID: 0}
 --- !u!58 &2084591418
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6534,7 +6560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 531067805241645127, guid: 2adc3dc6e332f4e45a4f9b45c2028ba0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6999126690193074787, guid: 2adc3dc6e332f4e45a4f9b45c2028ba0, type: 3}
       propertyPath: m_RootOrder
