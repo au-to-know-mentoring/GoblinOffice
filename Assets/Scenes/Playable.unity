@@ -487,11 +487,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63130524}
   m_CullTransparentMesh: 1
---- !u!1 &182828120 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6459798392424796988, guid: 9288f191648a9fc4b8363d7414614278, type: 3}
-  m_PrefabInstance: {fileID: 8119896291316833935}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &304525656
 GameObject:
   m_ObjectHideFlags: 0
@@ -3400,7 +3395,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4269463266384016428, guid: 9288f191648a9fc4b8363d7414614278, type: 3}
   m_PrefabInstance: {fileID: 8119896291316833935}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182828120}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 625bc63ff2cd52e4ba0fc00c13f9687a, type: 3}
@@ -6668,6 +6663,9 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   youWinText: {fileID: 1598904695}
   youLoseText: {fileID: 988477592}
+  youWinImage: {fileID: 0}
+  youLoseImage: {fileID: 0}
+  youWinSound: {fileID: 0}
   GlobalSettingsObject: {fileID: 11400000, guid: affd884bcd0ad3c4999b88aaa4db9b0d, type: 2}
   GlobalTimeManager: {fileID: 2034538003}
 --- !u!4 &2049886048
@@ -6726,7 +6724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d16c5902f58f0c4bbc8258d967b0236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 182828120}
+  enemyPrefab: {fileID: 296834867088300105, guid: 2ac57ce6b477cd74f8790b5795e6f3a0, type: 3}
   EnemiesParent: {fileID: 304525656}
   spawnPoints:
   - {fileID: 1274545123}
@@ -7063,6 +7061,10 @@ PrefabInstance:
     - target: {fileID: 6459798392424796988, guid: 9288f191648a9fc4b8363d7414614278, type: 3}
       propertyPath: m_Name
       value: ColorTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459798392424796988, guid: 9288f191648a9fc4b8363d7414614278, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7582891434605526584, guid: 9288f191648a9fc4b8363d7414614278, type: 3}
       propertyPath: m_Sprite
