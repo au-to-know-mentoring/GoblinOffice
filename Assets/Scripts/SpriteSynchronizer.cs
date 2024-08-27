@@ -80,6 +80,8 @@ public class SpriteSynchronizer : MonoBehaviour
             Debug.LogError("No sprites found in the atlas.");
         }
     }
+
+    
     private void Update()
     {
         // Continuously check and synchronize sprites
