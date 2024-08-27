@@ -9,9 +9,10 @@ public class SpriteSynchronizer : MonoBehaviour
     public SpriteRenderer sourceSpriteRenderer;
     public SpriteRenderer CopySpriteRenderer;
     public SettingsData GlobalSettingsObject;
-
-    int myColour = 0;
     public PathfindingObject myPathFindingObject;
+
+    Color myColour = Color.black;
+    // public GameObject myObstacleGameObject; // This will be changed.
     [SerializeField]
     [Tooltip("Can be set manually, otherwise It will look for the Sprite sheets name + Atlas")]
     private SpriteAtlas spriteAtlas;
@@ -21,7 +22,8 @@ public class SpriteSynchronizer : MonoBehaviour
     private string originalSourceTitle;
     [SerializeField]
     private string TargetTitle;
-
+    [SerializeField]
+    private string atlasBaseName;
     private void Start()
     {
         GlobalSettingsObject = Resources.Load<SettingsData>("SettingsData");
@@ -34,10 +36,10 @@ public class SpriteSynchronizer : MonoBehaviour
         {
             myPathFindingObject = sourceSpriteRenderer.gameObject.GetComponent<PathfindingObject>();
         }
-            originalSourceTitle = sourceSpriteRenderer.name;
-            SourceTitle = Regex.Replace(sourceSpriteRenderer.sprite.name, "[0-9_]", "");
-            TargetTitle = Regex.Replace(CopySpriteRenderer.sprite.name, "[0-9_]", "");
-        
+        originalSourceTitle = sourceSpriteRenderer.sprite.name;
+        SourceTitle = Regex.Replace(sourceSpriteRenderer.sprite.name, "[0-9_]", "");
+        TargetTitle = Regex.Replace(CopySpriteRenderer.sprite.name, "[0-9_]", "");
+
 
         if (spriteAtlas == null)
         {
@@ -50,11 +52,36 @@ public class SpriteSynchronizer : MonoBehaviour
             return;
         }
 
+        if (spriteAtlas != null)
+        {
+            InitializeAtlasBaseName();
+        }
 
         // Synchronize the sprite initially
         SyncSprites();
     }
+    private string ExtractStringNumberFromSpriteName(string spriteName)
+    {
+        return Regex.Match(spriteName, @"\d+$").Value;
+    }
+    private void InitializeAtlasBaseName()
+    {
+        Sprite[] allSprites = new Sprite[spriteAtlas.spriteCount];
+        spriteAtlas.GetSprites(allSprites);
 
+        if (allSprites.Length > 0)
+        {
+            string firstSpriteName = allSprites[0].name;
+            atlasBaseName = Regex.Replace(firstSpriteName, @"_\d+\(Clone\)$", "");
+            Debug.Log($"Atlas base name: {atlasBaseName}");
+        }
+        else
+        {
+            Debug.LogError("No sprites found in the atlas.");
+        }
+    }
+
+    
     private void Update()
     {
         // Continuously check and synchronize sprites
@@ -65,6 +92,7 @@ public class SpriteSynchronizer : MonoBehaviour
     {
         if (sourceSpriteRenderer.sprite == null)
         {
+            Debug.Log("SourceSpriteRenderer is null.");
             return;
         }
 
@@ -78,30 +106,30 @@ public class SpriteSynchronizer : MonoBehaviour
 
 
         SetSpriteByStringNumber(stringSpriteNumber);
-        
+        int myColour = 0;
         if (myPathFindingObject != null)
             myColour = (int)myPathFindingObject.myColour;
 
         switch (myColour)
         {
             case 0:
-                
+
                 CopySpriteRenderer.color = Color.white;
                 break;
             case 1:
-                
+
                 CopySpriteRenderer.color = GlobalSettingsObject.Green1;
                 break;
             case 2:
-                
+
                 CopySpriteRenderer.color = GlobalSettingsObject.Red2;
                 break;
             case 3:
-                
+
                 CopySpriteRenderer.color = GlobalSettingsObject.Blue3;
                 break;
             case 4:
-                
+
                 CopySpriteRenderer.color = GlobalSettingsObject.Yellow4;
                 break;
             default:
@@ -110,83 +138,54 @@ public class SpriteSynchronizer : MonoBehaviour
         }
     }
 
-    private int ExtractNumberFromSpriteName(string spriteName)
-    {
-        int number = -1;
-        string result = Regex.Replace(spriteName, "[^0-9]", "");
-        if (int.TryParse(result, out number))
-        {
-            return number;
-        }
+    //private int ExtractNumberFromSpriteName(string spriteName)
+    //{
+    //    int number = -1;
+    //    string result = Regex.Replace(spriteName, "[^0-9]", "");
+    //    if (int.TryParse(result, out number))
+    //    {
+    //        return number;
+    //    }
 
-        //ALl below unneccessary?
-        int underscoreIndex = spriteName.LastIndexOf('_');
-        if (underscoreIndex >= 0 && underscoreIndex < spriteName.Length - 1)
-        {
-            string numberString = spriteName.Substring(underscoreIndex + 1);
-            if (int.TryParse(numberString, out number))
-            {
-                return number;
-            }
-        }
-        return number;
-    }
+    //    //ALl below unneccessary?
+    //    int underscoreIndex = spriteName.LastIndexOf('_');
+    //    if (underscoreIndex >= 0 && underscoreIndex < spriteName.Length - 1)
+    //    {
+    //        string numberString = spriteName.Substring(underscoreIndex + 1);
+    //        if (int.TryParse(numberString, out number))
+    //        {
+    //            return number;
+    //        }
+    //    }
+    //    return number;
+    //}
 
-    private string ExtractStringNumberFromSpriteName(string spriteName)
-    {
-        string result = Regex.Replace(spriteName, "[^0-9]", "");
-        return result;
-    }
-
-    private void SetSpriteByNumber(int number)
-    {
-        if (number < 0 || spriteAtlas == null)
-        {
-            return;
-        }
-
-        // Assuming the sprite sheet has been sliced evenly
-        string targetSpriteName;
-        if(SourceTitle.Contains("_"))
-        {
-            targetSpriteName = TargetTitle + "_" + number.ToString();
-        }
-        else
-        {
-            targetSpriteName = TargetTitle; // targetSpriteName = TargetTitle + "PARTCLE" + number.ToString();  // Change this.
-        }
-
-        Sprite targetSprite = spriteAtlas.GetSprite(targetSpriteName);  
-
-        if (targetSprite != null)
-        {
-            CopySpriteRenderer.sprite = targetSprite;
-        }
-    }
 
     private void SetSpriteByStringNumber(string number)
     {
-        if (spriteAtlas == null)
+        if (spriteAtlas == null || string.IsNullOrEmpty(atlasBaseName))
         {
             return;
         }
 
-        // Assuming the sprite sheet has been sliced evenly
-        string targetSpriteName;
-        if (originalSourceTitle.Contains("_"))
-        {
-            targetSpriteName = TargetTitle + "_" + number;
-        }
-        else
-        {
-            targetSpriteName = TargetTitle + number; // targetSpriteName = TargetTitle + "PARTCLE" + number.ToString();  // Change this.
-        }
-
+        string targetSpriteName = atlasBaseName + "_" + number;
         Sprite targetSprite = spriteAtlas.GetSprite(targetSpriteName);
 
-        if (targetSprite != null)
+        if (targetSprite == null)
+        {
+            // Try without underscore
+            targetSpriteName = atlasBaseName + number;
+            targetSprite = spriteAtlas.GetSprite(targetSpriteName);
+        }
+
+        if (targetSprite == null)
+        {
+            Debug.LogError($"Sprite not found: {targetSpriteName}. SpriteCount of atlas is: {spriteAtlas.spriteCount}");
+        }
+        else
         {
             CopySpriteRenderer.sprite = targetSprite;
         }
     }
+
 }

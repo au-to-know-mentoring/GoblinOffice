@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1098863430032754130
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 802031930474929563, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_Name
+      value: NinjaTroll
+      objectReference: {fileID: 0}
+    - target: {fileID: 802031930474929563, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251924047784313781, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 39fc1b44704277e4f99e10d6d7a8e855, type: 2}
+    - target: {fileID: 2881932934595825420, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 50500365, guid: 6281227e0e67272438baac190a625862, type: 3}
+    - target: {fileID: 4305269953850224799, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_Size.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305269953850224799, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2044041749, guid: 1a6e4d40c7333b5428d2859dd57a4a8b, type: 3}
+    - target: {fileID: 4305269953850224799, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634166301832001589, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: spriteAtlas
+      value: 
+      objectReference: {fileID: 4343727234628468602, guid: da0348a73db8b284486675d6be6c78e6, type: 2}
+    - target: {fileID: 4634166301832001589, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: myPathFindingObject
+      value: 
+      objectReference: {fileID: 7420647874230550361}
+    - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: tauntSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: arrivalTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: TimeBetweenTiles
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: meleeAttackSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: rangedAttackSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: MeleeAttackAnimationTime
+      value: 0.6666
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880802592979185599, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+--- !u!114 &7420647874230550361 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+  m_PrefabInstance: {fileID: 1098863430032754130}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625bc63ff2cd52e4ba0fc00c13f9687a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

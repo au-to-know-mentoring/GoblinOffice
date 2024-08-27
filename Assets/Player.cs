@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator MoveObject(Vector3 target, float duration)
     {
+        myAnimator.SetBool("Running", true);
         float startTime = Time.time; // Time when the movement starts
         Vector3 startPosition = transform.position; // Starting position of the object
 
@@ -94,6 +95,7 @@ public class Player : MonoBehaviour
 
         // Ensure the object is exactly at the target position at the end
         transform.position = target;
+        myAnimator.SetBool("Running", false);
     }
     public void SetReflect()
     {

@@ -317,9 +317,9 @@ public class PathfindingManager : MonoBehaviour
 
             
             myPlayer.TravelingToDoor = true;
-            myPlayer.StartCoroutine(myPlayer.MoveObject(myPlayer.ExitTransform.position, 3f));
+            myPlayer.StartCoroutine(myPlayer.MoveObject(myPlayer.ExitTransform.position, 2f));
             GlobalSettingsObject.difficultyMultiplier += 1;
-            Invoke("ReloadScene", 4f);
+            Invoke("ReloadScene", 2.01f);
         }
         else
         {
