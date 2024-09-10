@@ -182,7 +182,7 @@ public class PathfindingManager : MonoBehaviour
         if (GlobalTimeManager.Timer >= BeatToLoop)
         {
             GlobalTimeManager.Timer -= BeatToLoop;
-            if (Player.GetComponent<Player>().Health == 0)
+            if (Player.GetComponent<Player>().currentHealth == 0)
             {
                 //LevelComplete(false);
             }

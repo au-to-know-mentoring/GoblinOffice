@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public int Health;
-    public int MaxHealth;
+    public int currentHealth;
+    public int maxHealth;
     public Animator myAnimator;
     public GameObject myProjectile;
     public GameObject myTarget;
@@ -16,6 +17,12 @@ public class Player : MonoBehaviour
     public Vector3 ExitPosition;
     public float timeToMove;
     public bool TravelingToDoor = false;
+
+    [Header("Health U.I")]
+    public Animator[] healthAnimators;
+    public Image faceImage;
+    public Sprite[] difficultyFaces;
+
     [Header("Sounds")]
     public AudioSource hurtSound;
     public AudioSource attackSound;
@@ -25,6 +32,10 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (healthAnimators.Length != maxHealth)
+        {
+            Debug.LogWarning($"Number of animators ({healthAnimators.Length}) doesn't match maxHealth ({maxHealth})");
+        }
         if (ExitTransform != null)
         {
             ExitPosition = ExitTransform.position;
@@ -34,6 +45,7 @@ public class Player : MonoBehaviour
             ExitPosition = new Vector3(6.63000011f, 2.26999998f, -0.0669358075f);
         }
         myAnimator = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -112,13 +124,21 @@ public class Player : MonoBehaviour
         myAnimator.SetTrigger("Injured");
         if (hurtSound != null)
             hurtSound.Play();
+
     }
 
     public void ReduceHealthBy(int damage)
     {
-        if(Health <= 0) return;
-        Health = Health - damage;
-        if (Health <= 0)
+        if(currentHealth <= 0) return;
+        currentHealth = currentHealth - damage;
+        int animatorIndex = currentHealth;
+        if (animatorIndex >= 0 && animatorIndex < healthAnimators.Length)
+        {
+            healthAnimators[animatorIndex].SetTrigger("Damaged");
+        }
+
+        Debug.Log($"Health reduced to {currentHealth}");
+        if (currentHealth <= 0)
         {
             Death();
         }
@@ -129,10 +149,11 @@ public class Player : MonoBehaviour
     public void Death()
     {
         myAnimator.SetTrigger("Death");
-        Health = 0;
+        currentHealth = 0;
         FindObjectOfType(typeof(PathfindingManager)).GetComponent<PathfindingManager>().LevelComplete(false);
         if (deathSound != null)
             deathSound.Play();
+        faceImage.sprite = difficultyFaces[difficultyFaces.Length - 1];
     }
     public void RangedAttack(GameObject EnemyTarget)
     {
