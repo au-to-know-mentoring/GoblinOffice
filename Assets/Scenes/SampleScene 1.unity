@@ -1181,6 +1181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381855356}
+  - component: {fileID: 381855357}
   m_Layer: 5
   m_Name: Health/Difficulty U.I
   m_TagString: Untagged
@@ -1211,6 +1212,27 @@ RectTransform:
   m_AnchoredPosition: {x: -113.5, y: -96.746}
   m_SizeDelta: {x: 227, y: 193.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &381855357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381855355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa728a3d97932f44bef24dff0541881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyFacesArray:
+  - {fileID: 1406777138, guid: a9365ba38df45f4469999b915633887c, type: 3}
+  - {fileID: -602812754, guid: a9365ba38df45f4469999b915633887c, type: 3}
+  - {fileID: 763872227, guid: a9365ba38df45f4469999b915633887c, type: 3}
+  - {fileID: -255006748, guid: a9365ba38df45f4469999b915633887c, type: 3}
+  - {fileID: -1198785848, guid: a9365ba38df45f4469999b915633887c, type: 3}
+  - {fileID: 632702743, guid: a9365ba38df45f4469999b915633887c, type: 3}
+  face: {fileID: 185031844}
+  GlobalSettingsObject: {fileID: 11400000, guid: affd884bcd0ad3c4999b88aaa4db9b0d, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6438,7 +6460,9 @@ MonoBehaviour:
   StringBeatList: []
   myUIImageSpawner: {fileID: 0}
   EnemiesParent: {fileID: 304525656}
-  enemyPrefab: {fileID: 531067805241645127, guid: 2adc3dc6e332f4e45a4f9b45c2028ba0, type: 3}
+  enemyPrefabs:
+  - {fileID: 296834867088300105, guid: 2ac57ce6b477cd74f8790b5795e6f3a0, type: 3}
+  - {fileID: 4308477881772683340, guid: 165400a06f82a0146852ea9000061277, type: 3}
   spawnPoints:
   - {fileID: 1274545123}
   - {fileID: 764788750}

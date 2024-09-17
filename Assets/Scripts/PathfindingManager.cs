@@ -21,7 +21,7 @@ public class PathfindingManager : MonoBehaviour
 
     [Header("Enemies")]
     public GameObject EnemiesParent;
-    public GameObject enemyPrefab; // Assign this in the Inspector with your enemy prefab
+    public GameObject[] enemyPrefabs; // Change this to an array of prefabs
     public Transform[] spawnPoints; // Assign spawn points in the Inspector if you have specific spawn locations
 
     // List of beat events, excluding movement;
@@ -74,6 +74,7 @@ public class PathfindingManager : MonoBehaviour
         EnemySpawner enemySpawner = GetComponent<EnemySpawner>(); // Make sure EnemySpawner is on the same GameObject or find it accordingly
         if (enemySpawner != null)
         {
+            enemySpawner.SetEnemyPrefabs(enemyPrefabs); // Pass the array of prefabs to the EnemySpawner
             enemySpawner.SpawnRandomAmountOfEnemies(GlobalSettingsObject.difficultyMultiplier);
         }
         youWinSound = GetComponentInChildren<AudioSource>();
