@@ -442,10 +442,21 @@ public class PathfindingManager : MonoBehaviour
                 {
                     case "Left":
                         leftOfPlayerSet = true;
-                        closestEnemy.GetComponent<SpriteRenderer>().flipX = true;
+                        if (closestEnemy.InvertSpriteFlip == false)
+                        {
+                            closestEnemy.GetComponent<SpriteRenderer>().flipX = true;
+                        }
+                        else
+                            closestEnemy.GetComponent<SpriteRenderer>().flipX = false;
                         break;
                     case "Right":
                         rightOfPlayerSet = true;
+                        if (closestEnemy.InvertSpriteFlip == true)
+                        {
+                            closestEnemy.GetComponent<SpriteRenderer>().flipX = false;
+                        }
+                        else
+                            closestEnemy.GetComponent<SpriteRenderer>().flipX = true;
                         break;
                     case "Top":
                         topOfPlayerSet = true;

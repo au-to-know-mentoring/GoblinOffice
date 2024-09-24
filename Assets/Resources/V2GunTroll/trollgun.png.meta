@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9142442b9eb570c409b52146e6236521
+guid: 043b896058abf434286ee88f9644a990
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trollgunparticle_0
+      name: trollgun_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f4e649b2f16b7241a439fdca6eca52e
-      internalID: -2097024909
+      spriteID: 2fa02097cc2bafe49a3f139d308243b2
+      internalID: 1897922744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_1
+      name: trollgun_1
       rect:
         serializedVersion: 2
         x: 256
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab09984e36f534747af14a814f029b67
-      internalID: 2021711174
+      spriteID: 80ab649c25607e84aa22e6b946f25af0
+      internalID: 2133528604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_2
+      name: trollgun_2
       rect:
         serializedVersion: 2
         x: 512
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 242167713c6754e4a89e16694b78ad1e
-      internalID: -1775547209
+      spriteID: 044aa8e352214de4f9dccc45f7bb484d
+      internalID: -436343975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_3
+      name: trollgun_3
       rect:
         serializedVersion: 2
         x: 768
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b206a3ff1ec5879438bd470aaf5dd09b
-      internalID: 2138022795
+      spriteID: 8b73482d9f604c645a00d5e728b50cbc
+      internalID: 1676252394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_4
+      name: trollgun_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3dad559e054d4043bebac223da135f0
-      internalID: -148140827
+      spriteID: b59f645f6d7f9c04c9b17ab2ca78ff69
+      internalID: -1150615239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_5
+      name: trollgun_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7f07cf8d92ff224a828e905645f0f1d
-      internalID: 926741239
+      spriteID: b343109a26691f9469aba26cd59d8f19
+      internalID: -1947504002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_6
+      name: trollgun_6
       rect:
         serializedVersion: 2
         x: 1536
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f1c003a3bd8cc948aa303b7d288e123
-      internalID: -289612050
+      spriteID: 439d3397d05d2b046ac531e70435ddb3
+      internalID: -1652230953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_7
+      name: trollgun_7
       rect:
         serializedVersion: 2
         x: 1792
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25e8b3b53dd09d74987417be7602339d
-      internalID: 144352219
+      spriteID: 652e4b7f5f1164a4e9e378e2ba107629
+      internalID: -146391338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_8
+      name: trollgun_8
       rect:
         serializedVersion: 2
         x: 0
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44a9727e10d86c1468157fce6552d9d2
-      internalID: 229940317
+      spriteID: 2bb4c586e77994d40a69073fff94b7e4
+      internalID: 1059340171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_9
+      name: trollgun_9
       rect:
         serializedVersion: 2
         x: 256
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e46b8029dcf8f5a48bf90e019bc94ce6
-      internalID: -1198187742
+      spriteID: 0d9d51fcd245d684e851598d69e8196e
+      internalID: 506876349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_10
+      name: trollgun_10
       rect:
         serializedVersion: 2
         x: 512
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a6e72a68615f204ba05ff4f60fc78a5
-      internalID: -156619765
+      spriteID: 13caf93e4ef45ce43b353e2f05ed4804
+      internalID: 746189230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_11
+      name: trollgun_11
       rect:
         serializedVersion: 2
         x: 768
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e6d6e7eb9dce764fb0ade6ffea48559
-      internalID: -1739148945
+      spriteID: 5a4eb92070ceacc449ddd1645e87a0fe
+      internalID: 2012488471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_12
+      name: trollgun_12
       rect:
         serializedVersion: 2
         x: 1024
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad3578b737ce4ee49993e691dfb4eb07
-      internalID: -1594492007
+      spriteID: d93010820c3f2c245a3c126f885bf99b
+      internalID: -1037343032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_13
+      name: trollgun_13
       rect:
         serializedVersion: 2
         x: 1280
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ac6cfcb878cef34784a6af7d8639c7c
-      internalID: 420608599
+      spriteID: 66991037750df404b8db24862fd8b61f
+      internalID: -772937820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_14
+      name: trollgun_14
       rect:
         serializedVersion: 2
         x: 1536
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 991d81bb1c70d044095477fe0b4c292a
-      internalID: -1522867356
+      spriteID: 1629460b0ceebc44b85004fdb6743e0d
+      internalID: -696196943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_15
+      name: trollgun_15
       rect:
         serializedVersion: 2
         x: 1792
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9367265e687f9f543b970d1feeb82bdf
-      internalID: 1639542986
+      spriteID: ec3999f29d35fd24f8c64b752d4dba10
+      internalID: 786648366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_16
+      name: trollgun_16
       rect:
         serializedVersion: 2
         x: 0
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cb8a911a024d3348b2aab867e2e7aae
-      internalID: 1168398933
+      spriteID: 469d21a0059652346a6560861f69bf4d
+      internalID: -737150117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_17
+      name: trollgun_17
       rect:
         serializedVersion: 2
         x: 256
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4e9d10c098eea8419d085890913c49f
-      internalID: -2136025607
+      spriteID: 58516da3eb2ff1c488f635a4b34ee1ca
+      internalID: 878141444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_18
+      name: trollgun_18
       rect:
         serializedVersion: 2
         x: 512
@@ -515,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83574f41c0e4c7c48a23ccf8a93c43c2
-      internalID: -1939559962
+      spriteID: 5c846f8001e2c3c44900c72920205545
+      internalID: -1352080841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_19
+      name: trollgun_19
       rect:
         serializedVersion: 2
         x: 768
@@ -536,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c4977cf263d2674bb00973e0696959c
-      internalID: -1935123347
+      spriteID: b97d2bdc53d107d43a5ecb180111a26c
+      internalID: -1154906275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_20
+      name: trollgun_20
       rect:
         serializedVersion: 2
         x: 1024
@@ -557,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9f0e750ac0d5974387f6976d3b958c8
-      internalID: 1898928185
+      spriteID: 911a3f2dfd8795a4eb6ff99feda47acf
+      internalID: -397455326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_21
+      name: trollgun_21
       rect:
         serializedVersion: 2
         x: 1280
@@ -578,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1c163f8c3177184f9a2569aa1ca035f
-      internalID: 682120943
+      spriteID: 706876009f384344ebc20be706ce52d5
+      internalID: 298718548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_22
+      name: trollgun_22
       rect:
         serializedVersion: 2
         x: 1536
@@ -599,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e6f6d95533b992448bf433e31c34c05
-      internalID: 1242646918
+      spriteID: 7627c5c08e8685940a5f5a0a02698bd1
+      internalID: 1360407947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_23
+      name: trollgun_23
       rect:
         serializedVersion: 2
         x: 1792
@@ -620,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccd9f794497a4a04eb03b65c9d457a0b
-      internalID: 261876807
+      spriteID: 203a3df53aa12444a955fe660bc5f875
+      internalID: -1725538493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_24
+      name: trollgun_24
       rect:
         serializedVersion: 2
         x: 0
@@ -641,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8b47a67986d9d64fae10c2ebe797801
-      internalID: 713078347
+      spriteID: 8b54258b6989a8b4bacd7c98ef85e4da
+      internalID: -860279993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_25
+      name: trollgun_25
       rect:
         serializedVersion: 2
         x: 256
@@ -662,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb16b623a3527e84abcd247ce995725b
-      internalID: 482475549
+      spriteID: 0980c6a85ac899344a82995f83a07233
+      internalID: -275875863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_26
+      name: trollgun_26
       rect:
         serializedVersion: 2
         x: 512
@@ -683,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8159171aee8879f4298b5ca2d8c4183d
-      internalID: 850519633
+      spriteID: fd32f5bbdbad2d2448bbd2daf95ccaaa
+      internalID: -478473355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_27
+      name: trollgun_27
       rect:
         serializedVersion: 2
         x: 768
@@ -704,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f5a7c634a17752438985168dddb0426
-      internalID: 1535168768
+      spriteID: 4189ae632d1af59458e608283d51bd2d
+      internalID: 447487436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_28
+      name: trollgun_28
       rect:
         serializedVersion: 2
         x: 1024
@@ -725,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d093f56469a736a408cae2a876a58918
-      internalID: -371603728
+      spriteID: 9e668ec2444c02a46b6a4bb25912062e
+      internalID: 1325192954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_29
+      name: trollgun_29
       rect:
         serializedVersion: 2
         x: 1280
@@ -746,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9370516d941e734a99f9d6d786ec079
-      internalID: 1375949767
+      spriteID: 9c12ba09930ca874095384c051453384
+      internalID: -1079950071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_30
+      name: trollgun_30
       rect:
         serializedVersion: 2
         x: 1536
@@ -767,14 +767,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a556ce6f0cb938488ad3553de85529f
-      internalID: -152319014
+      spriteID: efe5cef855ecd3b43b202bdec66df54f
+      internalID: 834732472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_31
+      name: trollgun_31
       rect:
         serializedVersion: 2
         x: 1792
@@ -788,14 +788,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2755fb13483cd8a4e9368233bc6bd62c
-      internalID: 1722722435
+      spriteID: 8c01ad00a5d80524bb72f547650683db
+      internalID: 1658619755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_32
+      name: trollgun_32
       rect:
         serializedVersion: 2
         x: 0
@@ -809,14 +809,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8e7d67ab7f8a25458c0ad5197055337
-      internalID: -1144678464
+      spriteID: 081285b5a50e7f5409019f5d73652296
+      internalID: 1615468717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_33
+      name: trollgun_33
       rect:
         serializedVersion: 2
         x: 256
@@ -830,14 +830,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 030f17264cd3f5c4ca9cb16f025675f7
-      internalID: 886797512
+      spriteID: a460506cb74ac1044b0920fb558665bc
+      internalID: 1044766664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_34
+      name: trollgun_34
       rect:
         serializedVersion: 2
         x: 512
@@ -851,14 +851,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf931e2333fcdda408b3b7b20a106b7d
-      internalID: -1648307508
+      spriteID: a23a8038e9862f14c8695354aa21cdb1
+      internalID: 446104490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_35
+      name: trollgun_35
       rect:
         serializedVersion: 2
         x: 768
@@ -872,14 +872,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3539fef9da8d684098e47a048929ec9
-      internalID: -2048545438
+      spriteID: b2819427bef7ad5418a52b851ea9ea21
+      internalID: 739225872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_36
+      name: trollgun_36
       rect:
         serializedVersion: 2
         x: 1024
@@ -893,14 +893,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 028c9a9a43ed5e44e8a8a1be1e7b0df2
-      internalID: 831776355
+      spriteID: 638587ef65e932c43a2bf10114a6dd2e
+      internalID: 1672531374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_37
+      name: trollgun_37
       rect:
         serializedVersion: 2
         x: 1280
@@ -914,14 +914,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f024d53b1c85cf4593504067e80c925
-      internalID: -1854332954
+      spriteID: 0dd01186eb5bb174fb1ea7a1f2321845
+      internalID: -837630342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_38
+      name: trollgun_38
       rect:
         serializedVersion: 2
         x: 1536
@@ -935,14 +935,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ebbfca5ded07ec42a47fcadf74b2209
-      internalID: 777473700
+      spriteID: eae27cf87b7a3f24e9578f71cb8fa99f
+      internalID: 1472074603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_39
+      name: trollgun_39
       rect:
         serializedVersion: 2
         x: 1792
@@ -956,14 +956,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20c49c8ebcfed51499dbd07152f116c0
-      internalID: -1311973743
+      spriteID: 3cb2e9db42c2e4d4fab9c8de62dbacb6
+      internalID: -1238687858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_40
+      name: trollgun_40
       rect:
         serializedVersion: 2
         x: 0
@@ -977,14 +977,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 515362d88a17c6649972b5c5a9632802
-      internalID: 798715734
+      spriteID: 2d28cee74f7ac6d4aa0909e2b641f22d
+      internalID: 295311383
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_41
+      name: trollgun_41
       rect:
         serializedVersion: 2
         x: 256
@@ -998,14 +998,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b07acfa5a7c007f42a2fff87ee5713a3
-      internalID: 419043289
+      spriteID: f35ed199866c73e41a95409542765864
+      internalID: -106233598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_42
+      name: trollgun_42
       rect:
         serializedVersion: 2
         x: 512
@@ -1019,14 +1019,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f183dfb5033f3e24089205fac4d8762c
-      internalID: -2039714345
+      spriteID: 61586050db073dd4d9cceafe08b420b5
+      internalID: 1709831442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_43
+      name: trollgun_43
       rect:
         serializedVersion: 2
         x: 768
@@ -1040,14 +1040,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6eee8785379c72c42997707eeb1adbd5
-      internalID: -1713346799
+      spriteID: 64e0acabde67c4e49bb9c5615ab6a6af
+      internalID: 1242858883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_44
+      name: trollgun_44
       rect:
         serializedVersion: 2
         x: 1024
@@ -1061,14 +1061,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 701dd15397eebbf4796d9b9ba1962c1c
-      internalID: -1592765613
+      spriteID: 31d48db05ce41614384976a8294b408b
+      internalID: 637790439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_45
+      name: trollgun_45
       rect:
         serializedVersion: 2
         x: 1280
@@ -1082,14 +1082,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebb4f3c10a1319d4b834c21ef357f1f9
-      internalID: 205791934
+      spriteID: ebe9694bf9684e746a328d7a431bd79b
+      internalID: -1593245101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_46
+      name: trollgun_46
       rect:
         serializedVersion: 2
         x: 1536
@@ -1103,14 +1103,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d94e26e2c22028543aae9254f920bc0a
-      internalID: -1540750251
+      spriteID: 9330212a915ea284b8e72fab8693b215
+      internalID: 996182515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_47
+      name: trollgun_47
       rect:
         serializedVersion: 2
         x: 1792
@@ -1124,14 +1124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12221814c75b4504d901ceb9c1cc9c53
-      internalID: -409080548
+      spriteID: 4635969a2f48dfb46af7b999f0b3ce09
+      internalID: -294281625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_48
+      name: trollgun_48
       rect:
         serializedVersion: 2
         x: 0
@@ -1145,14 +1145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4dc6b9ec73f6f144b529595628d5172
-      internalID: 44024509
+      spriteID: 65042a598c8610847a75f252dfc8b01c
+      internalID: -227079528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_49
+      name: trollgun_49
       rect:
         serializedVersion: 2
         x: 256
@@ -1166,14 +1166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36148b887494e094296339bc004a6f60
-      internalID: -1512909526
+      spriteID: 2f7f6cf384041334e816985ebd738f10
+      internalID: 83510879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_50
+      name: trollgun_50
       rect:
         serializedVersion: 2
         x: 512
@@ -1187,14 +1187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 366b867f2e2b4ad4699ee9f01a656283
-      internalID: 123490282
+      spriteID: d2b0aa033b7dc16418b91a8f4ee30ddc
+      internalID: 39401075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_51
+      name: trollgun_51
       rect:
         serializedVersion: 2
         x: 768
@@ -1208,14 +1208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5c4414963a2f854380aaf66fc707833
-      internalID: -297022859
+      spriteID: 97a2a169aea328144b7246c0a774d6f3
+      internalID: 179370033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_52
+      name: trollgun_52
       rect:
         serializedVersion: 2
         x: 1024
@@ -1229,14 +1229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3c5ae3ae2f4e5c488b8ba2f8c133f57
-      internalID: -292707537
+      spriteID: 18f685d736cb3a2439f7f0dd835675b0
+      internalID: 665095417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_53
+      name: trollgun_53
       rect:
         serializedVersion: 2
         x: 1280
@@ -1250,14 +1250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21f5ad0ac917a674a9b9997568a8e99c
-      internalID: -1598074990
+      spriteID: 83f0c20bd75e7e3499e21da21f9a3607
+      internalID: 1227027177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_54
+      name: trollgun_54
       rect:
         serializedVersion: 2
         x: 1536
@@ -1271,14 +1271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1bfab874b713134abeb4699ee01cf68
-      internalID: -363747293
+      spriteID: 3994685b60ce23c4eba7c1dcc9478090
+      internalID: -536232133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trollgunparticle_55
+      name: trollgun_55
       rect:
         serializedVersion: 2
         x: 1792
@@ -1292,8 +1292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d51cd01465f12714db9d312facca8a13
-      internalID: -128654132
+      spriteID: 4a86c4edc6786c042b9d2c7b89150372
+      internalID: -1178957830
       vertices: []
       indices: 
       edges: []
@@ -1309,62 +1309,62 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      trollgunparticle_0: -2097024909
-      trollgunparticle_1: 2021711174
-      trollgunparticle_10: -156619765
-      trollgunparticle_11: -1739148945
-      trollgunparticle_12: -1594492007
-      trollgunparticle_13: 420608599
-      trollgunparticle_14: -1522867356
-      trollgunparticle_15: 1639542986
-      trollgunparticle_16: 1168398933
-      trollgunparticle_17: -2136025607
-      trollgunparticle_18: -1939559962
-      trollgunparticle_19: -1935123347
-      trollgunparticle_2: -1775547209
-      trollgunparticle_20: 1898928185
-      trollgunparticle_21: 682120943
-      trollgunparticle_22: 1242646918
-      trollgunparticle_23: 261876807
-      trollgunparticle_24: 713078347
-      trollgunparticle_25: 482475549
-      trollgunparticle_26: 850519633
-      trollgunparticle_27: 1535168768
-      trollgunparticle_28: -371603728
-      trollgunparticle_29: 1375949767
-      trollgunparticle_3: 2138022795
-      trollgunparticle_30: -152319014
-      trollgunparticle_31: 1722722435
-      trollgunparticle_32: -1144678464
-      trollgunparticle_33: 886797512
-      trollgunparticle_34: -1648307508
-      trollgunparticle_35: -2048545438
-      trollgunparticle_36: 831776355
-      trollgunparticle_37: -1854332954
-      trollgunparticle_38: 777473700
-      trollgunparticle_39: -1311973743
-      trollgunparticle_4: -148140827
-      trollgunparticle_40: 798715734
-      trollgunparticle_41: 419043289
-      trollgunparticle_42: -2039714345
-      trollgunparticle_43: -1713346799
-      trollgunparticle_44: -1592765613
-      trollgunparticle_45: 205791934
-      trollgunparticle_46: -1540750251
-      trollgunparticle_47: -409080548
-      trollgunparticle_48: 44024509
-      trollgunparticle_49: -1512909526
-      trollgunparticle_5: 926741239
-      trollgunparticle_50: 123490282
-      trollgunparticle_51: -297022859
-      trollgunparticle_52: -292707537
-      trollgunparticle_53: -1598074990
-      trollgunparticle_54: -363747293
-      trollgunparticle_55: -128654132
-      trollgunparticle_6: -289612050
-      trollgunparticle_7: 144352219
-      trollgunparticle_8: 229940317
-      trollgunparticle_9: -1198187742
+      trollgun_0: 1897922744
+      trollgun_1: 2133528604
+      trollgun_10: 746189230
+      trollgun_11: 2012488471
+      trollgun_12: -1037343032
+      trollgun_13: -772937820
+      trollgun_14: -696196943
+      trollgun_15: 786648366
+      trollgun_16: -737150117
+      trollgun_17: 878141444
+      trollgun_18: -1352080841
+      trollgun_19: -1154906275
+      trollgun_2: -436343975
+      trollgun_20: -397455326
+      trollgun_21: 298718548
+      trollgun_22: 1360407947
+      trollgun_23: -1725538493
+      trollgun_24: -860279993
+      trollgun_25: -275875863
+      trollgun_26: -478473355
+      trollgun_27: 447487436
+      trollgun_28: 1325192954
+      trollgun_29: -1079950071
+      trollgun_3: 1676252394
+      trollgun_30: 834732472
+      trollgun_31: 1658619755
+      trollgun_32: 1615468717
+      trollgun_33: 1044766664
+      trollgun_34: 446104490
+      trollgun_35: 739225872
+      trollgun_36: 1672531374
+      trollgun_37: -837630342
+      trollgun_38: 1472074603
+      trollgun_39: -1238687858
+      trollgun_4: -1150615239
+      trollgun_40: 295311383
+      trollgun_41: -106233598
+      trollgun_42: 1709831442
+      trollgun_43: 1242858883
+      trollgun_44: 637790439
+      trollgun_45: -1593245101
+      trollgun_46: 996182515
+      trollgun_47: -294281625
+      trollgun_48: -227079528
+      trollgun_49: 83510879
+      trollgun_5: -1947504002
+      trollgun_50: 39401075
+      trollgun_51: 179370033
+      trollgun_52: 665095417
+      trollgun_53: 1227027177
+      trollgun_54: -536232133
+      trollgun_55: -1178957830
+      trollgun_6: -1652230953
+      trollgun_7: -146391338
+      trollgun_8: 1059340171
+      trollgun_9: 506876349
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

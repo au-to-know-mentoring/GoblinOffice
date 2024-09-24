@@ -21,6 +21,7 @@ public class PathfindingObject : MonoBehaviour
     public bool UpdateStartingPosition = true;
     [Header("Attack Variables")]
     public bool MeleeMode;
+    public bool InvertSpriteFlip;
     public GameObject rangedAttack;
     public int rangedAttackQuantity;
     public int rangedAttackQuantityOriginal;

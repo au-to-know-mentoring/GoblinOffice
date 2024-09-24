@@ -10,7 +10,7 @@ using UnityEditor;
 using System.Linq;
 using UnityEditor.Animations;
 
-public class Importer : MonoBehaviour
+public class Importer2 : MonoBehaviour
 {
     public TextAsset xmlFile; // Changed from string xmlFileName
     public SpriteSheetImporter mySpriteSheetImporter;
@@ -129,6 +129,7 @@ public class Importer : MonoBehaviour
             var startFrame = state.Attribute("StartingFrame")?.Value;
             var endFrame = state.Attribute("EndingFrame")?.Value;
             var sampleRate = state.Attribute("SampleRate")?.Value ?? "12"; // Default to 12 if sample rate is not provided
+            var loopTime = state.Attribute("LoopTime")?.Value;
 
             if (string.IsNullOrEmpty(stateName) || string.IsNullOrEmpty(startFrame) || string.IsNullOrEmpty(endFrame) || string.IsNullOrEmpty(sampleRate))
             {
@@ -138,6 +139,12 @@ public class Importer : MonoBehaviour
 
             AnimationClip clip = new AnimationClip();
             clip.frameRate = float.Parse(sampleRate); // Set frame rate from XML
+
+            // Set loop time
+            bool shouldLoop = !string.IsNullOrEmpty(loopTime) && bool.Parse(loopTime);
+            AnimationClipSettings clipSettings = AnimationUtility.GetAnimationClipSettings(clip);
+            clipSettings.loopTime = shouldLoop;
+            AnimationUtility.SetAnimationClipSettings(clip, clipSettings);
 
             EditorCurveBinding curveBinding = new EditorCurveBinding
             {
@@ -190,51 +197,42 @@ public class Importer : MonoBehaviour
                 var toState = transition.Attribute("To")?.Value;
                 var condition = transition.Attribute("Condition")?.Value;
 
-                if (string.IsNullOrEmpty(toState) || string.IsNullOrEmpty(condition))
+                if (string.IsNullOrEmpty(toState))
                 {
-                    Debug.LogError("Transition target state or condition is missing.");
+                    Debug.LogError("Transition target state is missing.");
                     continue;
                 }
 
                 if (animatorStates.TryGetValue(toState, out var targetState))
                 {
                     var animatorTransition = animatorState.AddTransition(targetState);
-                    animatorTransition.AddCondition(AnimatorConditionMode.If, 0, condition);
+                    
+                    if (string.IsNullOrEmpty(condition))
+                    {
+                        // Set hasExitTime to true for transitions with no conditions
+                        animatorTransition.hasExitTime = true;
+                        animatorTransition.exitTime = 1f; // You can adjust this value as needed
+                        animatorTransition.duration = 0f;
+                    }
+                    else
+                    {
+                        string[] conditionParts = condition.Split(' ');
+                        if (conditionParts.Length == 3 && int.TryParse(conditionParts[2], out int conditionValue))
+                        {
+                            animatorTransition.AddCondition(AnimatorConditionMode.Equals, conditionValue, conditionParts[0]);
+                        }
+                        else
+                        {
+                            Debug.LogError("Invalid transition condition format.");
+                        }
+                    }
+                    // If condition is empty, no conditions are added to the transition
                 }
                 else
                 {
                     Debug.LogError($"Target state '{toState}' not found for transition from state '{stateName}'.");
                 }
             }
-            //foreach (var transition in transitions)
-            //{
-            //    var toState = transition.Attribute("To")?.Value;
-            //    var condition = transition.Attribute("Condition")?.Value;
-
-            //    if (string.IsNullOrEmpty(toState) || string.IsNullOrEmpty(condition))
-            //    {
-            //        Debug.LogError("Transition target state or condition is missing.");
-            //        continue;
-            //    }
-
-            //    if (animatorStates.TryGetValue(toState, out var targetState))
-            //    {
-            //        var animatorTransition = animatorState.AddTransition(targetState);
-            //        string[] conditionParts = condition.Split(' ');
-            //        if (conditionParts.Length == 3 && int.TryParse(conditionParts[2], out int conditionValue))
-            //        {
-            //            animatorTransition.AddCondition(AnimatorConditionMode.Equals, conditionValue, conditionParts[0]);
-            //        }
-            //        else
-            //        {
-            //            Debug.LogError("Invalid transition condition format.");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        Debug.LogError($"Target state '{toState}' not found for transition from state '{stateName}'.");
-            //    }
-            //}
         }
 
         AssetDatabase.SaveAssets();

@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Sprites/troll run0002.png.meta
 guid: f9ec7e22bfc7798479150fa00988b9d6
-========
-guid: 8ca6e3d6ba048cb4f81f9d5885fbaf90
->>>>>>>> SpriteSheetController:Assets/Sprites/projectiles/trollbulletsprite.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -24,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -42,7 +39,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -66,19 +63,34 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
-  cookieLightType: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -86,11 +98,12 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -98,11 +111,12 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -123,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1e48243dbeceb443bdad15645501b0b
-      internalID: -1724479224
+      spriteID: f8caa940591f62d4d86f4a6f2737047c
+      internalID: 898676037
       vertices: []
       indices: 
       edges: []
@@ -144,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b87334b59cc912b4d9a3c5340426bf15
-      internalID: 1102726967
+      spriteID: 13451768a31cf3044a51f6b508419938
+      internalID: -1729494989
       vertices: []
       indices: 
       edges: []
@@ -165,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44d743e5d58cca24390bca2cf93e1bdb
-      internalID: 1881679313
+      spriteID: af4a681e843328946803ab1fb43bee1e
+      internalID: 84310255
       vertices: []
       indices: 
       edges: []
@@ -186,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 385246d54beabc740a5a6bcfa22abcf8
-      internalID: -1750868799
+      spriteID: 9d96e7f64a9d82648bbe00be2507fdf4
+      internalID: -2071946429
       vertices: []
       indices: 
       edges: []
@@ -203,13 +217,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      trollbulletsprite_2: 1881679313
-      trollbulletsprite_0: -1724479224
-      trollbulletsprite_3: -1750868799
-      trollbulletsprite_1: 1102726967
-  spritePackingTag: 
+      trollbulletsprite_0: 898676037
+      trollbulletsprite_1: -1729494989
+      trollbulletsprite_2: 84310255
+      trollbulletsprite_3: -2071946429
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

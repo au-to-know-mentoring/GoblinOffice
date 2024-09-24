@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class RangedProjectile : MonoBehaviour
 {
@@ -35,6 +36,15 @@ public class RangedProjectile : MonoBehaviour
         SetSpriteRendererColor();
         myPlayer = FindObjectOfType<Player>();
         playerTransform = myPlayer.GetComponent<Transform>();
+        Vector3 lookDirection;
+        lookDirection = myPlayer.transform.position - transform.position;
+    
+
+    // Calculate the angle in degrees
+    float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        angle += 90f;
+        // Rotate the object
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void SetSpriteRendererColor()
