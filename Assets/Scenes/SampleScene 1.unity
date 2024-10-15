@@ -4974,7 +4974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 296834867088300105, guid: 2ac57ce6b477cd74f8790b5795e6f3a0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7089174077902252653, guid: 2ac57ce6b477cd74f8790b5795e6f3a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6521,7 +6521,7 @@ MonoBehaviour:
   RangedBeats: 3
   BeatToLoop: 8
   myAnimationSettings: {fileID: 0}
-  MeleeAssignments: 0
+  MeleeAssignments: 2
   beatRollResults: 
   LeftOfPlayerPosition: {x: 0, y: 0, z: 0}
   RightOfPlayerPosition: {x: 0, y: 0, z: 0}
@@ -6943,17 +6943,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4272134046249179700, guid: ccadc6d6099b19f4a81c5b4f9626786e, type: 3}
+    - target: {fileID: 5291987296645813634, guid: ccadc6d6099b19f4a81c5b4f9626786e, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 0726edaa68fae594bb704b31d193a26c, type: 3}
+      objectReference: {fileID: 8300000, guid: a9324e6ccee652f46947420285ac068b, type: 3}
     - target: {fileID: 5593701454017691195, guid: ccadc6d6099b19f4a81c5b4f9626786e, type: 3}
       propertyPath: m_Name
       value: GunTrol
       objectReference: {fileID: 0}
     - target: {fileID: 5593701454017691195, guid: ccadc6d6099b19f4a81c5b4f9626786e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8408897621818414263, guid: ccadc6d6099b19f4a81c5b4f9626786e, type: 3}
       propertyPath: m_LocalPosition.x
