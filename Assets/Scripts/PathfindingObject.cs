@@ -8,6 +8,7 @@ using UnityEditor;
 using System.Reflection;
 using System.Collections;
 using System;
+using static SharedEnums;  // Add this line to use the shared enum
 
 public class PathfindingObject : MonoBehaviour
 {
@@ -80,7 +81,7 @@ public class PathfindingObject : MonoBehaviour
     public InputManager myInputManager;
     /// </summary>
     /// <param name="obstacleTilemap"></param>
-    public Color myColour = Color.Debug0;
+    public ColorType myColour;  // Change this line if it's not already using ColorType
     public SettingsData GlobalSettingsObject;
     public TimeManager GlobalTimeManager;
 
@@ -90,14 +91,6 @@ public class PathfindingObject : MonoBehaviour
     public AudioSource deathSound;
     public AudioSource tauntSound;
     
-    public enum Color
-    {
-        Debug0,
-        Green1,
-        Red2,
-        Blue3,
-        Yellow4
-    }
     public void setObstacleTilemap(Tilemap obstacleTilemap)
     {
         this.obstacleTilemap = obstacleTilemap;
@@ -225,7 +218,12 @@ public class PathfindingObject : MonoBehaviour
 
     public void RangedAttackAnimationComplete()
     {
-        Instantiate(rangedAttack, transform.position, Quaternion.identity);
+        GameObject projectileObj = Instantiate(rangedAttack, transform.position, Quaternion.identity);
+        RangedProjectile projectile = projectileObj.GetComponent<RangedProjectile>();
+        if (projectile != null)
+        {
+            projectile.SetColor(myColour);  // No need for casting now
+        }
         rangedAttackSound.Play();
     }
     private void Update()
@@ -321,7 +319,7 @@ public class PathfindingObject : MonoBehaviour
             // Code the part where the enemy can die.
             Invoke(methodName: "ResetVulnerableBeat", VulnerableDuration); // can cause 2 enemies to become vulnerable if 2 seconds or more..
             isVulnerable = true; //Is set back to false in LoopBeat()
-            myColour = (Color)UnityEngine.Random.Range(1, 5);
+            myColour = (ColorType)UnityEngine.Random.Range(1, 5);
             tauntSound.Play();
         }
     }
@@ -342,12 +340,13 @@ public class PathfindingObject : MonoBehaviour
                     {
                         myAnimator.SetTrigger("MeleeAttack");
                         rangedAttacksList[i].Done = true;
-                        myColour = (Color)UnityEngine.Random.Range(1, 5);
+                        myColour = (ColorType)UnityEngine.Random.Range(1, 5);
                     }
                     else
                     {
                         myAnimator.SetTrigger("RangedAttack");
                         rangedAttacksList[i].Done = true;
+                        myColour = (ColorType)UnityEngine.Random.Range(1, 5);
                     }
                 }
             }

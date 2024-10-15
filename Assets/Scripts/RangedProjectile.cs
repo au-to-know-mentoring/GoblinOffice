@@ -4,6 +4,7 @@ using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using static SharedEnums;  // Add this line to use the shared enum
 
 public class RangedProjectile : MonoBehaviour
 {
@@ -11,19 +12,11 @@ public class RangedProjectile : MonoBehaviour
     public float moveSpeed = 1;
     public Player myPlayer;
     public Transform playerTransform;
-    public Color myColour;
+    public ColorType myColour;  // Change this line
     public SpriteRenderer spriteRenderer;
     public SettingsData GlobalSettingsObject;
     public InputManager myInputManager;
     public bool SpeedAdjusted = false;
-    public enum Color
-    {
-        Debug0,
-        Green1,
-        Red2,
-        Blue3,
-        Yellow4
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +25,7 @@ public class RangedProjectile : MonoBehaviour
         //moveSpeed *= GlobalSettingsObject.BeatsPerSecondBPM;
         myInputManager = FindObjectOfType<InputManager>();
         spriteRenderer = GetComponent<SpriteRenderer>(); 
-        myColour = (Color)Random.Range(1, 5);
+        //myColour = (Color)Random.Range(1, 5);
         SetSpriteRendererColor();
         myPlayer = FindObjectOfType<Player>();
         playerTransform = myPlayer.GetComponent<Transform>();
@@ -46,21 +39,27 @@ public class RangedProjectile : MonoBehaviour
         // Rotate the object
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
-
+    public void SetColor(ColorType color)  // Update this method
+    {
+        myColour = color;
+        SetSpriteRendererColor();
+    }
     private void SetSpriteRendererColor()
     {
+        if(spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
         switch (myColour)
         {
-            case Color.Green1:
+            case ColorType.Green1:
                 spriteRenderer.color = GlobalSettingsObject.Green1;
                 break;
-            case Color.Red2:
+            case ColorType.Red2:
                 spriteRenderer.color = GlobalSettingsObject.Red2;
                 break;
-            case Color.Blue3:
+            case ColorType.Blue3:
                 spriteRenderer.color = GlobalSettingsObject.Blue3;
                 break;
-            case Color.Yellow4:
+            case ColorType.Yellow4:
                 spriteRenderer.color = GlobalSettingsObject.Yellow4;
                 break;
             default:
@@ -121,4 +120,3 @@ public class RangedProjectile : MonoBehaviour
 
 
 }
-

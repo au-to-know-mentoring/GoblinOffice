@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
@@ -62,6 +63,11 @@ public class PlayerRangedProjectile : MonoBehaviour
             this.gameObject.transform.position = new Vector3(-5, 6, 0);
         else
             this.gameObject.SetActive(false);
+    }
+
+    internal void SetColor(int myColour)
+    {
+        throw new NotImplementedException();
     }
 }
 
