@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cbcc8932a668dbf45aa549ae6241bf22
+guid: d79136a139a70474cb58b650754f5391
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,13 +103,300 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: whiteslimetroll_0
+      name: whitegun_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8253bf70da4efb44853e347f7cffca8
+      internalID: -1254941870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672aa0081794e2f43b1ca45d77f2c762
+      internalID: -661816377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea6f452fec7fdc48a58401228b7fc86
+      internalID: 1685059464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e79a428293695743891379affa87d75
+      internalID: -694939984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bac3f108f6b88a34890ddaa8c8762b70
+      internalID: -1892068236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0120eb9870af21243a0fe49f49f4ed3f
+      internalID: -1539753796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d925c3354f95dfc468335fcd76a8a024
+      internalID: -51991676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e654e7d9ad9bc04f973093ca6470c84
+      internalID: -1065042146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_8
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45b95338736cb4247bce0b85e538a2ee
+      internalID: -265999554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_9
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4435ee58c10ef73429d3164fa13a4030
+      internalID: 42097928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7138f6165d0ab234698aea72cd3ae2d2
+      internalID: 1078017772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_11
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 773b3b6f09fa060418643c80fc9bcb8e
+      internalID: 153103625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_12
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b181c42915e5a04099112062ce733eb
+      internalID: -2091656656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitegun_13
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed8b112eb5d435d40bb3912dc25fc9e3
-      internalID: -939466215
+      spriteID: 0e51d0b0025d20d48970db0dc2c503c9
+      internalID: -1737814572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_1
+      name: whitegun_14
       rect:
         serializedVersion: 2
         x: 256
@@ -140,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cd48fa4c98859246ba62d8aa3a1a5da
-      internalID: 2109867087
+      spriteID: 0e90b208984f0ce488242dc28298fedb
+      internalID: -994557807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_2
+      name: whitegun_15
       rect:
         serializedVersion: 2
         x: 512
@@ -161,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29d6ff22633678e4a86b252418e2a76f
-      internalID: -2089560977
+      spriteID: cbbaa97bef3fe4946ac2bd9ca81cd03f
+      internalID: -1930484234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_3
+      name: whitegun_16
       rect:
         serializedVersion: 2
         x: 768
@@ -182,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b71abe8c7cbd7d947b484d4186bbadd9
-      internalID: 689298955
+      spriteID: 9c1bd7acd34f42b42a7e60dc31539b1e
+      internalID: 1523013329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_4
+      name: whitegun_17
       rect:
         serializedVersion: 2
         x: 1024
@@ -203,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06c98bda164de8a4898f59778ca2bea1
-      internalID: -1893834279
+      spriteID: d5d15ab0275a038439b1d5da4c4b3f5d
+      internalID: -509202200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_5
+      name: whitegun_18
       rect:
         serializedVersion: 2
         x: 1280
@@ -224,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f19f1290a0f04344aca20efc7adcc68
-      internalID: -2121959693
+      spriteID: 517fdcda8d6c1324eb1af6b281b1aa9e
+      internalID: 835120535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_6
+      name: whitegun_19
       rect:
         serializedVersion: 2
         x: 1536
@@ -245,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de5355a4108d5f644b88535d68e9aaea
-      internalID: -1833429462
+      spriteID: 337f7208f48f78847979a83dbf243c26
+      internalID: 277348696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_7
+      name: whitegun_20
       rect:
         serializedVersion: 2
         x: 1792
@@ -266,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbc745cfd7b9b2d46be4e74e25ca2cf0
-      internalID: -779120547
+      spriteID: d0e24490d032e2e49ad9459d322eae9b
+      internalID: 1522441466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_8
+      name: whitegun_21
       rect:
         serializedVersion: 2
         x: 2048
@@ -287,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd155724a2f018f44ac3ddc0d7cf3df3
-      internalID: -1250456630
+      spriteID: cfad17bd89dc56a4584b9ade77542d70
+      internalID: -515824838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_9
+      name: whitegun_22
       rect:
         serializedVersion: 2
         x: 2304
@@ -308,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a16499481e6a89443b8128ea4540c39a
-      internalID: 318280832
+      spriteID: a432cf972f654c844b432d31a913212c
+      internalID: 1567196526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_10
+      name: whitegun_23
       rect:
         serializedVersion: 2
         x: 2560
@@ -329,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a23651c1d5271cd41b0af9380c72f83f
-      internalID: 497230746
+      spriteID: 020b71291fab0f340b699e59a85a0fb3
+      internalID: 1076142659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_11
+      name: whitegun_24
       rect:
         serializedVersion: 2
         x: 2816
@@ -350,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93ca8f0c863cffc4c9304c9eefc0fc75
-      internalID: -1416271793
+      spriteID: cf014c71463ac444f91241f220dd014c
+      internalID: -1154336087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_12
+      name: whitegun_25
       rect:
         serializedVersion: 2
         x: 3072
@@ -371,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16b5e1d1726abc04d8b461ea78d2f35a
-      internalID: -811755260
+      spriteID: 589243d3dbf7e7e40823294f3cdaba58
+      internalID: 604870687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_13
+      name: whitegun_26
       rect:
         serializedVersion: 2
         x: 0
@@ -392,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd6719bb4fd4cd74e8b08dc16aec50f2
-      internalID: 1343582807
+      spriteID: 218c69a49b6615d4aaaea2b8a5f23658
+      internalID: 37885091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_14
+      name: whitegun_27
       rect:
         serializedVersion: 2
         x: 256
@@ -413,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1280326d7401f4f43ad2f5e164c8debe
-      internalID: 283327755
+      spriteID: 7c01a2f3470c3ee47b75d7620811debc
+      internalID: -518255228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_15
+      name: whitegun_28
       rect:
         serializedVersion: 2
         x: 512
@@ -434,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b823bf7762d13a746b3ff7060354973d
-      internalID: -1975784201
+      spriteID: 29712d2cdaba1894bad721a4bd9644f8
+      internalID: -107416405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_16
+      name: whitegun_29
       rect:
         serializedVersion: 2
         x: 768
@@ -455,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed823165ce2f0c244a44ddc4b7cb8561
-      internalID: 2064025141
+      spriteID: 19a49ee618b70ec4b9c567a30b089361
+      internalID: 1399085307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_17
+      name: whitegun_30
       rect:
         serializedVersion: 2
         x: 1024
@@ -476,14 +767,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81a13e2dcf9d2f446a2ca6934d123b7d
-      internalID: 937180158
+      spriteID: c7205762360fa974696296f91d22b62b
+      internalID: -2131250272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_18
+      name: whitegun_31
       rect:
         serializedVersion: 2
         x: 1280
@@ -497,14 +788,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ff501e3b3c5f2743814cc8967f1386c
-      internalID: -861877910
+      spriteID: dc472a2e898a6894d865c031bc27cee1
+      internalID: -1863079877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_19
+      name: whitegun_32
       rect:
         serializedVersion: 2
         x: 1536
@@ -518,14 +809,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e6274194416fc049982a36816469594
-      internalID: 1858713566
+      spriteID: b9b3e9b422bd98c4c8e47e5d0abc0c53
+      internalID: -1565099663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_20
+      name: whitegun_33
       rect:
         serializedVersion: 2
         x: 1792
@@ -539,14 +830,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 737ca343a5c009945a4fd401a47baa5f
-      internalID: -63382062
+      spriteID: 4c6f3cf36a41c1740879f99d63b79ea9
+      internalID: -185490028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_21
+      name: whitegun_34
       rect:
         serializedVersion: 2
         x: 2048
@@ -560,14 +851,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e3e24ffbc5a81f4681f802698088531
-      internalID: -318485322
+      spriteID: 7d5e920914f96e64fbe953535b8f32b5
+      internalID: 1284320204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_22
+      name: whitegun_35
       rect:
         serializedVersion: 2
         x: 2304
@@ -581,14 +872,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05decb2a70cfb9b47bf984e83a158119
-      internalID: -744044593
+      spriteID: 6b5466f642dce0145bdc1c2c72e682d6
+      internalID: 45177628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_23
+      name: whitegun_36
       rect:
         serializedVersion: 2
         x: 2560
@@ -602,14 +893,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b9a294a94999e3498129b1c97b2517f
-      internalID: -59603985
+      spriteID: 43ea2462965bbd74a921897d393800e0
+      internalID: -1026612284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_24
+      name: whitegun_37
       rect:
         serializedVersion: 2
         x: 2816
@@ -623,14 +914,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12ebe8509f02b4047a08ec0513afe7c7
-      internalID: -1481713482
+      spriteID: 2fbbb48147f2f7f46a7a3f93ee4e7433
+      internalID: 472532078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteslimetroll_25
+      name: whitegun_38
       rect:
         serializedVersion: 2
         x: 3072
@@ -644,8 +935,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfc6e4884e8682c4ca8412a7342d043f
-      internalID: -522928142
+      spriteID: 9f56c47b0da320a42812ba618827713c
+      internalID: -2096009761
       vertices: []
       indices: 
       edges: []
@@ -661,35 +952,47 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      whiteslimetroll_12: -811755260
-      whiteslimetroll_19: 1858713566
-      whiteslimetroll_24: -1481713482
-      whiteslimetroll_20: -63382062
-      whiteslimetroll_6: -1833429462
-      whiteslimetroll_7: -779120547
-      whiteslimetroll_17: 937180158
-      whiteslimetroll_11: -1416271793
-      whiteslimetroll_4: -1893834279
-      whiteslimetroll_1: 2109867087
-      whiteslimetroll_2: -2089560977
-      whiteslimetroll_25: -522928142
-      whiteslimetroll_13: 1343582807
-      whiteslimetroll_21: -318485322
-      whiteslimetroll_0: -939466215
-      whiteslimetroll_10: 497230746
-      whiteslimetroll_22: -744044593
-      whiteslimetroll_9: 318280832
-      whiteslimetroll_14: 283327755
-      whiteslimetroll_23: -59603985
-      whiteslimetroll_16: 2064025141
-      whiteslimetroll_5: -2121959693
-      whiteslimetroll_3: 689298955
-      whiteslimetroll_8: -1250456630
-      whiteslimetroll_15: -1975784201
-      whiteslimetroll_18: -861877910
-  spritePackingTag: 
+      whitegun_0: -1254941870
+      whitegun_1: -661816377
+      whitegun_10: 1078017772
+      whitegun_11: 153103625
+      whitegun_12: -2091656656
+      whitegun_13: -1737814572
+      whitegun_14: -994557807
+      whitegun_15: -1930484234
+      whitegun_16: 1523013329
+      whitegun_17: -509202200
+      whitegun_18: 835120535
+      whitegun_19: 277348696
+      whitegun_2: 1685059464
+      whitegun_20: 1522441466
+      whitegun_21: -515824838
+      whitegun_22: 1567196526
+      whitegun_23: 1076142659
+      whitegun_24: -1154336087
+      whitegun_25: 604870687
+      whitegun_26: 37885091
+      whitegun_27: -518255228
+      whitegun_28: -107416405
+      whitegun_29: 1399085307
+      whitegun_3: -694939984
+      whitegun_30: -2131250272
+      whitegun_31: -1863079877
+      whitegun_32: -1565099663
+      whitegun_33: -185490028
+      whitegun_34: 1284320204
+      whitegun_35: 45177628
+      whitegun_36: -1026612284
+      whitegun_37: 472532078
+      whitegun_38: -2096009761
+      whitegun_4: -1892068236
+      whitegun_5: -1539753796
+      whitegun_6: -51991676
+      whitegun_7: -1065042146
+      whitegun_8: -265999554
+      whitegun_9: 42097928
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

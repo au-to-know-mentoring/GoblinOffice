@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b463dbd1f8d6eed4385b4b6590187aea
+guid: a1529cd45fd21234fb9c7cf432f37269
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,13 +103,27 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gunparticleSprite_0
+      name: slimetroll_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84b98dd74346292448d867d1df865597
-      internalID: 1985892277
+      spriteID: 9c31051784d74b94698842959d8da40f
+      internalID: -180988710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_1
+      name: slimetroll_1
       rect:
         serializedVersion: 2
         x: 256
@@ -140,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed562861fc7453c439f3c7b5c5bd3e16
-      internalID: -1530445279
+      spriteID: 45f4285df707cfc4188ed095513e3ecb
+      internalID: 469221107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_2
+      name: slimetroll_2
       rect:
         serializedVersion: 2
         x: 512
@@ -161,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc00d3ae0fefcba44a0e89381acdbdbf
-      internalID: -300425868
+      spriteID: 7b4f5f50c6734924b842aebdf2b74133
+      internalID: 1312987295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_3
+      name: slimetroll_3
       rect:
         serializedVersion: 2
         x: 768
@@ -182,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4c199e875b402c4ab016335a790e2ce
-      internalID: -1259791964
+      spriteID: 2aa3645ee15edf14f92faa0ab47831c5
+      internalID: -571999740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_4
+      name: slimetroll_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -203,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a8d23ce8ccb1c84a8dad4dbf8c5d502
-      internalID: 1407442711
+      spriteID: e3fde1d26dfd3da43af5d9be2388fd1a
+      internalID: 116870853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_5
+      name: slimetroll_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -224,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1139704c2809844c8bc90dba969bd26
-      internalID: -2071369210
+      spriteID: e4329f4558e22cd4f893792c95a4a34e
+      internalID: -1566390623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_6
+      name: slimetroll_6
       rect:
         serializedVersion: 2
         x: 1536
@@ -245,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9169e013a0a5b0d4a86be73905741b68
-      internalID: 56295874
+      spriteID: f7edceff0f593e44da2c65e37dab1e9a
+      internalID: -895722923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_7
+      name: slimetroll_7
       rect:
         serializedVersion: 2
         x: 1792
@@ -266,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9228a2410e1ee34e919aaf781f28da5
-      internalID: -491422456
+      spriteID: 8c747b29bcd1fbe4da9aac3a095551eb
+      internalID: 1017597234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_8
+      name: slimetroll_8
       rect:
         serializedVersion: 2
         x: 2048
@@ -287,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8a21a420a0dcca4692427a3590a18d4
-      internalID: -251608340
+      spriteID: 8b3e317c6e5334d4ab931d7764127497
+      internalID: 671661098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_9
+      name: slimetroll_9
       rect:
         serializedVersion: 2
         x: 2304
@@ -308,14 +326,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3a748cd09dfd4c47bc3e3c9411c4e23
-      internalID: -1903990546
+      spriteID: 411fbd11ecd86874e821b50ef857ddd6
+      internalID: 1075135955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_10
+      name: slimetroll_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae506a85e19eef4bb92250f6fadbe44
+      internalID: 372002890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimetroll_11
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 291d79f689bdc1548901dd93a464a5b9
+      internalID: -726850848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimetroll_12
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7826c7cedb7b992489f5a0ef804d9327
+      internalID: 1291526838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimetroll_13
       rect:
         serializedVersion: 2
         x: 0
@@ -329,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41d17b5cb5a3a824b886891644a88b1f
-      internalID: -2015363983
+      spriteID: a04c8aee0ac87ea42a822f0b13f6ca79
+      internalID: -1398827255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_11
+      name: slimetroll_14
       rect:
         serializedVersion: 2
         x: 256
@@ -350,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecf2f4ed8533a2647a83efead65d6147
-      internalID: 1279820305
+      spriteID: 2159453db9b437746b5bca280f079dc7
+      internalID: -2069374337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_12
+      name: slimetroll_15
       rect:
         serializedVersion: 2
         x: 512
@@ -371,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22ee6bd8a0c343049b1ca73a1bcdc690
-      internalID: -1659819396
+      spriteID: 2264b0613d5d9fe46ac8af95341425ce
+      internalID: 1640873492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_13
+      name: slimetroll_16
       rect:
         serializedVersion: 2
         x: 768
@@ -392,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8370d986545b4014aa1cde6a8bbebcb9
-      internalID: 1671872696
+      spriteID: c774c9d030d1104459d00e0cdbaa5c7b
+      internalID: -165819997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_14
+      name: slimetroll_17
       rect:
         serializedVersion: 2
         x: 1024
@@ -413,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ac619867edf41741aceeb56bb9511f1
-      internalID: -63146278
+      spriteID: 95561a62f48bcd6478e8db4f8979cae1
+      internalID: -1397411431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_15
+      name: slimetroll_18
       rect:
         serializedVersion: 2
         x: 1280
@@ -434,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10e9b5af23a2fac448ef6cc63fcb5776
-      internalID: -698284241
+      spriteID: a95ab1351afef9340970a1153e661204
+      internalID: -1108581512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_16
+      name: slimetroll_19
       rect:
         serializedVersion: 2
         x: 1536
@@ -455,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3592a615c419e5b449b977b06a1ffe15
-      internalID: 1258929510
+      spriteID: 4de6e6fd81acbe9459f2ab6872f21b52
+      internalID: 1533096898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_17
+      name: slimetroll_20
       rect:
         serializedVersion: 2
         x: 1792
@@ -476,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eeaa57308eb858f4da0706b8f0077360
-      internalID: 1601896768
+      spriteID: 5982be92863defa42a59e4c0ae54ca66
+      internalID: -558010063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_18
+      name: slimetroll_21
       rect:
         serializedVersion: 2
         x: 2048
@@ -497,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dff1dc9908a1014d96fe2a3cf552187
-      internalID: -1087379364
+      spriteID: 6627ad605be522a4290fb0e25e704406
+      internalID: -1341062132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunparticleSprite_19
+      name: slimetroll_22
       rect:
         serializedVersion: 2
         x: 2304
@@ -518,8 +599,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4aaf86c290540774091b21f895661f1f
-      internalID: -1200877492
+      spriteID: d79c1fd4dae73094eae15f76bbcdb766
+      internalID: 1763045241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimetroll_23
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2591a99fa82f9f54b8cd00a5c7eddd48
+      internalID: 1754740051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimetroll_24
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a6d1a5c581afa64081bf010ccf06c99
+      internalID: 844241569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimetroll_25
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1817d670a9447b44da7788eb860986c1
+      internalID: 826875814
       vertices: []
       indices: 
       edges: []
@@ -535,29 +679,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gunparticleSprite_9: -1903990546
-      gunparticleSprite_1: -1530445279
-      gunparticleSprite_0: 1985892277
-      gunparticleSprite_18: -1087379364
-      gunparticleSprite_8: -251608340
-      gunparticleSprite_12: -1659819396
-      gunparticleSprite_2: -300425868
-      gunparticleSprite_10: -2015363983
-      gunparticleSprite_3: -1259791964
-      gunparticleSprite_6: 56295874
-      gunparticleSprite_14: -63146278
-      gunparticleSprite_13: 1671872696
-      gunparticleSprite_7: -491422456
-      gunparticleSprite_17: 1601896768
-      gunparticleSprite_4: 1407442711
-      gunparticleSprite_5: -2071369210
-      gunparticleSprite_16: 1258929510
-      gunparticleSprite_19: -1200877492
-      gunparticleSprite_15: -698284241
-      gunparticleSprite_11: 1279820305
-  spritePackingTag: 
+      slimetroll_0: -180988710
+      slimetroll_1: 469221107
+      slimetroll_10: 372002890
+      slimetroll_11: -726850848
+      slimetroll_12: 1291526838
+      slimetroll_13: -1398827255
+      slimetroll_14: -2069374337
+      slimetroll_15: 1640873492
+      slimetroll_16: -165819997
+      slimetroll_17: -1397411431
+      slimetroll_18: -1108581512
+      slimetroll_19: 1533096898
+      slimetroll_2: 1312987295
+      slimetroll_20: -558010063
+      slimetroll_21: -1341062132
+      slimetroll_22: 1763045241
+      slimetroll_23: 1754740051
+      slimetroll_24: 844241569
+      slimetroll_25: 826875814
+      slimetroll_3: -571999740
+      slimetroll_4: 116870853
+      slimetroll_5: -1566390623
+      slimetroll_6: -895722923
+      slimetroll_7: 1017597234
+      slimetroll_8: 671661098
+      slimetroll_9: 1075135955
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

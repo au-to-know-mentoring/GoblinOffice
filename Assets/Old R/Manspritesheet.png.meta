@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d79136a139a70474cb58b650754f5391
+guid: 3e8aff00f9a1e564da3929c60b851fe0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,13 +103,27 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: whitegun_0
+      name: Manspritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,20 +131,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8253bf70da4efb44853e347f7cffca8
-      internalID: -1254941870
+      spriteID: 960a6d4412dc95f4bbc0d7b472d98906
+      internalID: 286870516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_1
+      name: Manspritesheet_1
       rect:
         serializedVersion: 2
         x: 256
@@ -134,41 +152,41 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 672aa0081794e2f43b1ca45d77f2c762
-      internalID: -661816377
+      spriteID: 5dd9ef877019e304cafe52327eea9d84
+      internalID: -1879369299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_2
+      name: Manspritesheet_2
       rect:
         serializedVersion: 2
-        x: 512
+        x: 515
         y: 512
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ea6f452fec7fdc48a58401228b7fc86
-      internalID: 1685059464
+      spriteID: 37e5d6235b5a5e64297874a5c0bd46fc
+      internalID: 1767992516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_3
+      name: Manspritesheet_3
       rect:
         serializedVersion: 2
         x: 768
@@ -176,20 +194,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e79a428293695743891379affa87d75
-      internalID: -694939984
+      spriteID: 64494b7b1df4e2b4aa1536d5aa86c39e
+      internalID: 194495887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_4
+      name: Manspritesheet_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -197,20 +215,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bac3f108f6b88a34890ddaa8c8762b70
-      internalID: -1892068236
+      spriteID: fe07b2694956b824eb6c372fe3405aee
+      internalID: -1429029425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_5
+      name: Manspritesheet_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -218,20 +236,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0120eb9870af21243a0fe49f49f4ed3f
-      internalID: -1539753796
+      spriteID: 1a07534ba28749b4ebc427bb2bc413c5
+      internalID: 1389941139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_6
+      name: Manspritesheet_6
       rect:
         serializedVersion: 2
         x: 1536
@@ -239,20 +257,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d925c3354f95dfc468335fcd76a8a024
-      internalID: -51991676
+      spriteID: 0d5b21be43d28f4428cd8f2a133384fc
+      internalID: -24825617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_7
+      name: Manspritesheet_7
       rect:
         serializedVersion: 2
         x: 1792
@@ -260,20 +278,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e654e7d9ad9bc04f973093ca6470c84
-      internalID: -1065042146
+      spriteID: 50a30b96b4f983143a644954da1e817b
+      internalID: -1541950976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_8
+      name: Manspritesheet_8
       rect:
         serializedVersion: 2
         x: 2048
@@ -281,20 +299,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45b95338736cb4247bce0b85e538a2ee
-      internalID: -265999554
+      spriteID: e6752fb2b89b6774bbcd46e1027aa8fa
+      internalID: -1950601862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_9
+      name: Manspritesheet_9
       rect:
         serializedVersion: 2
         x: 2304
@@ -302,20 +320,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4435ee58c10ef73429d3164fa13a4030
-      internalID: 42097928
+      spriteID: 4f602c56150d78a41bb495c6ff51f03c
+      internalID: -166590849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_10
+      name: Manspritesheet_10
       rect:
         serializedVersion: 2
         x: 2560
@@ -323,20 +341,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7138f6165d0ab234698aea72cd3ae2d2
-      internalID: 1078017772
+      spriteID: 2c2a62cedc8ba1443bc0ff8ecd0c1701
+      internalID: -1655306524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_11
+      name: Manspritesheet_11
       rect:
         serializedVersion: 2
         x: 2816
@@ -344,20 +362,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 773b3b6f09fa060418643c80fc9bcb8e
-      internalID: 153103625
+      spriteID: a222b7dd7c8d9194cb250382f2a69622
+      internalID: 75489622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_12
+      name: Manspritesheet_12
       rect:
         serializedVersion: 2
         x: 3072
@@ -365,20 +383,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b181c42915e5a04099112062ce733eb
-      internalID: -2091656656
+      spriteID: 93ee1f5a8f506cb4eb68b087728eefbe
+      internalID: 1942200508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_13
+      name: Manspritesheet_13
       rect:
         serializedVersion: 2
         x: 0
@@ -386,20 +404,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e51d0b0025d20d48970db0dc2c503c9
-      internalID: -1737814572
+      spriteID: b551c5e1d356a7244aefbe82b7d7af7d
+      internalID: 368323325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_14
+      name: Manspritesheet_14
       rect:
         serializedVersion: 2
         x: 256
@@ -407,41 +425,41 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e90b208984f0ce488242dc28298fedb
-      internalID: -994557807
+      spriteID: 52f76e807b6a34743ad8977369bf4609
+      internalID: 53770831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_15
+      name: Manspritesheet_15
       rect:
         serializedVersion: 2
-        x: 512
+        x: 509
         y: 256
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbbaa97bef3fe4946ac2bd9ca81cd03f
-      internalID: -1930484234
+      spriteID: 2ceac585a975a0a44bf8b424f15eda96
+      internalID: -263676805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_16
+      name: Manspritesheet_16
       rect:
         serializedVersion: 2
         x: 768
@@ -449,20 +467,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c1bd7acd34f42b42a7e60dc31539b1e
-      internalID: 1523013329
+      spriteID: 002e86d869285154788c8a5b736193f4
+      internalID: 1718016242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_17
+      name: Manspritesheet_17
       rect:
         serializedVersion: 2
         x: 1024
@@ -470,20 +488,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5d15ab0275a038439b1d5da4c4b3f5d
-      internalID: -509202200
+      spriteID: 53d33a3830536dc40a21fe21a9e1d9f8
+      internalID: 890589368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_18
+      name: Manspritesheet_18
       rect:
         serializedVersion: 2
         x: 1280
@@ -491,20 +509,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 517fdcda8d6c1324eb1af6b281b1aa9e
-      internalID: 835120535
+      spriteID: 2ec0daa1e1920404fad007d085d6805d
+      internalID: -1211524697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_19
+      name: Manspritesheet_19
       rect:
         serializedVersion: 2
         x: 1536
@@ -512,20 +530,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 337f7208f48f78847979a83dbf243c26
-      internalID: 277348696
+      spriteID: b7e58f38ebe478e409890ce901a7cd5c
+      internalID: 225554921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_20
+      name: Manspritesheet_20
       rect:
         serializedVersion: 2
         x: 1792
@@ -533,20 +551,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0e24490d032e2e49ad9459d322eae9b
-      internalID: 1522441466
+      spriteID: 88657c1b6f4b59f44ab40ad0005f7bb3
+      internalID: 1839316154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_21
+      name: Manspritesheet_21
       rect:
         serializedVersion: 2
         x: 2048
@@ -554,20 +572,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfad17bd89dc56a4584b9ade77542d70
-      internalID: -515824838
+      spriteID: 87a7e668d7321974d9a2d63218fd96b5
+      internalID: 410964365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_22
+      name: Manspritesheet_22
       rect:
         serializedVersion: 2
         x: 2304
@@ -575,20 +593,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a432cf972f654c844b432d31a913212c
-      internalID: 1567196526
+      spriteID: bd0a11a38f20aba46b5775ff7c0b57ab
+      internalID: 1067948526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_23
+      name: Manspritesheet_23
       rect:
         serializedVersion: 2
         x: 2560
@@ -596,20 +614,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 020b71291fab0f340b699e59a85a0fb3
-      internalID: 1076142659
+      spriteID: 78180cfb78802c04e84fcd49e35160ae
+      internalID: -2023062780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_24
+      name: Manspritesheet_24
       rect:
         serializedVersion: 2
         x: 2816
@@ -617,20 +635,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf014c71463ac444f91241f220dd014c
-      internalID: -1154336087
+      spriteID: 1ab1567bbae15014b858f4bdf79aeb2d
+      internalID: -2077281538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_25
+      name: Manspritesheet_25
       rect:
         serializedVersion: 2
         x: 3072
@@ -638,20 +656,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 589243d3dbf7e7e40823294f3cdaba58
-      internalID: 604870687
+      spriteID: 0aad9bd0a41208440abcb1536ce1da24
+      internalID: 1556216348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_26
+      name: Manspritesheet_26
       rect:
         serializedVersion: 2
         x: 0
@@ -659,20 +677,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 218c69a49b6615d4aaaea2b8a5f23658
-      internalID: 37885091
+      spriteID: 6c4bc3bf556f40c478acc97ccdf56a2d
+      internalID: 543507556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_27
+      name: Manspritesheet_27
       rect:
         serializedVersion: 2
         x: 256
@@ -680,20 +698,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c01a2f3470c3ee47b75d7620811debc
-      internalID: -518255228
+      spriteID: cdb0663d7d650034bb80a0d773b56d01
+      internalID: 177929347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_28
+      name: Manspritesheet_28
       rect:
         serializedVersion: 2
         x: 512
@@ -701,20 +719,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29712d2cdaba1894bad721a4bd9644f8
-      internalID: -107416405
+      spriteID: 93a5ec0754dba2d46b7ea9cf0bb72a98
+      internalID: -1511843154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_29
+      name: Manspritesheet_29
       rect:
         serializedVersion: 2
         x: 768
@@ -722,41 +740,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19a49ee618b70ec4b9c567a30b089361
-      internalID: 1399085307
+      spriteID: e4d58310d3bfffe41b69f956ce701fbf
+      internalID: -1396497782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_30
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7205762360fa974696296f91d22b62b
-      internalID: -2131250272
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whitegun_31
+      name: Manspritesheet_30
       rect:
         serializedVersion: 2
         x: 1280
@@ -764,83 +761,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc472a2e898a6894d865c031bc27cee1
-      internalID: -1863079877
+      spriteID: 175bfe5fdcd37934ea375a54289479f2
+      internalID: -1930595708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitegun_32
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9b3e9b422bd98c4c8e47e5d0abc0c53
-      internalID: -1565099663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whitegun_33
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c6f3cf36a41c1740879f99d63b79ea9
-      internalID: -185490028
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whitegun_34
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d5e920914f96e64fbe953535b8f32b5
-      internalID: 1284320204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whitegun_35
+      name: Manspritesheet_31
       rect:
         serializedVersion: 2
         x: 2304
@@ -848,77 +782,14 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b5466f642dce0145bdc1c2c72e682d6
-      internalID: 45177628
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whitegun_36
-      rect:
-        serializedVersion: 2
-        x: 2560
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43ea2462965bbd74a921897d393800e0
-      internalID: -1026612284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whitegun_37
-      rect:
-        serializedVersion: 2
-        x: 2816
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2fbbb48147f2f7f46a7a3f93ee4e7433
-      internalID: 472532078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whitegun_38
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9f56c47b0da320a42812ba618827713c
-      internalID: -2096009761
+      spriteID: 333ca3d67c05f524ba9b7ca57c7434ea
+      internalID: -1555572808
       vertices: []
       indices: 
       edges: []
@@ -934,48 +805,40 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      whitegun_7: -1065042146
-      whitegun_20: 1522441466
-      whitegun_3: -694939984
-      whitegun_11: 153103625
-      whitegun_21: -515824838
-      whitegun_34: 1284320204
-      whitegun_27: -518255228
-      whitegun_8: -265999554
-      whitegun_10: 1078017772
-      whitegun_33: -185490028
-      whitegun_5: -1539753796
-      whitegun_35: 45177628
-      whitegun_13: -1737814572
-      whitegun_37: 472532078
-      whitegun_28: -107416405
-      whitegun_15: -1930484234
-      whitegun_31: -1863079877
-      whitegun_25: 604870687
-      whitegun_29: 1399085307
-      whitegun_36: -1026612284
-      whitegun_38: -2096009761
-      whitegun_17: -509202200
-      whitegun_24: -1154336087
-      whitegun_0: -1254941870
-      whitegun_23: 1076142659
-      whitegun_16: 1523013329
-      whitegun_2: 1685059464
-      whitegun_22: 1567196526
-      whitegun_6: -51991676
-      whitegun_12: -2091656656
-      whitegun_30: -2131250272
-      whitegun_14: -994557807
-      whitegun_4: -1892068236
-      whitegun_9: 42097928
-      whitegun_19: 277348696
-      whitegun_18: 835120535
-      whitegun_26: 37885091
-      whitegun_32: -1565099663
-      whitegun_1: -661816377
-  spritePackingTag: 
+      Manspritesheet_0: 286870516
+      Manspritesheet_1: -1879369299
+      Manspritesheet_10: -1655306524
+      Manspritesheet_11: 75489622
+      Manspritesheet_12: 1942200508
+      Manspritesheet_13: 368323325
+      Manspritesheet_14: 53770831
+      Manspritesheet_15: -263676805
+      Manspritesheet_16: 1718016242
+      Manspritesheet_17: 890589368
+      Manspritesheet_18: -1211524697
+      Manspritesheet_19: 225554921
+      Manspritesheet_2: 1767992516
+      Manspritesheet_20: 1839316154
+      Manspritesheet_21: 410964365
+      Manspritesheet_22: 1067948526
+      Manspritesheet_23: -2023062780
+      Manspritesheet_24: -2077281538
+      Manspritesheet_25: 1556216348
+      Manspritesheet_26: 543507556
+      Manspritesheet_27: 177929347
+      Manspritesheet_28: -1511843154
+      Manspritesheet_29: -1396497782
+      Manspritesheet_3: 194495887
+      Manspritesheet_30: -1930595708
+      Manspritesheet_31: -1555572808
+      Manspritesheet_4: -1429029425
+      Manspritesheet_5: 1389941139
+      Manspritesheet_6: -24825617
+      Manspritesheet_7: -1541950976
+      Manspritesheet_8: -1950601862
+      Manspritesheet_9: -166590849
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
