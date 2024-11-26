@@ -591,6 +591,10 @@ PrefabInstance:
       propertyPath: myPathFindingObject
       value: 
       objectReference: {fileID: 7420647874230550361}
+    - target: {fileID: 4634166301832001589, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
+      propertyPath: GlobalSettingsObject
+      value: 
+      objectReference: {fileID: 11400000, guid: affd884bcd0ad3c4999b88aaa4db9b0d, type: 2}
     - target: {fileID: 7621389759822297739, guid: 438ccfd43aacb7e43871d31424b04f74, type: 3}
       propertyPath: deathSound
       value: 

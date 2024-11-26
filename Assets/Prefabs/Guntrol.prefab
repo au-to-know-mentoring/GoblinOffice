@@ -559,7 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sourceSpriteRenderer: {fileID: 9113128096748229354}
   CopySpriteRenderer: {fileID: 2748410790547139865}
-  GlobalSettingsObject: {fileID: 0}
+  GlobalSettingsObject: {fileID: 11400000, guid: affd884bcd0ad3c4999b88aaa4db9b0d, type: 2}
   myPathFindingObject: {fileID: 0}
   spriteAtlas: {fileID: 4343727234628468602, guid: dc307e9a595be764abfabdf0799861fc, type: 2}
   SourceTitle: 

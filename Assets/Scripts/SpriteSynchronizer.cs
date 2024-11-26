@@ -26,15 +26,20 @@ public class SpriteSynchronizer : MonoBehaviour
     private string atlasBaseName;
     private void Start()
     {
-        GlobalSettingsObject = Resources.Load<SettingsData>("SettingsData");
+        if (GlobalSettingsObject == null)
+        {
+            GlobalSettingsObject = Resources.Load<SettingsData>("SettingsData");
+            Debug.Log($"[SpriteSynchronizer] Loaded GlobalSettingsObject: {GlobalSettingsObject != null}");
+        }
         if (sourceSpriteRenderer == null || CopySpriteRenderer == null)
         {
-            Debug.LogError("Source GameObject or Target SpriteRenderer is not set in the SpriteSynchronizer script on " + gameObject.name);
+            Debug.LogError("[SpriteSynchronizer] Missing renderer references on " + gameObject.name);
             return;
         }
         if (sourceSpriteRenderer.gameObject.GetComponent<PathfindingObject>() != null)
         {
             myPathFindingObject = sourceSpriteRenderer.gameObject.GetComponent<PathfindingObject>();
+            Debug.Log($"[SpriteSynchronizer] Found PathfindingObject with color: {myPathFindingObject.myColour}");
         }
         originalSourceTitle = sourceSpriteRenderer.sprite.name;
         SourceTitle = Regex.Replace(sourceSpriteRenderer.sprite.name, "[0-9_]", "");
@@ -108,32 +113,35 @@ public class SpriteSynchronizer : MonoBehaviour
         SetSpriteByStringNumber(stringSpriteNumber);
         int myColour = 0;
         if (myPathFindingObject != null)
+        {
             myColour = (int)myPathFindingObject.myColour;
+            Debug.Log($"[SpriteSynchronizer] Updating sprite color. PathfindingObject color: {myPathFindingObject.myColour}, Cast to int: {myColour}, GlobalSettings null?: {GlobalSettingsObject == null}");
+        }
 
         switch (myColour)
         {
             case 0:
-
                 CopySpriteRenderer.color = Color.white;
+                Debug.Log("White Color Code");
                 break;
             case 1:
-
                 CopySpriteRenderer.color = GlobalSettingsObject.Green1;
+                Debug.Log("Green Color Code");
                 break;
             case 2:
-
                 CopySpriteRenderer.color = GlobalSettingsObject.Red2;
+                Debug.Log("Red Color Code");
                 break;
             case 3:
-
                 CopySpriteRenderer.color = GlobalSettingsObject.Blue3;
+                Debug.Log("Blue Color Code");
                 break;
             case 4:
-
                 CopySpriteRenderer.color = GlobalSettingsObject.Yellow4;
+                Debug.Log("Yellow Color Code");
                 break;
             default:
-                Console.WriteLine("Unknown Color Code");
+                Debug.Log("Unknown Color Code");
                 break;
         }
     }

@@ -103,7 +103,11 @@ public class PathfindingObject : MonoBehaviour
     }
     private void Start()
     {
-        if(myInputManager == null)
+        if (GlobalSettingsObject == null)
+        {
+            GlobalSettingsObject = Resources.Load<SettingsData>("SettingsData");
+        }
+        if (myInputManager == null)
             myInputManager = FindObjectOfType<InputManager>();
         if(myAnimationSettings== null)
             myAnimationSettings = FindObjectOfType<AnimationSettings>();
@@ -316,10 +320,10 @@ public class PathfindingObject : MonoBehaviour
         else if (GlobalTimeManager.Timer >= VulnerableBeat)
         {
             myAnimator.SetTrigger("Vulnerable");
-            // Code the part where the enemy can die.
-            Invoke(methodName: "ResetVulnerableBeat", VulnerableDuration); // can cause 2 enemies to become vulnerable if 2 seconds or more..
-            isVulnerable = true; //Is set back to false in LoopBeat()
+            isVulnerable = true;
+            ColorType oldColor = myColour;
             myColour = (ColorType)UnityEngine.Random.Range(1, 5);
+            Debug.Log($"Color changed from {oldColor} to {myColour}");
             tauntSound.Play();
         }
     }
